@@ -1,0 +1,53 @@
+# Use this docker-compose config to spin up each of the external services that
+# this application will interact with
+version: '2.2'
+services:
+  # ------------------------------------------------------------ Our own service
+  apply-citizen-ui:
+    build:
+      context: ../../
+      dockerfile: tests/integration/Dockerfile
+    ports:
+      - "4500:4500"
+    environment:
+      NODE_ENV: development
+      DEBUG: "*"
+      PORT: 4500
+      LOG_LEVEL: info
+      TRACE_REQUEST_HEADER_NAME: x-trace-id
+      OUTBOUND_TRACE_REQUEST_HEADER_NAME: x-trace-id
+      SESSION_COOKIE_NAME: integration-session-id
+      SESSION_TTL: 30
+      ADDRESSSERVICE_API_ENDPOINT: http://location-service-stub:5000/location-service/api
+      HTTP_TIMEOUT: 10
+      REDIS_HOSTS: secret@redis-single-server:6379
+      REDIS_CLUSTER_MODE: "false"
+      GOOGLE_TAG_MANAGER_ID: ""
+      ENABLE_CSP: "true"
+      USE_TLS: "false"
+      TLS_CERT: ""
+      TLS_KEY: ""
+
+  # ------------------------------------------------------ Location service stub
+  location-service-stub:
+    image: "${RBAC_ECR_HOST}/pencred/dev/pencred-location-service-stub:deploy"
+    ports:
+     - "8000:5000"
+    environment:
+      PORT: 5000
+      SSL_ENABLED: "true"
+      CONTEXT_PATH: "/location-service"
+      DEBUG: "express:*"
+      NODE_TLS_REJECT_UNAUTHORIZED: "0"
+      NODE_ENV: "development"
+      NODE_OPTIONS: "--max-old-space-size=96"
+
+  # -------------------------------------------------------- Redis single server
+
+  redis-single-server:
+    image: redis:5.0.3-alpine@sha256:9470e8715d17afa5e80ef6df3f71327b6a94d893f3cd65e40a2c63230eb64e3f
+    ports:
+      - "8103:6379"
+    volumes:
+      - ./redis/redis-single.conf:/usr/local/etc/redis/redis.conf
+    command: "redis-server /usr/local/etc/redis/redis.conf"

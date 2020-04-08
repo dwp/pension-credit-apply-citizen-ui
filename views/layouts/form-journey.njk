@@ -1,0 +1,54 @@
+{% extends "layouts/main.njk" %}
+
+{% from "components/button/macro.njk" import govukButton %}
+{% from "components/back-link/macro.njk" import govukBackLink %}
+{% from "components/error-summary/macro.njk" import govukErrorSummary %}
+{% from "casa/components/journey-form/macro.njk" import casaJourneyForm with context %}
+
+{# Automatically apply padding with/without back link #}
+{% set mainClasses %}{{ mainClasses }} govuk-main-wrapper--auto-spacing{% endset %}
+
+{% block beforeContent %}
+  {# Add back link #}
+  {% set backUrl = editOriginUrl if inEditMode else casa.journeyPreviousUrl %}
+  {% if backUrl %}
+    {{ govukBackLink({
+      text: t('common:back'),
+      href: backUrl
+    }) }}
+  {% endif %}
+{% endblock %}
+
+{# Use `casaPageTitle` instead of `pageTitle` if you want CASA to automatically
+   prefix with `Error` when appropriate #}
+{% block pageTitle -%}
+  {{- t('error:documentTtlePrefix') if formErrors -}}
+  {% block casaPageTitle %}{% endblock %}
+{%- endblock %}
+
+{% block content %}
+  {% block journey_content %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-{% block columnWidth %}two-thirds{% endblock %}">
+        {% if formErrorsGovukArray %}
+          {{ govukErrorSummary({
+            titleText: t('error:summary.h1'),
+            errorList: formErrorsGovukArray
+          }) }}
+        {% endif %}
+
+        {% call casaJourneyForm({
+          csrfToken: casa.csrfToken,
+          inEditMode: inEditMode,
+          buttonBarHidden: hideButtonBar,
+          editOriginUrl: editOriginUrl,
+          casaMountUrl: casa.mountUrl
+        }) %}
+          {% block journey_form %}{% endblock %}
+        {% endcall %}
+      </div>
+    </div>
+  {% endblock %}
+
+  {% block journey_form_footer %}{% endblock %}
+{% endblock %}

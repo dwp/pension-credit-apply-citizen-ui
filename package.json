@@ -1,0 +1,83 @@
+{
+  "name": "apply-citizen-ui",
+  "version": "0.0.0",
+  "description": "Citizen UI to apply for Pension Credit",
+  "main": "server.js",
+  "engines": {
+    "node": ">12.0.0"
+  },
+  "files": [
+    "bootstrap/**/*",
+    "definitions/**/*",
+    "lib/**/*",
+    "locales/**/*",
+    "middleware/**/*",
+    "public/**/*",
+    "routes/**/*",
+    "utils/**/*",
+    "view-filters/**/*",
+    "views/**/*",
+    "app.js",
+    "server.js"
+  ],
+  "scripts": {
+    "start": "node server.js",
+    "pipeline": "npm run test && npm run quality && npm run compliance && npm run security",
+    "compliance": "npm run compliance:lint && npm run compliance:lint-docker",
+    "compliance:lint": "eslint .",
+    "compliance:lint-docker": "docker run --rm -i hadolint/hadolint < docker/Dockerfile",
+    "test": "npm run test:unit",
+    "test:unit": "mocha --exclude 'tests/integration/**/*' --exclude 'tests/plan/**/*' 'tests/**/*.test.js'",
+    "test:integration": "mocha 'tests/integration/**/*.test.js'",
+    "quality": "npm run quality:coverage",
+    "quality:coverage": "nyc mocha --exclude 'tests/integration/**/*.test.js' --exclude 'tests/plan/**/*' 'tests/**/*.test.js'",
+    "security": "npm run security:audit && npm run security:outdated",
+    "security:audit": "npm audit --json --registry 'https://registry.npmjs.org/' | node -e 'a=JSON.parse(fs.readFileSync(\"/dev/stdin\",\"utf-8\")).metadata.vulnerabilities;process.exit(a.high+a.critical);'",
+    "security:outdated": "npm outdated"
+  },
+  "keywords": [],
+  "author": "DWP <open-source@engineering.digital.dwp.gov.uk>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:dwp/pension-credit-citizen-apply"
+  },
+  "dependencies": {
+    "@dwp/govuk-casa": "6.0.0",
+    "connect-redis": "4.0.4",
+    "cookie-parser": "1.4.5",
+    "dotenv": "8.2.0",
+    "express": "4.17.1",
+    "express-session": "1.17.0",
+    "get-state-pension-date": "1.0.2",
+    "got": "10.7.0",
+    "ioredis": "4.16.1",
+    "moment": "2.24.0",
+    "pino": "6.1.1",
+    "pino-debug": "1.3.0",
+    "uuid": "7.0.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "8.3.5",
+    "@commitlint/config-conventional": "8.3.4",
+    "@dwp/commitlint-config-base": "1.1.0",
+    "@dwp/eslint-config-base": "4.1.0",
+    "chai": "4.2.0",
+    "chai-as-promised": "7.1.1",
+    "cheerio": "1.0.0-rc.3",
+    "conventional-changelog-cli": "2.0.31",
+    "eslint": "6.8.0",
+    "eslint-plugin-sonarjs": "0.5.0",
+    "husky": "4.2.3",
+    "mocha": "7.1.1",
+    "nunjucks": "^3.2.1",
+    "nyc": "15.0.1",
+    "pino-pretty": "4.0.0",
+    "proxyquire": "2.1.3",
+    "sinon": "9.0.2",
+    "sinon-chai": "3.5.0",
+    "supertest": "4.0.2",
+    "tough-cookie": "4.0.0",
+    "yaml": "1.8.3"
+  }
+}

@@ -1,0 +1,9 @@
+.coverage/
+.git/
+.nyc_output/
+.vscode/
+dist/
+docker/Dockerfile
+node_modules/
+static/
+tests/

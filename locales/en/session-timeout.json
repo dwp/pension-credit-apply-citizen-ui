@@ -1,0 +1,6 @@
+{
+  "pageTitle": "Session timeout",
+  "heading": "Sorry, you’ll have to start again",
+  "body": "You haven’t entered any details for ${sessionTtl} minutes, so we’ve cleared your information to keep it secure.",
+  "startAgain": "Start again"
+}

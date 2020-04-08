@@ -1,0 +1,14 @@
+{% extends "casa/layouts/main.njk" %}
+
+{% block head %}
+  {% include "partials/gtm-script.njk" %}
+  {% include "partials/styles.njk" %}
+{% endblock %}
+
+{% block bodyStart %}
+  {% include "partials/gtm-noscript.njk" %}
+{% endblock %}
+
+{% block bodyEnd %}
+  {% include "casa/partials/scripts.njk" %}
+{% endblock %}
