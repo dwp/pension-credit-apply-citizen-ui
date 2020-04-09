@@ -1,16 +1,17 @@
 const { configure, middleware } = require('@dwp/govuk-casa');
 const express = require('express');
 const path = require('path');
+const packageMeta = require('./package.json');
+const { prepareLogging, prepareRedisListener } = require('./bootstrap/index.js');
 const { waypoints } = require('./lib/constants.js');
+const prometheusClient = require('./lib/prometheus-client.js');
 const ApiHelperFactory = require('./lib/ApiHelperFactory.js');
 const AddressServiceFactory = require('./lib/AddressServiceFactory.js');
 const getSessionConfig = require('./lib/get-session-config.js');
 const mediaMiddleware = require('./middleware/media.js');
 const nonceMiddleware = require('./middleware/nonce.js');
 const idBarMiddleware = require('./middleware/id-bar.js');
-const { prepareLogging, prepareRedisListener } = require('./bootstrap/index.js');
-const packageMeta = require('./package.json');
-const routeActuatorIndex = require('./routes/actuator/index.js');
+const actuator = require('./routes/actuator/index.js');
 const viewFilterPush = require('./view-filters/push.js');
 const viewFilterSetAtrtribute = require('./view-filters/set-attribute.js');
 const viewFilterFormatMoney = require('./utils/format-money.js');
@@ -39,11 +40,7 @@ module.exports = (CONFIG, baseLogger) => {
   // /actuator/health
   // /actuator/info
   // /actuator/metrics
-  const { name, description, version } = packageMeta;
-  const actuatorRouter = express.Router();
-  routeActuatorIndex(actuatorRouter, { name, description, version });
-
-  app.use(`${CONFIG.CONTEXT_PATH}actuator`, actuatorRouter);
+  app.use(CONFIG.CONTEXT_PATH, actuator(packageMeta, prometheusClient));
 
   // Create a new CASA application instance.
   const casaApp = configure(app, {

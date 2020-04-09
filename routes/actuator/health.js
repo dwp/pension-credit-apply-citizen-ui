@@ -1,7 +1,3 @@
 module.exports = (req, res) => {
-  res.status(200).json(
-    {
-      status: 'UP',
-    },
-  );
+  res.status(200).json({ status: 'UP' });
 };

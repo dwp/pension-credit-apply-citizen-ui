@@ -20,5 +20,8 @@
     "middleware/**/*",
     "routes/**/*",
     "utils/**/*"
+  ],
+  "exclude": [
+    "routes/actuator/index.js"
   ]
 }

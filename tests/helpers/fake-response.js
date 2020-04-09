@@ -3,6 +3,7 @@ const Request = require('./fake-request.js');
 module.exports = class Response {
   constructor(request) {
     this.req = request || new Request();
+    this.body = '';
     this.statusCode = 200;
     this.headers = {};
     this.locals = {
@@ -16,8 +17,18 @@ module.exports = class Response {
     return this.headers[name];
   }
 
-  setHeader(name, value) {
+  set(name, value) {
     this.headers[name] = value;
+    return this;
+  }
+
+  setHeader(name, value) {
+    this.set(name, value);
+    return this;
+  }
+
+  send(body) {
+    this.body = body;
     return this;
   }
 
