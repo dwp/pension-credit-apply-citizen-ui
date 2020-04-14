@@ -1,0 +1,32 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "pc/components/radios/macro.njk" import pcGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("children-living-with-you:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ pcGovukRadios({
+    name: "hasChildren",
+    fieldset: {
+      legend: {
+        text: t("children-living-with-you:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    hint: {
+      text: t("children-living-with-you:field.hasChildren.hint")
+    },
+    items: [{
+      value: "yes",
+      text: t("children-living-with-you:field.hasChildren.options.yes")
+    }, {
+      value: "no",
+      text: t("children-living-with-you:field.hasChildren.options.no")
+    }],
+    casaValue: formData.hasChildren,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

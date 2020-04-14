@@ -1,5 +1,6 @@
 const { waypoints } = require('../../lib/constants.js');
 const claimedStatePensionValidation = require('../field-validators/eligibility/claimed-state-pension.js');
+const childrenLivingWithYouValidation = require('../field-validators/eligibility/children-living-with-you.js');
 const withSkipLink = require('../hooks/common/with-skip-link.js');
 
 module.exports = () => {
@@ -19,6 +20,15 @@ module.exports = () => {
 
   pages[waypoints.STATE_PENSION_NOT_CLAIMED] = {
     view: 'pages/eligibility/state-pension-not-claimed.njk',
+  };
+
+  pages[waypoints.CHILDREN_LIVING_WITH_YOU] = {
+    view: 'pages/eligibility/children-living-with-you.njk',
+    fieldValidators: childrenLivingWithYouValidation,
+  };
+
+  pages[waypoints.CLAIM_INCLUDES_CHILDREN] = {
+    view: 'pages/eligibility/claim-includes-children.njk',
   };
 
   return pages;

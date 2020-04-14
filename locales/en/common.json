@@ -1,5 +1,10 @@
 {
   "serviceName": "Apply for Pension Credit",
-  "heading": "Sorry, you’ll have to start again",
-  "startAgain": "Start again"
+  "callTimes": "Monday to Friday, 9:30am to 3:30pm (closed on bank holidays).<br/>Calls to 0800 numbers are free from landlines and mobiles.",
+  "telephone": "Telephone",
+  "telephoneNumber": "0800 99 1234",
+  "textphone": "Textphone",
+  "textphoneNumber": "0800 169 0133",
+  "helpUsImprove": "Help us improve Pension Credit",
+  "takeSurvey": "Take a short survey (opens in a new window or tab)"
 }

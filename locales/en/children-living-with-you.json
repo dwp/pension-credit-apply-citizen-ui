@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Do any children or qualifying young people live with you?",
+  "field": {
+    "hasChildren": {
+      "hint": "Children are under age 16. A qualifying young person is aged 16 to 19 and in non-advanced full-time education or training.",
+      "required": "Select yes if any children or qualifying young people live with you.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    }
+  }
+}
