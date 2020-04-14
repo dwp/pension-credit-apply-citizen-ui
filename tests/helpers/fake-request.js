@@ -5,6 +5,7 @@ const noop = () => {};
 module.exports = class Request {
   constructor(journeyContextData, journeyContextValidation = {}) {
     this.body = {};
+    this.cookies = {};
     this.headers = {};
     this.params = {};
     this.query = {};

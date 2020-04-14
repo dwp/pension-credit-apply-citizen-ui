@@ -1,12 +1,21 @@
 {% extends "casa/layouts/main.njk" %}
 
+{% from "components/footer/macro.njk" import govukFooter %}
+
 {% block head %}
-  {% include "partials/gtm-script.njk" %}
+  {%- if cookieMessage === "accept" -%}
+    {% include "partials/gtm-script.njk" %}
+  {%- endif %}
   {% include "partials/styles.njk" %}
 {% endblock %}
 
 {% block bodyStart %}
-  {% include "partials/gtm-noscript.njk" %}
+  {%- if cookieMessage === "accept" -%}
+    {% include "partials/gtm-noscript.njk" %}
+  {%- endif %}
+  {% if cookieMessage === "unset" or cookieChoiceMade %}
+    {% include "partials/cookie-message.njk" %}
+  {% endif %}
 {% endblock %}
 
 {% block bodyEnd %}
@@ -19,6 +28,9 @@
       items: [{
         href: accessibilityStatementUrl,
         text: t('common:footer.accessibilityStatement')
+      }, {
+        href: cookiePolicyUrl,
+        text: t('common:footer.cookies')
       }]
     }
   }) }}

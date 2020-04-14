@@ -6,11 +6,17 @@ module.exports = class Response {
     this.body = '';
     this.statusCode = 200;
     this.headers = {};
+    this.cookies = {};
     this.locals = {
       casa: {
         mountUrl: '/',
       },
     };
+  }
+
+  cookie(cookieName, cookieValue) {
+    this.cookies[cookieName] = cookieValue;
+    return this;
   }
 
   get(name) {

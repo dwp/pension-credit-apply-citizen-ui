@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const packageMeta = require('./package.json');
 const { prepareLogging, prepareRedisListener, prepareCryptoService } = require('./bootstrap/index.js');
-const { waypoints } = require('./lib/constants.js');
+const { CONSENT_COOKIE_NAME, waypoints } = require('./lib/constants.js');
 const prometheusClient = require('./lib/prometheus-client.js');
 const ApiHelperFactory = require('./lib/ApiHelperFactory.js');
 const AddressServiceFactory = require('./lib/AddressServiceFactory.js');
@@ -11,7 +11,6 @@ const ClaimServiceFactory = require('./lib/ClaimServiceFactory.js');
 const getSessionConfig = require('./lib/get-session-config.js');
 const mediaMiddleware = require('./middleware/media.js');
 const nonceMiddleware = require('./middleware/nonce.js');
-const idBarMiddleware = require('./middleware/id-bar.js');
 const actuator = require('./routes/actuator/index.js');
 const viewFilterPush = require('./view-filters/push.js');
 const viewFilterSetAtrtribute = require('./view-filters/set-attribute.js');
@@ -22,6 +21,10 @@ const journeyPlan = require('./definitions/journey.js');
 const checkYourAnswersGet = require('./routes/submission/check-your-answers.get.js');
 const checkYourAnswersPost = require('./routes/submission/check-your-answers.post.js');
 const whatHappensNextGet = require('./routes/submission/what-happens-next.get.js');
+const cookieMiddleware = require('./middleware/cookie-message.js');
+const cookieDetailsGet = require('./routes/cookies/cookie-details.get.js');
+const cookiePolicyPost = require('./routes/cookies/cookie-policy.post.js');
+const cookiePolicyGet = require('./routes/cookies/cookie-policy.get.js');
 
 module.exports = (CONFIG, baseLogger) => {
   baseLogger.info(`CACHAIN has ${!CONFIG.CACHAIN ? 'not ' : ''}been found`);
@@ -108,7 +111,7 @@ module.exports = (CONFIG, baseLogger) => {
       mediaMiddleware(this.expressApp, CONFIG.CONTEXT_PATH_PROXY, './public/');
       mountCommonMiddleware();
       nonceMiddleware(this.expressApp, CONFIG.ENABLE_CSP);
-      idBarMiddleware(this.expressApp);
+      cookieMiddleware(this.expressApp, CONFIG.CONTEXT_PATH, CONSENT_COOKIE_NAME, waypoints);
     },
   });
 
@@ -123,17 +126,6 @@ module.exports = (CONFIG, baseLogger) => {
 
   // Set accessibility statment footer URL
   app.get('nunjucksEnv').addGlobal('accessibilityStatementUrl', waypoints.ACCESSIBILITY_STATEMENT);
-
-  // Index route
-  casaApp.router.get('/', (req, res) => {
-    // Redirect to first page in the journey
-    res.status(302).redirect(`${casaApp.config.mountUrl}${waypoints.START}`);
-  });
-
-  // Accessibility statement
-  casaApp.router.get(`/${waypoints.ACCESSIBILITY_STATEMENT}`, (req, res) => {
-    res.render('pages/accessibility-statement.njk');
-  });
 
   // Prepare page hooks for "Select your address" page
   const appPageDefinitions = pageDefinitions(
@@ -152,6 +144,27 @@ module.exports = (CONFIG, baseLogger) => {
   // Claim submission handlers
   const submissionCommonMw = [casaMwPrepare, casaMwRails, middleware.pageCsrf];
 
+  // Index route
+  casaApp.router.get('/', (req, res) => {
+    // Redirect to first page in the journey
+    res.status(302).redirect(`${casaApp.config.mountUrl}${waypoints.START}`);
+  });
+
+  // Accessibility statement
+  casaApp.router.get(`/${waypoints.ACCESSIBILITY_STATEMENT}`, (req, res) => {
+    res.render('pages/accessibility-statement.njk');
+  });
+
+  // Cookie policy pages
+  casaApp.router.get(`/${waypoints.COOKIE_DETAILS}`, submissionCommonMw, cookieDetailsGet(
+    waypoints,
+    CONSENT_COOKIE_NAME,
+    CONFIG.SESSION_COOKIE_NAME,
+  ));
+  casaApp.router.get(`/${waypoints.COOKIE_POLICY}`, submissionCommonMw, cookiePolicyGet(waypoints));
+  casaApp.router.post(`/${waypoints.COOKIE_POLICY}`, submissionCommonMw, cookiePolicyPost(CONSENT_COOKIE_NAME));
+
+  // Check your answers page
   casaApp.router.get(`/${waypoints.CHECK_YOUR_ANSWERS}`, submissionCommonMw, checkYourAnswersGet(
     appUserJourney,
   ));
@@ -163,6 +176,7 @@ module.exports = (CONFIG, baseLogger) => {
     `${CONFIG.CONTEXT_PATH}${waypoints.WHAT_HAPPENS_NEXT}`,
   ));
 
+  // What happens next
   casaApp.router.get(`/${waypoints.WHAT_HAPPENS_NEXT}`, whatHappensNextGet);
 
   // End of middleware chain with no matching page, render 404 error

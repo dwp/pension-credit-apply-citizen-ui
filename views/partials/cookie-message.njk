@@ -1,0 +1,37 @@
+{% from "components/button/macro.njk" import govukButton %}
+
+<div class="casa-cookie-banner">
+  {% if not cookieChoiceMade %}
+    <div class="casa-cookie-banner--main govuk-width-container govuk-body govuk-!-padding-top-6 govuk-!-padding-bottom-3">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h2 class="govuk-heading-m">{{ t('common:cookies.canWeUseCookies') }}</h2>
+          <p class="govuk-body">{{ t('common:cookies.useAnalytics') }}</p>
+          <p class="govuk-body">{{ t('common:cookies.readMore', { url: cookiePolicyUrl | escape }) | safe }}</p>
+          <form method="post" action="{{ casa.mountUrl }}{{ cookieConsentSubmit }}/accept">
+            {{ govukButton({
+              classes: "casa-cookie-button-accept govuk-!-margin-right-4",
+              text: t('common:cookies.yes')
+            }) }}
+          </form>
+          <form method="post" action="{{ casa.mountUrl }}{{ cookieConsentSubmit }}/reject">
+            {{ govukButton({
+              classes: "casa-cookie-button-reject",
+              text: t('common:cookies.no')
+            }) }}
+          </form>
+        </div>
+      </div>
+    </div>
+  {% elif cookieChoiceMade and cookieMessage === 'accept' %}
+    <div class="casa-cookie-banner--accept govuk-width-container govuk-body govuk-!-padding-top-6 govuk-!-padding-bottom-3">
+      <p class="govuk-body">{{ t('common:cookies.youAccepted', { url: cookiePolicyUrl | escape }) | safe }}</p>
+      <a href="{{ currentUrl }}" class="casa-cookie-banner--hide casa-cookie-button--accept govuk-link">{{ t('common:cookies.hide') }}</a>
+    </div>
+  {% elif cookieChoiceMade and cookieMessage === 'reject' %}
+    <div class="casa-cookie-banner--reject govuk-width-container govuk-body govuk-!-padding-top-6 govuk-!-padding-bottom-3">
+      <p class="govuk-body">{{ t('common:cookies.youRejected', { url: cookiePolicyUrl | escape }) | safe }}</p>
+      <a href="{{ currentUrl }}" class="casa-cookie-banner--hide casa-cookie-button--reject govuk-link">{{ t('common:cookies.hide') }}</a>
+    </div>
+  {% endif %}
+</div>

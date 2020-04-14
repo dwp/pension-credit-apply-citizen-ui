@@ -9,3 +9,34 @@
 .date-nowrap {
   white-space: nowrap;
 }
+
+.casa-cookie-banner {
+  background: #f3f2f1;
+}
+.casa-cookie-banner--main, .casa-cookie-banner--accept, .casa-cookie-banner--reject {
+  margin-bottom: 0;
+}
+.casa-hidden {
+  display: none;
+}
+.casa-cookie-banner form {
+  display: inline;
+}
+.casa-cookie-banner--reject p {
+  display:inline-block;
+}
+.casa-cookie-banner--accept p {
+  display:inline-block;
+}
+.casa-cookie-banner--hide {
+  margin-top: 10px;
+  float: none;
+}
+@media (min-width: 840px) {
+  .casa-cookie-banner--hide {
+    margin-top: 0;
+    float: right;
+    margin-right: 30px;
+    width: auto;
+  }
+}

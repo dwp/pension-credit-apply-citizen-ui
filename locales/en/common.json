@@ -12,7 +12,18 @@
   "pensionCreditClaimLine": "If you need to speak to us, call the Pension Credit claim line.",
   "helpUsImprove": "Help us improve Pension Credit",
   "takeSurvey": "Take a short survey (opens in a new window or tab)",
+  "cookies": {
+    "canWeUseCookies": "Can we use cookies in our services?",
+    "useAnalytics": "We’d like to use analytics cookies to collect information about how you use our services. This helps us to make them better.",
+    "readMore": "You can <a href=\"${url}\" class=\"govuk-link\">read more about our cookies</a> before you decide.",
+    "yes": "Yes, I’m OK with analytics cookies",
+    "no": "No, do no use analytics cookies",
+    "youAccepted": "You’ve accepted analytics cookies. You can <a href=\"${url}\" class=\"govuk-link\">change your cookie settings</a> at any time.",
+    "youRejected": "You’ve rejected analytics cookies. You can  <a href=\"${url}\" class=\"govuk-link\">change your cookie settings</a> at any time.",
+    "hide": "Hide"
+  },
   "footer": {
-    "accessibilityStatement": "Accessibility statement"
+    "accessibilityStatement": "Accessibility statement",
+    "cookies": "Cookies"
   }
 }
