@@ -1,5 +1,8 @@
 const { waypoints: WP } = require('../../lib/constants.js');
 const { isYes, isNo } = require('../../utils/journey-helpers.js');
+const underSPA = require('../route-conditions/under-spa.js')(WP);
+
+const atOrOverSPA = (r, c) => !underSPA(r, c);
 
 module.exports = (plan) => {
   plan.addSequence(WP.START, WP.CLAIMED_STATE_PENSION);
@@ -15,6 +18,9 @@ module.exports = (plan) => {
   // Kick out if claimant does not live in England, Scotland or Wales
   plan.setRoute(WP.LIVE_ENGLAND_SCOTLAND_WALES, WP.DO_NOT_LIVE_UK, isNo('inEnglandScotlandWales'));
   plan.setRoute(WP.LIVE_ENGLAND_SCOTLAND_WALES, WP.YOUR_NATIONALITY, isYes('inEnglandScotlandWales'));
-
   plan.addSequence(WP.YOUR_NATIONALITY, WP.DATE_OF_BIRTH);
+
+  // Kick out if claimant is under State Pension Age
+  plan.setRoute(WP.DATE_OF_BIRTH, WP.TOO_YOUNG_TO_CLAIM, underSPA);
+  plan.setRoute(WP.DATE_OF_BIRTH, WP.LIVE_WITH_PARTNER, atOrOverSPA);
 };

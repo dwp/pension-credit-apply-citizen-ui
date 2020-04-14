@@ -1,0 +1,58 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% block casaPageTitle %}
+  {{ t("too-young-to-claim:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        {{ t("too-young-to-claim:pageTitle") }}
+      </h1>
+      <p class="govuk-body-l">
+        {{ t("too-young-to-claim:4monthsBefore") }}
+      </p>
+      <h2 class="govuk-heading-m">
+        {{ t("too-young-to-claim:applyForUniversalCredit") }}
+      </h2>
+      <dl class="govuk-list contact-numbers">
+        <div>
+          <dt>{{ t("common:telephone") }}</dt>
+          <dd>{{ t("too-young-to-claim:ucTelephoneNumber") }}</dd>
+        </div>
+        <div>
+          <dt>{{ t("common:textphone") }}</dt>
+          <dd>{{ t("too-young-to-claim:ucTextphoneNumber") }}</dd>
+        </div>
+      </dl>
+      <p class="govuk-body">
+        {{ t("too-young-to-claim:ucCallTimes") | safe }}
+      </p>
+      <h2 class="govuk-heading-m govuk-!-width-two-thirds">
+        {{ t("too-young-to-claim:pensionCreditClaimLine") }}
+      </h2>
+      <dl class="govuk-list contact-numbers">
+        <div>
+          <dt>{{ t("common:telephone") }}</dt>
+          <dd>{{ t("common:telephoneNumber") }}</dd>
+        </div>
+        <div>
+          <dt>{{ t("common:textphone") }}</dt>
+          <dd>{{ t("common:textphoneNumber") }}</dd>
+        </div>
+      </dl>
+      <p class="govuk-body">
+        {{ t("common:callTimes") | safe }}
+      </p>
+      <h2 class="govuk-heading-m">
+        {{ t("common:helpUsImprove") }}
+      </h2>
+      <p class="govuk-body">
+        <a class="govuk-link" href="https://getinvolved.dwp.gov.uk/digital/764a559b/" target="_blank">
+          {{ t("common:takeSurvey") }}
+        </a>
+      </p>
+    </div>
+  </div>
+{% endblock %}
