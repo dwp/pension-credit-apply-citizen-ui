@@ -1,0 +1,12 @@
+{
+  "pageTitle": "Have you claimed your State Pension?",
+  "field": {
+    "statePensionClaimed": {
+      "required": "Select yes if you have claimed your State Pension.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    }
+  }
+}

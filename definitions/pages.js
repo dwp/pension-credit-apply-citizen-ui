@@ -1,12 +1,5 @@
-const { waypoints: WP } = require('../lib/constants.js');
+const eligibilityPages = require('./pages/eligibility.js');
 
-module.exports = () => {
-  const pages = Object.create(null);
-
-  pages[WP.START] = {
-    view: 'pages/start.njk',
-    fieldValidators: Object.create(null),
-  };
-
-  return pages;
-};
+module.exports = () => ({
+  ...eligibilityPages(),
+});

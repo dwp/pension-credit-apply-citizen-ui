@@ -1,0 +1,29 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "pc/components/radios/macro.njk" import pcGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("claimed-state-pension:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ pcGovukRadios({
+    name: "statePensionClaimed",
+    fieldset: {
+      legend: {
+        text: t("claimed-state-pension:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("claimed-state-pension:field.statePensionClaimed.options.yes")
+    }, {
+      value: "no",
+      text: t("claimed-state-pension:field.statePensionClaimed.options.no")
+    }],
+    casaValue: formData.statePensionClaimed,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

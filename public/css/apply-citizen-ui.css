@@ -1,0 +1,7 @@
+.contact-numbers dt, dd {
+  display: inline-block;
+  margin: 0;
+}
+.contact-numbers dt::after {
+  content: ': ';
+}
