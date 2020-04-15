@@ -1,5 +1,6 @@
 module.exports = {
   "root": true,
+  "parser": "babel-eslint",
   "extends": ["@dwp/eslint-config-base", "plugin:sonarjs/recommended"],
   "plugins": [
     "sonarjs"

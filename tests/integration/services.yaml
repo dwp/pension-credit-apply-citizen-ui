@@ -7,6 +7,8 @@ services:
     build:
       context: ../../
       dockerfile: tests/integration/Dockerfile
+      args:
+        NPM_REGISTRY_URL: ${NPM_REGISTRY_URL}
     ports:
       - "4500:4500"
     environment:
@@ -22,6 +24,7 @@ services:
       HTTP_TIMEOUT: 10
       REDIS_HOSTS: secret@redis-single-server:6379
       REDIS_CLUSTER_MODE: "false"
+      REDIS_ENCRYPTION_MODE: local
       GOOGLE_TAG_MANAGER_ID: ""
       ENABLE_CSP: "true"
       USE_TLS: "false"

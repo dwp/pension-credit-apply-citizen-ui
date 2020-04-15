@@ -73,6 +73,34 @@ describe('ConfigIngestor', () => {
     }]);
   });
 
+  it('ConfigIngestor should throw if invalid REDIS_ENCRYPTION_MODE given', () => {
+    expect(() => {
+      ConfigIngestor({
+        ...requiredVars,
+        REDIS_ENCRYPTION_MODE: 'invalid',
+      });
+    }).to.throw(SyntaxError, /^REDIS_ENCRYPTION_MODE must be one of <empty>, local or kms$/);
+  });
+
+  it('ConfigIngestor should throw if REDIS_ENCRYPTION_MODE == kms and REDIS_ENCRYPTION_ALIAS is missing', () => {
+    expect(() => {
+      ConfigIngestor({
+        ...requiredVars,
+        REDIS_ENCRYPTION_MODE: 'kms',
+      });
+    }).to.throw(Error, /^REDIS_ENCRYPTION_ALIAS is required when using kms encryption$/);
+  });
+
+  it('ConfigIngestor should throw if AWS_KMS_ENDPOINT is defined in a non-development environment', () => {
+    expect(() => {
+      ConfigIngestor({
+        ...requiredVars,
+        AWS_KMS_ENDPOINT: 'http://localhost:4566',
+        NODE_ENV: 'production',
+      });
+    }).to.throw(Error, /^AWS_KMS_ENDPOINT xannot be defined in non-development environments$/);
+  });
+
   it('ConfigIngestor should throw if invalid LOG_LEVEL given', () => {
     expect(() => {
       ConfigIngestor({

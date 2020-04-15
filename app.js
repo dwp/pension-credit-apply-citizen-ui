@@ -2,7 +2,7 @@ const { configure, middleware } = require('@dwp/govuk-casa');
 const express = require('express');
 const path = require('path');
 const packageMeta = require('./package.json');
-const { prepareLogging, prepareRedisListener } = require('./bootstrap/index.js');
+const { prepareLogging, prepareRedisListener, prepareCryptoService } = require('./bootstrap/index.js');
 const { waypoints } = require('./lib/constants.js');
 const prometheusClient = require('./lib/prometheus-client.js');
 const ApiHelperFactory = require('./lib/ApiHelperFactory.js');
@@ -36,6 +36,14 @@ module.exports = (CONFIG, baseLogger) => {
   // ref: https://github.com/luin/ioredis#events
   const redisClusterListener = prepareRedisListener(baseLogger, process.exit);
 
+  // Prepare cryptoservice
+  const cryptoService = prepareCryptoService({
+    logger: baseLogger,
+    mode: CONFIG.REDIS_ENCRYPTION_MODE,
+    keyAlias: CONFIG.REDIS_ENCRYPTION_ALIAS,
+    awsEndpointUrl: CONFIG.AWS_KMS_ENDPOINT,
+  });
+
   // Load the router index controller for the 3 endpoints
   // /actuator/health
   // /actuator/info
@@ -64,6 +72,7 @@ module.exports = (CONFIG, baseLogger) => {
       CONFIG.REDIS_CLUSTER_MODE,
       redisClusterListener,
       baseLogger,
+      cryptoService,
     ),
     i18n: {
       dirs: [path.resolve(__dirname, 'locales')],

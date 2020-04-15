@@ -10,6 +10,10 @@ If you'd like to contribute any changes, enhancements or report issues, please t
 
 ## Getting started
 
+> **IMPORTANT:**<br/>
+> <br/>
+> Some of the dependencies are ony available on the DWP's internal npm registry. Please consult the Engineering documentation to ensure your machine is configured to pull packages from that registry.
+
 Setup:
 
 ```bash
@@ -35,7 +39,9 @@ npm run pipeline
 
 # Integration tests (requires Docker)
 # Requires access to an ECR host housing dependent images
+# Requires npm modules to be pulled from DWP internal registry
 export RBAC_ECR_HOST=<account-id>.dkr.ecr.eu-west-2.amazonaws.com
+export NPM_REGISTRY_URL=$(npm get registry)
 npm run test:integration
 ```
 
@@ -73,7 +79,7 @@ DEBUG=* LOG_LEVEL=debug npm start
 Packaging docker image:
 
 ```bash
-docker build -t apply-citizen-ui -f docker/Dockerfile .
+docker build -t apply-citizen-ui --build-arg NPM_REGISTRY_URL=$(npm get registry) -f docker/Dockerfile .
 ```
 
 Running the image:
@@ -88,6 +94,16 @@ docker run --rm -it -p 3000:3000 \
 ## Redis
 
 All events triggered by the `ioredis` library will be available to your own listeners, i.e. https://github.com/luin/ioredis#events
+
+Depending on the `REDIS_ENCRYPTION_MODE` setting, data will be encrypted prior to being stored in Redis. If you want to use `kms` mode for encryption, you'll need to spin up `docker-local`.
+
+When switching between encryption modes, you may come cross errors like this:
+
+```
+error:0606506D:digital envelope routines:EVP_DecryptFinal_ex:wrong final block length
+```
+
+This is expected as the encrypted payload will only be readable by the same mode that generated it. The solution is to either refresh the page, or restart the Redis service to clear any previous sessions out.
 
 ## Logging
 
