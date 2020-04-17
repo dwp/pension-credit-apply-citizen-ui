@@ -11,4 +11,8 @@ module.exports = (plan) => {
   // Kick out if claimant has children
   plan.setRoute(WP.CHILDREN_LIVING_WITH_YOU, WP.CLAIM_INCLUDES_CHILDREN, isYes('hasChildren'));
   plan.setRoute(WP.CHILDREN_LIVING_WITH_YOU, WP.LIVE_ENGLAND_SCOTLAND_WALES, isNo('hasChildren'));
+
+  // Kick out if claimant does not live in England, Scotland or Wales
+  plan.setRoute(WP.LIVE_ENGLAND_SCOTLAND_WALES, WP.DO_NOT_LIVE_UK, isNo('inEnglandScotlandWales'));
+  plan.setRoute(WP.LIVE_ENGLAND_SCOTLAND_WALES, WP.YOUR_NATIONALITY, isYes('inEnglandScotlandWales'));
 };

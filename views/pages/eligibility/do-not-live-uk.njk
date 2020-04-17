@@ -1,0 +1,32 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% block casaPageTitle %}
+  {{ t("do-not-live-uk:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        {{ t("do-not-live-uk:pageTitle") }}
+      </h1>
+      <p class="govuk-body-l">
+        {{ t("do-not-live-uk:cannotTakeApplciation") }}
+      </p>
+      <p class="govuk-heading-s">
+        {{ t("do-not-live-uk:ifNorthernIreland") }}
+      </p>
+      <p class="govuk-body">
+        {{ t("do-not-live-uk:callTimes") | safe }}
+      </p>
+      <h2 class="govuk-heading-m">
+        {{ t("common:helpUsImprove") }}
+      </h2>
+      <p class="govuk-body">
+        <a class="govuk-link" href="https://getinvolved.dwp.gov.uk/digital/764a559b/" target="_blank">
+          {{ t("common:takeSurvey") }}
+        </a>
+      </p>
+    </div>
+  </div>
+{% endblock %}

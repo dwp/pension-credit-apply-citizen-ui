@@ -1,0 +1,12 @@
+{
+  "pageTitle": "Do you live in England, Scotland or Wales?",
+  "field": {
+    "inEnglandScotlandWales": {
+      "required": "Select yes if you live in England, Scotland or Wales.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    }
+  }
+}
