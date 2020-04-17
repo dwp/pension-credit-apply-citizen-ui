@@ -15,4 +15,6 @@ module.exports = (plan) => {
   // Kick out if claimant does not live in England, Scotland or Wales
   plan.setRoute(WP.LIVE_ENGLAND_SCOTLAND_WALES, WP.DO_NOT_LIVE_UK, isNo('inEnglandScotlandWales'));
   plan.setRoute(WP.LIVE_ENGLAND_SCOTLAND_WALES, WP.YOUR_NATIONALITY, isYes('inEnglandScotlandWales'));
+
+  plan.addSequence(WP.YOUR_NATIONALITY, WP.DATE_OF_BIRTH);
 };

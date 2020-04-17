@@ -1,0 +1,22 @@
+{
+  "pageTitle": "Your nationality",
+  "field": {
+    "rightToReside": {
+      "legend": "Do you have the right to live or work in the UK without any immigration restrictions?",
+      "hint": "You have this right if you have a British passport or are a British citizen or British subject with right of abode.",
+      "required": "Select yes if you have the right to live or work in the UK without any immigration restrictions.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    },
+    "lived2Years": {
+      "legend": "Have you lived permanently in the UK for the last 2 years?",
+      "required": "Select yes if you have lived permanently in the UK for the last 2 years.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    }
+  }
+}

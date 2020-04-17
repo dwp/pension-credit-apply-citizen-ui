@@ -1,0 +1,54 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "pc/components/radios/macro.njk" import pcGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("your-nationality:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  <h1 class="govuk-heading-xl">
+    {{ t("your-nationality:pageTitle") }}
+  </h1>
+
+  {{ pcGovukRadios({
+    name: "rightToReside",
+    fieldset: {
+      legend: {
+        text: t("your-nationality:field.rightToReside.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      text: t("your-nationality:field.rightToReside.hint")
+    },
+    items: [{
+      value: "yes",
+      text: t("your-nationality:field.rightToReside.options.yes")
+    }, {
+      value: "no",
+      text: t("your-nationality:field.rightToReside.options.no")
+    }],
+    casaValue: formData.rightToReside,
+    casaErrors: formErrors
+  }) }}
+
+  {{ pcGovukRadios({
+    name: "lived2Years",
+    fieldset: {
+      legend: {
+        text: t("your-nationality:field.lived2Years.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("your-nationality:field.lived2Years.options.yes")
+    }, {
+      value: "no",
+      text: t("your-nationality:field.lived2Years.options.no")
+    }],
+    casaValue: formData.lived2Years,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

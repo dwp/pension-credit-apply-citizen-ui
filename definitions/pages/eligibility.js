@@ -2,6 +2,7 @@ const { waypoints } = require('../../lib/constants.js');
 const claimedStatePensionValidation = require('../field-validators/eligibility/claimed-state-pension.js');
 const childrenLivingWithYouValidation = require('../field-validators/eligibility/children-living-with-you.js');
 const liveEnglandScotlandWalesValidation = require('../field-validators/eligibility/live-england-scotland-wales.js');
+const yourNationalityValidation = require('../field-validators/eligibility/your-nationality.js');
 const withSkipLink = require('../hooks/common/with-skip-link.js');
 
 module.exports = () => {
@@ -39,6 +40,11 @@ module.exports = () => {
 
   pages[waypoints.DO_NOT_LIVE_UK] = {
     view: 'pages/eligibility/do-not-live-uk.njk',
+  };
+
+  pages[waypoints.YOUR_NATIONALITY] = {
+    view: 'pages/eligibility/your-nationality.njk',
+    fieldValidators: yourNationalityValidation,
   };
 
   return pages;
