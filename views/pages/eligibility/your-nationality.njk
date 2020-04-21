@@ -1,6 +1,6 @@
 {% extends "layouts/form-journey.njk" %}
 
-{% from "pc/components/radios/macro.njk" import pcGovukRadios with context %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
 
 {% block casaPageTitle %}
   {{ t("your-nationality:pageTitle") }} - {{ t("common:serviceName") }}
@@ -11,7 +11,7 @@
     {{ t("your-nationality:pageTitle") }}
   </h1>
 
-  {{ pcGovukRadios({
+  {{ casaGovukRadios({
     name: "rightToReside",
     fieldset: {
       legend: {
@@ -29,11 +29,12 @@
       value: "no",
       text: t("your-nationality:field.rightToReside.options.no")
     }],
+    casaWithAnalytics: true,
     casaValue: formData.rightToReside,
     casaErrors: formErrors
   }) }}
 
-  {{ pcGovukRadios({
+  {{ casaGovukRadios({
     name: "lived2Years",
     fieldset: {
       legend: {
@@ -48,6 +49,7 @@
       value: "no",
       text: t("your-nationality:field.lived2Years.options.no")
     }],
+    casaWithAnalytics: true,
     casaValue: formData.lived2Years,
     casaErrors: formErrors
   }) }}

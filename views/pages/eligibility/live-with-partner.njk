@@ -1,7 +1,7 @@
 {% extends "layouts/form-journey.njk" %}
 
 {% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
-{% from "pc/components/radios/macro.njk" import pcGovukRadios with context %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
 
 {% block casaPageTitle %}
   {{ t("live-with-partner:pageTitle") }} - {{ t("common:serviceName") }}
@@ -25,7 +25,7 @@
     }) }}
   {% endset %}
 
-  {{ pcGovukRadios({
+  {{ casaGovukRadios({
     name: "liveWithPartner",
     fieldset: {
       legend: {
@@ -47,6 +47,7 @@
       value: "no",
       text: t("live-with-partner:field.liveWithPartner.options.no")
     }],
+    casaWithAnalytics: true,
     casaValue: formData.liveWithPartner,
     casaErrors: formErrors
   }) }}

@@ -1,13 +1,13 @@
 {% extends "layouts/form-journey.njk" %}
 
-{% from "pc/components/radios/macro.njk" import pcGovukRadios with context %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
 
 {% block casaPageTitle %}
   {{ t("live-england-scotland-wales:pageTitle") }} - {{ t("common:serviceName") }}
 {% endblock %}
 
 {% block journey_form %}
-  {{ pcGovukRadios({
+  {{ casaGovukRadios({
     name: "inEnglandScotlandWales",
     fieldset: {
       legend: {
@@ -23,6 +23,7 @@
       value: "no",
       text: t("live-england-scotland-wales:field.inEnglandScotlandWales.options.no")
     }],
+    casaWithAnalytics: true,
     casaValue: formData.inEnglandScotlandWales,
     casaErrors: formErrors
   }) }}

@@ -1,13 +1,13 @@
 {% extends "layouts/form-journey.njk" %}
 
-{% from "pc/components/radios/macro.njk" import pcGovukRadios with context %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
 
 {% block casaPageTitle %}
   {{ t("claimed-state-pension:pageTitle") }} - {{ t("common:serviceName") }}
 {% endblock %}
 
 {% block journey_form %}
-  {{ pcGovukRadios({
+  {{ casaGovukRadios({
     name: "statePensionClaimed",
     fieldset: {
       legend: {
@@ -23,6 +23,7 @@
       value: "no",
       text: t("claimed-state-pension:field.statePensionClaimed.options.no")
     }],
+    casaWithAnalytics: true,
     casaValue: formData.statePensionClaimed,
     casaErrors: formErrors
   }) }}

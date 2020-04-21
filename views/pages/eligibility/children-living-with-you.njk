@@ -1,13 +1,13 @@
 {% extends "layouts/form-journey.njk" %}
 
-{% from "pc/components/radios/macro.njk" import pcGovukRadios with context %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
 
 {% block casaPageTitle %}
   {{ t("children-living-with-you:pageTitle") }} - {{ t("common:serviceName") }}
 {% endblock %}
 
 {% block journey_form %}
-  {{ pcGovukRadios({
+  {{ casaGovukRadios({
     name: "hasChildren",
     fieldset: {
       legend: {
@@ -26,6 +26,7 @@
       value: "no",
       text: t("children-living-with-you:field.hasChildren.options.no")
     }],
+    casaWithAnalytics: true,
     casaValue: formData.hasChildren,
     casaErrors: formErrors
   }) }}
