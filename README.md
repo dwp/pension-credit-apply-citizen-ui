@@ -161,3 +161,15 @@ curl -G http://localhost:${port}/actuator/metrics
 {"uptime": 136.088}
 # uptime is given in seconds
 ```
+
+## Akamai artifacts
+
+To prepare all artifacts for passing to Akamai:
+
+```bash
+npm run build:akamai
+```
+
+This will generate all artifacts in `akamai-dist/`.
+
+The sources for these artifacts are in `views/akamai/`.
