@@ -1,0 +1,29 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "pc/components/radios/macro.njk" import pcGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("partner-agree:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ pcGovukRadios({
+    name: "partnerAgree",
+    fieldset: {
+      legend: {
+        text: t("partner-agree:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("partner-agree:field.partnerAgree.options.yes")
+    }, {
+      value: "no",
+      text: t("partner-agree:field.partnerAgree.options.no")
+    }],
+    casaValue: formData.partnerAgree,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

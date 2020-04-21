@@ -1,0 +1,12 @@
+{
+  "pageTitle": "Does your partner get pension age Housing Benefit?",
+  "field": {
+    "partnerGetsHousingBenefit": {
+      "required": "Select yes if your partner gets pension age Housing Benefit.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    }
+  }
+}

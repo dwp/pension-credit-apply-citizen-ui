@@ -1,0 +1,29 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "pc/components/radios/macro.njk" import pcGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("partner-housing-benefit:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ pcGovukRadios({
+    name: "partnerGetsHousingBenefit",
+    fieldset: {
+      legend: {
+        text: t("partner-housing-benefit:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("partner-housing-benefit:field.partnerGetsHousingBenefit.options.yes")
+    }, {
+      value: "no",
+      text: t("partner-housing-benefit:field.partnerGetsHousingBenefit.options.no")
+    }],
+    casaValue: formData.partnerGetsHousingBenefit,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

@@ -1,0 +1,20 @@
+{
+  "pageTitle": "Do you live with a partner?",
+  "field": {
+    "liveWithPartner": {
+      "hint": "A partner is a husband, wife, civil partner or someone that you live with as a couple.",
+      "required": "Select yes if you live with a partner.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    },
+    "partnerDateOfBirth": {
+      "legend": "What is your partner’s date of birth?",
+      "hint": "For example, 31 3 1948.",
+      "required": "Enter your partner’s date of birth.",
+      "format": "Enter a real date of birth.",
+      "future": "Enter a date of birth that is in the past."
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "pageTitle": "Does your partner agree to you making this application?",
+  "field": {
+    "partnerAgree": {
+      "required": "Select yes if your partner agrees to you making this application.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    }
+  }
+}

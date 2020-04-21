@@ -3,8 +3,9 @@ const dateObjectToISOString = require('../../utils/date-object-to-iso-string');
 
 const isTodayOrEarlier = (date) => date.getTime() <= Date.now();
 
-const underSPA = (waypoints) => (_, context) => {
-  const { dateOfBirth } = context.getDataForPage(waypoints.DATE_OF_BIRTH) || Object.create(null);
+const underSPA = ({ waypoint, field }) => (_, context) => {
+  // Get date of birth from provided waypoint and field
+  const dateOfBirth = (context.getDataForPage(waypoint) || Object.create(null))[field];
 
   // If date of birth has not been submitted, return true (done page) to avoid
   // throwing an error when destructuring the values

@@ -4,6 +4,9 @@ const childrenLivingWithYouValidation = require('../field-validators/eligibility
 const liveEnglandScotlandWalesValidation = require('../field-validators/eligibility/live-england-scotland-wales.js');
 const yourNationalityValidation = require('../field-validators/eligibility/your-nationality.js');
 const dateOfBirthValidation = require('../field-validators/eligibility/date-of-birth.js');
+const liveWithPartnerValidation = require('../field-validators/eligibility/live-with-partner.js');
+const partnerAgreeValidation = require('../field-validators/eligibility/partner-agree.js');
+const partnerHousingBenefitValidation = require('../field-validators/eligibility/partner-housing-benefit.js');
 const withSkipLink = require('../hooks/common/with-skip-link.js');
 
 module.exports = () => {
@@ -55,6 +58,25 @@ module.exports = () => {
 
   pages[waypoints.TOO_YOUNG_TO_CLAIM] = {
     view: 'pages/eligibility/too-young-to-claim.njk',
+  };
+
+  pages[waypoints.LIVE_WITH_PARTNER] = {
+    view: 'pages/eligibility/live-with-partner.njk',
+    fieldValidators: liveWithPartnerValidation,
+  };
+
+  pages[waypoints.PARTNER_AGREE] = {
+    view: 'pages/eligibility/partner-agree.njk',
+    fieldValidators: partnerAgreeValidation,
+  };
+
+  pages[waypoints.PARTNER_HOUSING_BENEFIT] = {
+    view: 'pages/eligibility/partner-housing-benefit.njk',
+    fieldValidators: partnerHousingBenefitValidation,
+  };
+
+  pages[waypoints.DONE_PARTNER] = {
+    view: 'pages/eligibility/done-partner.njk',
   };
 
   return pages;
