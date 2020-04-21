@@ -201,7 +201,7 @@ describe('ConfigIngestor', () => {
     expect(ci.SESSION_TTL).to.equal(30);
   });
 
-  it('CONTEXT_PATH should throw a SyntaxError if it does not have leading/trailig slashes', () => {
+  it('CONTEXT_PATH should throw a SyntaxError if it does not have leading/trailing slashes', () => {
     expect(() => ConfigIngestor({
       ...requiredVars,
       CONTEXT_PATH: 'cp',
@@ -237,5 +237,56 @@ describe('ConfigIngestor', () => {
       CONTEXT_PATH: false,
     });
     expect(config.CONTEXT_PATH).to.equal('/');
+  });
+
+  it('CONTEXT_PATH_PROXY should throw a SyntaxError if it does not have leading/trailing slashes', () => {
+    expect(() => ConfigIngestor({
+      ...requiredVars,
+      CONTEXT_PATH_PROXY: 'cp',
+    })).to.throw(SyntaxError, 'CONTEXT_PATH_PROXY must have a leading and trailing slash');
+
+    expect(() => ConfigIngestor({
+      ...requiredVars,
+      CONTEXT_PATH_PROXY: 'cp/',
+    })).to.throw(SyntaxError, 'CONTEXT_PATH_PROXY must have a leading and trailing slash');
+
+    expect(() => ConfigIngestor({
+      ...requiredVars,
+      CONTEXT_PATH_PROXY: '/cp',
+    })).to.throw(SyntaxError, 'CONTEXT_PATH_PROXY must have a leading and trailing slash');
+
+    expect(() => ConfigIngestor({
+      ...requiredVars,
+      CONTEXT_PATH_PROXY: '/cp/',
+    })).to.not.throw();
+  });
+
+  it('CONTEXT_PATH_PROXY should default to match CONTEXT_PATH', () => {
+    let config;
+
+    config = ConfigIngestor({
+      ...requiredVars,
+      CONTEXT_PATH_PROXY: '',
+    });
+    expect(config.CONTEXT_PATH_PROXY).to.equal('/');
+
+    config = ConfigIngestor({
+      ...requiredVars,
+      CONTEXT_PATH_PROXY: false,
+    });
+    expect(config.CONTEXT_PATH_PROXY).to.equal('/');
+
+    config = ConfigIngestor({
+      ...requiredVars,
+      CONTEXT_PATH: '/sample/',
+    });
+    expect(config.CONTEXT_PATH_PROXY).to.equal('/sample/');
+
+    config = ConfigIngestor({
+      ...requiredVars,
+      CONTEXT_PATH: '/sample/',
+      CONTEXT_PATH_PROXY: null,
+    });
+    expect(config.CONTEXT_PATH_PROXY).to.equal('/sample/');
   });
 });

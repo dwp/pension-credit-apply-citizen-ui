@@ -53,6 +53,7 @@ module.exports = (CONFIG, baseLogger) => {
   // Create a new CASA application instance.
   const casaApp = configure(app, {
     mountUrl: CONFIG.CONTEXT_PATH,
+    proxyMountUrl: CONFIG.CONTEXT_PATH_PROXY,
     views: {
       dirs: [
         path.resolve(__dirname, 'views'),
@@ -82,7 +83,7 @@ module.exports = (CONFIG, baseLogger) => {
     mountController: function casaMountController(mountCommonMiddleware) {
       // Add some custom media assets (CSS, JS) to be served from the CASA router.
       // Serve this up before CASA middleware
-      mediaMiddleware(this.expressApp, CONFIG.CONTEXT_PATH, './public/');
+      mediaMiddleware(this.expressApp, CONFIG.CONTEXT_PATH_PROXY, './public/');
       mountCommonMiddleware();
       nonceMiddleware(this.expressApp, CONFIG.ENABLE_CSP);
       idBarMiddleware(this.expressApp);
