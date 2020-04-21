@@ -1,6 +1,7 @@
 .nyc_output/
 .coverage
 akamai-dist/
+graphviz/
 node_modules/
 static/
 dist/

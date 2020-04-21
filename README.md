@@ -173,3 +173,13 @@ npm run build:akamai
 This will generate all artifacts in `akamai-dist/`.
 
 The sources for these artifacts are in `views/akamai/`.
+
+## Generate Plan visualisation
+
+To generate a png representation of the CASA Plan:
+
+```bash
+npm run graphviz
+```
+
+This will generate a `graphviz/graph.png` image.
