@@ -1,0 +1,56 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("partner-nationality:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  <h1 class="govuk-heading-xl">
+    {{ t("partner-nationality:pageTitle") }}
+  </h1>
+
+  {{ casaGovukRadios({
+    name: "partnerRightToReside",
+    fieldset: {
+      legend: {
+        text: t("partner-nationality:field.partnerRightToReside.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      text: t("partner-nationality:field.partnerRightToReside.hint")
+    },
+    items: [{
+      value: "yes",
+      text: t("partner-nationality:field.partnerRightToReside.options.yes")
+    }, {
+      value: "no",
+      text: t("partner-nationality:field.partnerRightToReside.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.partnerRightToReside,
+    casaErrors: formErrors
+  }) }}
+
+  {{ casaGovukRadios({
+    name: "partnerLived2Years",
+    fieldset: {
+      legend: {
+        text: t("partner-nationality:field.partnerLived2Years.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("partner-nationality:field.partnerLived2Years.options.yes")
+    }, {
+      value: "no",
+      text: t("partner-nationality:field.partnerLived2Years.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.partnerLived2Years,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

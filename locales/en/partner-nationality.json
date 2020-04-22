@@ -1,0 +1,22 @@
+{
+  "pageTitle": "Your partner’s nationality",
+  "field": {
+    "partnerRightToReside": {
+      "legend": "Does your partner have the right to live or work in the UK without any immigration restrictions?",
+      "hint": "You have this right if you have a British passport or are a British citizen or British subject with right of abode.",
+      "required": "Select yes if your partner has the right to live or work in the UK without any immigration restrictions.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    },
+    "partnerLived2Years": {
+      "legend": "Has your partner lived permanently in the UK for the last 2 years?",
+      "required": "Select yes if your partner has lived permanently in the Uk for the last 2 years.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    }
+  }
+}
