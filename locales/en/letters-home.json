@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Can we send letters to your home address?",
+  "field": {
+    "sendLettersToHome": {
+      "required": "Select yes if we can send letters to your home address.",
+      "options": {
+        "yes": "Yes",
+        "no": "No - send letters to a different address"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether we can send letters to your home address</span>"
+    }
+  }
+}

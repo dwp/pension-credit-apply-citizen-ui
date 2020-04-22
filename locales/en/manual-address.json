@@ -1,5 +1,6 @@
 {
   "pageTitle": "What is your home address?",
+  "lettersPageTitle": "What is the address we should send letters to?",
   "sponsorPageTitle": "What is your sponsor’s address",
   "partnerSponsorPageTitle": "What is your sponsor’s address",
   "addressLookupFailed": "Address look up failed, enter address manually",

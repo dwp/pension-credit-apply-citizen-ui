@@ -9,6 +9,7 @@ const selectAddressHooks = require('../hooks/common/select-address.js');
 const postcodeValidation = require('../field-validators/common/postcode.js');
 const selectAddressValidation = require('../field-validators/common/select-address.js');
 const manualAddressValidation = require('../field-validators/common/manual-address.js');
+const lettersHomeValidation = require('../field-validators/where-you-live/letters-home.js');
 
 module.exports = (addressServiceFactory, mountUrl) => {
   const pages = Object.create(null);
@@ -42,6 +43,45 @@ module.exports = (addressServiceFactory, mountUrl) => {
       waypoints.WHERE_YOU_LIVE_ADDRESS_POSTCODE_LOOKUP,
       waypoints.WHERE_YOU_LIVE_ADDRESS_HIDDEN,
       waypoints.WHERE_YOU_LIVE_ADDRESS_MANUAL,
+    ),
+  };
+
+  pages[waypoints.LETTERS_HOME] = {
+    view: 'pages/where-you-live/letters-home.njk',
+    fieldValidators: lettersHomeValidation,
+  };
+
+  pages[waypoints.LETTERS_ADDRESS_POSTCODE_LOOKUP] = {
+    view: 'pages/common/postcode.njk',
+    fieldValidators: postcodeValidation,
+    fieldGatherModifiers: {
+      postcode: trimWhitespace,
+    },
+    hooks: postcodeHooks(addressServiceFactory, waypoints.LETTERS_ADDRESS_MANUAL, 'lettersPageTitle'),
+  };
+
+  pages[waypoints.LETTERS_ADDRESS_SELECT] = {
+    view: 'pages/common/select-address.njk',
+    fieldValidators: selectAddressValidation,
+    hooks: selectAddressHooks(
+      waypoints.LETTERS_ADDRESS_POSTCODE_LOOKUP,
+      waypoints.LETTERS_ADDRESS_MANUAL,
+      waypoints.LETTERS_ADDRESS_HIDDEN,
+      waypoints.LETTERS_ADDRESS_SELECT,
+      'lettersPageTitle',
+    ),
+  };
+
+  pages[waypoints.LETTERS_ADDRESS_MANUAL] = {
+    view: 'pages/common/manual-address.njk',
+    fieldValidators: manualAddressValidation,
+    hooks: manualAddressHooks(
+      mountUrl,
+      '',
+      waypoints.LETTERS_ADDRESS_POSTCODE_LOOKUP,
+      waypoints.LETTERS_ADDRESS_HIDDEN,
+      waypoints.LETTERS_ADDRESS_MANUAL,
+      'lettersPageTitle',
     ),
   };
 
