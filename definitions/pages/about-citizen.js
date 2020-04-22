@@ -1,5 +1,6 @@
 const { waypoints } = require('../../lib/constants.js');
 const claimantDetailsValidation = require('../field-validators/about-claimant/claimant-details.js');
+const contactFormatsValidation = require('../field-validators/about-claimant/contact-formats.js');
 const partnerDetailsValidation = require('../field-validators/about-claimant/partner-details.js');
 const partnerNationalityValidation = require('../field-validators/about-claimant/partner-nationality.js');
 const careHomeValidation = require('../field-validators/about-claimant/care-home.js');
@@ -10,6 +11,11 @@ module.exports = () => {
   pages[waypoints.CLAIMANT_DETAILS] = {
     view: 'pages/about-citizen/claimant-details.njk',
     fieldValidators: claimantDetailsValidation,
+  };
+
+  pages[waypoints.CONTACT_FORMATS] = {
+    view: 'pages/about-citizen/contact-formats.njk',
+    fieldValidators: contactFormatsValidation,
   };
 
   pages[waypoints.PARTNER_DETAILS] = {

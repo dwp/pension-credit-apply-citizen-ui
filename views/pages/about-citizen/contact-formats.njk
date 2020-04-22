@@ -1,0 +1,81 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+{% from "casa/components/checkboxes/macro.njk" import casaGovukCheckboxes with context %}
+{% from "casa/components/character-count/macro.njk" import casaGovukCharacterCount with context %}
+
+{% block casaPageTitle %}
+  {{ t("contact-formats:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {% set textPhoneNumber %}
+    {{ casaGovukInput({
+      name: "textPhoneNumber",
+      classes: "govuk-input--width-20",
+      label: {
+        text: t("contact-formats:field.textPhoneNumber.label")
+      },
+      value: formData.textPhoneNumber,
+      casaErrors: formErrors
+    }) }}
+  {% endset %}
+
+  {% set otherDetails %}
+    {{ casaGovukCharacterCount({
+      name: "otherDetails",
+      classes: "govuk-input--width-20",
+      maxlength: 500,
+      label: {
+        text: t("contact-formats:field.otherDetails.label")
+      },
+      value: formData.otherDetails,
+      casaErrors: formErrors
+    }) }}
+  {% endset %}
+
+  {{ casaGovukCheckboxes({
+    name: 'contactFormats',
+    fieldset: {
+      legend: {
+        text: t('contact-formats:pageTitle'),
+        isPageHeading: true,
+        classes: 'govuk-fieldset__legend--xl'
+      }
+    },
+    hint: {
+      text: t('contact-formats:field.contactFormats.hint')
+    },
+    items: [{
+      value: 'audio',
+      text: t('contact-formats:field.contactFormats.options.audio')
+    }, {
+      value: 'braille',
+      text: t('contact-formats:field.contactFormats.options.braille')
+    }, {
+      value: 'largePrint',
+      text: t('contact-formats:field.contactFormats.options.largePrint')
+    }, {
+      value: 'signLanguage',
+      text: t('contact-formats:field.contactFormats.options.signLanguage')
+    }, {
+      value: 'textPhone',
+      text: t('contact-formats:field.contactFormats.options.textPhone'),
+      conditional: {
+        html: textPhoneNumber
+      }
+    }, {
+      value: 'typeTalk',
+      text: t('contact-formats:field.contactFormats.options.typeTalk')
+    }, {
+      value: 'other',
+      text: t('contact-formats:field.contactFormats.options.other'),
+      conditional: {
+        html: otherDetails
+      }
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.contactFormats,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

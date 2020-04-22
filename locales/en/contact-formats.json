@@ -1,0 +1,28 @@
+{
+  "pageTitle": "Do you need us to contact you in any different formats?",
+  "field": {
+    "contactFormats": {
+      "hint": "Select all that apply:",
+      "options": {
+        "audio": "Audio",
+        "braille": "Braille",
+        "largePrint": "Large print",
+        "signLanguage": "Sign language",
+        "textPhone": "TextPhone",
+        "typeTalk": "TypeTalk",
+        "other": "Other"
+      }
+    },
+    "textPhoneNumber": {
+      "label": "What is your textphone number?",
+      "required": "Enter your textphone number.",
+      "length": "Enter your textphone number using 20 characters or less.",
+      "format": "Enter your textphone number using numbers 0 to 9, spaces, hyphens, brackets and dashes."
+    },
+    "otherDetails": {
+      "label": "Tell us any other ways we can help you when we contact you",
+      "required": "Enter any other ways we can help you when we contact you.",
+      "length": "Other ways we can help you when we contact you must be 500 characters or less."
+    }
+  }
+}
