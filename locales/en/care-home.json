@@ -1,0 +1,20 @@
+{
+  "pageTitle": "Do you live permanently in a care home?",
+  "field": {
+    "permanentlyInCareHome": {
+      "required": "Select yes if you live permanently in a care home.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    },
+    "stillOwnsHome": {
+      "legend": "Do you own the property you used to live in?",
+      "required": "Select yes if you own the property you used to live in.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    }
+  }
+}

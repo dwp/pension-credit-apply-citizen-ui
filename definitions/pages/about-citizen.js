@@ -2,6 +2,7 @@ const { waypoints } = require('../../lib/constants.js');
 const claimantDetailsValidation = require('../field-validators/about-claimant/claimant-details.js');
 const partnerDetailsValidation = require('../field-validators/about-claimant/partner-details.js');
 const partnerNationalityValidation = require('../field-validators/about-claimant/partner-nationality.js');
+const careHomeValidation = require('../field-validators/about-claimant/care-home.js');
 
 module.exports = () => {
   const pages = Object.create(null);
@@ -19,6 +20,11 @@ module.exports = () => {
   pages[waypoints.PARTNER_NATIONALITY] = {
     view: 'pages/about-citizen/partner-nationality.njk',
     fieldValidators: partnerNationalityValidation,
+  };
+
+  pages[waypoints.CARE_HOME] = {
+    view: 'pages/about-citizen/care-home.njk',
+    fieldValidators: careHomeValidation,
   };
 
   return pages;

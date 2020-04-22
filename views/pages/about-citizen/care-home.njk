@@ -1,0 +1,55 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("care-home:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {% set stillOwnsHome %}
+    {{ casaGovukRadios({
+      name: "stillOwnsHome",
+      fieldset: {
+        legend: {
+          text: t("care-home:field.stillOwnsHome.legend"),
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+      items: [{
+        value: "yes",
+        text: t("care-home:field.stillOwnsHome.options.yes")
+      }, {
+        value: "no",
+        text: t("care-home:field.stillOwnsHome.options.no")
+      }],
+      casaWithAnalytics: true,
+      casaValue: formData.stillOwnsHome,
+      casaErrors: formErrors
+    }) }}
+  {% endset %}
+
+  {{ casaGovukRadios({
+    name: "permanentlyInCareHome",
+    fieldset: {
+      legend: {
+        text: t("care-home:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("care-home:field.permanentlyInCareHome.options.yes"),
+      conditional: {
+        html: stillOwnsHome
+      }
+    }, {
+      value: "no",
+      text: t("care-home:field.permanentlyInCareHome.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.permanentlyInCareHome,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}
