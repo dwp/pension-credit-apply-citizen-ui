@@ -48,7 +48,7 @@ module.exports = (CONFIG, baseLogger) => {
   // /actuator/health
   // /actuator/info
   // /actuator/metrics
-  app.use(CONFIG.CONTEXT_PATH, actuator(packageMeta, prometheusClient));
+  app.use(CONFIG.CONTEXT_PATH_PROXY, actuator(packageMeta, prometheusClient));
 
   // Create a new CASA application instance.
   const casaApp = configure(app, {
