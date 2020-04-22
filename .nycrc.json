@@ -23,6 +23,10 @@
   ],
   "exclude": [
     "routes/actuator/index.js",
-    "tools/**/*"
+    "tools/**/*",
+    "lib/prometheus-client.js",
+    "routes/actuator/index.js",
+    "routes/submission/*.get.js",
+    "routes/submission/*.post.js"
   ]
 }

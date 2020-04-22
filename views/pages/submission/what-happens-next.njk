@@ -1,0 +1,26 @@
+{% extends "layouts/main.njk" %}
+
+{% from "components/panel/macro.njk" import govukPanel %}
+{% from "components/error-summary/macro.njk" import govukErrorSummary %}
+
+{% block casaPageTitle %}
+  {{ t("what-happens-next:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukPanel({
+        titleText: t("what-happens-next:panelTitle")
+      }) }}
+
+      <h1 class="govuk-heading-l govuk-!-margin-top-8">
+        {{ t("what-happens-next:pageTitle") }}
+      </h1>
+
+      <p class="govuk-body">
+        CONTENT TO GO HERE
+      </p>
+    </div>
+  </div>
+{% endblock %}

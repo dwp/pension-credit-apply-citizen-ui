@@ -95,7 +95,7 @@ describe('ApiHelper', () => {
 
     const result = await apiHelper.send('/test-url');
 
-    expect(result).to.deep.equal({ test: 'body' });
+    expect(result).to.deep.equal({ body: { test: 'body' } });
   });
 
   it('send() should set `user-agent` header of <packageName:version>', async () => {

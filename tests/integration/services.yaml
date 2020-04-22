@@ -21,6 +21,7 @@ services:
       SESSION_COOKIE_NAME: integration-session-id
       SESSION_TTL: 30
       ADDRESSSERVICE_API_ENDPOINT: http://location-service-stub:5000/location-service/api
+      CLAIMSERVICE_API_ENDPOINT: http://apply-claim-service:8110/claim-service/v1
       HTTP_TIMEOUT: 10
       REDIS_HOSTS: secret@redis-single-server:6379
       REDIS_CLUSTER_MODE: "false"
@@ -30,6 +31,17 @@ services:
       USE_TLS: "false"
       TLS_CERT: ""
       TLS_KEY: ""
+
+  # -------------------------------------------------------- Apply Claim service
+  apply-claim-service:
+    image: "${RBAC_ECR_HOST}/pencred/dev/pencred-apply-claim-service:latest"
+    ports:
+      - "8110:8110"
+    environment:
+      CONTEXT_PATH: "/claim-service"
+      PORT: 8110
+    mem_limit: 512mb
+    mem_reservation: 256mb
 
   # ------------------------------------------------------ Location service stub
   location-service-stub:

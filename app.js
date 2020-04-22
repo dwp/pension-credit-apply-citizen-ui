@@ -7,6 +7,7 @@ const { waypoints } = require('./lib/constants.js');
 const prometheusClient = require('./lib/prometheus-client.js');
 const ApiHelperFactory = require('./lib/ApiHelperFactory.js');
 const AddressServiceFactory = require('./lib/AddressServiceFactory.js');
+const ClaimServiceFactory = require('./lib/ClaimServiceFactory.js');
 const getSessionConfig = require('./lib/get-session-config.js');
 const mediaMiddleware = require('./middleware/media.js');
 const nonceMiddleware = require('./middleware/nonce.js');
@@ -18,6 +19,9 @@ const viewFilterFormatMoney = require('./utils/format-money.js');
 const viewFilterFormatNino = require('./utils/format-nino.js');
 const pageDefinitions = require('./definitions/pages.js');
 const journeyPlan = require('./definitions/journey.js');
+const checkYourAnswersGet = require('./routes/submission/check-your-answers.get.js');
+const checkYourAnswersPost = require('./routes/submission/check-your-answers.post.js');
+const whatHappensNextGet = require('./routes/submission/what-happens-next.get.js');
 
 module.exports = (CONFIG, baseLogger) => {
   baseLogger.info(`CACHAIN has ${!CONFIG.CACHAIN ? 'not ' : ''}been found`);
@@ -43,6 +47,24 @@ module.exports = (CONFIG, baseLogger) => {
     keyAlias: CONFIG.REDIS_ENCRYPTION_ALIAS,
     awsEndpointUrl: CONFIG.AWS_KMS_ENDPOINT,
   });
+
+  // Prepare location service client
+  baseLogger.info(`Setting up AddressService client on ${CONFIG.ADDRESSSERVICE_API_ENDPOINT}`);
+  const addressServiceFactory = new AddressServiceFactory(new ApiHelperFactory({
+    prefixUrl: CONFIG.ADDRESSSERVICE_API_ENDPOINT,
+    traceRequestHeaderName: CONFIG.OUTBOUND_TRACE_REQUEST_HEADER_NAME,
+    httpTimeout: CONFIG.HTTP_TIMEOUT,
+    cachain: CONFIG.CACHAIN,
+  }));
+
+  // Prepare claim service client
+  baseLogger.info(`Setting up ClaimService client on ${CONFIG.CLAIMSERVICE_API_ENDPOINT}`);
+  const claimServiceFactory = new ClaimServiceFactory(new ApiHelperFactory({
+    prefixUrl: CONFIG.CLAIMSERVICE_API_ENDPOINT,
+    traceRequestHeaderName: CONFIG.OUTBOUND_TRACE_REQUEST_HEADER_NAME,
+    httpTimeout: CONFIG.HTTP_TIMEOUT,
+    cachain: CONFIG.CACHAIN,
+  }));
 
   // Load the router index controller for the 3 endpoints
   // /actuator/health
@@ -106,13 +128,6 @@ module.exports = (CONFIG, baseLogger) => {
   });
 
   // Prepare page hooks for "Select your address" page
-  const addressServiceFactory = new AddressServiceFactory(new ApiHelperFactory({
-    prefixUrl: CONFIG.ADDRESSSERVICE_API_ENDPOINT,
-    traceRequestHeaderName: CONFIG.OUTBOUND_TRACE_REQUEST_HEADER_NAME,
-    httpTimeout: CONFIG.HTTP_TIMEOUT,
-    cachain: CONFIG.CACHAIN,
-  }));
-
   const appPageDefinitions = pageDefinitions(
     addressServiceFactory,
     casaApp.config.mountUrl,
@@ -122,8 +137,23 @@ module.exports = (CONFIG, baseLogger) => {
   // Load CASA page and user journey definitions
   casaApp.loadDefinitions(appPageDefinitions, appUserJourney);
 
+  // Prepare some CASA page handlers
+  const casaMwPrepare = middleware.pagePrepareRequest(appUserJourney);
+  const casaMwRails = middleware.pageJourneyRails(CONFIG.CONTEXT_PATH_PROXY, appUserJourney);
+
+  // Claim submission handlers
+  const submissionCommonMw = [casaMwPrepare, casaMwRails, middleware.pageCsrf];
+  casaApp.router.get(`/${waypoints.CHECK_YOUR_ANSWERS}`, submissionCommonMw, checkYourAnswersGet);
+  casaApp.router.post(`/${waypoints.CHECK_YOUR_ANSWERS}`, submissionCommonMw, checkYourAnswersPost(
+    claimServiceFactory,
+    CONFIG.HTTP_TIMEOUT,
+    casaApp.endSession,
+    `${CONFIG.CONTEXT_PATH}${waypoints.WHAT_HAPPENS_NEXT}`,
+  ));
+  casaApp.router.get(`/${waypoints.WHAT_HAPPENS_NEXT}`, whatHappensNextGet);
+
   // End of middleware chain with no matching page, render 404 error
-  casaApp.router.get(middleware.pagePrepareRequest(appUserJourney), (req, res) => {
+  casaApp.router.get(casaMwPrepare, (req, res) => {
     req.log.error(`Resource '${req.originalUrl}' not found`);
     res.status(404).render('casa/errors/404.njk');
   });

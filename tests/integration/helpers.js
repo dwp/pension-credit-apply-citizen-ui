@@ -4,6 +4,7 @@ const pwd = __dirname;
 
 const readyChecks = {
   'apply-citizen-ui': (d) => (d.match(/App listening at http/i)),
+  'apply-claim-service': (d) => (d.match(/Tomcat started on port/i)),
   'redis-single-server': (d) => (d.match(/Ready to accept connections/i)),
 };
 

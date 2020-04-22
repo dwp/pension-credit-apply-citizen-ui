@@ -1,0 +1,30 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "components/error-summary/macro.njk" import govukErrorSummary %}
+
+{% block casaPageTitle %}
+  {{ t("check-your-answers:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {% if error %}
+    {{ govukErrorSummary({
+      titleText: t('error:summary.h1'),
+      descriptionText: t(error)
+    }) }}
+  {% endif %}
+
+  <h1 class="govuk-heading-xl">{{ t("check-your-answers:pageTitle") }}</h1>
+
+  <p class="govuk-body">
+    The final Check Your Answers list goes here
+  </p>
+
+  <h2 class="govuk-heading-l">{{ t("check-your-answers:declaration.heading") }}</h2>
+  <ul class="govuk-body">
+    {{ t("check-your-answers:declaration.bullets_html") | safe }}
+  </ul>
+  <p class="govuk-body govuk-!-font-weight-bold">
+    {{ t("check-your-answers:declaration.information") }}
+  </p>
+{% endblock %}

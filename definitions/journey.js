@@ -13,7 +13,7 @@ module.exports = () => {
 
   // Add eligibility routes
   eligibility(plan);
-  dateOfClaim(plan);
+  dateOfClaim(plan, WP.CHECK_YOUR_ANSWERS);
 
   return plan;
 };
