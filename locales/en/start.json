@@ -1,6 +1,11 @@
 {
-  "pageTitle": "Apply for Pension Credit",
-  "startApplication": "Start a Pension Credit application",
-  "20minutes": "This part of your application should take around <strong>20 minutes</strong> depending on your circumstances.",
+  "pageTitle": "Start",
+  "heading": "Apply for Pension Credit",
+  "applyOnline": "If you apply online, we will pay you into the account you get your State Pension paid into. You will be able to change this once you have started receiving your Pension Credit payments.",
+  "weWillUseInformation": "We will use information:",
+  "thatWeAlreadyHave": "that we already have about your State Pension and any benefits you receive",
+  "thatWeGetFromHMRC": "that we get from HMRC about your income and earnings",
+  "completeInOneGo": "You will need to complete your application all in one go. You will not be able to save it and come back later.",
+  "informationSecure": "To keep your information secure, if you do not enter any information for more than 30 minutes, your application will time out and you’ll have to start again.",
   "startNow": "Start now"
 }
