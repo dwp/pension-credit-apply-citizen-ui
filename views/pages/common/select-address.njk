@@ -3,12 +3,12 @@
 {% from "components/select/macro.njk" import govukSelect %}
 
 {% block casaPageTitle %}
-  {{ t('select-address:pageTitle') }} - {{ t('common:serviceName') }}
+  {{ t(pageTitleKey) }} - {{ t('common:serviceName') }}
 {% endblock %}
 
 {% block journey_form %}
   <h1 class="govuk-heading-xl">
-    {{ t('select-address:pageTitle') }}
+    {{ t(pageTitleKey) }}
   </h1>
 
   <dl class="govuk-list contact-numbers govuk-!-margin-bottom-8">

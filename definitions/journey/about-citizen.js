@@ -20,6 +20,11 @@ module.exports = (plan) => {
   plan.setRoute(WP.CONTACT_FORMATS, WP.PARTNER_DETAILS, hasPartner);
   plan.setRoute(WP.CONTACT_FORMATS, WP.CARE_HOME, noPartner);
 
-  // Partner details has it's own linear journey finishing on care home
-  plan.addSequence(WP.PARTNER_DETAILS, WP.PARTNER_NATIONALITY, WP.CARE_HOME);
+  // Partner details has its own linear journey finishing on care home
+  plan.addSequence(
+    WP.PARTNER_DETAILS,
+    WP.PARTNER_NATIONALITY,
+    WP.CARE_HOME,
+    WP.WHERE_YOU_LIVE_ADDRESS_POSTCODE_LOOKUP,
+  );
 };

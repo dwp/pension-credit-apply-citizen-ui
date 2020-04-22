@@ -1,5 +1,6 @@
 {
-  "pageTitle": "Select your address",
+  "pageTitle": "Select your home address",
+  "sponsorPageTitle": "Select your sponsor’s address",
   "postcode": "Postcode:",
   "change": "Change <span class=\"govuk-visually-hidden\">postcode</span>",
   "field": {

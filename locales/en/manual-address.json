@@ -1,7 +1,7 @@
 {
-  "pageTitle": "What is your address?",
-  "sponsorPageTitle": "What is your sponsor‘s address",
-  "partnerSponsorPageTitle": "What is your sponsor‘s address",
+  "pageTitle": "What is your home address?",
+  "sponsorPageTitle": "What is your sponsor’s address",
+  "partnerSponsorPageTitle": "What is your sponsor’s address",
   "addressLookupFailed": "Address look up failed, enter address manually",
   "field": {
     "addressLine1": {
@@ -28,5 +28,5 @@
       "format": "Enter a real postcode."
     }
   },
-  "lookupLinkText": "Use the postcode to find an address" 
+  "lookupLinkText": "Use the postcode to find an address"
 }
