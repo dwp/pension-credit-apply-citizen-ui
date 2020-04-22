@@ -1,0 +1,41 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
+
+{% block casaPageTitle %}
+  {{ t("date-of-claim:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {% set hint %}
+    <p class="govuk-body-l govuk-!-margin-bottom-4">
+      {{ t("date-of-claim:field.dateOfClaim.hint.upTo3Months") }}
+    </p>
+    <p class="govuk-body-m govuk-!-font-weight-bold govuk-!-margin-bottom-2">
+      {{ t("date-of-claim:field.dateOfClaim.hint.changes") }}
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>{{ t("date-of-claim:field.dateOfClaim.hint.reachedSPA") }}</li>
+      <li>{{ t("date-of-claim:field.dateOfClaim.hint.previousClaims") }}</li>
+      <li>{{ t("date-of-claim:field.dateOfClaim.hint.whoYouLiveWith") }}</li>
+      <li>{{ t("date-of-claim:field.dateOfClaim.hint.moneyYouHave") }}</li>
+      <li>{{ t("date-of-claim:field.dateOfClaim.hint.longer4WeeksOutsideUK") }}</li>
+    </ul>
+  {% endset %}
+
+  {{ casaGovukDateInput({
+    namePrefix: "dateOfClaim",
+    fieldset: {
+      legend: {
+        text: t("date-of-claim:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl govuk-!-margin-bottom-6"
+      }
+    },
+    hint: {
+      html: hint
+    },
+    casaErrors: formErrors,
+    casaValue: formData.dateOfClaim
+  }) }}
+{% endblock %}

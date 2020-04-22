@@ -4,6 +4,7 @@
 const { Plan } = require('@dwp/govuk-casa');
 const { waypoints: WP, origins: O } = require('../lib/constants.js');
 const eligibility = require('./journey/eligibility.js');
+const dateOfClaim = require('./journey/date-of-claim.js');
 
 module.exports = () => {
   const plan = new Plan();
@@ -12,6 +13,7 @@ module.exports = () => {
 
   // Add eligibility routes
   eligibility(plan);
+  dateOfClaim(plan);
 
   return plan;
 };

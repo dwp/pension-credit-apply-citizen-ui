@@ -1,5 +1,7 @@
-const eligibilityPages = require('./pages/eligibility.js');
+const eligibility = require('./pages/eligibility.js');
+const dateOfClaim = require('./pages/date-of-claim.js');
 
 module.exports = () => ({
-  ...eligibilityPages(),
+  ...eligibility(),
+  ...dateOfClaim(),
 });
