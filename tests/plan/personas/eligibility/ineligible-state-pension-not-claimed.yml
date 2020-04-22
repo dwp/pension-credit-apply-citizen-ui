@@ -1,0 +1,9 @@
+name: default
+
+journey:
+  start:
+  # ---------------------------------------------------------------- eligibility
+  claimed-state-pension:
+    "no": click()
+
+  state-pension-not-claimed:

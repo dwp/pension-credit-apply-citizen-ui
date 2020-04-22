@@ -1,0 +1,15 @@
+name: default
+
+journey:
+  start:
+  # ---------------------------------------------------------------- eligibility
+  claimed-state-pension:
+    "yes": click()
+
+  children-living-with-you:
+    "no": click()
+
+  live-england-scotland-wales:
+    "no": click()
+
+  do-not-live-uk:

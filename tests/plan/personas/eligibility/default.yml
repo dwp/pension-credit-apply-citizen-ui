@@ -1,0 +1,27 @@
+name: default
+
+journey:
+  start:
+  # ---------------------------------------------------------------- eligibility
+  claimed-state-pension:
+    "yes": click()
+
+  children-living-with-you:
+    "no": click()
+
+  live-england-scotland-wales:
+    "yes": click()
+
+  your-nationality:
+    "rightToResideYes": click()
+    "lived2YearsYes": click()
+
+  date-of-birth:
+    dateOfBirth[dd]: "01"
+    dateOfBirth[mm]: "02"
+    dateOfBirth[yyyy]: "1942"
+
+  live-with-partner:
+    "no": click()
+
+  date-of-claim:

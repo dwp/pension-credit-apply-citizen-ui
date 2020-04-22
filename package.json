@@ -30,6 +30,7 @@
     "test": "npm run test:unit",
     "test:unit": "mocha --exclude 'tests/integration/**/*' --exclude 'tests/plan/**/*' 'tests/**/*.test.js'",
     "test:integration": "mocha 'tests/integration/**/*.test.js'",
+    "test:plan": "mocha 'tests/plan/**/*.test.js'",
     "quality": "npm run quality:coverage",
     "quality:coverage": "nyc mocha --exclude 'tests/integration/**/*.test.js' --exclude 'tests/plan/**/*' 'tests/**/*.test.js'",
     "security": "npm run security:audit && npm run security:outdated",

@@ -1,0 +1,12 @@
+name: default
+
+journey:
+  start:
+  # ---------------------------------------------------------------- eligibility
+  claimed-state-pension:
+    "yes": click()
+
+  children-living-with-you:
+    "yes": click()
+
+  claim-includes-children-living-with-you:

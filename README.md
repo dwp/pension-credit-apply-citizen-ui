@@ -37,12 +37,13 @@ npm run security
 # Run all of the above in one convenient method
 npm run pipeline
 
-# Integration tests (requires Docker)
+# Integration and Plan tests (requires Docker)
 # Requires access to an ECR host housing dependent images
 # Requires npm modules to be pulled from DWP internal registry
 export RBAC_ECR_HOST=<account-id>.dkr.ecr.eu-west-2.amazonaws.com
 export NPM_REGISTRY_URL=$(npm get registry)
 npm run test:integration
+npm run test:plan
 ```
 
 Start the service locally on your machine, using a pre-bundled configuration (in `.env.example`):
