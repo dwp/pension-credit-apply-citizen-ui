@@ -1,0 +1,73 @@
+{
+  "pageTitle": "Your details",
+  "field": {
+    "fullName": {
+      "label": "What is your full name?",
+      "hint": "Include any middle names.",
+      "required": "Enter your full name.",
+      "length": "Full name must be 500 characters or less."
+    },
+    "hasPreviousNames": {
+      "legend": "Have you been known by any previous names?",
+      "hint": "For example, maiden names or previous married names.",
+      "required": "Select yes if you have been known by any previous names.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    },
+    "previousNames": {
+      "label": "What were your previous names?",
+      "required": "Enter your previous names.",
+      "length": "Previous names must be 500 characters or less."
+    },
+    "nino": {
+      "label": "What is your National Insurance number?",
+      "hint": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.",
+      "required": "Enter your National Insurance number.",
+      "format": "Enter your National Insurance number in the correct format."
+    },
+    "contactTelephone": {
+      "label": "What is your contact telephone number?",
+      "length": "Enter your contact telephone number using 20 characters or less.",
+      "format": "Enter your contact telephone number using numbers 0 to 9, spaces, hyphens, brackets and dashes."
+    },
+    "registeredBlind": {
+      "legend": "Are you registered blind or severely sight impaired?",
+      "required": "Select yes if you are registered blind or severely sight impaired.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    },
+    "canSpeakEnglish": {
+      "legend": "Are you able to speak to us in English?",
+      "required": "Select yes if you are able to speak to us in English.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    },
+    "firstLanguage": {
+      "label": "What is your first language?",
+      "required": "Enter your first language.",
+      "length": "Language must be 500 characters or less."
+    },
+    "speakInWelsh": {
+      "legend": "If you live in Wales, do you want to speak to us in Welsh?",
+      "required": "Select yes if you want to speak to us in Welsh.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    },
+    "helpWithLettersPhone": {
+      "legend": "Do you need help with letters or phone calls?",
+      "required": "Select yes if you need help with letters or phone calls.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    }
+  }
+}

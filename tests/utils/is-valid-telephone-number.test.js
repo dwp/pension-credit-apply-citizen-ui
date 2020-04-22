@@ -45,9 +45,9 @@ describe('Utils: is-valid-telephone-number', () => {
       .catch(done);
   });
 
-  it('should resolve if length is 1', (done) => {
+  it('should resolve if length is 0', (done) => {
     const validator = isValidTelephoneNumber({});
-    validator('1')
+    validator('')
       .then(() => done())
       .catch(done);
   });
@@ -59,7 +59,7 @@ describe('Utils: is-valid-telephone-number', () => {
       .catch(done);
   });
 
-  it('should resolve if length is between 1 and 20', (done) => {
+  it('should resolve if length is between 0 and 20', (done) => {
     const validator = isValidTelephoneNumber({});
     validator('1234567890')
       .then(() => done())
@@ -76,13 +76,6 @@ describe('Utils: is-valid-telephone-number', () => {
   it('should reject if value contains any other special characters', (done) => {
     const validator = isValidTelephoneNumber({});
     validator('!@£$%^ 0001010')
-      .then(() => done(RESOLVE_ERR))
-      .catch(() => done());
-  });
-
-  it('should reject if length is 0', (done) => {
-    const validator = isValidTelephoneNumber({});
-    validator('')
       .then(() => done(RESOLVE_ERR))
       .catch(() => done());
   });

@@ -1,0 +1,189 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "casa/components/character-count/macro.njk" import casaGovukCharacterCount with context %}
+
+{% block casaPageTitle %}
+  {{ t("claimant-details:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  <h1 class="govuk-heading-xl">
+    {{ t("claimant-details:pageTitle") }}
+  </h1>
+
+  {{ casaGovukInput({
+    name: "fullName",
+    classes: "govuk-input--width-20",
+    label: {
+      text: t("claimant-details:field.fullName.label"),
+      classes: "govuk-label--m"
+    },
+    hint: {
+      text: t("claimant-details:field.fullName.hint")
+    },
+    value: formData.fullName,
+    casaErrors: formErrors
+  }) }}
+
+  {% set previousNames %}
+    {{ casaGovukCharacterCount({
+      name: "previousNames",
+      maxlength: 500,
+      label: {
+        text: t("claimant-details:field.previousNames.label"),
+        classes: "govuk-label--m"
+      },
+      value: formData.previousNames,
+      casaErrors: formErrors
+    }) }}
+  {% endset %}
+
+  {{ casaGovukRadios({
+    name: "hasPreviousNames",
+    fieldset: {
+      legend: {
+        text: t("claimant-details:field.hasPreviousNames.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      text: t("claimant-details:field.hasPreviousNames.hint")
+    },
+    items: [{
+      value: "yes",
+      text: t("claimant-details:field.hasPreviousNames.options.yes"),
+      conditional: {
+        html: previousNames
+      }
+    }, {
+      value: "no",
+      text: t("claimant-details:field.hasPreviousNames.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.hasPreviousNames,
+    casaErrors: formErrors
+  }) }}
+
+  {{ casaGovukInput({
+    name: "nino",
+    classes: "govuk-input--width-10",
+    label: {
+      text: t("claimant-details:field.nino.label"),
+      classes: "govuk-label--m"
+    },
+    hint: {
+      text: t("claimant-details:field.nino.hint")
+    },
+    value: formData.nino,
+    casaErrors: formErrors
+  }) }}
+
+  {{ casaGovukInput({
+    name: "contactTelephone",
+    classes: "govuk-input--width-10",
+    label: {
+      text: t("claimant-details:field.contactTelephone.label"),
+      classes: "govuk-label--m"
+    },
+    value: formData.contactTelephone,
+    casaErrors: formErrors
+  }) }}
+
+  {{ casaGovukRadios({
+    name: "registeredBlind",
+    fieldset: {
+      legend: {
+        text: t("claimant-details:field.registeredBlind.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("claimant-details:field.registeredBlind.options.yes")
+    }, {
+      value: "no",
+      text: t("claimant-details:field.registeredBlind.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.registeredBlind,
+    casaErrors: formErrors
+  }) }}
+
+  {% set firstLanguage %}
+    {{ casaGovukInput({
+      name: "firstLanguage",
+      classes: "govuk-input--width-20",
+      label: {
+        text: t("claimant-details:field.firstLanguage.label"),
+        classes: "govuk-label--m"
+      },
+      value: formData.firstLanguage,
+      casaErrors: formErrors
+    }) }}
+  {% endset %}
+
+  {{ casaGovukRadios({
+    name: "canSpeakEnglish",
+    fieldset: {
+      legend: {
+        text: t("claimant-details:field.canSpeakEnglish.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("claimant-details:field.canSpeakEnglish.options.yes")
+    }, {
+      value: "no",
+      text: t("claimant-details:field.canSpeakEnglish.options.no"),
+      conditional: {
+        html: firstLanguage
+      }
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.canSpeakEnglish,
+    casaErrors: formErrors
+  }) }}
+
+  {{ casaGovukRadios({
+    name: "speakInWelsh",
+    fieldset: {
+      legend: {
+        text: t("claimant-details:field.speakInWelsh.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("claimant-details:field.speakInWelsh.options.yes")
+    }, {
+      value: "no",
+      text: t("claimant-details:field.speakInWelsh.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.speakInWelsh,
+    casaErrors: formErrors
+  }) }}
+
+  {{ casaGovukRadios({
+    name: "helpWithLettersPhone",
+    fieldset: {
+      legend: {
+        text: t("claimant-details:field.helpWithLettersPhone.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("claimant-details:field.helpWithLettersPhone.options.yes")
+    }, {
+      value: "no",
+      text: t("claimant-details:field.helpWithLettersPhone.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.helpWithLettersPhone,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}
