@@ -1,0 +1,28 @@
+{
+  "pageTitle": "Benefits you have applied for",
+  "field": {
+    "waitingToHearAboutBenefits": {
+      "legendSingle": "Have you applied for any benefits that you are waiting to hear about?",
+      "legendJoint": "Have you or your partner applied for any benefits that you are waiting to hear about?",
+      "required": "Select yes if you have applied for any benefits that you are waiting to hear about.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    },
+    "benefitsDetails": {
+      "label": "Benefits have you applied for",
+      "required": "Enter the benefits that you have applied for.",
+      "length": "Benefits that you have applied for must be less than 500 characters."
+    },
+    "anyoneGetCarers": {
+      "legendSingle": "Does anyone get Carer’s Allowance or the Carer’s Element of Universal Credit for looking after you?",
+      "legendJoint": "Does anyone get Carer’s Allowance or the Carer’s Element of Universal Credit for looking after you or your partner?",
+      "required": "Select yes if anyone gets Carer’s Allowance for looking after you.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    }
+  }
+}

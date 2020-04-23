@@ -1,0 +1,70 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "casa/components/character-count/macro.njk" import casaGovukCharacterCount with context %}
+
+{% block casaPageTitle %}
+  {{ t("benefits:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  <h1 class="govuk-heading-xl">
+    {{ t("benefits:pageTitle") }}
+  </h1>
+
+  {% set benefitsDetails %}
+    {{ casaGovukCharacterCount({
+      name: "benefitsDetails",
+      maxlength: 500,
+      label: {
+        text: t("benefits:field.benefitsDetails.label"),
+        classes: "govuk-label--s"
+      },
+      value: formData.benefitsDetails,
+      casaErrors: formErrors
+    }) }}
+  {% endset %}
+
+  {{ casaGovukRadios({
+    name: "waitingToHearAboutBenefits",
+    fieldset: {
+      legend: {
+        text: t("benefits:field.waitingToHearAboutBenefits.legend" + claimType),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("benefits:field.waitingToHearAboutBenefits.options.yes"),
+      conditional: {
+        html: benefitsDetails
+      }
+    }, {
+      value: "no",
+      text: t("benefits:field.waitingToHearAboutBenefits.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.waitingToHearAboutBenefits,
+    casaErrors: formErrors
+  }) }}
+
+  {{ casaGovukRadios({
+    name: "anyoneGetCarers",
+    fieldset: {
+      legend: {
+        text: t("benefits:field.anyoneGetCarers.legend" + claimType),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("benefits:field.anyoneGetCarers.options.yes")
+    }, {
+      value: "no",
+      text: t("benefits:field.anyoneGetCarers.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.anyoneGetCarers,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}
