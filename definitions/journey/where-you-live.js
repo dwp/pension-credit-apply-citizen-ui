@@ -123,5 +123,6 @@ module.exports = (plan) => {
     WP.SERVICE_CHARGES,
     WP.HOME_LOAN,
     WP.SHARE_RENT_MORTGAGE,
+    WP.PRIVATE_PENSIONS,
   );
 };
