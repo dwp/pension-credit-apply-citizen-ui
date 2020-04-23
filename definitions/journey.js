@@ -21,7 +21,7 @@ module.exports = () => {
   aboutCitizen(plan);
   whereYouLive(plan);
   income(plan);
-  hrtCitizen(plan, WP.SHARE_RENT_MORTGAGE);
+  hrtCitizen(plan, WP.OTHER_INCOME);
   hrtPartner(plan);
 
   return plan;

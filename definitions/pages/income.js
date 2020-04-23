@@ -2,6 +2,7 @@ const { waypoints } = require('../../lib/constants.js');
 const privatePensionsValidation = require('../field-validators/income/private-pensions.js');
 const benefitsValidation = require('../field-validators/income/benefits.js');
 const earningsValidation = require('../field-validators/income/earnings.js');
+const otherIncomeValidation = require('../field-validators/income/other-income.js');
 const jointOrSingleClaim = require('../hooks/common/joint-or-single-claim.js');
 const withDataFromPage = require('../hooks/common/with-data-from-page.js');
 
@@ -33,6 +34,16 @@ module.exports = () => {
         withDataFromPage({
           [waypoints.DATE_OF_CLAIM]: ['dateOfClaim'],
         }),
+      ],
+    },
+  };
+
+  pages[waypoints.OTHER_INCOME] = {
+    view: 'pages/income/other-income.njk',
+    fieldValidators: otherIncomeValidation,
+    hooks: {
+      prerender: [
+        jointOrSingleClaim(waypoints),
       ],
     },
   };

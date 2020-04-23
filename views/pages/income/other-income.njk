@@ -1,0 +1,47 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "casa/components/character-count/macro.njk" import casaGovukCharacterCount with context %}
+
+{% block casaPageTitle %}
+  {{ t("other-income:pageTitle" + claimType) }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {% set otherIncomeDetails %}
+    {{ casaGovukCharacterCount({
+      name: "otherIncomeDetails",
+      maxlength: 500,
+      label: {
+        text: t("other-income:field.otherIncomeDetails.label"),
+        classes: "govuk-label--s"
+      },
+      value: formData.otherIncomeDetails,
+      casaErrors: formErrors
+    }) }}
+  {% endset %}
+
+  {{ casaGovukRadios({
+    name: "hasOtherIncome",
+    fieldset: {
+      legend: {
+        text: t("other-income:pageTitle" + claimType),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("other-income:field.hasOtherIncome.options.yes"),
+      conditional: {
+        html: otherIncomeDetails
+      }
+    }, {
+      value: "no",
+      text: t("other-income:field.hasOtherIncome.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.hasOtherIncome,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}
