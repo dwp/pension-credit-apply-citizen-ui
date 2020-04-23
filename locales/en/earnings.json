@@ -1,0 +1,33 @@
+{
+  "pageTitle": "Earnings",
+  "field": {
+    "hasEmploymentIncome": {
+      "legendSingle": "Do you have any income from employment?",
+      "legendJoint": "Do you or your partner have any income from employment?",
+      "required": "Select yes if you have any income from employment.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    },
+    "employmentIncomeDetails": {
+      "label": "Tell us what this income is, how much you are paid and how often you are paid",
+      "required": "Enter details of what this income from employment is, how much you are paid and how often you are paid.",
+      "length": "Details of what this income from employment is, how much you are paid and how often you are paid must be less than 500 characters."
+    },
+    "hasSelfEmploymentIncome": {
+      "legendSingle": "Do you have any income from self-employment now or in the 3 months before ${dateOfClaim}?",
+      "legendJoint": "Do you or your partner have any income from self-employment now or in the 3 months before ${dateOfClaim}?",
+      "required": "Select yes if you have had any income from self-employment.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    },
+    "selfEmploymentIncomeDetails": {
+      "label": "Tell us what this income is, how much you are paid and how often you are paid",
+      "required": "Enter details of what this income from self-employment is, how much you are paid and how often you are paid.",
+      "length": "Details of what this income from self-employment is, how much you are paid and how often you are paid must be less than 500 characters."
+    }
+  }
+}

@@ -5,5 +5,6 @@ module.exports = (plan) => {
     WP.PRIVATE_PENSIONS,
     WP.BENEFITS,
     WP.EARNINGS,
+    WP.OTHER_INCOME,
   );
 };

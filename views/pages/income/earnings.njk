@@ -1,0 +1,86 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "casa/components/character-count/macro.njk" import casaGovukCharacterCount with context %}
+
+{% block casaPageTitle %}
+  {{ t("earnings:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  <h1 class="govuk-heading-xl">
+    {{ t("earnings:pageTitle") }}
+  </h1>
+
+  {% set employmentIncomeDetails %}
+    {{ casaGovukCharacterCount({
+      name: "employmentIncomeDetails",
+      maxlength: 500,
+      label: {
+        text: t("earnings:field.employmentIncomeDetails.label"),
+        classes: "govuk-label--s"
+      },
+      value: formData.employmentIncomeDetails,
+      casaErrors: formErrors
+    }) }}
+  {% endset %}
+
+  {{ casaGovukRadios({
+    name: "hasEmploymentIncome",
+    fieldset: {
+      legend: {
+        text: t("earnings:field.hasEmploymentIncome.legend" + claimType),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("earnings:field.hasEmploymentIncome.options.yes"),
+      conditional: {
+        html: employmentIncomeDetails
+      }
+    }, {
+      value: "no",
+      text: t("earnings:field.hasEmploymentIncome.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.hasEmploymentIncome,
+    casaErrors: formErrors
+  }) }}
+
+  {% set selfEmploymentIncomeDetails %}
+    {{ casaGovukCharacterCount({
+      name: "selfEmploymentIncomeDetails",
+      maxlength: 500,
+      label: {
+        text: t("earnings:field.selfEmploymentIncomeDetails.label"),
+        classes: "govuk-label--s"
+      },
+      value: formData.selfEmploymentIncomeDetails,
+      casaErrors: formErrors
+    }) }}
+  {% endset %}
+
+  {{ casaGovukRadios({
+    name: "hasSelfEmploymentIncome",
+    fieldset: {
+      legend: {
+        text: t("earnings:field.hasSelfEmploymentIncome.legend" + claimType, { dateOfClaim: dateOfClaim | formatDateObject }),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("earnings:field.hasSelfEmploymentIncome.options.yes"),
+      conditional: {
+        html: selfEmploymentIncomeDetails
+      }
+    }, {
+      value: "no",
+      text: t("earnings:field.hasSelfEmploymentIncome.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.hasSelfEmploymentIncome,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}
