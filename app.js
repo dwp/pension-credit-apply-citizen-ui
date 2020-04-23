@@ -139,7 +139,7 @@ module.exports = (CONFIG, baseLogger) => {
 
   // Prepare some CASA page handlers
   const casaMwPrepare = middleware.pagePrepareRequest(appUserJourney);
-  const casaMwRails = middleware.pageJourneyRails(CONFIG.CONTEXT_PATH_PROXY, appUserJourney);
+  const casaMwRails = middleware.pageJourneyRails(CONFIG.CONTEXT_PATH, appUserJourney);
 
   // Claim submission handlers
   const submissionCommonMw = [casaMwPrepare, casaMwRails, middleware.pageCsrf];
