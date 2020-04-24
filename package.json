@@ -47,7 +47,7 @@
     "url": "git@github.com:dwp/pension-credit-citizen-apply"
   },
   "dependencies": {
-    "@dwp/govuk-casa": "6.2.0",
+    "@dwp/govuk-casa": "6.3.0",
     "connect-redis": "4.0.4",
     "cookie-parser": "1.4.5",
     "dotenv": "8.2.0",
