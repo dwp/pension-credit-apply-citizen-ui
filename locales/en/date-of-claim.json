@@ -12,7 +12,8 @@
         "longer4WeeksOutsideUK": "whether you have spent longer than 4 weeks outside the UK in the period you are claiming for, unless it was connected to medical treatment, convalescence or the death of a partner or child"
       },
       "required": "Enter the date you want your Pension Credit claim to start.",
-      "format": "Date you want your Pension Credit claim to start must be a real date."
+      "format": "Date you want your Pension Credit claim to start must be a real date.",
+      "change": "Change <span class=\"govuk-visually-hidden\">what date do you want your Pension Credit claim to start</span>"
     }
   }
 }

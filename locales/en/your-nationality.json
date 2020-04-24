@@ -8,7 +8,8 @@
       "options": {
         "yes": "Yes",
         "no": "No"
-      }
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you have the right to live or work in the UK without any immigration restrictions</span>"
     },
     "lived2Years": {
       "legend": "Have you lived permanently in the UK for the last 2 years?",
@@ -16,7 +17,8 @@
       "options": {
         "yes": "Yes",
         "no": "No"
-      }
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you have lived permanently in the UK for the last 2 years</span>"
     }
   }
 }

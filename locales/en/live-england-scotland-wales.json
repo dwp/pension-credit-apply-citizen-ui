@@ -6,7 +6,8 @@
       "options": {
         "yes": "Yes",
         "no": "No"
-      }
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you live in England, Scotland or Wales</span>"
     }
   }
 }

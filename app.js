@@ -143,7 +143,9 @@ module.exports = (CONFIG, baseLogger) => {
 
   // Claim submission handlers
   const submissionCommonMw = [casaMwPrepare, casaMwRails, middleware.pageCsrf];
-  casaApp.router.get(`/${waypoints.CHECK_YOUR_ANSWERS}`, submissionCommonMw, checkYourAnswersGet);
+  casaApp.router.get(`/${waypoints.CHECK_YOUR_ANSWERS}`, submissionCommonMw, checkYourAnswersGet(
+    appUserJourney,
+  ));
   casaApp.router.post(`/${waypoints.CHECK_YOUR_ANSWERS}`, submissionCommonMw, checkYourAnswersPost(
     claimServiceFactory,
     CONFIG.HTTP_TIMEOUT,

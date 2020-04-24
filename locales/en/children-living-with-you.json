@@ -7,7 +7,8 @@
       "options": {
         "yes": "Yes",
         "no": "No"
-      }
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether any children or qualifying young people live with you</span>"
     }
   }
 }
