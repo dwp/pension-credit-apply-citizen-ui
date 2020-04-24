@@ -13,6 +13,7 @@ const {
   applyLock,
   submitClaim,
   clearSession,
+  redirectToFinal,
   handleErrors,
 } = proxyquire('../../../routes/submission/check-your-answers.js', {
   '../../lib/build-claim.js': stubBuildClaim,
@@ -147,23 +148,16 @@ describe('submission/check-your-answers', () => {
   /* ----------------------------------------------------------- clearSession */
 
   describe('clearSession', () => {
-    it('should redirect to the final URL on successful clearing', (done) => {
+    it('should call the next middleware on successful clearing', async () => {
       const endSession = sinon.stub().resolves();
-      const finalUrl = 'test-url';
 
       const req = new Request();
       const res = new Response();
-      const spyStatus = sinon.spy(res, 'status');
-      const spyRedirect = sinon.spy(res, 'redirect');
       const next = sinon.stub();
 
-      clearSession(endSession, finalUrl)(req, res, next).then(() => {
-        process.nextTick(() => {
-          expect(spyStatus).to.be.calledOnceWithExactly(302);
-          expect(spyRedirect).to.be.calledOnceWithExactly(finalUrl);
-          done();
-        });
-      }).catch(done);
+      await clearSession(endSession)(req, res, next);
+
+      expect(next).to.be.calledOnceWithExactly();
     });
 
     it('should call the next middleware with an error on unsuccessful clearing', async () => {
@@ -173,9 +167,27 @@ describe('submission/check-your-answers', () => {
       const res = new Response();
       const next = sinon.stub();
 
-      await clearSession(endSession, '')(req, res, next);
+      await clearSession(endSession)(req, res, next);
 
       expect(next).to.be.calledOnceWithExactly(sinon.match({ message: 'test-error' }));
+    });
+  });
+
+  /* -------------------------------------------------------- redirectToFinal */
+
+  describe('redirectToFinal', () => {
+    it('should redirect to the final URL', () => {
+      const finalUrl = 'test-url';
+
+      const req = new Request();
+      const res = new Response();
+      const spyStatus = sinon.spy(res, 'status');
+      const spyRedirect = sinon.spy(res, 'redirect');
+
+      redirectToFinal(finalUrl)(req, res);
+
+      expect(spyStatus).to.be.calledOnceWithExactly(302);
+      expect(spyRedirect).to.be.calledOnceWithExactly(finalUrl);
     });
   });
 

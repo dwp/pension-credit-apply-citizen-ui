@@ -37,16 +37,21 @@ const submitClaim = (claimServiceFactory) => (req, res, next) => {
   req.log.trace('Calling claim service');
   return claimService.submitClaim(claim).then(() => {
     req.log.info('Claim submitted successfully');
-    process.nextTick(next);
+    next();
   }).catch(next);
 };
 
-const clearSession = (endSession, finalUrl) => (req, res, next) => {
+const clearSession = (endSession) => (req, res, next) => {
   req.log.info('Clearing session following successful claim submission');
   return endSession(req).then(() => {
     req.log.info('Session ended successfully');
-    process.nextTick(() => res.status(302).redirect(finalUrl));
+    next();
   }).catch(next);
+};
+
+const redirectToFinal = (finalUrl) => (req, res) => {
+  req.log.info(`Redirecting to final destination, ${finalUrl}`);
+  res.status(302).redirect(finalUrl);
 };
 
 const handleErrors = (err, req, res, next) => { /* eslint-disable-line no-unused-vars */
@@ -73,5 +78,6 @@ module.exports = {
   applyLock,
   submitClaim,
   clearSession,
+  redirectToFinal,
   handleErrors,
 };
