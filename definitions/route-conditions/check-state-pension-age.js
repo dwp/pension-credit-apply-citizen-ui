@@ -29,17 +29,12 @@ const checkStatePensionAge = (waypoint, field, eligible) => {
       const dateOfBirthString = dateObjectToISOString(dateOfBirth);
 
       // Fetch the matching State Pension age for the applicants date of birth
-      const spaFemale = getStatePensionDate(dateOfBirthString, 'female');
-      const spaMale = getStatePensionDate(dateOfBirthString, 'male');
-
-      // Compare State Pension age dates with date of birth to determine eligibility
-      if (compare(spaFemale) && compare(spaMale)) {
-        return true;
-      }
+      const spaDate = getStatePensionDate(dateOfBirthString, 'male');
 
       // Check eligibility for an advanced claim 4 months prior to State Pension
-      const advanced = new Date(spaMale.getFullYear(), spaMale.getMonth() - 4, spaMale.getDate());
+      const advanced = new Date(spaDate.getFullYear(), spaDate.getMonth() - 4, spaDate.getDate());
 
+      // Compare State Pension age dates with date of birth to determine eligibility
       if (compare(advanced)) {
         return true;
       }
