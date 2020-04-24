@@ -1,19 +1,19 @@
 const { waypoints: WP } = require('../../lib/constants.js');
 const { isYes, isNo } = require('../../utils/journey-helpers.js');
-const underSPA = require('../route-conditions/under-spa.js');
+const checkSPA = require('../route-conditions/check-state-pension-age.js');
 
 module.exports = (plan) => {
-  // True if claimant is under State Pension age
-  const claimantUnderSPA = underSPA({ waypoint: WP.DATE_OF_BIRTH, field: 'dateOfBirth' });
-
   // True if claimant is at or over State Pension age
-  const claimantAtOrOverSPA = (r, c) => !claimantUnderSPA(r, c);
+  const claimantAtOrOverSPA = checkSPA(WP.DATE_OF_BIRTH, 'dateOfBirth', true);
 
-  // True if partner is under State Pension age
-  const partnerUnderSPA = underSPA({ waypoint: WP.LIVE_WITH_PARTNER, field: 'partnerDateOfBirth' });
+  // True if claimant is under State Pension age
+  const claimantUnderSPA = checkSPA(WP.DATE_OF_BIRTH, 'dateOfBirth', false);
 
   // True if partner is at or over State Pension age
-  const partnerAtOrOverSPA = (r, c) => !partnerUnderSPA(r, c);
+  const partnerAtOrOverSPA = checkSPA(WP.LIVE_WITH_PARTNER, 'partnerDateOfBirth', true);
+
+  // True if partner is under State Pension age
+  const partnerUnderSPA = checkSPA(WP.LIVE_WITH_PARTNER, 'partnerDateOfBirth', false);
 
   // Start page
   plan.addSequence(WP.START, WP.CLAIMED_STATE_PENSION);
