@@ -11,10 +11,10 @@
 
 const aboutYou = require('./about-you.js');
 const aboutYourPartner = require('./about-your-partner.js');
-const hrtCitizen = require('./hrt-citizen.js');
+const aboutYourResidency = require('./about-your-residency.js');
 
 module.exports = (t, context, traversedWaypoints) => ([
   aboutYou(t, context, traversedWaypoints),
   aboutYourPartner(t, context, traversedWaypoints),
-  hrtCitizen(t, context, traversedWaypoints),
+  aboutYourResidency(t, context, traversedWaypoints),
 ].filter((v) => v));

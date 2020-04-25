@@ -1,0 +1,69 @@
+{
+  "pageTitle": "Your nationality and residence",
+  "field": {
+    "nationality": {
+      "label": "What is your nationality?",
+      "required": "Enter your nationality.",
+      "strlen": "Your nationality must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">your nationality</span>"
+    },
+    "country": {
+      "label": "Which country have you come from?",
+      "required": "Enter the country you have come from.",
+      "strlen": "The country you have come from must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">which country have you come from</span>"
+    },
+    "lastCameToUK": {
+      "legend": "What date did you last come to the UK?",
+      "hint": "For example, 12 11 2007",
+      "required": "Enter the date that you last came to the UK.",
+      "format": "Enter a real date that you last came to the UK.",
+      "future": "Enter a date that you last came to the UK that is in the past.",
+      "change": "Change <span class=\"govuk-visually-hidden\">your partner’s date of birth</span>"
+    },
+    "cameToUkToWork": {
+      "legend": "Did you come to the UK to work?",
+      "required": "Select yes if you came to the UK to work.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you came to the UK to work</span>"
+    },
+    "noRecourseToPublicFunds": {
+      "legend": "Does your passport say you have no recourse to public funds?",
+      "required": "Select yes if your passport says you have no recourse to public funds.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether your passport says you have no recourse to public funds</span>"
+    },
+    "livedInUkBefore": {
+      "legend": "Have you lived in the UK before?",
+      "required": "Select yes if you have lived in the UK before.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you have lived in the UK before</span>"
+    },
+    "lastLeftUK": {
+      "legend": "What date did you last leave the UK?",
+      "hint": "For example, 12 11 2007",
+      "required": "Enter the date that you last left the UK.",
+      "format": "Enter a real date that you last left the UK.",
+      "future": "Enter a date that you last left the UK that is in the past.",
+      "change": "Change <span class=\"govuk-visually-hidden\">what date you last left the UK</span>"
+    },
+    "familyReunionScheme": {
+      "legend": "Have you come to the UK under the Family Reunion Scheme?",
+      "required": "Select yes if you have come to the UK under the Family Reunion Scheme.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you came to the UK under the Family Reunion Scheme</span>"
+    }
+  }
+}

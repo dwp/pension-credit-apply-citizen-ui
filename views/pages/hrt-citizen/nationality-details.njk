@@ -1,0 +1,150 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("nationality-details:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  <h1 class="govuk-heading-xl">
+    {{ t("nationality-details:pageTitle") }}
+  </h1>
+
+  {{ casaGovukInput({
+    name: "nationality",
+    value: formData.nationality,
+    classes: "govuk-input--width-20",
+    label: {
+      text: t('nationality-details:field.nationality.label')
+    },
+    casaErrors: formErrors
+  }) }}
+
+  {{ casaGovukInput({
+    name: "country",
+    value: formData.country,
+    classes: "govuk-input--width-20",
+    label: {
+      text: t('nationality-details:field.country.label')
+    },
+    casaErrors: formErrors
+  }) }}
+
+  {{ casaGovukDateInput({
+    namePrefix: "lastCameToUK",
+    fieldset: {
+      legend: {
+        text: t("nationality-details:field.lastCameToUK.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      text: t("nationality-details:field.lastCameToUK.hint")
+    },
+    casaErrors: formErrors,
+    casaValue: formData.lastCameToUK
+  }) }}
+
+  {{ casaGovukRadios({
+    name: "cameToUkToWork",
+    fieldset: {
+      legend: {
+        text: t("nationality-details:field.cameToUkToWork.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("nationality-details:field.cameToUkToWork.options.yes")
+    }, {
+      value: "no",
+      text: t("nationality-details:field.cameToUkToWork.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.cameToUkToWork,
+    casaErrors: formErrors
+  }) }}
+
+  {{ casaGovukRadios({
+    name: "noRecourseToPublicFunds",
+    fieldset: {
+      legend: {
+        text: t("nationality-details:field.noRecourseToPublicFunds.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("nationality-details:field.noRecourseToPublicFunds.options.yes")
+    }, {
+      value: "no",
+      text: t("nationality-details:field.noRecourseToPublicFunds.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.noRecourseToPublicFunds,
+    casaErrors: formErrors
+  }) }}
+
+  {% set lastLeftUK %}
+    {{ casaGovukDateInput({
+      namePrefix: "lastLeftUK",
+      fieldset: {
+        legend: {
+          text: t("nationality-details:field.lastLeftUK.legend"),
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: t("nationality-details:field.lastLeftUK.hint")
+      },
+      casaErrors: formErrors,
+      casaValue: formData.lastLeftUK
+    }) }}
+  {% endset %}
+
+  {{ casaGovukRadios({
+    name: "livedInUkBefore",
+    fieldset: {
+      legend: {
+        text: t("nationality-details:field.livedInUkBefore.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("nationality-details:field.livedInUkBefore.options.yes"),
+      conditional: {
+        html: lastLeftUK
+      }
+    }, {
+      value: "no",
+      text: t("nationality-details:field.livedInUkBefore.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.livedInUkBefore,
+    casaErrors: formErrors
+  }) }}
+
+  {{ casaGovukRadios({
+    name: "familyReunionScheme",
+    fieldset: {
+      legend: {
+        text: t("nationality-details:field.familyReunionScheme.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("nationality-details:field.familyReunionScheme.options.yes")
+    }, {
+      value: "no",
+      text: t("nationality-details:field.familyReunionScheme.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.familyReunionScheme,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

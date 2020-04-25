@@ -10,6 +10,7 @@ describe('end-to-end', () => {
   const personas = [
     'eligibility/default',
     'hrt-citizen/default',
+    'submission/check-your-answers',
   ];
 
   it('should traverse the default persona correctly', () => testTraversal({
