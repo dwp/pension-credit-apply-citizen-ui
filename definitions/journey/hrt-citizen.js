@@ -10,5 +10,9 @@ module.exports = (plan, START_OF_NEXT_SECTION) => {
   plan.addSequence(WP.HRT_CITIZEN_NATIONALITY_DETAILS, WP.HRT_CITIZEN_UK_SPONSORSHIP);
 
   // uk-sponsorship
-  plan.setRoute(WP.HRT_CITIZEN_UK_SPONSORSHIP, START_OF_NEXT_SECTION);
+  plan.setRoute(WP.HRT_CITIZEN_UK_SPONSORSHIP, WP.HRT_CITIZEN_ASYLUM_SEEKER, isNo('sponsorshipUndertaking'));
+  plan.setRoute(WP.HRT_CITIZEN_UK_SPONSORSHIP, START_OF_NEXT_SECTION, isYes('sponsorshipUndertaking'));
+
+  // asylum-seeker
+  plan.addSequence(WP.HRT_CITIZEN_ASYLUM_SEEKER, START_OF_NEXT_SECTION);
 };

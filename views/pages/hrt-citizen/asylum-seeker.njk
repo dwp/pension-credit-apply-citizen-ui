@@ -1,0 +1,113 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("asylum-seeker:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {% set successfulDecisionDate %}
+    {{ casaGovukDateInput({
+      namePrefix: "successfulDecisionDate",
+      fieldset: {
+        legend: {
+          text: t("asylum-seeker:field.successfulDecisionDate.legend"),
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      casaErrors: formErrors,
+      casaValue: formData.successfulDecisionDate
+    }) }}
+  {% endset %}
+
+  {% set isAsylumSeeker %}
+    {{ casaGovukRadios({
+      name: "asylumBefore3April2000",
+      fieldset: {
+        legend: {
+          text: t("asylum-seeker:field.asylumBefore3April2000.legend"),
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [{
+        value: "yes",
+        text: t("asylum-seeker:field.asylumBefore3April2000.options.yes")
+      }, {
+        value: "no",
+        text: t("asylum-seeker:field.asylumBefore3April2000.options.no")
+      }],
+      casaWithAnalytics: true,
+      casaValue: formData.asylumBefore3April2000,
+      casaErrors: formErrors
+    }) }}
+
+    {{ casaGovukRadios({
+      name: "successfulDecision",
+      fieldset: {
+        legend: {
+          text: t("asylum-seeker:field.successfulDecision.legend"),
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [{
+        value: "yes",
+        text: t("asylum-seeker:field.successfulDecision.options.yes"),
+        conditional: {
+          html: successfulDecisionDate
+        }
+      }, {
+        value: "no",
+        text: t("asylum-seeker:field.successfulDecision.options.no")
+      }],
+      casaWithAnalytics: true,
+      casaValue: formData.successfulDecision,
+      casaErrors: formErrors
+    }) }}
+
+    {{ casaGovukRadios({
+      name: "supportedByHomeOffice",
+      fieldset: {
+        legend: {
+          text: t("asylum-seeker:field.supportedByHomeOffice.legend"),
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [{
+        value: "yes",
+        text: t("asylum-seeker:field.supportedByHomeOffice.options.yes")
+      }, {
+        value: "no",
+        text: t("asylum-seeker:field.supportedByHomeOffice.options.no")
+      }],
+      casaWithAnalytics: true,
+      casaValue: formData.supportedByHomeOffice,
+      casaErrors: formErrors
+    }) }}
+  {% endset %}
+
+  {{ casaGovukRadios({
+    name: "asylumSeeker",
+    fieldset: {
+      legend: {
+        text: t("asylum-seeker:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("asylum-seeker:field.asylumSeeker.options.yes"),
+      conditional: {
+        html: isAsylumSeeker
+      }
+    }, {
+      value: "no",
+      text: t("asylum-seeker:field.asylumSeeker.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.asylumSeeker,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

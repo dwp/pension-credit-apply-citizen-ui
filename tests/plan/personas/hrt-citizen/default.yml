@@ -20,4 +20,13 @@ journey:
     familyReunionSchemeYes: click()
 
   uk-sponsorship:
+    "no": click()
+
+  asylum-seeker:
     "yes": click()
+    asylumBefore3April2000Yes: click()
+    successfulDecisionYes: click()
+    successfulDecisionDate[dd]: "01"
+    successfulDecisionDate[mm]: "02"
+    successfulDecisionDate[yyyy]: "2020"
+    supportedByHomeOfficeYes: click()

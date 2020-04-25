@@ -1,0 +1,46 @@
+{
+  "pageTitle": "Are you an asylum seeker?",
+  "field": {
+    "asylumSeeker": {
+      "required": "Select yes if you are an asylum seeker.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you are an asylum seeker</span>"
+    },
+    "asylumBefore3April2000": {
+      "legend": "Did you first apply for asylum before 3 April 2000?",
+      "required": "Select yes if you first applied for asylum before 3 April 2000.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you first applied for asylum before 3 April 2000</span>"
+    },
+    "successfulDecision": {
+      "legend": "Have you recently had a successful decision on your asylum application?",
+      "required": "Select yes if you have recently had a successful decision on your asylum application.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you have recently had a successful decision on your asylum application</span>"
+    },
+    "successfulDecisionDate": {
+      "legend": "What date did you get a successful decision on your application?",
+      "required": "Enter the date you got a successful decision on your asylum application.",
+      "format": "Enter a real date you got a successful decision on your asylum application.",
+      "change": "Change <span class=\"govuk-visually-hidden\">the date you got a successful decision on your application</span>"
+    },
+    "supportedByHomeOffice": {
+      "legend": "Have you been supported by the Home Office while waiting for a decision on your application?",
+      "required": "Select yes if you have been supported by the Home Office while waiting for a decision on your application.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you have been supported by the Home Office while waiting for a decision on your application</span>"
+    }
+  }
+}

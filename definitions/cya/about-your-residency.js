@@ -9,7 +9,8 @@ module.exports = (t, context, traversed) => {
   }
 
   const rov = radioOptionValue(t, context);
-  const data = context.data['nationality-details'] || {};
+  const nationalityDetails = context.data['nationality-details'] || {};
+  const asylumSeeker = context.data['asylum-seeker'] || {};
 
   /* --------------------------------------------------------- returned-to-uk */
   const returnedToUkRows = [
@@ -30,7 +31,7 @@ module.exports = (t, context, traversed) => {
       changeHref: `${WP.HRT_CITIZEN_NATIONALITY_DETAILS}#f-nationality`,
       changeHtml: t('nationality-details:field.nationality.change'),
       key: t('nationality-details:field.nationality.label'),
-      value: data.nationality,
+      value: nationalityDetails.nationality,
     }),
 
     // Which country have you come from?
@@ -38,7 +39,7 @@ module.exports = (t, context, traversed) => {
       changeHref: `${WP.HRT_CITIZEN_NATIONALITY_DETAILS}#f-country`,
       changeHtml: t('nationality-details:field.country.change'),
       key: t('nationality-details:field.country.label'),
-      value: data.nationality,
+      value: nationalityDetails.nationality,
     }),
 
     // What date did you last come to the UK?
@@ -46,7 +47,7 @@ module.exports = (t, context, traversed) => {
       changeHref: `${WP.HRT_CITIZEN_NATIONALITY_DETAILS}#f-lastCameToUK[dd]`,
       changeHtml: t('nationality-details:field.lastCameToUK.change'),
       key: t('nationality-details:field.lastCameToUK.legend'),
-      value: formatDateObject(data.lastCameToUK),
+      value: formatDateObject(nationalityDetails.lastCameToUK),
     }),
 
     // Did you come to the UK to work?
@@ -74,11 +75,11 @@ module.exports = (t, context, traversed) => {
     }),
 
     // What date did you last leave the UK?
-    data.livedInUkBefore !== 'yes' ? undefined : row({
+    nationalityDetails.livedInUkBefore !== 'yes' ? undefined : row({
       changeHref: `${WP.HRT_CITIZEN_NATIONALITY_DETAILS}#f-lastLeftUK[dd]`,
       changeHtml: t('nationality-details:field.lastLeftUK.change'),
       key: t('nationality-details:field.lastLeftUK.legend'),
-      value: formatDateObject(data.lastLeftUK),
+      value: formatDateObject(nationalityDetails.lastLeftUK),
     }),
 
     // Have you come to the UK under the Family Reunion Scheme?
@@ -100,6 +101,49 @@ module.exports = (t, context, traversed) => {
     }),
   ];
 
+  /* ---------------------------------------------------------- asylum-seeker */
+  const asylumSeekerRows = [
+    // Are you an asylum seeker?
+    row({
+      changeHref: `${WP.HRT_CITIZEN_ASYLUM_SEEKER}#f-asylumSeeker`,
+      changeHtml: t('asylum-seeker:field.asylumSeeker.change'),
+      key: t('asylum-seeker:pageTitle'),
+      value: rov('asylum-seeker.asylumSeeker', 'asylum-seeker:field.asylumSeeker.options'),
+    }),
+
+    // Did you first apply for asylum before 3 April 2000?
+    asylumSeeker.asylumSeeker !== 'yes' ? undefined : row({
+      changeHref: `${WP.HRT_CITIZEN_ASYLUM_SEEKER}#f-asylumBefore3April2000`,
+      changeHtml: t('asylum-seeker:field.asylumBefore3April2000.change'),
+      key: t('asylum-seeker:field.asylumBefore3April2000.legend'),
+      value: rov('asylum-seeker.asylumBefore3April2000', 'asylum-seeker:field.asylumBefore3April2000.options'),
+    }),
+
+    // Have you recently had a successful decision on your asylum application?
+    asylumSeeker.asylumSeeker !== 'yes' ? undefined : row({
+      changeHref: `${WP.HRT_CITIZEN_ASYLUM_SEEKER}#f-successfulDecision`,
+      changeHtml: t('asylum-seeker:field.successfulDecision.change'),
+      key: t('asylum-seeker:field.successfulDecision.legend'),
+      value: rov('asylum-seeker.successfulDecision', 'asylum-seeker:field.successfulDecision.options'),
+    }),
+
+    // What date did you get a successful decision on your application?
+    asylumSeeker.successfulDecision !== 'yes' ? undefined : row({
+      changeHref: `${WP.HRT_CITIZEN_ASYLUM_SEEKER}#f-successfulDecisionDate[dd]`,
+      changeHtml: t('asylum-seeker:field.successfulDecisionDate.change'),
+      key: t('asylum-seeker:field.successfulDecisionDate.legend'),
+      value: formatDateObject(asylumSeeker.successfulDecisionDate),
+    }),
+
+    // Have you been supported by the Home Office while waiting for a decision on your application?
+    asylumSeeker.asylumSeeker !== 'yes' ? undefined : row({
+      changeHref: `${WP.HRT_CITIZEN_ASYLUM_SEEKER}#f-supportedByHomeOffice`,
+      changeHtml: t('asylum-seeker:field.supportedByHomeOffice.change'),
+      key: t('asylum-seeker:field.supportedByHomeOffice.legend'),
+      value: rov('asylum-seeker.supportedByHomeOffice', 'asylum-seeker:field.supportedByHomeOffice.options'),
+    }),
+  ];
+
   /* ------------------------------------------------------------------- Rows */
   return {
     heading: t('check-your-answers:sectionHeading.hrt-citizen'),
@@ -107,6 +151,7 @@ module.exports = (t, context, traversed) => {
       ...returnedToUkRows,
       ...nationalityDetailsRows,
       ...ukSponsorshipRows,
+      ...asylumSeekerRows,
     ],
   };
 };
