@@ -8,5 +8,10 @@
   "error": {
     "submission-locked": "Your claim is still being submitted.",
     "claim-service-failure": "Something went wrong and your claim has not been sent yet. Please try submitting again."
+  },
+  "sectionHeading": {
+    "about-you": "About you",
+    "about-your-partner": "About your partner",
+    "hrt-citizen": "About your residency in the UK"
   }
 }

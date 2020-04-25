@@ -1,0 +1,13 @@
+{
+  "pageTitle": "At any time, have you come to live in the UK or returned to the UK to live from abroad?",
+  "field": {
+    "cameToUk": {
+      "required": "Select yes if you have come to live in the UK or returned to live in the UK from abroad.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you have come to live in the UK or returned to the UK to live from abroad</span>"
+    }
+  }
+}

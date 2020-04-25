@@ -2,11 +2,16 @@ const { row, radioOptionValue } = require('./utils.js');
 const formatDateObject = require('../../utils/format-date-object.js');
 const { waypoints: WP } = require('../../lib/constants.js');
 
-module.exports = (t, context) => {
+module.exports = (t, context, traversedWaypoints) => {
+  // Skip whole section if it was not completed
+  if (!traversedWaypoints.includes(WP.CLAIMED_STATE_PENSION)) {
+    return undefined;
+  }
+
   const rov = radioOptionValue(t, context);
 
   return {
-    heading: t('About You'),
+    heading: t('check-your-answers:sectionHeading.about-you'),
     rows: [
       /* ---------------------------------------------- claimed-state-pension */
       // Have you claimed your State Pension?

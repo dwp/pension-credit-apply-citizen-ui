@@ -11,7 +11,7 @@ module.exports = (t, context, traversedWaypoints) => {
   const rov = radioOptionValue(t, context);
 
   return {
-    heading: t('About Your Partner'),
+    heading: t('check-your-answers:sectionHeading.about-your-partner'),
     rows: [
       /* ------------------------------------------------------ partner-agree */
       // Does your partner agree to you making this application?

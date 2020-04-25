@@ -6,6 +6,7 @@ const { waypoints: WP, origins: O } = require('../lib/constants.js');
 const eligibility = require('./journey/eligibility.js');
 const dateOfClaim = require('./journey/date-of-claim.js');
 const aboutCitizen = require('./journey/about-citizen.js');
+const hrtCitizen = require('./journey/hrt-citizen.js');
 
 module.exports = () => {
   const plan = new Plan();
@@ -15,6 +16,7 @@ module.exports = () => {
   eligibility(plan);
   dateOfClaim(plan);
   aboutCitizen(plan, WP.CHECK_YOUR_ANSWERS);
+  hrtCitizen(plan, WP.CHECK_YOUR_ANSWERS);
 
   return plan;
 };
