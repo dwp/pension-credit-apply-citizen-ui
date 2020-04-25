@@ -2,6 +2,7 @@ const { waypoints } = require('../../lib/constants.js');
 const returnedToUk = require('../field-validators/hrt-citizen/returned-to-uk.js');
 const nationalityDetails = require('../field-validators/hrt-citizen/nationality-details.js');
 const ukSponsorship = require('../field-validators/hrt-citizen/uk-sponsorship.js');
+const sponsorshipDetails = require('../field-validators/hrt-citizen/sponsorship-details.js');
 const asylumSeeker = require('../field-validators/hrt-citizen/asylum-seeker.js');
 
 module.exports = () => {
@@ -20,6 +21,11 @@ module.exports = () => {
   pages[waypoints.HRT_CITIZEN_UK_SPONSORSHIP] = {
     view: 'pages/hrt-citizen/uk-sponsorship.njk',
     fieldValidators: ukSponsorship,
+  };
+
+  pages[waypoints.HRT_CITIZEN_SPONSORSHIP_DETAILS] = {
+    view: 'pages/hrt-citizen/sponsorship-details.njk',
+    fieldValidators: sponsorshipDetails,
   };
 
   pages[waypoints.HRT_CITIZEN_ASYLUM_SEEKER] = {

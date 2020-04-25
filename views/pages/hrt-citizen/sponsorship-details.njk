@@ -1,0 +1,50 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("sponsorship-details:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  <h1 class="govuk-heading-xl">
+    {{ t("sponsorship-details:pageTitle") }}
+  </h1>
+
+  {{ casaGovukInput({
+    name: "sponsorName",
+    value: formData.sponsorName,
+    classes: "govuk-input--width-20",
+    label: {
+      text: t('sponsorship-details:field.sponsorName.label')
+    },
+    casaErrors: formErrors
+  }) }}
+
+  {{ casaGovukInput({
+    name: "homeOfficeReference",
+    value: formData.homeOfficeReference,
+    classes: "govuk-input--width-20",
+    label: {
+      text: t('sponsorship-details:field.homeOfficeReference.label')
+    },
+    casaErrors: formErrors
+  }) }}
+
+  {{ casaGovukDateInput({
+    namePrefix: "sponsorshipUndertakingSigned",
+    fieldset: {
+      legend: {
+        text: t("sponsorship-details:field.sponsorshipUndertakingSigned.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      text: t("sponsorship-details:field.sponsorshipUndertakingSigned.hint")
+    },
+    casaErrors: formErrors,
+    casaValue: formData.sponsorshipUndertakingSigned
+  }) }}
+{% endblock %}

@@ -10,6 +10,7 @@ module.exports = (t, context, traversed) => {
 
   const rov = radioOptionValue(t, context);
   const nationalityDetails = context.data['nationality-details'] || {};
+  const sponsorshipDetails = context.data['sponsorship-details'] || {};
   const asylumSeeker = context.data['asylum-seeker'] || {};
 
   /* --------------------------------------------------------- returned-to-uk */
@@ -101,6 +102,30 @@ module.exports = (t, context, traversed) => {
     }),
   ];
 
+  /* ---------------------------------------------------- sponsorship-details */
+  const sponsorshipDetailsRows = !traversed.includes(WP.HRT_CITIZEN_SPONSORSHIP_DETAILS) ? [] : [
+    row({
+      changeHref: `${WP.HRT_CITIZEN_SPONSORSHIP_DETAILS}#f-sponsorName`,
+      changeHtml: t('sponsorship-details:field.sponsorName.change'),
+      key: t('sponsorship-details:field.sponsorName.label'),
+      value: sponsorshipDetails.sponsorName,
+    }),
+
+    row({
+      changeHref: `${WP.HRT_CITIZEN_SPONSORSHIP_DETAILS}#f-homeOfficeReference`,
+      changeHtml: t('sponsorship-details:field.homeOfficeReference.change'),
+      key: t('sponsorship-details:field.homeOfficeReference.label'),
+      value: sponsorshipDetails.homeOfficeReference,
+    }),
+
+    row({
+      changeHref: `${WP.HRT_CITIZEN_SPONSORSHIP_DETAILS}#f-sponsorshipUndertakingSigned[dd]`,
+      changeHtml: t('sponsorship-details:field.sponsorshipUndertakingSigned.change'),
+      key: t('sponsorship-details:field.sponsorshipUndertakingSigned.legend'),
+      value: formatDateObject(sponsorshipDetails.sponsorshipUndertakingSigned),
+    }),
+  ];
+
   /* ---------------------------------------------------------- asylum-seeker */
   const asylumSeekerRows = [
     // Are you an asylum seeker?
@@ -151,6 +176,7 @@ module.exports = (t, context, traversed) => {
       ...returnedToUkRows,
       ...nationalityDetailsRows,
       ...ukSponsorshipRows,
+      ...sponsorshipDetailsRows,
       ...asylumSeekerRows,
     ],
   };

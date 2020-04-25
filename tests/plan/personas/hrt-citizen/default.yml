@@ -20,7 +20,14 @@ journey:
     familyReunionSchemeYes: click()
 
   uk-sponsorship:
-    "no": click()
+    "yes": click()
+  
+  sponsorship-details:
+    sponsorName: "John Doe"
+    homeOfficeReference: "HO REF 123"
+    sponsorshipUndertakingSigned[dd]: "12"
+    sponsorshipUndertakingSigned[mm]: "03"
+    sponsorshipUndertakingSigned[yyyy]: "2003"
 
   asylum-seeker:
     "yes": click()
