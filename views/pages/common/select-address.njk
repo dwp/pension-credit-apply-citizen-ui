@@ -1,0 +1,41 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "components/select/macro.njk" import govukSelect %}
+
+{% block casaPageTitle %}
+  {{ t('select-address:pageTitle') }} - {{ t('common:serviceName') }}
+{% endblock %}
+
+{% block journey_form %}
+  <h1 class="govuk-heading-xl">
+    {{ t('select-address:pageTitle') }}
+  </h1>
+
+  <dl class="govuk-list contact-numbers govuk-!-margin-bottom-8">
+    <dt>{{ t('select-address:postcode') }}</dt>
+    <dd>{{ postcode }}</dd>
+    <dd>
+      <a class="govuk-link" href="{{ changePostcodeUrl }}">
+        {{ t('select-address:change') | safe }}
+      </a>
+    </dd>
+  </dl>
+
+  {{ govukSelect({
+    id: "f-uprn",
+    name: "uprn",
+    label: {
+      text: t('select-address:field.address.label')
+    },
+    items: addresses,
+    errorMessage: {
+      text: t(formErrors.uprn[0].inline)
+    } if formErrors.uprn.length
+  }) }}
+
+  <p class="govuk-body govuk-!-margin-bottom-7">
+    <a class="govuk-link" href="{{ manualAddressUrl }}">
+      {{ t('postcode:enterManually') }}
+    </a>
+  </p>
+{% endblock %}

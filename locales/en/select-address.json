@@ -1,0 +1,12 @@
+{
+  "pageTitle": "Select your address",
+  "postcode": "Postcode:",
+  "change": "Change <span class=\"govuk-visually-hidden\">postcode</span>",
+  "field": {
+    "address": {
+      "label": "Select an address",
+      "required": "Select an address or enter it manually.",
+      "addressFound": "%s addresses found"
+    }
+  }
+}

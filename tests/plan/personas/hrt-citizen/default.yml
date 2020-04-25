@@ -28,6 +28,16 @@ journey:
     sponsorshipUndertakingSigned[dd]: "12"
     sponsorshipUndertakingSigned[mm]: "03"
     sponsorshipUndertakingSigned[yyyy]: "2003"
+  
+  sponsor-address-postcode-lookup:
+    enterManualLink: click()
+  
+  sponsor-address-manual:
+    addressLine1: "Address 1"
+    addressLine2: "Address 1"
+    town: "Address 1"
+    county: "Address 1"
+    postcode: "AA1 1AA"
 
   asylum-seeker:
     "yes": click()

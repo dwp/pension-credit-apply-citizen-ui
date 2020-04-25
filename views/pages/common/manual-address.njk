@@ -1,0 +1,77 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+{% from "components/fieldset/macro.njk" import govukFieldset %}
+
+{% block casaPageTitle %}
+  {{ t(pageTitleKey) }} - {{ t('common:serviceName') }}
+{% endblock %}
+
+{% block journey_form %}
+  {% call govukFieldset({
+    legend: {
+      text: t(pageTitleKey),
+      classes: "govuk-fieldset__legend--xl",
+      isPageHeading: true
+    }
+  }) %}
+    {% if addressLookupFailed %}
+      <p class="govuk-body">
+        {{ t('manual-address:addressLookupFailed') }}
+      </p>
+    {% endif %}
+    {{ casaGovukInput({
+      value: formData.addressLine1,
+      label: {
+        html: t('manual-address:field.addressLine1.label')
+      },
+      name: "addressLine1",
+      casaErrors: formErrors
+    }) }}
+
+    {{ casaGovukInput({
+      value: formData.addressLine2,
+      label: {
+        html: t('manual-address:field.addressLine2.label')
+      },
+      name: "addressLine2",
+      casaErrors: formErrors
+    }) }}
+
+    {{ casaGovukInput({
+      value: formData.town,
+      label: {
+        text: t('manual-address:field.town.label')
+      },
+      classes: "govuk-!-width-two-thirds",
+      name: "town",
+      casaErrors: formErrors
+    }) }}
+
+    {{ casaGovukInput({
+      value: formData.county,
+      label: {
+        text: t('manual-address:field.county.label')
+      },
+      classes: "govuk-!-width-two-thirds",
+      name: "county",
+      casaErrors: formErrors
+    }) }}
+
+    {{ casaGovukInput({
+      value: formData.postcode,
+      label: {
+        text: t('manual-address:field.postcode.label')
+      },
+      classes: "govuk-input--width-10",
+      name: "postcode",
+      casaErrors: formErrors
+    }) }}
+  {% endcall %}
+{% endblock %}
+
+{% block journey_form_footer %}
+  <p class="govuk-body govuk-!-margin-bottom-7">
+    <a class="govuk-link" href="{{ manualUrl }}">{{ t('manual-address:lookupLinkText') }}</a>
+  </p>
+{% endblock %}

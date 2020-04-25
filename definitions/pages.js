@@ -3,9 +3,9 @@ const dateOfClaim = require('./pages/date-of-claim.js');
 const aboutCitizen = require('./pages/about-citizen.js');
 const hrtCitizen = require('./pages/hrt-citizen.js');
 
-module.exports = () => ({
+module.exports = (addressServiceFactory, mountUrl) => ({
   ...eligibility(),
   ...dateOfClaim(),
   ...aboutCitizen(),
-  ...hrtCitizen(),
+  ...hrtCitizen(addressServiceFactory, mountUrl),
 });

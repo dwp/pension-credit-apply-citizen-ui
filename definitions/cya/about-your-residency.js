@@ -1,5 +1,7 @@
+const { lib: nunjucksLib } = require('nunjucks');
 const { row, radioOptionValue } = require('./utils.js');
 const formatDateObject = require('../../utils/format-date-object.js');
+const formatPostcode = require('../../utils/format-postcode.js');
 const { waypoints: WP } = require('../../lib/constants.js');
 
 module.exports = (t, context, traversed) => {
@@ -126,6 +128,36 @@ module.exports = (t, context, traversed) => {
     }),
   ];
 
+  /* ------------------------------------------------------ sponsor-address-* */
+  let sponsorAddressRows = [];
+
+  if (traversed.includes(WP.HRT_CITIZEN_SPONSOR_ADDRESS_POSTCODE_LOOKUP)) {
+    const hiddenAddress = context.getDataForPage(WP.HRT_CITIZEN_SPONSOR_ADDRESS_HIDDEN) || {};
+    let formattedAddress = '';
+    let changeHref = `${WP.HRT_CITIZEN_SPONSOR_ADDRESS_POSTCODE_LOOKUP}#f-postcode`;
+
+    if (hiddenAddress) {
+      const { address } = hiddenAddress;
+      formattedAddress = Object.values({
+        ...address,
+        postcode: formatPostcode(address.postcode),
+      }).filter((v) => v).map(nunjucksLib.escape).join('<br/>');
+
+      if (hiddenAddress.addressFrom === 'manual') {
+        changeHref = `${WP.HRT_CITIZEN_SPONSOR_ADDRESS_MANUAL}#f-addressLine1`;
+      }
+    }
+
+    sponsorAddressRows = [
+      row({
+        changeHref,
+        changeHtml: t('check-your-answers:sponsorAddress.change'),
+        key: t('check-your-answers:sponsorAddress.label'),
+        valueHtml: formattedAddress,
+      }),
+    ];
+  }
+
   /* ---------------------------------------------------------- asylum-seeker */
   const asylumSeekerRows = [
     // Are you an asylum seeker?
@@ -177,6 +209,7 @@ module.exports = (t, context, traversed) => {
       ...nationalityDetailsRows,
       ...ukSponsorshipRows,
       ...sponsorshipDetailsRows,
+      ...sponsorAddressRows,
       ...asylumSeekerRows,
     ],
   };

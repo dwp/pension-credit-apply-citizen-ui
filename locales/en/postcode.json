@@ -1,0 +1,14 @@
+{
+  "pageTitle": "What is your home postcode?",
+  "sponsorPageTitle": "What is your sponsor's home postcode?",
+  "field": {
+    "postcode": {
+      "label": "Postcode",
+      "required": "Enter a postcode.",
+      "format": "Enter a real postcode.",
+      "noAddresses": "We could not find this postcode. Try again or enter your address manually."
+    }
+  },
+  "submit": "Find address",
+  "enterManually": "Enter your address manually"
+}

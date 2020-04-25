@@ -1,5 +1,5 @@
 function row({
-  changeHref, changeHtml, key, value,
+  changeHref, changeHtml, key, value, valueHtml,
 }) {
   return {
     key: {
@@ -7,7 +7,7 @@ function row({
       classes: 'govuk-!-width-one-half',
     },
     value: {
-      text: value,
+      [valueHtml ? 'html' : 'text']: valueHtml || value,
     },
     actions: !changeHref ? {} : {
       items: [{

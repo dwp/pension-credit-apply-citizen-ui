@@ -13,5 +13,9 @@
     "about-you": "About you",
     "about-your-partner": "About your partner",
     "hrt-citizen": "About your residency in the UK"
+  },
+  "sponsorAddress": {
+    "label": "Your sponsor's address",
+    "change": "Change <span class=\"govuk-visually-hidden\">your sponsor's address</span>"
   }
 }
