@@ -90,12 +90,23 @@ module.exports = (t, context, traversed) => {
     }),
   ];
 
+  /* --------------------------------------------------------- uk-sponsorship */
+  const ukSponsorshipRows = [
+    row({
+      changeHref: `${WP.HRT_CITIZEN_UK_SPONSORSHIP}#f-sponsorshipUndertaking`,
+      changeHtml: t('uk-sponsorship:field.sponsorshipUndertaking.change'),
+      key: t('uk-sponsorship:pageTitle'),
+      value: rov('uk-sponsorship.sponsorshipUndertaking', 'uk-sponsorship:field.sponsorshipUndertaking.options'),
+    }),
+  ];
+
   /* ------------------------------------------------------------------- Rows */
   return {
     heading: t('check-your-answers:sectionHeading.hrt-citizen'),
     rows: [
       ...returnedToUkRows,
       ...nationalityDetailsRows,
+      ...ukSponsorshipRows,
     ],
   };
 };

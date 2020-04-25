@@ -1,0 +1,30 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("uk-sponsorship:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukRadios({
+    name: "sponsorshipUndertaking",
+    fieldset: {
+      legend: {
+        text: t("uk-sponsorship:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("uk-sponsorship:field.sponsorshipUndertaking.options.yes")
+    }, {
+      value: "no",
+      text: t("uk-sponsorship:field.sponsorshipUndertaking.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.sponsorshipUndertaking,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

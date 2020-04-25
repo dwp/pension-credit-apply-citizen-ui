@@ -18,3 +18,6 @@ journey:
     lastLeftUK[mm]: "10"
     lastLeftUK[yyyy]: "2010"
     familyReunionSchemeYes: click()
+
+  uk-sponsorship:
+    "yes": click()
