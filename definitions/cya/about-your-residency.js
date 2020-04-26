@@ -1,12 +1,13 @@
+/* eslint-disable max-len */
 const { lib: nunjucksLib } = require('nunjucks');
 const { row, radioOptionValue } = require('./utils.js');
 const formatDateObject = require('../../utils/format-date-object.js');
 const formatPostcode = require('../../utils/format-postcode.js');
 const { waypoints: WP } = require('../../lib/constants.js');
 
-module.exports = (t, context, traversed) => {
+module.exports = (t, context, claim) => {
   // Skip whole section if claimant does not need to go through the HRT questions
-  if (!traversed.includes(WP.HRT_CITIZEN_RETURNED_TO_UK)) {
+  if (!claim.citizenHRTRequired()) {
     return undefined;
   }
 
@@ -27,7 +28,7 @@ module.exports = (t, context, traversed) => {
   ];
 
   /* ---------------------------------------------------- nationality-details */
-  const nationalityDetailsRows = !traversed.includes(WP.HRT_CITIZEN_NATIONALITY_DETAILS) ? [] : [
+  const nationalityDetailsRows = !claim.citizenNationalityDetailsTaken() ? [] : [
 
     // What is your nationality?
     row({
@@ -42,7 +43,7 @@ module.exports = (t, context, traversed) => {
       changeHref: `${WP.HRT_CITIZEN_NATIONALITY_DETAILS}#f-country`,
       changeHtml: t('nationality-details:field.country.change'),
       key: t('nationality-details:field.country.label'),
-      value: nationalityDetails.nationality,
+      value: nationalityDetails.country,
     }),
 
     // What date did you last come to the UK?
@@ -105,7 +106,7 @@ module.exports = (t, context, traversed) => {
   ];
 
   /* ---------------------------------------------------- sponsorship-details */
-  const sponsorshipDetailsRows = !traversed.includes(WP.HRT_CITIZEN_SPONSORSHIP_DETAILS) ? [] : [
+  const sponsorshipDetailsRows = !claim.citizenHasHRTSponsor() ? [] : [
     row({
       changeHref: `${WP.HRT_CITIZEN_SPONSORSHIP_DETAILS}#f-sponsorName`,
       changeHtml: t('sponsorship-details:field.sponsorName.change'),
@@ -128,10 +129,10 @@ module.exports = (t, context, traversed) => {
     }),
   ];
 
-  /* ------------------------------------------------------ sponsor-address-* */
+  /* -------------------------------------------------------- sponsor-address */
   let sponsorAddressRows = [];
 
-  if (traversed.includes(WP.HRT_CITIZEN_SPONSOR_ADDRESS_POSTCODE_LOOKUP)) {
+  if (claim.citizenHasHRTSponsor()) {
     const hiddenAddress = context.getDataForPage(WP.HRT_CITIZEN_SPONSOR_ADDRESS_HIDDEN) || {};
     let formattedAddress = '';
     let changeHref = `${WP.HRT_CITIZEN_SPONSOR_ADDRESS_POSTCODE_LOOKUP}#f-postcode`;
@@ -169,7 +170,7 @@ module.exports = (t, context, traversed) => {
     }),
 
     // Did you first apply for asylum before 3 April 2000?
-    asylumSeeker.asylumSeeker !== 'yes' ? undefined : row({
+    !claim.citizenIsAsylumSeeker() ? undefined : row({
       changeHref: `${WP.HRT_CITIZEN_ASYLUM_SEEKER}#f-asylumBefore3April2000`,
       changeHtml: t('asylum-seeker:field.asylumBefore3April2000.change'),
       key: t('asylum-seeker:field.asylumBefore3April2000.legend'),
@@ -177,7 +178,7 @@ module.exports = (t, context, traversed) => {
     }),
 
     // Have you recently had a successful decision on your asylum application?
-    asylumSeeker.asylumSeeker !== 'yes' ? undefined : row({
+    !claim.citizenIsAsylumSeeker() ? undefined : row({
       changeHref: `${WP.HRT_CITIZEN_ASYLUM_SEEKER}#f-successfulDecision`,
       changeHtml: t('asylum-seeker:field.successfulDecision.change'),
       key: t('asylum-seeker:field.successfulDecision.legend'),
@@ -185,7 +186,7 @@ module.exports = (t, context, traversed) => {
     }),
 
     // What date did you get a successful decision on your application?
-    asylumSeeker.successfulDecision !== 'yes' ? undefined : row({
+    !claim.citizenIsAsylumSeeker() || !claim.habitualResidencyTest.successfulDecision ? undefined : row({
       changeHref: `${WP.HRT_CITIZEN_ASYLUM_SEEKER}#f-successfulDecisionDate[dd]`,
       changeHtml: t('asylum-seeker:field.successfulDecisionDate.change'),
       key: t('asylum-seeker:field.successfulDecisionDate.legend'),
@@ -193,7 +194,7 @@ module.exports = (t, context, traversed) => {
     }),
 
     // Have you been supported by the Home Office while waiting for a decision on your application?
-    asylumSeeker.asylumSeeker !== 'yes' ? undefined : row({
+    !claim.citizenIsAsylumSeeker() ? undefined : row({
       changeHref: `${WP.HRT_CITIZEN_ASYLUM_SEEKER}#f-supportedByHomeOffice`,
       changeHtml: t('asylum-seeker:field.supportedByHomeOffice.change'),
       key: t('asylum-seeker:field.supportedByHomeOffice.legend'),

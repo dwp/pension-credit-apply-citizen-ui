@@ -1,12 +1,18 @@
 const buildClaim = require('../../lib/build-claim.js');
+const buildCya = require('../../definitions/cya/index.js');
 
-const checkLock = (req, res, next) => {
+const checkLock = (plan) => (req, res, next) => {
   // If another submission is currently under way, ask the user to wait
   const now = (new Date()).getTime();
   if (req.session.submissionLock && req.session.submissionLock > now) {
     req.log.info(`Submission lock present (expires ${(new Date(req.session.submissionLock)).toISOString()})`);
     res.render('pages/submission/check-your-answers.njk', {
       error: 'check-your-answers:error.submission-locked',
+      sections: buildCya(
+        res.locals.t,
+        req.casa.journeyContext,
+        buildClaim(plan, req.casa.journeyContext),
+      ),
     });
   } else {
     req.log.info('Submission lock is not present');

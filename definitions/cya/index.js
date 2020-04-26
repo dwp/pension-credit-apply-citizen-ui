@@ -13,8 +13,8 @@ const aboutYou = require('./about-you.js');
 const aboutYourPartner = require('./about-your-partner.js');
 const aboutYourResidency = require('./about-your-residency.js');
 
-module.exports = (t, context, traversedWaypoints) => ([
-  aboutYou(t, context, traversedWaypoints),
-  aboutYourPartner(t, context, traversedWaypoints),
-  aboutYourResidency(t, context, traversedWaypoints),
+module.exports = (t, context, claim) => ([
+  aboutYou(t, context, claim),
+  aboutYourPartner(t, context, claim),
+  aboutYourResidency(t, context, claim),
 ].filter((v) => v));

@@ -2,9 +2,9 @@ const { row, radioOptionValue } = require('./utils.js');
 const formatDateObject = require('../../utils/format-date-object.js');
 const { waypoints: WP } = require('../../lib/constants.js');
 
-module.exports = (t, context, traversedWaypoints) => {
+module.exports = (t, context, claim) => {
   // Skip whole section if claimant does not have a partner
-  if (!traversedWaypoints.includes(WP.PARTNER_AGREE)) {
+  if (!claim.hasPartner()) {
     return undefined;
   }
 
@@ -32,7 +32,7 @@ module.exports = (t, context, traversedWaypoints) => {
 
       /* -------------------------------------------- partner-housing-benefit */
       // Does your partner get pension age Housing Benefit?
-      !traversedWaypoints.includes(WP.PARTNER_HOUSING_BENEFIT) ? undefined : row({
+      !claim.eligibility.partnerPensionAgeHousingBenefit ? undefined : row({
         changeHref: `${WP.PARTNER_HOUSING_BENEFIT}#f-partnerGetsHousingBenefit`,
         changeHtml: t('partner-housing-benefit:field.partnerGetsHousingBenefit.change'),
         key: t('partner-housing-benefit:pageTitle'),

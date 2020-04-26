@@ -7,6 +7,7 @@ const Response = require('../../helpers/fake-response.js');
 
 const { expect } = chai;
 const stubBuildClaim = sinon.stub().returns({});
+const stubBuildCya = sinon.stub().returns([]);
 
 const {
   checkLock,
@@ -17,6 +18,7 @@ const {
   handleErrors,
 } = proxyquire('../../../routes/submission/check-your-answers.js', {
   '../../lib/build-claim.js': stubBuildClaim,
+  '../../definitions/cya/index.js': stubBuildCya,
 });
 
 describe('submission/check-your-answers', () => {
@@ -28,7 +30,7 @@ describe('submission/check-your-answers', () => {
       const res = new Response();
       const next = sinon.stub();
 
-      checkLock(req, res, next);
+      checkLock({})(req, res, next);
 
       expect(next).to.be.calledOnceWithExactly();
     });
@@ -39,7 +41,7 @@ describe('submission/check-your-answers', () => {
       const res = new Response();
       const next = sinon.stub();
 
-      checkLock(req, res, next);
+      checkLock({})(req, res, next);
 
       expect(next).to.be.calledOnceWithExactly();
     });
@@ -50,11 +52,9 @@ describe('submission/check-your-answers', () => {
       const res = new Response();
       const renderSpy = sinon.spy(res, 'render');
 
-      checkLock(req, res, () => {});
+      checkLock({})(req, res, () => {});
 
-      expect(renderSpy).to.be.calledOnceWithExactly('pages/submission/check-your-answers.njk', {
-        error: 'check-your-answers:error.submission-locked',
-      });
+      expect(renderSpy).to.be.calledWith('pages/submission/check-your-answers.njk', sinon.match.has('error', 'check-your-answers:error.submission-locked'));
     });
   });
 

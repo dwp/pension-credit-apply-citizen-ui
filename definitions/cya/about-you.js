@@ -2,9 +2,9 @@ const { row, radioOptionValue } = require('./utils.js');
 const formatDateObject = require('../../utils/format-date-object.js');
 const { waypoints: WP } = require('../../lib/constants.js');
 
-module.exports = (t, context, traversedWaypoints) => {
+module.exports = (t, context, claim) => {
   // Skip whole section if it was not completed
-  if (!traversedWaypoints.includes(WP.CLAIMED_STATE_PENSION)) {
+  if (claim.eligibility === undefined) {
     return undefined;
   }
 

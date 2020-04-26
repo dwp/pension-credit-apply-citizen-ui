@@ -8,7 +8,7 @@ const {
 } = require('./check-your-answers.js');
 
 module.exports = (plan, claimServiceFactory, httpTimeout, endSession, finalUrl) => ([
-  checkLock,
+  checkLock(plan),
   applyLock(httpTimeout),
   submitClaim(plan, claimServiceFactory),
   clearSession(endSession),

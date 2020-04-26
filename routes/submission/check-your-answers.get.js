@@ -1,11 +1,12 @@
+const buildClaim = require('../../lib/build-claim.js');
 const buildCya = require('../../definitions/cya/index.js');
 
 module.exports = (plan) => (req, res) => {
-  // Traverse the Plan to determine whih waypoints have been visited
-  const traversed = plan.traverse(req.casa.journeyContext);
+  // Build the claim from which the CYA is constructed
+  const claim = buildClaim(plan, req.casa.journeyContext);
 
   // Render page
   res.render('pages/submission/check-your-answers.njk', {
-    sections: buildCya(res.locals.t, req.casa.journeyContext, traversed),
+    sections: buildCya(res.locals.t, req.casa.journeyContext, claim),
   });
 };
