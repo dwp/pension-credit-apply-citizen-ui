@@ -8,7 +8,7 @@ describe('end-to-end', () => {
   const app = createApp();
 
   const personas = [
-    'eligibility/default',
+    'eligibility/non-uk-national',
     'hrt-citizen/default',
     'submission/check-your-answers',
   ];
