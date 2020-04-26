@@ -16,7 +16,7 @@ module.exports = () => {
   eligibility(plan);
   dateOfClaim(plan);
   aboutCitizen(plan, WP.CHECK_YOUR_ANSWERS);
-  hrtCitizen(plan, WP.CHECK_YOUR_ANSWERS);
+  hrtCitizen(plan, WP.DATE_OF_CLAIM, WP.CHECK_YOUR_ANSWERS);
 
   return plan;
 };

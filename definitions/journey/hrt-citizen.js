@@ -3,7 +3,17 @@ const {
   d, isEqualTo, isNo, isYes, wasSkipped,
 } = require('../../utils/journey-helpers.js');
 
-module.exports = (plan, START_OF_NEXT_SECTION) => {
+module.exports = (plan, FROM_PREVIOUS_SECTION, START_OF_NEXT_SECTION) => {
+  // Test if the user needs to take the HRT
+  const needsHRT = (r, c) => c.data[WP.YOUR_NATIONALITY].rightToReside === 'no' || c.data[WP.YOUR_NATIONALITY].lived2Years === 'no';
+  const doesntNeedsHRT = (r, c) => !needsHRT(r, c);
+
+  /* ----------------------------------------------------------------- Routes */
+  // As this whole section is conditionally displayed, we have to know which
+  // waypoint we arrived from in order to setup the route
+  plan.setRoute(FROM_PREVIOUS_SECTION, WP.HRT_CITIZEN_RETURNED_TO_UK, needsHRT);
+  plan.setRoute(FROM_PREVIOUS_SECTION, START_OF_NEXT_SECTION, doesntNeedsHRT);
+
   // returned-to-uk
   plan.setRoute(WP.HRT_CITIZEN_RETURNED_TO_UK, WP.HRT_CITIZEN_UK_SPONSORSHIP, isNo('cameToUk'));
   plan.setRoute(WP.HRT_CITIZEN_RETURNED_TO_UK, WP.HRT_CITIZEN_NATIONALITY_DETAILS, isYes('cameToUk'));
