@@ -5,7 +5,7 @@ const formatPostcode = require('../../utils/format-postcode.js');
 const { waypoints: WP } = require('../../lib/constants.js');
 
 module.exports = (t, context, traversed) => {
-  // Skip whole section if claimant does not have a partner
+  // Skip whole section if claimant does not need to go through the HRT questions
   if (!traversed.includes(WP.HRT_CITIZEN_RETURNED_TO_UK)) {
     return undefined;
   }

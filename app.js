@@ -147,6 +147,7 @@ module.exports = (CONFIG, baseLogger) => {
     appUserJourney,
   ));
   casaApp.router.post(`/${waypoints.CHECK_YOUR_ANSWERS}`, submissionCommonMw, checkYourAnswersPost(
+    appUserJourney,
     claimServiceFactory,
     CONFIG.HTTP_TIMEOUT,
     casaApp.endSession,

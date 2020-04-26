@@ -22,11 +22,11 @@ const applyLock = (httpTimeout) => (req, res, next) => {
   req.session.save(next);
 };
 
-const submitClaim = (claimServiceFactory) => (req, res, next) => {
+const submitClaim = (plan, claimServiceFactory) => (req, res, next) => {
   req.log.info('Preparing to submit claim');
 
   req.log.info('Building claim object');
-  const claim = buildClaim(req.casa.journeyContext);
+  const claim = buildClaim(plan, req.casa.journeyContext);
 
   req.log.trace('Creating claim service');
   const claimService = claimServiceFactory.create({
@@ -43,6 +43,9 @@ const submitClaim = (claimServiceFactory) => (req, res, next) => {
 
 const clearSession = (endSession) => (req, res, next) => {
   req.log.info('Clearing session following successful claim submission');
+  // TODO: Maybe clear session rather than empty and regenerate so that if they
+  // press SUBMIT twice, they will be able to reach the WHAT NEXT page instead
+  // of a session timeout error?
   return endSession(req).then(() => {
     req.log.info('Session ended successfully');
     next();

@@ -108,7 +108,7 @@ describe('submission/check-your-answers', () => {
       const res = new Response();
       const next = sinon.stub();
 
-      await submitClaim(claimServiceFactory)(req, res, next);
+      await submitClaim({}, claimServiceFactory)(req, res, next);
 
       expect(claimServiceFactory.create).to.be.calledOnceWithExactly(sinon.match({
         traceId: 'test-trace-id',
@@ -123,7 +123,7 @@ describe('submission/check-your-answers', () => {
       const res = new Response();
       const next = sinon.stub();
 
-      submitClaim(claimServiceFactory)(req, res, next).then(() => {
+      submitClaim({}, claimServiceFactory)(req, res, next).then(() => {
         process.nextTick(() => {
           expect(next).to.be.calledOnceWithExactly();
           done();
@@ -139,7 +139,7 @@ describe('submission/check-your-answers', () => {
       const res = new Response();
       const next = sinon.stub();
 
-      await submitClaim(claimServiceFactory)(req, res, next);
+      await submitClaim({}, claimServiceFactory)(req, res, next);
 
       expect(next).to.be.calledOnceWithExactly(sinon.match({ message: 'test' }));
     });

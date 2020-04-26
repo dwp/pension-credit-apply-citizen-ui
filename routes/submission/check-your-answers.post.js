@@ -7,10 +7,10 @@ const {
   handleErrors,
 } = require('./check-your-answers.js');
 
-module.exports = (claimServiceFactory, httpTimeout, endSession, finalUrl) => ([
+module.exports = (plan, claimServiceFactory, httpTimeout, endSession, finalUrl) => ([
   checkLock,
   applyLock(httpTimeout),
-  submitClaim(claimServiceFactory),
+  submitClaim(plan, claimServiceFactory),
   clearSession(endSession),
   redirectToFinal(finalUrl),
   handleErrors,
