@@ -1,0 +1,16 @@
+name: default
+
+journey:
+  # ---------------------------------------------------------- About the citizen
+  claimant-details:
+    fullName: "Alex Smith"
+    "hasPreviousNamesNo": click()
+    nino: "RN001001A"
+    contactTelephone: 1234567890
+    "registeredBlindNo": click()
+    "canSpeakEnglishYes": click()
+    "speakInWelshNo": click()
+    "helpWithLettersPhoneNo": click()
+
+  care-home:
+    "no": click()

@@ -25,3 +25,6 @@ journey:
     "no": click()
 
   date-of-claim:
+    dateOfClaim[dd]: "01"
+    dateOfClaim[mm]: "04"
+    dateOfClaim[yyyy]: "2020"
