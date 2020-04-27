@@ -1,15 +1,25 @@
 {% extends "layouts/main.njk" %}
 
 {% block casaPageTitle %}
-  Something’s gone wrong
+  Sorry, there is a problem with the service
+{% endblock %}
+
+{% block head %}
+  {% include "partials/styles.njk" %}
 {% endblock %}
 
 {% block content %}
-  <h1 class="govuk-heading-xl">
-    Something’s gone wrong
-  </h1>
-
-  <p class="govuk-body">
-    The service is temporarily unavailable.
-  </p>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Sorry, there is a problem with the service
+      </h1>
+      <p class="govuk-body">
+        Try again in a few moments.
+      </p>
+      <p class="govuk-body">
+        You can <a class="govuk-link" href="https://www.gov.uk/pension-credit/how-to-claim">apply another way</a> if the problem continues.
+      </p>
+    </div>
+  </div>
 {% endblock %}
