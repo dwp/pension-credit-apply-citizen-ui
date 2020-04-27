@@ -1,7 +1,7 @@
 const { waypoints: WP } = require('../../lib/constants.js');
 const { isYes, isNo } = require('../../utils/journey-helpers.js');
 
-module.exports = (plan, START_OF_NEXT_SECTION = WP.POSTCODE_LOOKUP) => {
+module.exports = (plan) => {
   // True if claimant lives with partner
   const hasPartner = isYes('liveWithPartner', WP.LIVE_WITH_PARTNER);
 
@@ -22,5 +22,4 @@ module.exports = (plan, START_OF_NEXT_SECTION = WP.POSTCODE_LOOKUP) => {
 
   // Partner details has it's own linear journey finishing on care home
   plan.addSequence(WP.PARTNER_DETAILS, WP.PARTNER_NATIONALITY, WP.CARE_HOME);
-  plan.addSequence(WP.CARE_HOME, START_OF_NEXT_SECTION);
 };
