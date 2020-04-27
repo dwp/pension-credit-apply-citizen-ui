@@ -1,0 +1,14 @@
+{
+  "pageTitleSingle": "Do you share the rent or mortgage for the place where you live with anyone?",
+  "pageTitleJoint": "Do you share the rent or mortgage for the place where you live with anyone other than your partner?",
+  "field": {
+    "shareRentMortgage": {
+      "required": "Select yes if you share the rent or mortgage with anyone.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you share the rent or mortgage for the place where you live with anyone</span>"
+    }
+  }
+}

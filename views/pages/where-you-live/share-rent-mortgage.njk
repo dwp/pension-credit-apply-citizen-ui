@@ -1,0 +1,31 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "casa/components/character-count/macro.njk" import casaGovukCharacterCount with context %}
+
+{% block casaPageTitle %}
+  {{ t("share-rent-mortgage:pageTitle" + claimType) }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukRadios({
+    name: "shareRentMortgage",
+    fieldset: {
+      legend: {
+        text: t("share-rent-mortgage:pageTitle" + claimType),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("share-rent-mortgage:field.shareRentMortgage.options.yes")
+    }, {
+      value: "no",
+      text: t("share-rent-mortgage:field.shareRentMortgage.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.shareRentMortgage,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

@@ -16,6 +16,7 @@ const rentCouncilTaxValidation = require('../field-validators/where-you-live/ren
 const homeOwnershipValidation = require('../field-validators/where-you-live/home-ownership.js');
 const serviceChargesValidation = require('../field-validators/where-you-live/service-charges.js');
 const homeLoanValidation = require('../field-validators/where-you-live/home-loan.js');
+const shareRentMortgageValidation = require('../field-validators/where-you-live/share-rent-mortgage.js');
 
 module.exports = (addressServiceFactory, mountUrl) => {
   const pages = Object.create(null);
@@ -120,6 +121,14 @@ module.exports = (addressServiceFactory, mountUrl) => {
   pages[waypoints.HOME_LOAN] = {
     view: 'pages/where-you-live/home-loan.njk',
     fieldValidators: homeLoanValidation,
+  };
+
+  pages[waypoints.SHARE_RENT_MORTGAGE] = {
+    view: 'pages/where-you-live/share-rent-mortgage.njk',
+    fieldValidators: shareRentMortgageValidation,
+    hooks: {
+      prerender: jointOrSingleClaim(waypoints),
+    },
   };
 
   return pages;

@@ -18,8 +18,8 @@ module.exports = () => {
   eligibility(plan);
   dateOfClaim(plan);
   aboutCitizen(plan);
-  whereYouLive(plan);
-  hrtCitizen(plan, WP.CARE_HOME);
+  whereYouLive(plan, WP.CHECK_YOUR_ANSWERS);
+  hrtCitizen(plan, WP.SHARE_RENT_MORTGAGE);
   hrtPartner(plan);
 
   return plan;
