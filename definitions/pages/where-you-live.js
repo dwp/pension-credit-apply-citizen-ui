@@ -12,6 +12,7 @@ const selectAddressValidation = require('../field-validators/common/select-addre
 const manualAddressValidation = require('../field-validators/common/manual-address.js');
 const lettersHomeValidation = require('../field-validators/where-you-live/letters-home.js');
 const livesWithYouValidation = require('../field-validators/where-you-live/lives-with-you.js');
+const rentCouncilTaxValidation = require('../field-validators/where-you-live/rent-council-tax.js');
 
 module.exports = (addressServiceFactory, mountUrl) => {
   const pages = Object.create(null);
@@ -90,6 +91,14 @@ module.exports = (addressServiceFactory, mountUrl) => {
   pages[waypoints.LIVES_WITH_YOU] = {
     view: 'pages/where-you-live/lives-with-you.njk',
     fieldValidators: livesWithYouValidation,
+    hooks: {
+      prerender: jointOrSingleClaim(waypoints),
+    },
+  };
+
+  pages[waypoints.RENT_COUNCIL_TAX] = {
+    view: 'pages/where-you-live/rent-council-tax.njk',
+    fieldValidators: rentCouncilTaxValidation,
     hooks: {
       prerender: jointOrSingleClaim(waypoints),
     },

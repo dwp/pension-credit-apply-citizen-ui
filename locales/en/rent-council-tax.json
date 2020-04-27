@@ -1,0 +1,16 @@
+{
+  "pageTitleSingle": "Are you responsible for paying the rent or Council Tax for the place where you live?",
+  "pageTitleJoint": "Are you or your partner responsible for paying the rent or Council Tax for the place where you live?",
+  "field": {
+    "responsibleForCouncilTax": {
+      "hint": "This includes if they are paid through Housing Benefit or Council Tax Reduction.",
+      "requiredSingle": "Select yes if you are responsible for paying the rent or Council Tax for the place where you live.",
+      "requiredJoint": "Select yes if you or your partner are responsible for paying the rent or Council Tax for the place where you live.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you are responsible for paying the rent, Council Tax or both for the place where you live</span>"
+    }
+  }
+}

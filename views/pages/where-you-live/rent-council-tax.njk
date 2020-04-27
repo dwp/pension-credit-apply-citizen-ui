@@ -1,0 +1,36 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("rent-council-tax:pageTitle" + claimType) }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukRadios({
+    name: "responsibleForCouncilTax",
+    fieldset: {
+      legend: {
+        text: t("rent-council-tax:pageTitle" + claimType),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    hint: {
+      text: t("rent-council-tax:field.responsibleForCouncilTax.hint")
+    },
+    items: [{
+      value: "yes",
+      text: t("rent-council-tax:field.responsibleForCouncilTax.options.yes"),
+      conditional: {
+        html: responsibleForCouncilTaxDetails
+      }
+    }, {
+      value: "no",
+      text: t("rent-council-tax:field.responsibleForCouncilTax.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.responsibleForCouncilTax,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}
