@@ -13,6 +13,7 @@ const manualAddressValidation = require('../field-validators/common/manual-addre
 const lettersHomeValidation = require('../field-validators/where-you-live/letters-home.js');
 const livesWithYouValidation = require('../field-validators/where-you-live/lives-with-you.js');
 const rentCouncilTaxValidation = require('../field-validators/where-you-live/rent-council-tax.js');
+const homeOwnershipValidation = require('../field-validators/where-you-live/home-ownership.js');
 
 module.exports = (addressServiceFactory, mountUrl) => {
   const pages = Object.create(null);
@@ -102,6 +103,11 @@ module.exports = (addressServiceFactory, mountUrl) => {
     hooks: {
       prerender: jointOrSingleClaim(waypoints),
     },
+  };
+
+  pages[waypoints.HOME_OWNERSHIP] = {
+    view: 'pages/where-you-live/home-ownership.njk',
+    fieldValidators: homeOwnershipValidation,
   };
 
   return pages;

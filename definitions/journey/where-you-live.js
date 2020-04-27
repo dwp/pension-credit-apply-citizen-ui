@@ -116,5 +116,10 @@ module.exports = (plan) => {
   ));
 
   // Continue where you live journey
-  plan.addSequence(WP.LIVES_WITH_YOU, WP.RENT_COUNCIL_TAX, WP.HOME_OWNERSHIP);
+  plan.addSequence(
+    WP.LIVES_WITH_YOU,
+    WP.RENT_COUNCIL_TAX,
+    WP.HOME_OWNERSHIP,
+    WP.SERVICE_CHARGES,
+  );
 };

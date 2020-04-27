@@ -1,0 +1,53 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "casa/components/character-count/macro.njk" import casaGovukCharacterCount with context %}
+
+{% block casaPageTitle %}
+  {{ t("home-ownership:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {% set homeDescription %}
+    {{ casaGovukCharacterCount({
+      name: "homeDescription",
+      maxlength: 500,
+      label: {
+        text: t("home-ownership:field.homeDescription.label"),
+        classes: "govuk-label--s"
+      },
+      hint: {
+        text: t("home-ownership:field.homeDescription.hint")
+      },
+      value: formData.homeDescription,
+      casaErrors: formErrors
+    }) }}
+  {% endset %}
+
+  {{ casaGovukRadios({
+    name: "homeOwnership",
+    fieldset: {
+      legend: {
+        text: t("home-ownership:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "own",
+      text: t("home-ownership:field.homeOwnership.options.own")
+    }, {
+      value: "rent",
+      text: t("home-ownership:field.homeOwnership.options.rent")
+    }, {
+      value: "other",
+      text: t("home-ownership:field.homeOwnership.options.other"),
+      conditional: {
+        html: homeDescription
+      }
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.homeOwnership,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

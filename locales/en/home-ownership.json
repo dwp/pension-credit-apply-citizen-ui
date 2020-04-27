@@ -1,0 +1,21 @@
+{
+  "pageTitle": "Which best describes the place where you live?",
+  "field": {
+    "homeOwnership": {
+      "required": "Select the option that best describes the place where you live.",
+      "options": {
+        "own": "You own it",
+        "rent": "You rent it",
+        "other": "Other"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">which best describes the place where you live</span>"
+    },
+    "homeDescription": {
+      "label": "Description of where you live",
+      "hint": "For example, you might live in shared accommodation, a caravan, or in someone else's home without paying rent",
+      "required": "Enter a description of where you live.",
+      "length": "Description of where you live must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">the description of where you live</span>"
+    }
+  }
+}
