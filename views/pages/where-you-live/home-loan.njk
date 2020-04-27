@@ -1,0 +1,33 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("home-loan:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukRadios({
+    name: "wantsSMI",
+    fieldset: {
+      legend: {
+        text: t("home-loan:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    hint: {
+      text: t("home-loan:field.wantsSMI.hint")
+    },
+    items: [{
+      value: "yes",
+      text: t("home-loan:field.wantsSMI.options.yes")
+    }, {
+      value: "no",
+      text: t("home-loan:field.wantsSMI.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.wantsSMI,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

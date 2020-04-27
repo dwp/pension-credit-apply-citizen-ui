@@ -15,6 +15,7 @@ const livesWithYouValidation = require('../field-validators/where-you-live/lives
 const rentCouncilTaxValidation = require('../field-validators/where-you-live/rent-council-tax.js');
 const homeOwnershipValidation = require('../field-validators/where-you-live/home-ownership.js');
 const serviceChargesValidation = require('../field-validators/where-you-live/service-charges.js');
+const homeLoanValidation = require('../field-validators/where-you-live/home-loan.js');
 
 module.exports = (addressServiceFactory, mountUrl) => {
   const pages = Object.create(null);
@@ -114,6 +115,11 @@ module.exports = (addressServiceFactory, mountUrl) => {
   pages[waypoints.SERVICE_CHARGES] = {
     view: 'pages/where-you-live/service-charges.njk',
     fieldValidators: serviceChargesValidation,
+  };
+
+  pages[waypoints.HOME_LOAN] = {
+    view: 'pages/where-you-live/home-loan.njk',
+    fieldValidators: homeLoanValidation,
   };
 
   return pages;
