@@ -9,37 +9,57 @@ const { waypoints: WP } = require('../../lib/constants.js');
 
 const buildClaim = require('../../lib/build-claim.js');
 
+const stubDate = { dd: '1', mm: '2', yyyy: '2000' };
+const stubDataBase = {
+  [WP.DATE_OF_BIRTH]: {
+    dateOfBirth: stubDate,
+  },
+  [WP.DATE_OF_CLAIM]: {
+    dateOfClaim: stubDate,
+  },
+  [WP.HRT_CITIZEN_NATIONALITY_DETAILS]: {
+    lastCameToUK: stubDate,
+    lastLeftUK: stubDate,
+  },
+  [WP.HRT_CITIZEN_SPONSORSHIP_DETAILS]: {
+    sponsorshipUndertakingSigned: stubDate,
+  },
+};
+
 describe('build-claim', () => {
+  let stubData;
+  let context;
+
+  beforeEach(() => {
+    stubData = JSON.parse(JSON.stringify(stubDataBase));
+    context = {
+      getDataForPage: sinon.stub().callsFake((wp) => stubData[wp]),
+    };
+  });
+
   it('should return an object matching the expected schema', () => {
     const plan = {
       traverse: sinon.stub().returns([]),
-    };
-
-    const context = {
-      getDataForPage: sinon.stub().returns(),
     };
 
     buildClaim(plan, context);
   });
 
   it('should only include "partner" section if the user has a partner', () => {
-    const data = {
-      [WP.LIVE_WITH_PARTNER]: { liveWithPartner: 'yes' },
+    stubData[WP.LIVE_WITH_PARTNER] = {
+      liveWithPartner: 'yes',
+      partnerDateOfBirth: stubDate,
     };
 
     const plan = {
       traverse: sinon.stub().returns([]),
     };
 
-    const context = {
-      getDataForPage: sinon.stub().callsFake((p) => (data[p] || {})),
-    };
-
     let claim = buildClaim(plan, context);
     expect(claim).to.haveOwnProperty('partner');
     expect(claim.hasPartner()).to.be.true;
 
-    data[WP.LIVE_WITH_PARTNER].liveWithPartner = 'no';
+    stubData[WP.LIVE_WITH_PARTNER].liveWithPartner = 'no';
     claim = buildClaim(plan, context);
     expect(claim).to.not.haveOwnProperty('partner');
     expect(claim.hasPartner()).to.be.false;
@@ -50,10 +70,6 @@ describe('build-claim', () => {
 
     const plan = {
       traverse: sinon.stub().callsFake(() => traversed),
-    };
-
-    const context = {
-      getDataForPage: sinon.stub().returns({}),
     };
 
     let claim = buildClaim(plan, context);
