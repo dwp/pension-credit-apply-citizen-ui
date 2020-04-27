@@ -11,6 +11,7 @@ describe('hrt-citizen', () => {
     const waypoints = mergePersonaJourneys([
       'eligibility/default',
       'about-citizen/default',
+      'where-you-live/default',
       'submission/check-your-answers',
     ]);
 
@@ -21,6 +22,7 @@ describe('hrt-citizen', () => {
     const waypoints = mergePersonaJourneys([
       'eligibility/non-uk-national',
       'about-citizen/default',
+      'where-you-live/default',
       'hrt-citizen/default',
     ]);
 
@@ -31,6 +33,7 @@ describe('hrt-citizen', () => {
     const waypoints = mergePersonaJourneys([
       'eligibility/non-uk-national',
       'about-citizen/default',
+      'where-you-live/default',
       'hrt-citizen/minimal',
     ]);
 

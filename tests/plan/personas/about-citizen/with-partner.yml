@@ -1,4 +1,4 @@
-name: default
+name: about-citizen-with-partner
 
 journey:
   # ---------------------------------------------------------- About the citizen
@@ -23,4 +23,4 @@ journey:
     "partnerLived2YearsYes": click()
 
   care-home:
-    "no": click()
+    "permanentlyInCareHomeNo": click()

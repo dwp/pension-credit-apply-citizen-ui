@@ -10,6 +10,7 @@ describe('end-to-end', () => {
   const personas = [
     'eligibility/non-uk-national',
     'about-citizen/default',
+    'where-you-live/default',
     'hrt-citizen/default',
     'submission/check-your-answers',
   ];

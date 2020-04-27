@@ -1,4 +1,4 @@
-name: about-citizen-contact-formats
+name: about-citizen-in-care-home
 
 journey:
   # ---------------------------------------------------------- About the citizen
@@ -10,9 +10,8 @@ journey:
     "registeredBlindNo": click()
     "canSpeakEnglishYes": click()
     "speakInWelshNo": click()
-    "helpWithLettersPhoneYes": click()
-
-  contact-formats:
+    "helpWithLettersPhoneNo": click()
 
   care-home:
-    "permanentlyInCareHomeNo": click()
+    "permanentlyInCareHomeYes": click()
+    "stillOwnsHomeNo": click()

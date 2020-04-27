@@ -4,39 +4,44 @@ const { createApp } = require('../helpers.js');
 
 const TIMEOUT = 5000;
 
-describe('hrt-partner', () => {
+describe('where-you-live', () => {
   const app = createApp();
 
-  it('should not reach partner HRT', () => {
+  it('default persona', () => {
     const waypoints = mergePersonaJourneys([
-      'eligibility/non-uk-national-with-partner',
-      'about-citizen/with-partner',
+      'eligibility/default',
+      'about-citizen/default',
       'where-you-live/default',
-      'hrt-citizen/default',
-      'submission/check-your-answers',
     ]);
 
     return testTraversal({ app, waypoints, waypointHandlerFactory });
   }).timeout(TIMEOUT);
 
-  it('only partner HRT', () => {
+  it('correspondence address', () => {
     const waypoints = mergePersonaJourneys([
-      'eligibility/has-partner',
-      'about-citizen/with-partner-non-uk-national',
-      'where-you-live/default',
-      'hrt-partner/default',
+      'eligibility/default',
+      'about-citizen/default',
+      'where-you-live/correspondence-address',
     ]);
 
     return testTraversal({ app, waypoints, waypointHandlerFactory });
   }).timeout(TIMEOUT);
 
-  it('mninimal waypoints across both citizen and partner', () => {
+  it('care home', () => {
     const waypoints = mergePersonaJourneys([
-      'eligibility/non-uk-national-with-partner',
-      'about-citizen/with-partner-non-uk-national',
-      'where-you-live/default',
-      'hrt-citizen/minimal',
-      'hrt-partner/minimal',
+      'eligibility/default',
+      'about-citizen/in-care-home',
+      'where-you-live/care-home',
+    ]);
+
+    return testTraversal({ app, waypoints, waypointHandlerFactory });
+  }).timeout(TIMEOUT);
+
+  it('care home correspondence address', () => {
+    const waypoints = mergePersonaJourneys([
+      'eligibility/default',
+      'about-citizen/in-care-home',
+      'where-you-live/care-home-correspondence-address',
     ]);
 
     return testTraversal({ app, waypoints, waypointHandlerFactory });

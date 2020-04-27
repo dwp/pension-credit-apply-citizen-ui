@@ -1,0 +1,36 @@
+name: where-you-live-default
+
+journey:
+  # ------------------------------------------------------- About where you live
+  postcode-lookup:
+    enterManualLink: click()
+
+  address-manual:
+    addressLine1: "Address line 1"
+    addressLine2: "Address line 2"
+    town: "Town"
+    county: "County"
+    postcode: "AA1 1AA"
+
+  letters-home:
+    "yes": click()
+
+  lives-with-you:
+    "no": click()
+
+  rent-council-tax:
+    "yes": click()
+
+  home-ownership:
+    "own": click()
+
+  service-charges:
+    "paysServiceChargesNo":  click()
+    "paysGroundRentNo":  click()
+    "getsHousingBenefitYes":  click()
+
+  home-loan:
+    "no": click()
+
+  share-rent-mortgage:
+    "no": click()

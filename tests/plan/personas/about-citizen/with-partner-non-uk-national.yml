@@ -1,4 +1,4 @@
-name: default
+name: about-citizen-non-uk-national
 
 journey:
   # ---------------------------------------------------------- About the citizen
@@ -23,4 +23,4 @@ journey:
     "partnerLived2YearsNo": click()
 
   care-home:
-    "no": click()
+    "permanentlyInCareHomeNo": click()

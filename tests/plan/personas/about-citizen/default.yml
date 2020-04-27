@@ -1,4 +1,4 @@
-name: default
+name: about-citizen-default
 
 journey:
   # ---------------------------------------------------------- About the citizen
@@ -13,4 +13,4 @@ journey:
     "helpWithLettersPhoneNo": click()
 
   care-home:
-    "no": click()
+    "permanentlyInCareHomeNo": click()

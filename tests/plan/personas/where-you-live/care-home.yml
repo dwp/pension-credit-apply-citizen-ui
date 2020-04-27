@@ -1,0 +1,18 @@
+name: where-you-live-care-home
+
+journey:
+  # ------------------------------------------------------- About where you live
+  postcode-lookup:
+    enterManualLink: click()
+
+  address-manual:
+    addressLine1: "Address line 1"
+    addressLine2: "Address line 2"
+    town: "Town"
+    county: "County"
+    postcode: "AA1 1AA"
+
+  letters-home:
+    "yes": click()
+
+  private-pensions:
