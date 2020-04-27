@@ -12,9 +12,11 @@
 const aboutYou = require('./about-you.js');
 const aboutYourPartner = require('./about-your-partner.js');
 const aboutYourResidency = require('./about-your-residency.js');
+const aboutYourPartnersResidency = require('./about-your-partners-residency.js');
 
 module.exports = (t, context, claim) => ([
   aboutYou(t, context, claim),
   aboutYourPartner(t, context, claim),
   aboutYourResidency(t, context, claim),
+  aboutYourPartnersResidency(t, context, claim),
 ].filter((v) => v));

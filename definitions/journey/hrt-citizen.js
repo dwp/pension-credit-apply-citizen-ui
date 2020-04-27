@@ -3,16 +3,34 @@ const {
   d, isEqualTo, isNo, isYes, wasSkipped,
 } = require('../../utils/journey-helpers.js');
 
-module.exports = (plan, FROM_PREVIOUS_SECTION, START_OF_NEXT_SECTION) => {
+module.exports = (plan, FROM_PREVIOUS_SECTION) => {
   // Test if the user needs to take the HRT
-  const needsHRT = (r, c) => c.data[WP.YOUR_NATIONALITY].rightToReside === 'no' || c.data[WP.YOUR_NATIONALITY].lived2Years === 'no';
-  const doesntNeedsHRT = (r, c) => !needsHRT(r, c);
+  const hasPartner = (c) => c.data[WP.LIVE_WITH_PARTNER].liveWithPartner === 'yes';
+
+  const citizenNeedsHRT = (r, c) => (
+    c.data[WP.YOUR_NATIONALITY].rightToReside === 'no' || c.data[WP.YOUR_NATIONALITY].lived2Years === 'no'
+  );
+
+  const partnerNeedsHRT = (r, c) => (
+    hasPartner(c) && (c.data[WP.PARTNER_NATIONALITY].partnerRightToReside === 'no' || c.data[WP.PARTNER_NATIONALITY].partnerLived2Years === 'no')
+  );
+
+  const onlyCitizenNeedsHRT = (r, c) => (
+    citizenNeedsHRT(r, c) && (!hasPartner(c) || !partnerNeedsHRT(r, c))
+  );
+
+  const onlyPartnerNeedsHRT = (r, c) => (
+    !citizenNeedsHRT(r, c) && hasPartner(c) && partnerNeedsHRT(r, c)
+  );
+
+  const noHRTNeeded = (r, c) => !citizenNeedsHRT(r, c) && !partnerNeedsHRT(r, c);
 
   /* ----------------------------------------------------------------- Routes */
   // As this whole section is conditionally displayed, we have to know which
   // waypoint we arrived from in order to setup the route
-  plan.setRoute(FROM_PREVIOUS_SECTION, WP.HRT_CITIZEN_RETURNED_TO_UK, needsHRT);
-  plan.setRoute(FROM_PREVIOUS_SECTION, START_OF_NEXT_SECTION, doesntNeedsHRT);
+  plan.setRoute(FROM_PREVIOUS_SECTION, WP.HRT_CITIZEN_RETURNED_TO_UK, citizenNeedsHRT);
+  plan.setRoute(FROM_PREVIOUS_SECTION, WP.HRT_PARTNER_RETURNED_TO_UK, onlyPartnerNeedsHRT);
+  plan.setRoute(FROM_PREVIOUS_SECTION, WP.CHECK_YOUR_ANSWERS, noHRTNeeded);
 
   // returned-to-uk
   plan.setRoute(WP.HRT_CITIZEN_RETURNED_TO_UK, WP.HRT_CITIZEN_UK_SPONSORSHIP, isNo('cameToUk'));
@@ -71,5 +89,6 @@ module.exports = (plan, FROM_PREVIOUS_SECTION, START_OF_NEXT_SECTION) => {
   plan.setRoute(WP.HRT_CITIZEN_SPONSOR_ADDRESS_MANUAL, WP.HRT_CITIZEN_ASYLUM_SEEKER, isEqualTo('addressFrom', 'manual', WP.HRT_CITIZEN_SPONSOR_ADDRESS_HIDDEN));
 
   // asylum-seeker
-  plan.addSequence(WP.HRT_CITIZEN_ASYLUM_SEEKER, START_OF_NEXT_SECTION);
+  plan.setRoute(WP.HRT_CITIZEN_ASYLUM_SEEKER, WP.HRT_PARTNER_RETURNED_TO_UK, partnerNeedsHRT);
+  plan.setRoute(WP.HRT_CITIZEN_ASYLUM_SEEKER, WP.CHECK_YOUR_ANSWERS, onlyCitizenNeedsHRT);
 };

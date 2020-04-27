@@ -1,0 +1,13 @@
+{
+  "pageTitle": "At any time, has your partner come to live in the UK or returned to the UK to live from abroad?",
+  "field": {
+    "partnerCameToUk": {
+      "required": "Select yes if your partner has come to live in the UK or returned to live in the UK from abroad.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether your partner has come to live in the UK or returned to the UK to live from abroad</span>"
+    }
+  }
+}

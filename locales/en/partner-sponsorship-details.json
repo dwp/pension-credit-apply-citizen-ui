@@ -1,0 +1,24 @@
+{
+  "pageTitle": "Your partner‘s sponsorship details",
+  "field": {
+    "partnerSponsorName": {
+      "label": "What is the name of your partner‘s sponsor?",
+      "required": "Enter the name of your partner‘s sponsor.",
+      "strlen": "The name of your partner‘s sponsor must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">the name of your partner‘s sponsor</span>"
+    },
+    "partnerHomeOfficeReference": {
+      "label": "What is your partner‘s Home Office reference number?",
+      "required": "Enter your partner‘s Home Office reference number.",
+      "strlen": "Your partner‘s Home Office reference number must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">your partner‘s Home Office reference number</span>"
+    },
+    "partnerSponsorshipUndertakingSigned": {
+      "legend": "What date was your partner‘s sponsorship undertaking signed?",
+      "hint": "For example, 12 11 2007",
+      "required": "Enter the date that your partner‘s sponsorship undertaking was signed.",
+      "format": "Enter a real date that your partner‘s sponsorship undertaking was signed.",
+      "change": "Change <span class=\"govuk-visually-hidden\">the date your partner‘s sponsorship undertaking was signed</span>"
+    }
+  }
+}

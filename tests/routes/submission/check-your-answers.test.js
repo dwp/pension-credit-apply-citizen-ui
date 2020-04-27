@@ -207,5 +207,46 @@ describe('submission/check-your-answers', () => {
         sections: [],
       });
     });
+
+    it('should log errors for HTTPErrors', () => {
+      const req = new Request();
+      const res = new Response();
+      const spyLog = sinon.spy(req.log, 'error');
+      const next = sinon.stub();
+
+      handleErrors({})({
+        name: 'HTTPError',
+        response: { body: 'error message' },
+      }, req, res, next);
+
+      expect(spyLog).to.be.calledOnceWith({ err: 'error message' }, 'Error response from Claim Service. Claim not submitted.');
+    });
+
+    it('should log errors for TimeoutErrors', () => {
+      const req = new Request();
+      const res = new Response();
+      const spyLog = sinon.spy(req.log, 'error');
+      const next = sinon.stub();
+
+      handleErrors({})({
+        name: 'TimeoutError',
+      }, req, res, next);
+
+      expect(spyLog).to.be.calledOnceWith('Call to Claim Service timed out. Claim may or may not have been submitted.');
+    });
+
+    it('should log errors for ParseError', () => {
+      const req = new Request();
+      const res = new Response();
+      const spyLog = sinon.spy(req.log, 'error');
+      const next = sinon.stub();
+
+      handleErrors({})({
+        name: 'ParseError',
+        response: 'TEST RES',
+      }, req, res, next);
+
+      expect(spyLog).to.be.calledOnceWith({ err: 'TEST RES' }, 'Response from Claim Service could not be parsed. Claim may or may not have been submitted.');
+    });
   });
 });

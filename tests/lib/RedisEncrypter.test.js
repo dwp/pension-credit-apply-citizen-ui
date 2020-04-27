@@ -58,6 +58,36 @@ describe('RedisEncrypter', () => {
     }).to.not.throw();
   });
 
+  it('should call super.set() with plaintext payload when no cryptoservice is present', (done) => {
+    const stub = sinon.stub(ioredis.prototype, 'set').callsFake((commands, cb) => cb());
+
+    const r = new RedisEncrypter(null, '', {});
+    r.set(['a', 'b', 'c', 'd'], () => {
+      r.disconnect();
+      try {
+        expect(stub).to.be.calledOnceWith(['a', 'b', 'c', 'd']);
+        done();
+      } catch (ex) {
+        done(ex);
+      }
+    });
+  });
+
+  it('should super.get() with original callback when npo crypsoservice is used', (done) => {
+    const stubCallback = sinon.stub();
+    const spyGet = sinon.spy(ioredis.prototype, 'get');
+
+    const r = new RedisEncrypter(null, '', {});
+    r.get('key', stubCallback);
+    r.disconnect();
+    try {
+      expect(spyGet).to.be.calledOnceWith('key', stubCallback);
+      done();
+    } catch (ex) {
+      done(ex);
+    }
+  });
+
   it('should call super.set() with the base64-encoded, encrypted payload', (done) => {
     const stub = sinon.stub(ioredis.prototype, 'set').callsFake((commands, cb) => cb());
 

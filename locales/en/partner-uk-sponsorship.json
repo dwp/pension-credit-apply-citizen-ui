@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Did your partner come to the UK on a sponsorship undertaking?",
+  "field": {
+    "partnerSponsorshipUndertaking": {
+      "required": "Select yes if your partner came to the UK on a sponsorship undertaking.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether your partner came to the UK on a sponsorship undertaking</span>"
+    }
+  }
+}

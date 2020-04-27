@@ -1,0 +1,113 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("partner-asylum-seeker:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {% set partnerSuccessfulDecisionDate %}
+    {{ casaGovukDateInput({
+      namePrefix: "partnerSuccessfulDecisionDate",
+      fieldset: {
+        legend: {
+          text: t("partner-asylum-seeker:field.partnerSuccessfulDecisionDate.legend"),
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      casaErrors: formErrors,
+      casaValue: formData.partnerSuccessfulDecisionDate
+    }) }}
+  {% endset %}
+
+  {% set isAsylumSeeker %}
+    {{ casaGovukRadios({
+      name: "partnerAsylumBefore3April2000",
+      fieldset: {
+        legend: {
+          text: t("partner-asylum-seeker:field.partnerAsylumBefore3April2000.legend"),
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [{
+        value: "yes",
+        text: t("partner-asylum-seeker:field.partnerAsylumBefore3April2000.options.yes")
+      }, {
+        value: "no",
+        text: t("partner-asylum-seeker:field.partnerAsylumBefore3April2000.options.no")
+      }],
+      casaWithAnalytics: true,
+      casaValue: formData.partnerAsylumBefore3April2000,
+      casaErrors: formErrors
+    }) }}
+
+    {{ casaGovukRadios({
+      name: "partnerSuccessfulDecision",
+      fieldset: {
+        legend: {
+          text: t("partner-asylum-seeker:field.partnerSuccessfulDecision.legend"),
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [{
+        value: "yes",
+        text: t("partner-asylum-seeker:field.partnerSuccessfulDecision.options.yes"),
+        conditional: {
+          html: partnerSuccessfulDecisionDate
+        }
+      }, {
+        value: "no",
+        text: t("partner-asylum-seeker:field.partnerSuccessfulDecision.options.no")
+      }],
+      casaWithAnalytics: true,
+      casaValue: formData.partnerSuccessfulDecision,
+      casaErrors: formErrors
+    }) }}
+
+    {{ casaGovukRadios({
+      name: "partnerSupportedByHomeOffice",
+      fieldset: {
+        legend: {
+          text: t("partner-asylum-seeker:field.partnerSupportedByHomeOffice.legend"),
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [{
+        value: "yes",
+        text: t("partner-asylum-seeker:field.partnerSupportedByHomeOffice.options.yes")
+      }, {
+        value: "no",
+        text: t("partner-asylum-seeker:field.partnerSupportedByHomeOffice.options.no")
+      }],
+      casaWithAnalytics: true,
+      casaValue: formData.partnerSupportedByHomeOffice,
+      casaErrors: formErrors
+    }) }}
+  {% endset %}
+
+  {{ casaGovukRadios({
+    name: "partnerAsylumSeeker",
+    fieldset: {
+      legend: {
+        text: t("partner-asylum-seeker:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("partner-asylum-seeker:field.partnerAsylumSeeker.options.yes"),
+      conditional: {
+        html: isAsylumSeeker
+      }
+    }, {
+      value: "no",
+      text: t("partner-asylum-seeker:field.partnerAsylumSeeker.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.partnerAsylumSeeker,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

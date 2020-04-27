@@ -1,0 +1,150 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("partner-nationality-details:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  <h1 class="govuk-heading-xl">
+    {{ t("partner-nationality-details:pageTitle") }}
+  </h1>
+
+  {{ casaGovukInput({
+    name: "partnerNationality",
+    value: formData.partnerNationality,
+    classes: "govuk-input--width-20",
+    label: {
+      text: t('partner-nationality-details:field.partnerNationality.label')
+    },
+    casaErrors: formErrors
+  }) }}
+
+  {{ casaGovukInput({
+    name: "partnerCountry",
+    value: formData.partnerCountry,
+    classes: "govuk-input--width-20",
+    label: {
+      text: t('partner-nationality-details:field.partnerCountry.label')
+    },
+    casaErrors: formErrors
+  }) }}
+
+  {{ casaGovukDateInput({
+    namePrefix: "partnerLastCameToUK",
+    fieldset: {
+      legend: {
+        text: t("partner-nationality-details:field.partnerLastCameToUK.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      text: t("partner-nationality-details:field.partnerLastCameToUK.hint")
+    },
+    casaErrors: formErrors,
+    casaValue: formData.partnerLastCameToUK
+  }) }}
+
+  {{ casaGovukRadios({
+    name: "partnerCameToUkToWork",
+    fieldset: {
+      legend: {
+        text: t("partner-nationality-details:field.partnerCameToUkToWork.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("partner-nationality-details:field.partnerCameToUkToWork.options.yes")
+    }, {
+      value: "no",
+      text: t("partner-nationality-details:field.partnerCameToUkToWork.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.partnerCameToUkToWork,
+    casaErrors: formErrors
+  }) }}
+
+  {{ casaGovukRadios({
+    name: "partnerNoRecourseToPublicFunds",
+    fieldset: {
+      legend: {
+        text: t("partner-nationality-details:field.partnerNoRecourseToPublicFunds.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("partner-nationality-details:field.partnerNoRecourseToPublicFunds.options.yes")
+    }, {
+      value: "no",
+      text: t("partner-nationality-details:field.partnerNoRecourseToPublicFunds.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.partnerNoRecourseToPublicFunds,
+    casaErrors: formErrors
+  }) }}
+
+  {% set lastLeftUK %}
+    {{ casaGovukDateInput({
+      namePrefix: "partnerLastLeftUK",
+      fieldset: {
+        legend: {
+          text: t("partner-nationality-details:field.partnerLastLeftUK.legend"),
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: t("partner-nationality-details:field.partnerLastLeftUK.hint")
+      },
+      casaErrors: formErrors,
+      casaValue: formData.partnerLastLeftUK
+    }) }}
+  {% endset %}
+
+  {{ casaGovukRadios({
+    name: "partnerLivedInUkBefore",
+    fieldset: {
+      legend: {
+        text: t("partner-nationality-details:field.partnerLivedInUkBefore.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("partner-nationality-details:field.partnerLivedInUkBefore.options.yes"),
+      conditional: {
+        html: lastLeftUK
+      }
+    }, {
+      value: "no",
+      text: t("partner-nationality-details:field.partnerLivedInUkBefore.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.partnerLivedInUkBefore,
+    casaErrors: formErrors
+  }) }}
+
+  {{ casaGovukRadios({
+    name: "partnerFamilyReunionScheme",
+    fieldset: {
+      legend: {
+        text: t("partner-nationality-details:field.partnerFamilyReunionScheme.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("partner-nationality-details:field.partnerFamilyReunionScheme.options.yes")
+    }, {
+      value: "no",
+      text: t("partner-nationality-details:field.partnerFamilyReunionScheme.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.partnerFamilyReunionScheme,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

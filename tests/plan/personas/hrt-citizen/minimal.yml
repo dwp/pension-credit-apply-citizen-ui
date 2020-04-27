@@ -1,0 +1,11 @@
+name: hrt-citizen-minimal
+
+journey:
+  returned-to-uk:
+    "no": click()
+
+  uk-sponsorship:
+    "no": click()
+
+  asylum-seeker:
+    "no": click()

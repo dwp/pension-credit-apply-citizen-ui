@@ -1,6 +1,7 @@
 {
   "pageTitle": "What is your home postcode?",
-  "sponsorPageTitle": "What is your sponsor's home postcode?",
+  "sponsorPageTitle": "What is your sponsor‘s home postcode?",
+  "partnerSponsorPageTitle": "What is your partner‘s sponsor‘s home postcode?",
   "field": {
     "postcode": {
       "label": "Postcode",

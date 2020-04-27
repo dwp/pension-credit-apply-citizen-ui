@@ -169,7 +169,7 @@ describe('Validators: nationality-details', () => {
     });
   });
 
-  describe('field: successfulDecisionDate', () => {
+  describe('field: lastLeftUK', () => {
     let _now;
 
     before(() => {

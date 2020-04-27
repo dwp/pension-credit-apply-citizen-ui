@@ -19,7 +19,7 @@
       "required": "Enter the date that you last came to the UK.",
       "format": "Enter a real date that you last came to the UK.",
       "future": "Enter a date that you last came to the UK that is in the past.",
-      "change": "Change <span class=\"govuk-visually-hidden\">your partner’s date of birth</span>"
+      "change": "Change <span class=\"govuk-visually-hidden\">what date you last came to the UK</span>"
     },
     "cameToUkToWork": {
       "legend": "Did you come to the UK to work?",

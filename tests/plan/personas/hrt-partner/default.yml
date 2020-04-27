@@ -1,0 +1,48 @@
+name: hrt-partner-default
+
+journey:
+  partner-returned-to-uk:
+    "yes": click()
+
+  partner-nationality-details:
+    partnerNationality: "British"
+    partnerCountry: "France"
+    partnerLastCameToUK[dd]: "01"
+    partnerLastCameToUK[mm]: "02"
+    partnerLastCameToUK[yyyy]: "2020"
+    partnerCameToUkToWorkYes: click()
+    partnerNoRecourseToPublicFundsNo: click()
+    partnerLivedInUkBeforeYes: click()
+    partnerLastLeftUK[dd]: "11"
+    partnerLastLeftUK[mm]: "10"
+    partnerLastLeftUK[yyyy]: "2010"
+    partnerFamilyReunionSchemeYes: click()
+
+  partner-uk-sponsorship:
+    "yes": click()
+  
+  partner-sponsorship-details:
+    partnerSponsorName: "John Doe"
+    partnerHomeOfficeReference: "HO REF 123"
+    partnerSponsorshipUndertakingSigned[dd]: "12"
+    partnerSponsorshipUndertakingSigned[mm]: "03"
+    partnerSponsorshipUndertakingSigned[yyyy]: "2003"
+  
+  partner-sponsor-address-postcode-lookup:
+    enterManualLink: click()
+  
+  partner-sponsor-address-manual:
+    addressLine1: "Address 1"
+    addressLine2: "Address 1"
+    town: "Address 1"
+    county: "Address 1"
+    postcode: "AA1 1AA"
+
+  partner-asylum-seeker:
+    "yes": click()
+    partnerAsylumBefore3April2000Yes: click()
+    partnerSuccessfulDecisionYes: click()
+    partnerSuccessfulDecisionDate[dd]: "01"
+    partnerSuccessfulDecisionDate[mm]: "02"
+    partnerSuccessfulDecisionDate[yyyy]: "2020"
+    partnerSupportedByHomeOfficeYes: click()

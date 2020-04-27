@@ -1,0 +1,30 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("partner-returned-to-uk:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukRadios({
+    name: "partnerCameToUk",
+    fieldset: {
+      legend: {
+        text: t("partner-returned-to-uk:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("partner-returned-to-uk:field.partnerCameToUk.options.yes")
+    }, {
+      value: "no",
+      text: t("partner-returned-to-uk:field.partnerCameToUk.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.partnerCameToUk,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

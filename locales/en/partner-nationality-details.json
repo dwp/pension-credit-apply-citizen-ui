@@ -1,0 +1,69 @@
+{
+  "pageTitle": "Your partner‘s nationality and residence",
+  "field": {
+    "partnerNationality": {
+      "label": "What is your partner‘s nationality?",
+      "required": "Enter your partner‘s nationality.",
+      "strlen": "Your partner‘s nationality must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">your partner‘s nationality</span>"
+    },
+    "partnerCountry": {
+      "label": "Which country has your partner come from?",
+      "required": "Enter the country your partner has come from.",
+      "strlen": "The country your partner has come from must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">which country your partner has come from</span>"
+    },
+    "partnerLastCameToUK": {
+      "legend": "What date did your partner last come to the UK?",
+      "hint": "For example, 12 11 2007",
+      "required": "Enter the date that your partner last came to the UK.",
+      "format": "Enter a real date that your partner last came to the UK.",
+      "future": "Enter a date that your partner last came to the UK that is in the past.",
+      "change": "Change <span class=\"govuk-visually-hidden\">what date your partner last came to the UK</span>"
+    },
+    "partnerCameToUkToWork": {
+      "legend": "Did your partner come to the UK to work?",
+      "required": "Select yes if your partner came to the UK to work.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether your partner came to the UK to work</span>"
+    },
+    "partnerNoRecourseToPublicFunds": {
+      "legend": "Does your partner‘s passport say they have no recourse to public funds?",
+      "required": "Select yes if your partner‘s passport says they have no recourse to public funds.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether your partner‘s passport says they have no recourse to public funds</span>"
+    },
+    "partnerLivedInUkBefore": {
+      "legend": "Has your partner lived in the UK before?",
+      "required": "Select yes if your partner has lived in the UK before.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether your partner has lived in the UK before</span>"
+    },
+    "partnerLastLeftUK": {
+      "legend": "What date did your partner last leave the UK?",
+      "hint": "For example, 12 11 2007",
+      "required": "Enter the date that your partner last left the UK.",
+      "format": "Enter a real date that your partner last left the UK.",
+      "future": "Enter a date that your partner last left the UK that is in the past.",
+      "change": "Change <span class=\"govuk-visually-hidden\">what date your partner last left the UK</span>"
+    },
+    "partnerFamilyReunionScheme": {
+      "legend": "Has your partner come to the UK under the Family Reunion Scheme?",
+      "required": "Select yes if your partner has come to the UK under the Family Reunion Scheme.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether your partner has come to the UK under the Family Reunion Scheme</span>"
+    }
+  }
+}

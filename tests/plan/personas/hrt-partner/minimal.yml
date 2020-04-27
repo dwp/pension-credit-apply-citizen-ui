@@ -1,0 +1,11 @@
+name: hrt-partner-minimal
+
+journey:
+  partner-returned-to-uk:
+    "no": click()
+
+  partner-uk-sponsorship:
+    "no": click()
+
+  partner-asylum-seeker:
+    "no": click()
