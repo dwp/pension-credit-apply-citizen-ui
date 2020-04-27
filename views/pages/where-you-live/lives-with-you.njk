@@ -1,0 +1,47 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "casa/components/character-count/macro.njk" import casaGovukCharacterCount with context %}
+
+{% block casaPageTitle %}
+  {{ t("lives-with-you:pageTitle" + claimType) }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {% set othersLiveWithYouDetails %}
+    {{ casaGovukCharacterCount({
+      name: "othersLiveWithYouDetails",
+      maxlength: 500,
+      label: {
+        text: t("lives-with-you:field.othersLiveWithYouDetails.label"),
+        classes: "govuk-label--s"
+      },
+      value: formData.othersLiveWithYouDetails,
+      casaErrors: formErrors
+    }) }}
+  {% endset %}
+
+  {{ casaGovukRadios({
+    name: "othersLiveWithYou",
+    fieldset: {
+      legend: {
+        text: t("lives-with-you:pageTitle" + claimType),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("lives-with-you:field.othersLiveWithYou.options.yes"),
+      conditional: {
+        html: othersLiveWithYouDetails
+      }
+    }, {
+      value: "no",
+      text: t("lives-with-you:field.othersLiveWithYou.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.othersLiveWithYou,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

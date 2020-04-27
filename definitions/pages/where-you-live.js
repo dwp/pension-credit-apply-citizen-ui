@@ -5,11 +5,13 @@ const { waypoints } = require('../../lib/constants.js');
 const postcodeHooks = require('../hooks/common/postcode.js');
 const manualAddressHooks = require('../hooks/common/manual-address.js');
 const selectAddressHooks = require('../hooks/common/select-address.js');
+const jointOrSingleClaim = require('../hooks/common/joint-or-single-claim.js');
 
 const postcodeValidation = require('../field-validators/common/postcode.js');
 const selectAddressValidation = require('../field-validators/common/select-address.js');
 const manualAddressValidation = require('../field-validators/common/manual-address.js');
 const lettersHomeValidation = require('../field-validators/where-you-live/letters-home.js');
+const livesWithYouValidation = require('../field-validators/where-you-live/lives-with-you.js');
 
 module.exports = (addressServiceFactory, mountUrl) => {
   const pages = Object.create(null);
@@ -83,6 +85,14 @@ module.exports = (addressServiceFactory, mountUrl) => {
       waypoints.LETTERS_ADDRESS_MANUAL,
       'lettersPageTitle',
     ),
+  };
+
+  pages[waypoints.LIVES_WITH_YOU] = {
+    view: 'pages/where-you-live/lives-with-you.njk',
+    fieldValidators: livesWithYouValidation,
+    hooks: {
+      prerender: jointOrSingleClaim(waypoints),
+    },
   };
 
   return pages;

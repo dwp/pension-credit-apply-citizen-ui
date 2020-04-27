@@ -114,4 +114,7 @@ module.exports = (plan) => {
     isEqualTo('addressFrom', 'manual', WP.LETTERS_ADDRESS_HIDDEN)(r, c)
     && inCareHome(r, c)
   ));
+
+  // Continue where you live journey
+  plan.addSequence(WP.LIVES_WITH_YOU, WP.RENT_COUNCIL_TAX);
 };

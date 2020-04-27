@@ -1,0 +1,21 @@
+{
+  "pageTitleSingle": "Does anyone else live with you?",
+  "pageTitleJoint": "Does anyone else live with you apart from your partner?",
+  "field": {
+    "othersLiveWithYou": {
+      "requiredSingle": "Select yes if anyone else lives with you.",
+      "requiredJoint": "Select yes if anyone else lives with you apart from your partner.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether anyone else lives with you</span>"
+    },
+    "othersLiveWithYouDetails": {
+      "label": "Tell us the name of anyone else that lives with you their relationship to you and whether they are dependent on you.",
+      "required": "Enter the name of anyone else that lives with you, their relationship to you and whether they are dependent on you.",
+      "length": "The name of anyone else that lives with you, their relationship to you and whether they are dependent on you must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\"> the details of anyone else that lives with you</span>"
+    }
+  }
+}
