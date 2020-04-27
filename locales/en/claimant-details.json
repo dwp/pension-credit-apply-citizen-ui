@@ -5,7 +5,8 @@
       "label": "What is your full name?",
       "hint": "Include any middle names.",
       "required": "Enter your full name.",
-      "length": "Full name must be 500 characters or less."
+      "length": "Full name must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">your full name</span>"
     },
     "hasPreviousNames": {
       "legend": "Have you been known by any previous names?",
@@ -14,23 +15,27 @@
       "options": {
         "yes": "Yes",
         "no": "No"
-      }
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you have been known by any previous names</span>"
     },
     "previousNames": {
       "label": "What were your previous names?",
       "required": "Enter your previous names.",
-      "length": "Previous names must be 500 characters or less."
+      "length": "Previous names must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">your previous names</span>"
     },
     "nino": {
       "label": "What is your National Insurance number?",
       "hint": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.",
       "required": "Enter your National Insurance number.",
-      "format": "Enter your National Insurance number in the correct format."
+      "format": "Enter your National Insurance number in the correct format.",
+      "change": "Change <span class=\"govuk-visually-hidden\">your National Insurance number</span>"
     },
     "contactTelephone": {
       "label": "What is your contact telephone number?",
       "length": "Enter your contact telephone number using 20 characters or less.",
-      "format": "Enter your contact telephone number using numbers 0 to 9, spaces, hyphens, brackets and dashes."
+      "format": "Enter your contact telephone number using numbers 0 to 9, spaces, hyphens, brackets and dashes.",
+      "change": "Change <span class=\"govuk-visually-hidden\">your contact telephone number</span>"
     },
     "registeredBlind": {
       "legend": "Are you registered blind or severely sight impaired?",
@@ -38,7 +43,8 @@
       "options": {
         "yes": "Yes",
         "no": "No"
-      }
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you are registered blind or severely sight impaired</span>"
     },
     "canSpeakEnglish": {
       "legend": "Are you able to speak to us in English?",
@@ -46,12 +52,14 @@
       "options": {
         "yes": "Yes",
         "no": "No"
-      }
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you are able to speak to us in English</span>"
     },
     "firstLanguage": {
       "label": "What is your first language?",
       "required": "Enter your first language.",
-      "length": "Language must be 500 characters or less."
+      "length": "Language must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">your first language</span>"
     },
     "speakInWelsh": {
       "legend": "If you live in Wales, do you want to speak to us in Welsh?",
@@ -59,7 +67,8 @@
       "options": {
         "yes": "Yes",
         "no": "No"
-      }
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you want to speak to us in Welsh</span>"
     },
     "helpWithLettersPhone": {
       "legend": "Do you need help with letters or phone calls?",
@@ -67,7 +76,8 @@
       "options": {
         "yes": "Yes",
         "no": "No"
-      }
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you need help with letters or phone calls</span>"
     }
   }
 }

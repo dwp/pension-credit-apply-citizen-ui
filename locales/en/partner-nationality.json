@@ -8,7 +8,8 @@
       "options": {
         "yes": "Yes",
         "no": "No"
-      }
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether your partner has the right to live or work in the UK without any immigration restrictions</span>"
     },
     "partnerLived2Years": {
       "legend": "Has your partner lived permanently in the UK for the last 2 years?",
@@ -16,7 +17,8 @@
       "options": {
         "yes": "Yes",
         "no": "No"
-      }
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether your partner has lived permanently in the UK for the last 2 years</span>"
     }
   }
 }
