@@ -121,5 +121,6 @@ module.exports = (plan) => {
     WP.RENT_COUNCIL_TAX,
     WP.HOME_OWNERSHIP,
     WP.SERVICE_CHARGES,
+    WP.HOME_LOAN,
   );
 };

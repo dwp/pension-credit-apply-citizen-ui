@@ -1,0 +1,61 @@
+{
+  "pageTitle": "Property charges",
+  "field": {
+    "paysServiceCharges": {
+      "legend": "Do you pay any service charges?",
+      "hint": {
+        "chargesInclude": "Service charges can include:",
+        "wardenServices": "warden services",
+        "caretakerServices": "caretaker services like gardening, maintenance and cleaning of communal areas",
+        "laundry": "use of a laundry room",
+        "communalAreas": "use of communal areas like a lounge or TV area"
+      },
+      "required": "Select yes if you pay any service charges.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you pay any service charges</span>"
+    },
+    "serviceChargesAmount": {
+      "label": "How much do you pay in service charges each month?",
+      "required": "Enter how much you pay in service charges each month.",
+      "format": "How much you pay in service charges each month must be an amount of money, like 7.50 or 8.00.",
+      "change": "Change <span class=\"govuk-visually-hidden\">how much you pay in service charges each month</span>"
+    },
+    "paysGroundRent": {
+      "legend": "Do you pay ground rent?",
+      "hint": "You might pay ground rent if you are the leaseholder of your home.",
+      "required": "Select yes if you pay ground rent.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you pay ground rent</span>"
+    },
+    "groundRentAmount": {
+      "label": "How much do you pay in ground rent each month?",
+      "required": "Enter how much you pay in ground rent each month.",
+      "format": "How much you pay in ground rent each month must be an amount of money, like 7.50 or 8.00.",
+      "change": "Change <span class=\"govuk-visually-hidden\"> how much you pay in ground rent each month</span>"
+    },
+    "getsHousingBenefit": {
+      "legend": "Do you get Housing Benefit?",
+      "required": "Select yes if you get Housing Benefit.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you get housing benefit</span>"
+    },
+    "wantsHousingBenefit": {
+      "legend": "Do you want to apply for Housing Benefit?",
+      "required": "Select yes if you want to apply for Housing Benefit.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you want to apply for Housing Benefit</span>"
+    }
+  }
+}

@@ -1,0 +1,147 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("service-charges:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  <h1 class="govuk-heading-xl">
+    {{ t("service-charges:pageTitle") }}
+  </h1>
+
+  {% set serviceChargesAmount %}
+    {{ casaGovukInput({
+      name: "serviceChargesAmount",
+      classes: "govuk-input--width-20",
+      label: {
+        text: t("service-charges:field.serviceChargesAmount.label")
+      },
+      value: formData.serviceChargesAmount,
+      casaErrors: formErrors
+    }) }}
+  {% endset %}
+
+  {% set serviceChargesHint %}
+    <p class="govuk-hint govuk-!-margin-top-0">
+      {{ t("service-charges:field.paysServiceCharges.hint.chargesInclude") }}
+    </p>
+    <ul class="govuk-hint govuk-list govuk-list--bullet">
+      <li>{{ t("service-charges:field.paysServiceCharges.hint.wardenServices") }}</li>
+      <li>{{ t("service-charges:field.paysServiceCharges.hint.caretakerServices") }}</li>
+      <li>{{ t("service-charges:field.paysServiceCharges.hint.laundry") }}</li>
+      <li>{{ t("service-charges:field.paysServiceCharges.hint.communalAreas") }}</li>
+    </ul>
+  {% endset %}
+
+  {{ casaGovukRadios({
+    name: "paysServiceCharges",
+    fieldset: {
+      legend: {
+        text: t("service-charges:field.paysServiceCharges.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      html: serviceChargesHint
+    },
+    items: [{
+      value: "yes",
+      text: t("service-charges:field.paysServiceCharges.options.yes"),
+      conditional: {
+        html: serviceChargesAmount
+      }
+    }, {
+      value: "no",
+      text: t("service-charges:field.paysServiceCharges.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.paysServiceCharges,
+    casaErrors: formErrors
+  }) }}
+
+  {% set groundRentAmount %}
+    {{ casaGovukInput({
+      name: "groundRentAmount",
+      classes: "govuk-input--width-20",
+      label: {
+        text: t("service-charges:field.groundRentAmount.label")
+      },
+      value: formData.groundRentAmount,
+      casaErrors: formErrors
+    }) }}
+  {% endset %}
+
+  {{ casaGovukRadios({
+    name: "paysGroundRent",
+    fieldset: {
+      legend: {
+        text: t("service-charges:field.paysGroundRent.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      text: t("service-charges:field.paysGroundRent.hint")
+    },
+    items: [{
+      value: "yes",
+      text: t("service-charges:field.paysGroundRent.options.yes"),
+      conditional: {
+        html: groundRentAmount
+      }
+    }, {
+      value: "no",
+      text: t("service-charges:field.paysGroundRent.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.paysGroundRent,
+    casaErrors: formErrors
+  }) }}
+
+  {% set wantsHousingBenefit %}
+    {{ casaGovukRadios({
+      name: "wantsHousingBenefit",
+      fieldset: {
+        legend: {
+          text: t("service-charges:field.wantsHousingBenefit.legend"),
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [{
+        value: "yes",
+        text: t("service-charges:field.wantsHousingBenefit.options.yes")
+      }, {
+        value: "no",
+        text: t("service-charges:field.wantsHousingBenefit.options.no")
+      }],
+      casaWithAnalytics: true,
+      casaValue: formData.wantsHousingBenefit,
+      casaErrors: formErrors
+    }) }}
+  {% endset %}
+
+  {{ casaGovukRadios({
+    name: "getsHousingBenefit",
+    fieldset: {
+      legend: {
+        text: t("service-charges:field.getsHousingBenefit.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("service-charges:field.getsHousingBenefit.options.yes")
+    }, {
+      value: "no",
+      text: t("service-charges:field.getsHousingBenefit.options.no"),
+      conditional: {
+        html: wantsHousingBenefit
+      }
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.getsHousingBenefit,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}
