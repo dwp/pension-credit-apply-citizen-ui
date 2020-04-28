@@ -11,6 +11,7 @@ describe('end-to-end', () => {
     'eligibility/non-uk-national',
     'about-citizen/default',
     'where-you-live/default',
+    'income/default',
     'hrt-citizen/default',
     'submission/check-your-answers',
   ];

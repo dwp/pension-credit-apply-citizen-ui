@@ -12,6 +12,7 @@ describe('hrt-citizen', () => {
       'eligibility/default',
       'about-citizen/default',
       'where-you-live/default',
+      'income/default',
       'submission/check-your-answers',
     ]);
 
@@ -23,6 +24,7 @@ describe('hrt-citizen', () => {
       'eligibility/non-uk-national',
       'about-citizen/default',
       'where-you-live/default',
+      'income/default',
       'hrt-citizen/default',
     ]);
 
@@ -34,6 +36,7 @@ describe('hrt-citizen', () => {
       'eligibility/non-uk-national',
       'about-citizen/default',
       'where-you-live/default',
+      'income/default',
       'hrt-citizen/minimal',
     ]);
 

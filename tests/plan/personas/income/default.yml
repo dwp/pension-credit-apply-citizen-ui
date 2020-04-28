@@ -1,0 +1,17 @@
+name: income-default
+
+journey:
+  # --------------------------------------------------------------------- Income
+  private-pensions:
+    "no": click()
+
+  benefits:
+    "waitingToHearAboutBenefitsNo": click()
+    "anyoneGetCarersNo": click()
+
+  earnings:
+    "hasEmploymentIncomeNo": click()
+    "hasSelfEmploymentIncomeNo": click()
+
+  other-income:
+    "no": click()

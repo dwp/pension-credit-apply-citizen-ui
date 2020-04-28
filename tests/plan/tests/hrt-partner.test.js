@@ -12,6 +12,7 @@ describe('hrt-partner', () => {
       'eligibility/non-uk-national-with-partner',
       'about-citizen/with-partner',
       'where-you-live/default',
+      'income/default',
       'hrt-citizen/default',
       'submission/check-your-answers',
     ]);
@@ -24,6 +25,7 @@ describe('hrt-partner', () => {
       'eligibility/has-partner',
       'about-citizen/with-partner-non-uk-national',
       'where-you-live/default',
+      'income/default',
       'hrt-partner/default',
     ]);
 
@@ -35,6 +37,7 @@ describe('hrt-partner', () => {
       'eligibility/non-uk-national-with-partner',
       'about-citizen/with-partner-non-uk-national',
       'where-you-live/default',
+      'income/default',
       'hrt-citizen/minimal',
       'hrt-partner/minimal',
     ]);
