@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Did you need help to complete this applicatione?",
+  "field": {
+    "helpMakingClaim": {
+      "required": "Select yes if you needed help to complete this application.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you needed help to complete this application</span>"
+    }
+  }
+}

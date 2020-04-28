@@ -13,6 +13,7 @@ describe('end-to-end', () => {
     'where-you-live/default',
     'income/default',
     'hrt-citizen/default',
+    'claim-help/default',
     'submission/check-your-answers',
   ];
 

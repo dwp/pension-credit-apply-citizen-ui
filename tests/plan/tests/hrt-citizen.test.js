@@ -13,6 +13,7 @@ describe('hrt-citizen', () => {
       'about-citizen/default',
       'where-you-live/default',
       'income/default',
+      'claim-help/default',
       'submission/check-your-answers',
     ]);
 

@@ -30,7 +30,7 @@ module.exports = (plan, FROM_PREVIOUS_SECTION) => {
   // waypoint we arrived from in order to setup the route
   plan.setRoute(FROM_PREVIOUS_SECTION, WP.HRT_CITIZEN_RETURNED_TO_UK, citizenNeedsHRT);
   plan.setRoute(FROM_PREVIOUS_SECTION, WP.HRT_PARTNER_RETURNED_TO_UK, onlyPartnerNeedsHRT);
-  plan.setRoute(FROM_PREVIOUS_SECTION, WP.CHECK_YOUR_ANSWERS, noHRTNeeded);
+  plan.setRoute(FROM_PREVIOUS_SECTION, WP.CLAIM_HELP, noHRTNeeded);
 
   // returned-to-uk
   plan.setRoute(WP.HRT_CITIZEN_RETURNED_TO_UK, WP.HRT_CITIZEN_UK_SPONSORSHIP, isNo('cameToUk'));
@@ -90,5 +90,5 @@ module.exports = (plan, FROM_PREVIOUS_SECTION) => {
 
   // asylum-seeker
   plan.setRoute(WP.HRT_CITIZEN_ASYLUM_SEEKER, WP.HRT_PARTNER_RETURNED_TO_UK, partnerNeedsHRT);
-  plan.setRoute(WP.HRT_CITIZEN_ASYLUM_SEEKER, WP.CHECK_YOUR_ANSWERS, onlyCitizenNeedsHRT);
+  plan.setRoute(WP.HRT_CITIZEN_ASYLUM_SEEKER, WP.CLAIM_HELP, onlyCitizenNeedsHRT);
 };

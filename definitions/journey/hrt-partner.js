@@ -62,5 +62,5 @@ module.exports = (plan) => {
   plan.setRoute(WP.HRT_PARTNER_SPONSOR_ADDRESS_MANUAL, WP.HRT_PARTNER_ASYLUM_SEEKER, isEqualTo('addressFrom', 'manual', WP.HRT_PARTNER_SPONSOR_ADDRESS_HIDDEN));
 
   // partner-asylum-seeker
-  plan.addSequence(WP.HRT_PARTNER_ASYLUM_SEEKER, WP.CHECK_YOUR_ANSWERS);
+  plan.addSequence(WP.HRT_PARTNER_ASYLUM_SEEKER, WP.CLAIM_HELP);
 };

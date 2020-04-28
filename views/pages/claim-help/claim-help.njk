@@ -1,0 +1,30 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("claim-help:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukRadios({
+    name: "helpMakingClaim",
+    fieldset: {
+      legend: {
+        text: t("claim-help:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("claim-help:field.helpMakingClaim.options.yes")
+    }, {
+      value: "no",
+      text: t("claim-help:field.helpMakingClaim.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.helpMakingClaim,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

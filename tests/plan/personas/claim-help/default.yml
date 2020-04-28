@@ -1,0 +1,5 @@
+name: claim-help
+
+journey:
+  claim-help:
+    "no": click()

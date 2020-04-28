@@ -10,6 +10,7 @@ const whereYouLive = require('./journey/where-you-live.js');
 const income = require('./journey/income.js');
 const hrtCitizen = require('./journey/hrt-citizen.js');
 const hrtPartner = require('./journey/hrt-partner.js');
+const claimHelp = require('./journey/claim-help.js');
 
 module.exports = () => {
   const plan = new Plan();
@@ -23,6 +24,7 @@ module.exports = () => {
   income(plan);
   hrtCitizen(plan, WP.OTHER_INCOME);
   hrtPartner(plan);
+  claimHelp(plan);
 
   return plan;
 };
