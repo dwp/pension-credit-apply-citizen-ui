@@ -12,8 +12,20 @@
   "sectionHeading": {
     "about-you": "About you",
     "about-your-partner": "About your partner",
+    "about-where-you-live": "About where you live",
     "hrt-citizen": "About your residency in the UK",
     "hrt-partner": "About your partner’s residency in the UK"
+  },
+  "othersLiveWithYouDetails": {
+    "label": "Details of anyone else that lives with you"
+  },
+  "homeAddress": {
+    "label": "Your home address",
+    "change": "Change <span class=\"govuk-visually-hidden\">your home address</span>"
+  },
+  "lettersAddress": {
+    "label": "The address we should send letters to",
+    "change": "Change <span class=\"govuk-visually-hidden\">the address we should send letters to</span>"
   },
   "sponsorAddress": {
     "label": "Your sponsor’s address",

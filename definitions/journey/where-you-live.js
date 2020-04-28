@@ -3,7 +3,7 @@ const {
   d, isEqualTo, wasSkipped, isYes, isNo,
 } = require('../../utils/journey-helpers.js');
 
-module.exports = (plan, START_OF_NEXT_SECTION) => {
+module.exports = (plan) => {
   // True if claimant lives in a care home permanently
   const inCareHome = isYes('permanentlyInCareHome', WP.CARE_HOME);
 
@@ -123,6 +123,5 @@ module.exports = (plan, START_OF_NEXT_SECTION) => {
     WP.SERVICE_CHARGES,
     WP.HOME_LOAN,
     WP.SHARE_RENT_MORTGAGE,
-    START_OF_NEXT_SECTION,
   );
 };

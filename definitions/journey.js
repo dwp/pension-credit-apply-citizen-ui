@@ -18,7 +18,7 @@ module.exports = () => {
   eligibility(plan);
   dateOfClaim(plan);
   aboutCitizen(plan);
-  whereYouLive(plan, WP.CHECK_YOUR_ANSWERS);
+  whereYouLive(plan);
   hrtCitizen(plan, WP.SHARE_RENT_MORTGAGE);
   hrtPartner(plan);
 

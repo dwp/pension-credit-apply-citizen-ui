@@ -10,6 +10,13 @@ const { waypoints: WP } = require('../../lib/constants.js');
 const buildClaim = require('../../lib/build-claim.js');
 
 const stubDate = { dd: '1', mm: '2', yyyy: '2000' };
+const stubAddress = {
+  addressLine1: 'Street',
+  addressLine2: 'Estate',
+  town: 'Town',
+  county: 'County',
+  postcode: 'AA1 1AA',
+};
 const stubDataBase = {
   [WP.DATE_OF_BIRTH]: {
     dateOfBirth: stubDate,
@@ -23,6 +30,12 @@ const stubDataBase = {
   },
   [WP.HRT_CITIZEN_SPONSORSHIP_DETAILS]: {
     sponsorshipUndertakingSigned: stubDate,
+  },
+  [WP.WHERE_YOU_LIVE_ADDRESS_HIDDEN]: {
+    address: stubAddress,
+  },
+  [WP.LETTERS_ADDRESS_HIDDEN]: {
+    address: stubAddress,
   },
 };
 
@@ -65,7 +78,7 @@ describe('build-claim', () => {
     expect(claim.hasPartner()).to.be.false;
   });
 
-  it('should oly include a "habitualResidencyTest" section if the user went down this route', () => {
+  it('should only include a "habitualResidencyTest" section if the user went down this route', () => {
     let traversed = [WP.HRT_CITIZEN_RETURNED_TO_UK];
 
     const plan = {

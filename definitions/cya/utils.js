@@ -1,4 +1,5 @@
 const { lib: nunjucksLib } = require('nunjucks');
+const formatPostcode = require('../../utils/format-postcode.js');
 
 function row({
   changeHref, changeHtml, key, value, valueHtml,
@@ -44,9 +45,19 @@ const checkboxOptionValues = (t, context) => (dataKey, i18nOptionKey, i18nNoneKe
   return safeNl2br(str);
 };
 
+const formatAddress = (address) => {
+  const formattedAddress = Object.values({
+    ...address,
+    postcode: formatPostcode(address.postcode),
+  }).filter((v) => v).join('\n');
+
+  return safeNl2br(formattedAddress);
+};
+
 module.exports = {
   row,
   radioOptionValue,
   checkboxOptionValues,
   safeNl2br,
+  formatAddress,
 };

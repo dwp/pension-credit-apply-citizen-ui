@@ -3,8 +3,6 @@
 const addressLinePostcode = /, ?[A-Z0-9]{3,4} [A-Z0-9]{3}$/i;
 
 const prerender = (postcodeWP, manualEntryWP, pageTitleKey, manualEntryKey) => (req, res, next) => {
-  req.casa = req.casa || Object.create(null);
-
   // Grab addresses from the postcode-lookup page
   const { addresses = [] } = req.casa.journeyContext.getDataForPage(postcodeWP);
 
@@ -66,6 +64,7 @@ const postvalidate = (postcodeWP, hiddenAddressWP, sourceAddressWP) => (req, _, 
   req.casa.journeyContext.setDataForPage(hiddenAddressWP, {
     address: addressObj,
     addressFrom: 'select',
+    uprn,
   });
 
   next();

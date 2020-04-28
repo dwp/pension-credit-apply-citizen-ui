@@ -6,7 +6,8 @@
       "options": {
         "yes": "Yes",
         "no": "No"
-      }
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you live permanently in a care home</span>"
     },
     "stillOwnsHome": {
       "legend": "Do you own the property you used to live in?",
@@ -14,7 +15,8 @@
       "options": {
         "yes": "Yes",
         "no": "No"
-      }
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you own the property you used to live in</span>"
     }
   }
 }
