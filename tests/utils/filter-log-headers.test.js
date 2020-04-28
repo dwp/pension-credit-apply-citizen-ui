@@ -23,7 +23,6 @@ describe('Utils: filter-log-headers', () => {
       'x-amzn-trace-id': 'a',
       'x-forwarded-host': 'a',
       'x-real-ip': 'a',
-      'cache-control': 'a',
       'upgrade-insecure-requests': 'a',
       'sec-fetch-user': 'a',
       host: 'a',
@@ -45,7 +44,6 @@ describe('Utils: filter-log-headers', () => {
       'x-amzn-trace-id',
       'x-forwarded-host',
       'x-real-ip',
-      'cache-control',
       'upgrade-insecure-requests',
       'sec-fetch-user',
       'host',
@@ -67,7 +65,6 @@ describe('Utils: filter-log-headers', () => {
       'x-amzn-trace-id': 'a',
       'x-forwarded-host': 'a',
       'x-real-ip': 'a',
-      'cache-control': 'a',
       'upgrade-insecure-requests': 'a',
       'sec-fetch-user': 'a',
       host: 'a',
@@ -104,5 +101,25 @@ describe('Utils: filter-log-headers', () => {
 
   it('should throw a TypeError for a number entry type for req.headers', () => {
     expect(() => filterLogHeaders(12345)).to.throw(TypeError, 'headers must be of type [object Object]');
+  });
+
+  it('should sanitise invalid characters from each header', () => {
+    req.headers = {
+      'x-forwarded-for': '<>\\{}!@£$&*^',
+    };
+
+    const filteredHeaders = filterLogHeaders(req.headers);
+
+    expect(filteredHeaders).to.have.property('x-forwarded-for').that.equals('............');
+  });
+
+  it('should clip length of each header', () => {
+    req.headers = {
+      'x-forwarded-for': 'A'.repeat(500),
+    };
+
+    const filteredHeaders = filterLogHeaders(req.headers);
+
+    expect(filteredHeaders).to.have.property('x-forwarded-for').that.has.length(256);
   });
 });
