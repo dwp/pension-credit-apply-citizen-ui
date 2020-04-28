@@ -2,7 +2,7 @@
 // eg: 123 FAKE STREET, FAUXVILLE, NOT TOWN[, ZE0 A00]
 const addressLinePostcode = /, ?[A-Z0-9]{3,4} [A-Z0-9]{3}$/i;
 
-const prerender = (postcodeWP, manualEntryWP) => (req, res, next) => {
+const prerender = (postcodeWP, manualEntryWP, pageTitleKey, manualEntryKey) => (req, res, next) => {
   req.casa = req.casa || Object.create(null);
 
   // Grab addresses from the postcode-lookup page
@@ -35,6 +35,8 @@ const prerender = (postcodeWP, manualEntryWP) => (req, res, next) => {
   // Links to change postcode, or go to manual addresses entry
   res.locals.changePostcodeUrl = `${postcodeWP}#f-postcode`;
   res.locals.manualAddressUrl = `?skipto=${manualEntryWP}`;
+  res.locals.pageTitleKey = `select-address:${pageTitleKey}`;
+  res.locals.manualEntryKey = `postcode:${manualEntryKey}`;
 
   next();
 };
@@ -69,7 +71,7 @@ const postvalidate = (postcodeWP, hiddenAddressWP, sourceAddressWP) => (req, _, 
   next();
 };
 
-module.exports = (postcodeWP = '', manualEntryWP = '', hiddenAddressWP = '', sourceAddressWP = '') => ({
-  prerender: prerender(postcodeWP, manualEntryWP),
+module.exports = (postcodeWP = '', manualEntryWP = '', hiddenAddressWP = '', sourceAddressWP = '', pageTitleKey = 'pageTitle', manualEntryKey = 'enterManually') => ({
+  prerender: prerender(postcodeWP, manualEntryWP, pageTitleKey, manualEntryKey),
   postvalidate: postvalidate(postcodeWP, hiddenAddressWP, sourceAddressWP),
 });

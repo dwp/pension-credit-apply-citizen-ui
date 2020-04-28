@@ -11,5 +11,7 @@
     }
   },
   "submit": "Find address",
-  "enterManually": "Enter your address manually"
+  "enterManually": "Enter your address manually",
+  "sponsorEnterManually": "Enter your sponsor’s address manually",
+  "partnerSponsorEnterManually": "Enter your partner’s sponsor’s address manually"
 }

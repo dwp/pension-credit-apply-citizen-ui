@@ -45,7 +45,7 @@ module.exports = (addressServiceFactory, mountUrl) => {
     fieldGatherModifiers: {
       postcode: trimWhitespace,
     },
-    hooks: postcodeHooks(addressServiceFactory, waypoints.HRT_CITIZEN_SPONSOR_ADDRESS_MANUAL, 'sponsorPageTitle'),
+    hooks: postcodeHooks(addressServiceFactory, waypoints.HRT_CITIZEN_SPONSOR_ADDRESS_MANUAL, 'sponsorPageTitle', 'sponsorEnterManually'),
   };
 
   pages[waypoints.HRT_CITIZEN_SPONSOR_ADDRESS_SELECT] = {
@@ -56,6 +56,8 @@ module.exports = (addressServiceFactory, mountUrl) => {
       waypoints.HRT_CITIZEN_SPONSOR_ADDRESS_MANUAL,
       waypoints.HRT_CITIZEN_SPONSOR_ADDRESS_HIDDEN,
       waypoints.HRT_CITIZEN_SPONSOR_ADDRESS_SELECT,
+      'sponsorPageTitle',
+      'sponsorEnterManually',
     ),
   };
 
