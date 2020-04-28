@@ -8,12 +8,14 @@
       "options": {
         "yes": "Yes",
         "no": "No"
-      }
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you have applied for any benefits that you are waiting to hear about</span>"
     },
     "benefitsDetails": {
       "label": "Benefits have you applied for",
       "required": "Enter the benefits that you have applied for.",
-      "length": "Benefits that you have applied for must be less than 500 characters."
+      "length": "Benefits that you have applied for must be less than 500 characters.",
+      "change": "Change <span class=\"govuk-visually-hidden\">which benefits you have applied for</span>"
     },
     "anyoneGetCarers": {
       "legendSingle": "Does anyone get Carer’s Allowance or the Carer’s Element of Universal Credit for looking after you?",
@@ -22,7 +24,8 @@
       "options": {
         "yes": "Yes",
         "no": "No"
-      }
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether anyone gets Carer’s Allowance or Carer’s Element of Universal Credit for looking after you</span>"
     }
   }
 }

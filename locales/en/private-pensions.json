@@ -7,12 +7,14 @@
       "options": {
         "yes": "Yes",
         "no": "No"
-      }
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you get a private pension, a pension from a place where you used to work or any other pension</span>"
     },
     "privatePensionDetails": {
       "label": "For each pension you get, tell us who pays it, how much it is and how often it is paid. you do not need to tell us about your State Pension",
       "required": "Enter details of each pension you get.",
-      "length": "Details of pension you get must be less than 500 characters."
+      "length": "Details of pension you get must be less than 500 characters.",
+      "change": "Change <span class=\"govuk-visually-hidden\">the details of your private and workplace pensions</span>"
     }
   }
 }

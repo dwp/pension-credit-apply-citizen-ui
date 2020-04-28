@@ -13,6 +13,9 @@
     "about-you": "About you",
     "about-your-partner": "About your partner",
     "about-where-you-live": "About where you live",
+    "pensions": "Pensions",
+    "benefits": "Benefits you have applied for",
+    "earnings": "Employment and earnings",
     "hrt-citizen": "About your residency in the UK",
     "hrt-partner": "About your partner’s residency in the UK"
   },
@@ -27,12 +30,24 @@
     "label": "The address we should send letters to",
     "change": "Change <span class=\"govuk-visually-hidden\">the address we should send letters to</span>"
   },
+  "privatePensionDetails": {
+    "label": "Details of your private and workplace pensions"
+  },
+  "employmentIncomeDetails": {
+    "label": "Details of your income from employment"
+  },
+  "selfEmploymentIncomeDetails": {
+    "label": "Details of your income from self-employment"
+  },
+  "otherIncomeDetails": {
+    "label": "Details of other money you have coming in"
+  },
   "sponsorAddress": {
     "label": "Your sponsor’s address",
     "change": "Change <span class=\"govuk-visually-hidden\">your sponsor’s address</span>"
   },
   "partnerSponsorAddress": {
     "label": "Your partner’s sponsor’s address",
-    "change": "Change <span class=\"govuk-visually-hidden\">your sponsor’s address</span>"
+    "change": "Change <span class=\"govuk-visually-hidden\">your partner’s sponsor’s address</span>"
   }
 }
