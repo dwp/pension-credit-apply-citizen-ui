@@ -1,11 +1,11 @@
 {
-  "pageTitle": "Your partner‘s nationality and residence",
+  "pageTitle": "Your partner’s nationality and residence",
   "field": {
     "partnerNationality": {
-      "label": "What is your partner‘s nationality?",
-      "required": "Enter your partner‘s nationality.",
-      "strlen": "Your partner‘s nationality must be 500 characters or less.",
-      "change": "Change <span class=\"govuk-visually-hidden\">your partner‘s nationality</span>"
+      "label": "What is your partner’s nationality?",
+      "required": "Enter your partner’s nationality.",
+      "strlen": "Your partner’s nationality must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">your partner’s nationality</span>"
     },
     "partnerCountry": {
       "label": "Which country has your partner come from?",
@@ -31,13 +31,13 @@
       "change": "Change <span class=\"govuk-visually-hidden\">whether your partner came to the UK to work</span>"
     },
     "partnerNoRecourseToPublicFunds": {
-      "legend": "Does your partner‘s passport say they have no recourse to public funds?",
-      "required": "Select yes if your partner‘s passport says they have no recourse to public funds.",
+      "legend": "Does your partner’s passport say they have no recourse to public funds?",
+      "required": "Select yes if your partner’s passport says they have no recourse to public funds.",
       "options": {
         "yes": "Yes",
         "no": "No"
       },
-      "change": "Change <span class=\"govuk-visually-hidden\">whether your partner‘s passport says they have no recourse to public funds</span>"
+      "change": "Change <span class=\"govuk-visually-hidden\">whether your partner’s passport says they have no recourse to public funds</span>"
     },
     "partnerLivedInUkBefore": {
       "legend": "Has your partner lived in the UK before?",
