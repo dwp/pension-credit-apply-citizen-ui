@@ -4,7 +4,7 @@ const validators = require('../../../../definitions/field-validators/about-claim
 describe('Validators: contact-formats', () => {
   describe('field: textPhoneNumber', () => {
     it('should pass "required" validator if no value is provided and contactFormats does not include "textPhone"', async () => {
-      await expectValidatorToPass(validators, 'otherDetails', 'required', { contactFormats: ['audio'] });
+      await expectValidatorToPass(validators, 'otherDetails', 'required', null);
     });
 
     it('should fail "required" validator if no value is provided and contactFormats includes "textPhone"', async () => {
