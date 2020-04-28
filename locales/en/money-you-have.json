@@ -1,0 +1,25 @@
+{
+  "pageTitleSingle": "How much money do you have?",
+  "pageTitleJoint": "How much money do you and your partner have?",
+  "thisIncludes": "This includes:",
+  "moneyInAccounts": "money in current, savings or deposit accounts with a bank, building society, credit union or the Post Office",
+  "ns&iBonds": "National Savings and Investment products like Savings Certificates, Premium Bonds, Income Bonds and residual accounts",
+  "cashAtHome": "money at home in cash",
+  "investments": "investments like ISAs, PEPs and TOISAs",
+  "shares": "shares",
+  "unitTrusts": "money invested in unit trusts",
+  "incomeCapitalBonds": "income or capital bonds",
+  "moneyOverseas": "any other money in this country or overseas",
+  "field": {
+    "moneyBackdated": {
+      "label": "How much money did you have on ${dateOfClaim}?",
+      "required": "Enter how much money you had on ${dateOfClaim}",
+      "format": " How much money you had on ${dateOfClaim} must be an amount of money like 7.50 or 8.00."
+    },
+    "moneyToday": {
+      "label": "How much money do you have today?",
+      "required": "Enter how much money you have today.",
+      "format": "How much money you have today must be an amount of money like 7.50 or 8.00."
+    }
+  }
+}

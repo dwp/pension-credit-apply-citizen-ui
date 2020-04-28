@@ -1,0 +1,51 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+
+{% block casaPageTitle %}
+  {{ t("money-you-have:pageTitle" + claimType) }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  <h1 class="govuk-heading-xl">
+    {{ t("money-you-have:pageTitle" + claimType) }}
+  </h1>
+
+  <p class="govuk-body-l govuk-!-margin-bottom-2">
+    {{ t("money-you-have:thisIncludes") }}
+  </p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>{{ t("money-you-have:moneyInAccounts") }}</li>
+    <li>{{ t("money-you-have:ns&iBonds") }}</li>
+    <li>{{ t("money-you-have:cashAtHome") }}</li>
+    <li>{{ t("money-you-have:investments") }}</li>
+    <li>{{ t("money-you-have:shares") }}</li>
+    <li>{{ t("money-you-have:unitTrusts") }}</li>
+    <li>{{ t("money-you-have:incomeCapitalBonds") }}</li>
+    <li>{{ t("money-you-have:moneyOverseas") }}</li>
+  </ul>
+
+  {% if needToBackdate %}
+    {{ casaGovukInput({
+      name: "moneyBackdated",
+      classes: "govuk-input--width-20",
+      label: {
+        text: t("money-you-have:field.moneyBackdated.label", { dateOfClaim: dateOfClaim | formatDateObject }),
+        classes: "govuk-label--s"
+      },
+      value: formData.moneyBackdated,
+      casaErrors: formErrors
+    }) }}
+  {% endif %}
+
+  {{ casaGovukInput({
+    name: "moneyToday",
+    classes: "govuk-input--width-20",
+    label: {
+      text: t("money-you-have:field.moneyToday.label"),
+      classes: "govuk-label--s"
+    },
+    value: formData.moneyToday,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}
