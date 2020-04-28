@@ -1,18 +1,20 @@
 const buildClaim = require('../../lib/build-claim.js');
 const buildCya = require('../../definitions/cya/index.js');
 
+const renderPage = (res, plan, journeyContext, tplContext) => {
+  res.render('pages/submission/check-your-answers.njk', {
+    sections: buildCya(res.locals.t, journeyContext, buildClaim(plan, journeyContext)),
+    ...tplContext,
+  });
+};
+
 const checkLock = (plan) => (req, res, next) => {
   // If another submission is currently under way, ask the user to wait
   const now = (new Date()).getTime();
   if (req.session.submissionLock && req.session.submissionLock > now) {
     req.log.info(`Submission lock present (expires ${(new Date(req.session.submissionLock)).toISOString()})`);
-    res.render('pages/submission/check-your-answers.njk', {
+    renderPage(res, plan, req.casa.journeyContext, {
       error: 'check-your-answers:error.submission-locked',
-      sections: buildCya(
-        res.locals.t,
-        req.casa.journeyContext,
-        buildClaim(plan, req.casa.journeyContext),
-      ),
     });
   } else {
     req.log.info('Submission lock is not present');
@@ -63,7 +65,7 @@ const redirectToFinal = (finalUrl) => (req, res) => {
   res.status(302).redirect(finalUrl);
 };
 
-const handleErrors = (err, req, res, next) => { /* eslint-disable-line no-unused-vars */
+const handleErrors = (plan) => (err, req, res, next) => { /* eslint-disable-line no-unused-vars */
   if (err.name === 'HTTPError') {
     req.log.error({ err: err.response.body }, 'Error response from Claim Service. Claim not submitted.');
   } else if (err.name === 'TimeoutError') {
@@ -77,7 +79,7 @@ const handleErrors = (err, req, res, next) => { /* eslint-disable-line no-unused
   // Clear the lock
   delete req.session.submissionLock;
 
-  res.render('pages/submission/check-your-answers.njk', {
+  renderPage(res, plan, req.casa.journeyContext, {
     error: 'check-your-answers:error.claim-service-failure',
   });
 };

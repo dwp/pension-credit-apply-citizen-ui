@@ -21,8 +21,10 @@ module.exports = (logger, exitFn) => {
   });
 
   listener.on('end', () => {
-    logger.error('Redis connection has ended and cannot be restablished. Exiting.');
-    exitFn(1);
+    logger.fatal('Redis connection has ended and cannot be restablished. Exiting.');
+    // Note: process.nextTick() does not work here; it causes the app to exit
+    // before the logger has chance to write to stdout
+    setTimeout(() => exitFn(1), 0);
   });
 
   return listener;

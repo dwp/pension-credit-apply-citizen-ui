@@ -200,10 +200,11 @@ describe('submission/check-your-answers', () => {
       const spyRender = sinon.spy(res, 'render');
       const next = sinon.stub();
 
-      handleErrors({}, req, res, next);
+      handleErrors({})({}, req, res, next);
 
       expect(spyRender).to.be.calledOnceWithExactly('pages/submission/check-your-answers.njk', {
         error: 'check-your-answers:error.claim-service-failure',
+        sections: [],
       });
     });
   });

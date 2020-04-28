@@ -13,5 +13,5 @@ module.exports = (plan, claimServiceFactory, httpTimeout, endSession, finalUrl) 
   submitClaim(plan, claimServiceFactory),
   clearSession(endSession),
   redirectToFinal(finalUrl),
-  handleErrors,
+  handleErrors(plan),
 ]);
