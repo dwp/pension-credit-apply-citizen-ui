@@ -2,7 +2,7 @@
   "pageTitle": "Select your home address",
   "lettersPageTitle": "Select the address we should send letters to",
   "sponsorPageTitle": "Select your sponsor’s address",
-  "postcode": "Postcode:",
+  "postcode": "Postcode",
   "change": "Change <span class=\"govuk-visually-hidden\">postcode</span>",
   "field": {
     "address": {
