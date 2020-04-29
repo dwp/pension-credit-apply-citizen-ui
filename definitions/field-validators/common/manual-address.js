@@ -18,9 +18,6 @@ const fieldValidators = Object.assign(Object.create(null), {
     }),
   ]),
   town: sf([
-    r.required.bind({
-      errorMsg: 'manual-address:field.town.required',
-    }),
     r.strlen.bind({
       max: 100,
       errorMsgMax: 'manual-address:field.town.length',

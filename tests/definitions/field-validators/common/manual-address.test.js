@@ -46,16 +46,6 @@ describe('Validators: manual-address', () => {
   });
 
   describe('field: town', () => {
-    it('should fail "required" validator if no value is provided', async () => {
-      await expectValidatorToFail(validators, 'town', 'required', null, {
-        summary: 'manual-address:field.town.required',
-      });
-    });
-
-    it('should pass "required" validator if a non-empty value is provided', async () => {
-      await expectValidatorToPass(validators, 'town', 'required', { town: 'Valid Address' });
-    });
-
     it('should fail "strlen" validator if string length > 100', async () => {
       const longString = Array(102).join('x');
       expect(longString).has.length(101);
