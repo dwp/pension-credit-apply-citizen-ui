@@ -1,0 +1,282 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/checkboxes/macro.njk" import casaGovukCheckboxes with context %}
+{% from "casa/components/character-count/macro.njk" import casaGovukCharacterCount with context %}
+
+{% block casaPageTitle %}
+  {{ t("disregarded-money:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {% set officialErrorDetails %}
+    {{ casaGovukCharacterCount({
+      maxlength: 500,
+      name: "officialErrorDetails",
+      value: formData.officialErrorDetails,
+      casaErrors: formErrors,
+      label: {
+        classes: "govuk-label--s",
+        text: t("disregarded-money:field.officialErrorDetails.label")
+      }
+    }) }}
+  {% endset -%}
+
+  {% set councilTaxReductionDetails %}
+    {{ casaGovukCharacterCount({
+      maxlength: 500,
+      name: "councilTaxReductionDetails",
+      value: formData.councilTaxReductionDetails,
+      casaErrors: formErrors,
+      label: {
+        classes: "govuk-label--s",
+        text: t("disregarded-money:field.councilTaxReductionDetails.label")
+      }
+    }) }}
+  {% endset -%}
+
+  {% set armedForcesDetailsHint %}
+    <p class="govuk-hint">
+      {{ t("disregarded-money:field.armedForcesDetails.hint.thisIncludes") }}
+    </p>
+    <ul class="govuk-hint govuk-list govuk-list--bullet">
+      <li>{{ t("disregarded-money:field.armedForcesDetails.hint.payments") }}</li>
+      <ul class="govuk-hint govuk-list govuk-list">
+        <li>{{ t("disregarded-money:field.armedForcesDetails.hint.slaveLabour") }}</li>
+        <li>{{ t("disregarded-money:field.armedForcesDetails.hint.propertyLoss") }}</li>
+        <li>{{ t("disregarded-money:field.armedForcesDetails.hint.parent") }}</li>
+      </ul>
+      <li>{{ t("disregarded-money:field.armedForcesDetails.hint.farEastPOW") }}</li>
+      <li>{{ t("disregarded-money:field.armedForcesDetails.hint.independencePayment") }}</li>
+    </ul>
+  {% endset -%}
+
+  {% set armedForcesDetails %}
+    {{ casaGovukCharacterCount({
+      maxlength: 500,
+      name: "armedForcesDetails",
+      value: formData.armedForcesDetails,
+      casaErrors: formErrors,
+      label: {
+        classes: "govuk-label--s",
+        text: t("disregarded-money:field.armedForcesDetails.label")
+      },
+      hint: {
+        html: armedForcesDetailsHint
+      }
+    }) }}
+  {% endset -%}
+
+  {% set personalInjuryDetails %}
+    {{ casaGovukCharacterCount({
+      maxlength: 500,
+      name: "personalInjuryDetails",
+      value: formData.personalInjuryDetails,
+      casaErrors: formErrors,
+      label: {
+        classes: "govuk-label--s",
+        text: t("disregarded-money:field.personalInjuryDetails.label")
+      }
+    }) }}
+  {% endset -%}
+
+  {% set homeInsuranceDetails %}
+    {{ casaGovukCharacterCount({
+      maxlength: 500,
+      name: "homeInsuranceDetails",
+      value: formData.homeInsuranceDetails,
+      casaErrors: formErrors,
+      label: {
+        classes: "govuk-label--s",
+        text: t("disregarded-money:field.homeInsuranceDetails.label")
+      }
+    }) }}
+  {% endset -%}
+
+  {% set homeRepairsDetails %}
+    {{ casaGovukCharacterCount({
+      maxlength: 500,
+      name: "homeRepairsDetails",
+      value: formData.homeRepairsDetails,
+      casaErrors: formErrors,
+      label: {
+        classes: "govuk-label--s",
+        text: t("disregarded-money:field.homeRepairsDetails.label")
+      }
+    }) }}
+  {% endset -%}
+
+  {% set liveIndependentDetailsHint %}
+    <p class="govuk-hint">
+      {{ t("disregarded-money:field.liveIndependentDetails.hint.thisIncludes") }}
+    </p>
+    <ul class="govuk-hint govuk-list govuk-list--bullet">
+      <li>{{ t("disregarded-money:field.liveIndependentDetails.hint.independentLivingFund") }}</li>
+      <li>{{ t("disregarded-money:field.liveIndependentDetails.hint.localAuthority") }}</li>
+      <li>{{ t("disregarded-money:field.liveIndependentDetails.hint.welfareAssistance") }}</li>
+    </ul>
+  {% endset -%}
+
+  {% set liveIndependentDetails %}
+    {{ casaGovukCharacterCount({
+      maxlength: 500,
+      name: "liveIndependentDetails",
+      value: formData.liveIndependentDetails,
+      casaErrors: formErrors,
+      label: {
+        classes: "govuk-label--s",
+        text: t("disregarded-money:field.liveIndependentDetails.label")
+      },
+      hint: {
+        html: liveIndependentDetailsHint
+      }
+    }) }}
+  {% endset -%}
+
+  {% set incidentDetailsHint %}
+    <p class="govuk-hint">
+      {{ t("disregarded-money:field.incidentDetails.hint.thisIncludes") }}
+    </p>
+    <ul class="govuk-hint govuk-list govuk-list--bullet">
+      <li>{{ t("disregarded-money:field.incidentDetails.hint.nationalEmergenciesTrust") }}</li>
+      <li>{{ t("disregarded-money:field.incidentDetails.hint.londonEmergencyTrust") }}</li>
+      <li>{{ t("disregarded-money:field.incidentDetails.hint.weLoveManchester") }}</li>
+      <li>{{ t("disregarded-money:field.incidentDetails.hint.londonBombing") }}</li>
+      <li>{{ t("disregarded-money:field.incidentDetails.hint.rugbyPortobello") }}</li>
+      <li>{{ t("disregarded-money:field.incidentDetails.hint.grenfell") }}</li>
+    </ul>
+  {% endset -%}
+
+  {% set incidentDetails %}
+    {{ casaGovukCharacterCount({
+      maxlength: 500,
+      name: "incidentDetails",
+      value: formData.incidentDetails,
+      casaErrors: formErrors,
+      label: {
+        classes: "govuk-label--s",
+        text: t("disregarded-money:field.incidentDetails.label")
+      },
+      hint: {
+        html: incidentDetailsHint
+      }
+    }) }}
+  {% endset -%}
+
+  {% set windrushDetails %}
+    {{ casaGovukCharacterCount({
+      maxlength: 500,
+      name: "windrushDetails",
+      value: formData.windrushDetails,
+      casaErrors: formErrors,
+      label: {
+        classes: "govuk-label--s",
+        text: t("disregarded-money:field.windrushDetails.label")
+      }
+    }) }}
+  {% endset -%}
+
+  {% set bloodDetailsHint %}
+    <p class="govuk-hint">
+      {{ t("disregarded-money:field.bloodDetails.hint.thisIncludes") }}
+    </p>
+    <ul class="govuk-hint govuk-list govuk-list--bullet">
+      <li>{{ t("disregarded-money:field.bloodDetails.hint.mcFarlaneTrust") }}</li>
+      <li>{{ t("disregarded-money:field.bloodDetails.hint.mcFarlaneSpecial") }}</li>
+      <li>{{ t("disregarded-money:field.bloodDetails.hint.mfetLimited") }}</li>
+      <li>{{ t("disregarded-money:field.bloodDetails.hint.skiptonFund") }}</li>
+      <li>{{ t("disregarded-money:field.bloodDetails.hint.caxtonFoundation") }}</li>
+      <li>{{ t("disregarded-money:field.bloodDetails.hint.scottishInfectedBlood") }}</li>
+    </ul>
+  {% endset -%}
+
+  {% set bloodDetails %}
+    {{ casaGovukCharacterCount({
+      maxlength: 500,
+      name: "bloodDetails",
+      value: formData.bloodDetails,
+      casaErrors: formErrors,
+      label: {
+        classes: "govuk-label--s",
+        text: t("disregarded-money:field.bloodDetails.label")
+      },
+      hint: {
+        html: bloodDetailsHint
+      }
+    }) }}
+  {% endset -%}
+
+  {{ casaGovukCheckboxes({
+    name: "disregardedMoney",
+    casaWithAnalytics: true,
+    casaValue: formData.disregardedMoney,
+    casaErrors: formErrors,
+    fieldset: {
+      legend: {
+        text: t("disregarded-money:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "officialError",
+      text: t("disregarded-money:field.disregardedMoney.options.officialError.label"),
+      conditional: {
+        html: officialErrorDetails
+      }
+    }, {
+      value: "councilTaxReduction",
+      text: t("disregarded-money:field.disregardedMoney.options.councilTaxReduction.label"),
+      conditional: {
+        html: councilTaxReductionDetails
+      }
+    }, {
+      value: "armedForces",
+      text: t("disregarded-money:field.disregardedMoney.options.armedForces.label"),
+      conditional: {
+        html: armedForcesDetails
+      }
+    }, {
+      value: "personalInjury",
+      text: t("disregarded-money:field.disregardedMoney.options.personalInjury.label"),
+      conditional: {
+        html: personalInjuryDetails
+      }
+    }, {
+      value: "homeInsurance",
+      text: t("disregarded-money:field.disregardedMoney.options.homeInsurance.label"),
+      conditional: {
+        html: homeInsuranceDetails
+      }
+    }, {
+      value: "homeRepairs",
+      text: t("disregarded-money:field.disregardedMoney.options.homeRepairs.label"),
+      conditional: {
+        html: homeRepairsDetails
+      }
+    }, {
+      value: "liveIndependent",
+      text: t("disregarded-money:field.disregardedMoney.options.liveIndependent.label"),
+      conditional: {
+        html: liveIndependentDetails
+      }
+    }, {
+      value: "incident",
+      text: t("disregarded-money:field.disregardedMoney.options.incident.label"),
+      conditional: {
+        html: incidentDetails
+      }
+    }, {
+      value: "windrush",
+      text: t("disregarded-money:field.disregardedMoney.options.windrush.label"),
+      conditional: {
+        html: windrushDetails
+      }
+    }, {
+      value: "blood",
+      text: t("disregarded-money:field.disregardedMoney.options.blood.label"),
+      conditional: {
+        html: bloodDetails
+      }
+    }]
+  }) }}
+{% endblock %}

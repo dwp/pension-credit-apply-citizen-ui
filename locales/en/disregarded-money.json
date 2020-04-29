@@ -1,0 +1,122 @@
+{
+  "pageTitle": "Is any of the money you have from:",
+  "field": {
+    "disregardedMoney": {
+      "options": {
+        "officialError": {
+          "label": "Payments to correct or compensate for an official error or for arrears of benefits"
+        },
+        "councilTaxReduction": {
+          "label": "Payments related to Council Tax Reduction"
+        },
+        "armedForces": {
+          "label": "Compensation payments related to the second world war or service in the armed forces"
+        },
+        "personalInjury": {
+          "label": "Personal injury claim payments"
+        },
+        "homeInsurance": {
+          "label": "Payments from a home insurance policy to cover lost or damaged personal possessions"
+        },
+        "homeRepairs": {
+          "label": "Savings that you intend to use to buy or make essential repairs to your main home"
+        },
+        "liveIndependent": {
+          "label": "Payments to help you live independently in your own home or the community"
+        },
+        "incident": {
+          "label": "Payments to help you if you have been involved in an incident or emergency"
+        },
+        "windrush": {
+          "label": "Windrush child compensation"
+        },
+        "blood": {
+          "label": "Payments to support you with the effects of a blood infection or vCJD"
+        }
+      }
+    },
+    "officialErrorDetails": {
+      "label": "Describe the payments for arrears or official error, the date paid and the amount",
+      "required": "Enter a description of the payments for arrears or official error, the date paid and the amount.",
+      "length": "Description of the payments for arrears or official error, the date paid and the amount must be 500 characters or less."
+    },
+    "councilTaxReductionDetails": {
+      "label": "Describe the payment related to Council Tax Reduction, the date it was paid and amount",
+      "required": "Enter a description of the payment related to Council Tax Reduction, the date it was paid and amount.",
+      "length": "Description of the payment related to Council Tax Reduction, the date it was paid and amount must be 500 characters or less."
+    },
+    "armedForcesDetails": {
+      "label": "Describe the compensation payments related to the second world war or service in the armed forces, the date they were paid and amount",
+      "hint": {
+        "thisIncludes": "This includes:",
+        "payments": "Payments (other than War Disablement Pension or War Widow(er)’s Pension) to compensate for the fact that during the second world war you:",
+        "slaveLabour": "were a slave labourer or forced labourer",
+        "propertyLoss": "suffered property loss or personal injury",
+        "parent": "were a parent of a child who died",
+        "farEastPOW": "Payments made to Far East Prisoners of War or their partners",
+        "independencePayment": "Armed Forces Independence Payment"
+      },
+      "required": "Enter a description of the compensation payments related to the second world war or service in the armed forces, the date they were paid and amount.",
+      "length": "Description of the compensation payments related to the second world war or service in the armed forces, the date they were paid and amount must be 500 characters or less."
+    },
+    "personalInjuryDetails": {
+      "label": "Describe this personal injury payment, the date it was paid and amount",
+      "required": "Enter a description of this personal injury payment, the date it was paid and amount.",
+      "length": "Description of this personal injury payment, the date it was paid and amount must be 500 characters or less."
+    },
+    "homeInsuranceDetails": {
+      "label": "Describe the payment from home insurance, the date it was paid and amount",
+      "required": "Enter a description of the payments payment from home insurance, the date it was paid and amount.",
+      "length": "Description of the payment from home insurance, the date it was paid and amount must be 500 characters or less."
+    },
+    "homeRepairsDetails": {
+      "label": "Describe the money to buy or make essential repairs to a home, the date you have had it since and amount",
+      "required": "Enter a description of the money to buy or make essential repairs to a home, the date you have had it since and amount.",
+      "length": "Description of the payments money to buy or make essential repairs to a home, the date you have had it since and amount must be 500 characters or less."
+    },
+    "liveIndependentDetails": {
+      "label": "Describe the payments to help you live independently, the date they were paid and amount",
+      "hint": {
+        "thisIncludes": "This includes:",
+        "independentLivingFund": "payments from The Independent Living Fund",
+        "localAuthority": "local authority payments to help you to continue to live independently in your own home for one year",
+        "welfareAssistance": "welfare assistance grants from the local authority for one year"
+      },
+      "required": "Enter a description of the payments to help you live independently, the date they were paid and amount.",
+      "length": "Description of the payments to help you live independently, the date they were paid and amount must be 500 characters or less."
+    },
+    "incidentDetails": {
+      "label": "Describe the payment to help you after an incident or emergency, the date it was paid and amount",
+      "hint": {
+        "thisIncludes": "This includes payments from:",
+        "nationalEmergenciesTrust": "The National Emergencies Trust",
+        "londonEmergencyTrust": "London Emergency Trust",
+        "weLoveManchester": "The We Love Manchester Emergency Fund",
+        "londonBombing": "The London Bombing Charitable Trust",
+        "rugbyPortobello": "The Rugby Portobello Trust",
+        "grenfell": "Grenfell Tower Residents’ Discretionary Fund"
+      },
+      "required": "Enter a description of the payment to help you after an incident or emergency, the date it was paid and amount.",
+      "length": "Description of the payment to help you after an incident or emergency, the date it was paid and amount must be 500 characters or less."
+    },
+    "windrushDetails": {
+      "label": "Describe the Windrush child compensation payment, the date it was paid and amount",
+      "required": "Enter a description of Windrush child compensation payment, the date it was paid and amount.",
+      "length": "Description of the Windrush child compensation payment, the date it was paid and amount must be 500 characters or less."
+    },
+    "bloodDetails": {
+      "label": "Describe the payment to support you with the effects of a blood infection or vCJD, the date it was paid and amount",
+      "hint": {
+        "thisIncludes": "This includes payments from:",
+        "mcFarlaneTrust": "The McFarlane Trust",
+        "mcFarlaneSpecial": "McFarlane (Special Payments) Trust",
+        "mfetLimited": "Trust MFET Limited",
+        "skiptonFund": "The Skipton Fund",
+        "caxtonFoundation": "The Caxton Foundation",
+        "scottishInfectedBlood": "The Scottish Infected Blood Support Scheme or an approved blood scheme"
+      },
+      "required": "Enter a description of the payment to support you with the effects of a blood infection or vCJD.",
+      "length": "Description of the payment to support you with the effects of a blood infection or vCJD must be 500 characters or less."
+    }
+  }
+}
