@@ -40,8 +40,8 @@ module.exports = (t, context, claim) => {
     /* ------------------------------------------------------- home address */
     // Your home address
     row({
-      changeHref: homeAddress.address.addressFrom === 'select'
-        ? `${WP.WHERE_YOU_LIVE_ADDRESS_POSTCODE_LOOKUP}#f-postcode`
+      changeHref: homeAddress.addressFrom === 'select'
+        ? `${WP.WHERE_YOU_LIVE_ADDRESS_SELECT}#f-uprn`
         : `${WP.WHERE_YOU_LIVE_ADDRESS_MANUAL}#f-addressLine1`,
       changeHtml: t('check-your-answers:homeAddress.change'),
       key: t('check-your-answers:homeAddress.label'),
@@ -60,8 +60,8 @@ module.exports = (t, context, claim) => {
     /* ---------------------------------------------------- letters address */
     // The address we should send letters to
     !claim.whereClaimantLives.homeAddressForCorrespondence && row({
-      changeHref: lettersAddress.address.addressFrom === 'select'
-        ? `${WP.LETTERS_ADDRESS_POSTCODE_LOOKUP}#f-postcode`
+      changeHref: lettersAddress.addressFrom === 'select'
+        ? `${WP.LETTERS_ADDRESS_SELECT}#f-uprn`
         : `${WP.LETTERS_ADDRESS_MANUAL}#f-addressLine1`,
       changeHtml: t('check-your-answers:lettersAddress.change'),
       key: t('check-your-answers:lettersAddress.label'),
