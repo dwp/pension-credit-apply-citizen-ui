@@ -143,6 +143,7 @@ module.exports = (CONFIG, baseLogger) => {
 
   // Claim submission handlers
   const submissionCommonMw = [casaMwPrepare, casaMwRails, middleware.pageCsrf];
+
   casaApp.router.get(`/${waypoints.CHECK_YOUR_ANSWERS}`, submissionCommonMw, checkYourAnswersGet(
     appUserJourney,
   ));
@@ -153,6 +154,7 @@ module.exports = (CONFIG, baseLogger) => {
     casaApp.endSession,
     `${CONFIG.CONTEXT_PATH}${waypoints.WHAT_HAPPENS_NEXT}`,
   ));
+
   casaApp.router.get(`/${waypoints.WHAT_HAPPENS_NEXT}`, whatHappensNextGet);
 
   // End of middleware chain with no matching page, render 404 error

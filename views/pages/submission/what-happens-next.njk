@@ -14,12 +14,54 @@
         titleText: t("what-happens-next:panelTitle")
       }) }}
 
-      <h1 class="govuk-heading-l govuk-!-margin-top-8">
-        {{ t("what-happens-next:pageTitle") }}
-      </h1>
-
+      <!-- What happens next -->
+      <h2 class="govuk-heading-l govuk-!-margin-top-8">
+        {{ t("what-happens-next:section.whatHappensNext.heading") }}
+      </h2>
       <p class="govuk-body">
-        CONTENT TO GO HERE
+        {% if ownsAdditionalProperty %}
+          {{ t("what-happens-next:section.whatHappensNext.leadParaPropertyHtml", contactDate) | safe }}
+        {% else %}
+          {{ t("what-happens-next:section.whatHappensNext.leadParaDefaultHtml", contactDate) | safe }}
+        {% endif %}
+      </p>
+
+      <h3 class="govuk-heading-m">{{ t('what-happens-next:section.whatHappensNext.subHeadingSuccess') }}</h3>
+      <p class="govuk-body">
+        {{ t('what-happens-next:section.whatHappensNext.paraSuccess') }}
+      </p>
+
+      <h3 class="govuk-heading-m">{{ t('what-happens-next:section.whatHappensNext.subHeadingChanges') }}</h3>
+      <p class="govuk-body">
+        {{ t('what-happens-next:section.whatHappensNext.paraChangesHtml') | safe }}
+      </p>
+
+
+      <!-- Housing Benefit -->
+      <h2 class="govuk-heading-l">{{ t('what-happens-next:section.housingBenefit.heading') }}</h2>
+      <p class="govuk-body">
+        {{ t('what-happens-next:section.housingBenefit.para') }}
+      </p>
+
+
+      <!-- Council Tax Reduction -->
+      <h2 class="govuk-heading-l">{{ t('what-happens-next:section.councilTaxReduction.heading') }}</h2>
+      <p class="govuk-body">
+        {{ t('what-happens-next:section.councilTaxReduction.para') }}
+      </p>
+
+
+      <!-- Carer’s Allowance -->
+      <h2 class="govuk-heading-l">{{ t('what-happens-next:section.carersAllowance.heading') }}</h2>
+      <p class="govuk-body">
+        {{ t('what-happens-next:section.carersAllowance.paraHtml') | safe }}
+      </p>
+
+
+      <!-- Survey -->
+      <h3 class="govuk-heading-m">{{ t('what-happens-next:section.survey.heading') }}</h3>
+      <p class="govuk-body">
+        <a href="https://getinvolved.dwp.gov.uk/digital/fa743129/start_preview?token=721b98c7019344093611254c9ffe7a1d4807b86f" target="_blank" rel="noopener noreferrer" class="govuk-link">{{ t('what-happens-next:section.survey.linkLabel') }}</a>
       </p>
     </div>
   </div>

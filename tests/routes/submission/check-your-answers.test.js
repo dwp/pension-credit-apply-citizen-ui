@@ -6,7 +6,9 @@ const Request = require('../../helpers/fake-request.js');
 const Response = require('../../helpers/fake-response.js');
 
 const { expect } = chai;
-const stubBuildClaim = sinon.stub().returns({});
+const stubBuildClaim = sinon.stub().returns({
+  ownsAdditionalProperty: () => (false),
+});
 const stubBuildCya = sinon.stub().returns([]);
 
 const {
@@ -142,6 +144,24 @@ describe('submission/check-your-answers', () => {
       await submitClaim({}, claimServiceFactory)(req, res, next);
 
       expect(next).to.be.calledOnceWithExactly(sinon.match({ message: 'test' }));
+    });
+
+    it('should set req.claimCompleteData', (done) => {
+      const claimService = { submitClaim: sinon.stub().resolves() };
+      const claimServiceFactory = { create: sinon.stub().returns(claimService) };
+
+      const req = new Request();
+      const res = new Response();
+      const next = sinon.stub();
+
+      submitClaim({}, claimServiceFactory)(req, res, next).then(() => {
+        process.nextTick(() => {
+          expect(req).to.have.property('claimCompleteData');
+          expect(req.claimCompleteData).to.have.property('ownsAdditionalProperty');
+          expect(req.claimCompleteData).to.have.property('contactDate').that.matches(/^[0-9]{2} [a-z]+? [0-9]{4}$/i);
+          done();
+        });
+      }).catch(done);
     });
   });
 

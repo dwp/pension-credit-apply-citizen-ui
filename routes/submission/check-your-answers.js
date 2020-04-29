@@ -1,3 +1,4 @@
+const moment = require('moment');
 const buildClaim = require('../../lib/build-claim.js');
 const buildCya = require('../../definitions/cya/index.js');
 
@@ -42,6 +43,12 @@ const submitClaim = (plan, claimServiceFactory) => (req, res, next) => {
     traceId: req.request_correlation_id,
   });
 
+  // Determine some data to pass onto final "what happens next" page
+  req.claimCompleteData = {
+    ownsAdditionalProperty: claim.ownsAdditionalProperty(),
+    contactDate: moment().add(4, 'weeks').format('DD MMM YYYY'),
+  };
+
   req.log.trace('Calling claim service');
   return claimService.submitClaim(claim).then(() => {
     req.log.info('Claim submitted successfully');
@@ -51,12 +58,14 @@ const submitClaim = (plan, claimServiceFactory) => (req, res, next) => {
 
 const clearSession = (endSession) => (req, res, next) => {
   req.log.info('Clearing session following successful claim submission');
-  // TODO: Maybe clear session rather than empty and regenerate so that if they
-  // press SUBMIT twice, they will be able to reach the WHAT NEXT page instead
-  // of a session timeout error?
   return endSession(req).then(() => {
     req.log.info('Session ended successfully');
-    next();
+
+    // Set data to indicate which parts of the what happens next page should
+    // be revealed
+    req.log.info(`Saving completion data to new session (${req.session.id})`);
+    req.session.claimCompleteData = req.claimCompleteData;
+    req.session.save(next);
   }).catch(next);
 };
 

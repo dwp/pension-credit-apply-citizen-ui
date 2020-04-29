@@ -6,8 +6,8 @@
     "information": "You could be prosecuted or have to pay a financial penalty if you deliberately give the wrong or incomplete information or do not report changes."
   },
   "error": {
-    "submission-locked": "Your claim is still being submitted.",
-    "claim-service-failure": "Something went wrong and your claim has not been sent yet. Please try submitting again."
+    "submission-locked": "Your claim is still being submitted. Please wait before continuing.",
+    "claim-service-failure": "Your claim has not been submitted. Please try again."
   },
   "sectionHeading": {
     "about-you": "About you",

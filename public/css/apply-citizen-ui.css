@@ -5,3 +5,7 @@
 .contact-numbers dt::after {
   content: ': ';
 }
+
+.date-nowrap {
+  white-space: nowrap;
+}
