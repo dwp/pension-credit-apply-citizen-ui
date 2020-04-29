@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Do you own any property or land other than your home?",
+  "field": {
+    "hasSecondProperty": {
+      "required": "Select yes if you own any property or land other than your home.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you own any property or land other than your home</span>"
+    }
+  }
+}

@@ -24,7 +24,7 @@ module.exports = () => {
   whereYouLive(plan);
   income(plan);
   money(plan);
-  hrtCitizen(plan, WP.MONEY_YOU_HAVE);
+  hrtCitizen(plan);
   hrtPartner(plan);
   claimHelp(plan);
 

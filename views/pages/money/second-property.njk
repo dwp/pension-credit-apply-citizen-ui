@@ -1,0 +1,30 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("second-property:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukRadios({
+    name: "hasSecondProperty",
+    fieldset: {
+      legend: {
+        text: t("second-property:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("second-property:field.hasSecondProperty.options.yes")
+    }, {
+      value: "no",
+      text: t("second-property:field.hasSecondProperty.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.hasSecondProperty,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}
