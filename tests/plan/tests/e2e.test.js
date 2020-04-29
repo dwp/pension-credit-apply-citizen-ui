@@ -12,6 +12,7 @@ describe('end-to-end', () => {
     'about-citizen/default',
     'where-you-live/default',
     'income/default',
+    'money/default',
     'hrt-citizen/default',
     'claim-help/default',
     'submission/check-your-answers',

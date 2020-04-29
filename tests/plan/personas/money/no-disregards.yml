@@ -1,0 +1,12 @@
+name: money-no-disregards
+
+journey:
+  # ---------------------------------------------------------------------- Money
+  money-you-have:
+    "moneyBackdated": "10000.00"
+    "moneyToday": "10000.00"
+
+  second-property:
+    "no": click()
+
+  claim-help:

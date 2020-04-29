@@ -1,0 +1,14 @@
+name: money-disregards-citizen-hrt
+
+journey:
+  # ---------------------------------------------------------------------- Money
+  money-you-have:
+    "moneyBackdated": "100.00"
+    "moneyToday": "50.00"
+
+  second-property:
+    "yes": click()
+
+  disregarded-money:
+
+  returned-to-uk:

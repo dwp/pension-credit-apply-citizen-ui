@@ -13,6 +13,7 @@ describe('hrt-citizen', () => {
       'about-citizen/default',
       'where-you-live/default',
       'income/default',
+      'money/default',
       'claim-help/default',
       'submission/check-your-answers',
     ]);
@@ -26,6 +27,7 @@ describe('hrt-citizen', () => {
       'about-citizen/default',
       'where-you-live/default',
       'income/default',
+      'money/default',
       'hrt-citizen/default',
     ]);
 
@@ -38,6 +40,7 @@ describe('hrt-citizen', () => {
       'about-citizen/default',
       'where-you-live/default',
       'income/default',
+      'money/default',
       'hrt-citizen/minimal',
     ]);
 

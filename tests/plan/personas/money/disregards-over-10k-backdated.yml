@@ -1,0 +1,14 @@
+name: money-disregards-over-10k-backdated
+
+journey:
+  # ---------------------------------------------------------------------- Money
+  money-you-have:
+    "moneyBackdated": "10000.01"
+    "moneyToday": "50.00"
+
+  second-property:
+    "no": click()
+
+  disregarded-money:
+
+  claim-help:

@@ -13,6 +13,7 @@ describe('hrt-partner', () => {
       'about-citizen/with-partner',
       'where-you-live/default',
       'income/default',
+      'money/default',
       'hrt-citizen/default',
       'claim-help/default',
       'submission/check-your-answers',
@@ -27,6 +28,7 @@ describe('hrt-partner', () => {
       'about-citizen/with-partner-non-uk-national',
       'where-you-live/default',
       'income/default',
+      'money/default',
       'hrt-partner/default',
     ]);
 
@@ -39,6 +41,7 @@ describe('hrt-partner', () => {
       'about-citizen/with-partner-non-uk-national',
       'where-you-live/default',
       'income/default',
+      'money/default',
       'hrt-citizen/minimal',
       'hrt-partner/minimal',
     ]);
