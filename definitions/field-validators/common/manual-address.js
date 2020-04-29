@@ -7,25 +7,25 @@ const fieldValidators = Object.assign(Object.create(null), {
       errorMsg: 'manual-address:field.addressLine1.required',
     }),
     r.strlen.bind({
-      max: 100,
+      max: 500,
       errorMsgMax: 'manual-address:field.addressLine1.length',
     }),
   ]),
   addressLine2: sf([
     r.strlen.bind({
-      max: 100,
+      max: 500,
       errorMsgMax: 'manual-address:field.addressLine2.length',
     }),
   ]),
   town: sf([
     r.strlen.bind({
-      max: 100,
+      max: 500,
       errorMsgMax: 'manual-address:field.town.length',
     }),
   ]),
   county: sf([
     r.strlen.bind({
-      max: 100,
+      max: 500,
       errorMsgMax: 'manual-address:field.county.length',
     }),
   ]),
