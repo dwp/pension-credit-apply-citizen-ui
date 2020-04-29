@@ -16,6 +16,7 @@
     "pensions": "Pensions",
     "benefits": "Benefits you have applied for",
     "earnings": "Employment and earnings",
+    "money-you-have": "Money you have",
     "hrt-citizen": "About your residency in the UK",
     "hrt-partner": "About your partner’s residency in the UK"
   },
@@ -41,6 +42,36 @@
   },
   "otherIncomeDetails": {
     "label": "Details of other money you have coming in"
+  },
+  "officialErrorDetails": {
+    "label": "Details of benefit arrears, correction or compensation payments"
+  },
+  "councilTaxReductionDetails": {
+    "label": "Details of payments related to Council Tax Reduction"
+  },
+  "armedForcesDetails": {
+    "label": "Details of compensation payments related to the second world war or service in the armed forces"
+  },
+  "personalInjuryDetails": {
+    "label": "Details of personal injury claim payments"
+  },
+  "homeInsuranceDetails": {
+    "label": "Details of payments from a home insurance policy to cover lost or damaged personal possessions"
+  },
+  "homeRepairsDetails": {
+    "label": "Details of savings that you intend to use to buy or make essential repairs to your main home"
+  },
+  "liveIndependentDetails": {
+    "label": "Details of payments to help you live independently in your own home or the community"
+  },
+  "incidentDetails": {
+    "label": "Details of payments to help you if you have been involved in an incident or emergency"
+  },
+  "windrushDetails": {
+    "label": "Details of Windrush child compensation"
+  },
+  "bloodDetails": {
+    "label": "Details of payments to support you with the effects of a blood infection or vCJD"
   },
   "sponsorAddress": {
     "label": "Your sponsor’s address",

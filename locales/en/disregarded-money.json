@@ -4,46 +4,78 @@
     "disregardedMoney": {
       "options": {
         "officialError": {
-          "label": "Payments to correct or compensate for an official error or for arrears of benefits"
+          "label": "Payments to correct or compensate for an official error or for arrears of benefits",
+          "change": "Change <span class=\"govuk-visually-hidden\">whether you have had any payments for arrears of benefits, or any payments to correct or compensate for an official error</span>",
+          "cyaYes": "Yes",
+          "cyaNo": "No"
         },
         "councilTaxReduction": {
-          "label": "Payments related to Council Tax Reduction"
+          "label": "Payments related to Council Tax Reduction",
+          "change": "Change <span class=\"govuk-visually-hidden\">whether you have had any payments related to Council Tax Reduction</span>",
+          "cyaYes": "Yes",
+          "cyaNo": "No"
         },
         "armedForces": {
-          "label": "Compensation payments related to the second world war or service in the armed forces"
+          "label": "Compensation payments related to the second world war or service in the armed forces",
+          "change": "Change <span class=\"govuk-visually-hidden\">whether you have had any compensation payments related to the second world war or service in the armed forces</span>",
+          "cyaYes": "Yes",
+          "cyaNo": "No"
         },
         "personalInjury": {
-          "label": "Personal injury claim payments"
+          "label": "Personal injury claim payments",
+          "change": "Change <span class=\"govuk-visually-hidden\">whether you have had any personal injury claim payments</span>",
+          "cyaYes": "Yes",
+          "cyaNo": "No"
         },
         "homeInsurance": {
-          "label": "Payments from a home insurance policy to cover lost or damaged personal possessions"
+          "label": "Payments from a home insurance policy to cover lost or damaged personal possessions",
+          "change": "Change <span class=\"govuk-visually-hidden\">whether you have had any payments from a home insurance policy to cover lost or damaged personal possessions</span>",
+          "cyaYes": "Yes",
+          "cyaNo": "No"
         },
         "homeRepairs": {
-          "label": "Savings that you intend to use to buy or make essential repairs to your main home"
+          "label": "Savings that you intend to use to buy or make essential repairs to your main home",
+          "change": "Change <span class=\"govuk-visually-hidden\"> whether you have any savings that you intend to use to buy or make essential repairs to your main home</span>",
+          "cyaYes": "Yes",
+          "cyaNo": "No"
         },
         "liveIndependent": {
-          "label": "Payments to help you live independently in your own home or the community"
+          "label": "Payments to help you live independently in your own home or the community",
+          "change": "Change <span class=\"govuk-visually-hidden\">whether you have had any payments to help you live independently in your own home or the community</span>",
+          "cyaYes": "Yes",
+          "cyaNo": "No"
         },
         "incident": {
-          "label": "Payments to help you if you have been involved in an incident or emergency"
+          "label": "Payments to help you if you have been involved in an incident or emergency",
+          "change": "Change <span class=\"govuk-visually-hidden\">whether you have had any payments to help you if you have been involved in an incident or emergency</span>",
+          "cyaYes": "Yes",
+          "cyaNo": "No"
         },
         "windrush": {
-          "label": "Windrush child compensation"
+          "label": "Windrush child compensation",
+          "change": "Change <span class=\"govuk-visually-hidden\">whether you hve been paid Windrush child compensation</span>",
+          "cyaYes": "Yes",
+          "cyaNo": "No"
         },
         "blood": {
-          "label": "Payments to support you with the effects of a blood infection or vCJD"
+          "label": "Payments to support you with the effects of a blood infection or vCJD",
+          "change": "Change <span class=\"govuk-visually-hidden\">whether you have had any payments to support you with the effects of a blood infection or vCJD</span>",
+          "cyaYes": "Yes",
+          "cyaNo": "No"
         }
       }
     },
     "officialErrorDetails": {
       "label": "Describe the payments for arrears or official error, the date paid and the amount",
       "required": "Enter a description of the payments for arrears or official error, the date paid and the amount.",
-      "length": "Description of the payments for arrears or official error, the date paid and the amount must be 500 characters or less."
+      "length": "Description of the payments for arrears or official error, the date paid and the amount must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">details of benefit arrears, correction or compensation payments</span>"
     },
     "councilTaxReductionDetails": {
       "label": "Describe the payment related to Council Tax Reduction, the date it was paid and amount",
       "required": "Enter a description of the payment related to Council Tax Reduction, the date it was paid and amount.",
-      "length": "Description of the payment related to Council Tax Reduction, the date it was paid and amount must be 500 characters or less."
+      "length": "Description of the payment related to Council Tax Reduction, the date it was paid and amount must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">details of payments related to Council Tax Reduction</span>"
     },
     "armedForcesDetails": {
       "label": "Describe the compensation payments related to the second world war or service in the armed forces, the date they were paid and amount",
@@ -57,22 +89,26 @@
         "independencePayment": "Armed Forces Independence Payment"
       },
       "required": "Enter a description of the compensation payments related to the second world war or service in the armed forces, the date they were paid and amount.",
-      "length": "Description of the compensation payments related to the second world war or service in the armed forces, the date they were paid and amount must be 500 characters or less."
+      "length": "Description of the compensation payments related to the second world war or service in the armed forces, the date they were paid and amount must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">details of compensation payments related to the second world war or service in the armed forces</span>"
     },
     "personalInjuryDetails": {
       "label": "Describe this personal injury payment, the date it was paid and amount",
       "required": "Enter a description of this personal injury payment, the date it was paid and amount.",
-      "length": "Description of this personal injury payment, the date it was paid and amount must be 500 characters or less."
+      "length": "Description of this personal injury payment, the date it was paid and amount must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">details of personal injury claim payments</span>"
     },
     "homeInsuranceDetails": {
       "label": "Describe the payment from home insurance, the date it was paid and amount",
       "required": "Enter a description of the payments payment from home insurance, the date it was paid and amount.",
-      "length": "Description of the payment from home insurance, the date it was paid and amount must be 500 characters or less."
+      "length": "Description of the payment from home insurance, the date it was paid and amount must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">details of payments from a home insurance policy to cover lost or damaged personal possessions</span>"
     },
     "homeRepairsDetails": {
       "label": "Describe the money to buy or make essential repairs to a home, the date you have had it since and amount",
       "required": "Enter a description of the money to buy or make essential repairs to a home, the date you have had it since and amount.",
-      "length": "Description of the payments money to buy or make essential repairs to a home, the date you have had it since and amount must be 500 characters or less."
+      "length": "Description of the payments money to buy or make essential repairs to a home, the date you have had it since and amount must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">details of savings that you intend to use to buy or make essential repairs to your main home</span>"
     },
     "liveIndependentDetails": {
       "label": "Describe the payments to help you live independently, the date they were paid and amount",
@@ -83,7 +119,8 @@
         "welfareAssistance": "welfare assistance grants from the local authority for one year"
       },
       "required": "Enter a description of the payments to help you live independently, the date they were paid and amount.",
-      "length": "Description of the payments to help you live independently, the date they were paid and amount must be 500 characters or less."
+      "length": "Description of the payments to help you live independently, the date they were paid and amount must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">details of payments to help you live independently in your own home or the community</span>"
     },
     "incidentDetails": {
       "label": "Describe the payment to help you after an incident or emergency, the date it was paid and amount",
@@ -97,12 +134,14 @@
         "grenfell": "Grenfell Tower Residents’ Discretionary Fund"
       },
       "required": "Enter a description of the payment to help you after an incident or emergency, the date it was paid and amount.",
-      "length": "Description of the payment to help you after an incident or emergency, the date it was paid and amount must be 500 characters or less."
+      "length": "Description of the payment to help you after an incident or emergency, the date it was paid and amount must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">details of payments to help you if you have been involved in an incident or emergency</span>"
     },
     "windrushDetails": {
       "label": "Describe the Windrush child compensation payment, the date it was paid and amount",
       "required": "Enter a description of Windrush child compensation payment, the date it was paid and amount.",
-      "length": "Description of the Windrush child compensation payment, the date it was paid and amount must be 500 characters or less."
+      "length": "Description of the Windrush child compensation payment, the date it was paid and amount must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">details of Windrush child compensation</span>"
     },
     "bloodDetails": {
       "label": "Describe the payment to support you with the effects of a blood infection or vCJD, the date it was paid and amount",
@@ -116,7 +155,8 @@
         "scottishInfectedBlood": "The Scottish Infected Blood Support Scheme or an approved blood scheme"
       },
       "required": "Enter a description of the payment to support you with the effects of a blood infection or vCJD.",
-      "length": "Description of the payment to support you with the effects of a blood infection or vCJD must be 500 characters or less."
+      "length": "Description of the payment to support you with the effects of a blood infection or vCJD must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">details of payments to support you with the effects of a blood infection or vCJD</span>"
     }
   }
 }

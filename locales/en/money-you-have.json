@@ -14,12 +14,14 @@
     "moneyBackdated": {
       "label": "How much money did you have on ${dateOfClaim}?",
       "required": "Enter how much money you had on ${dateOfClaim}",
-      "format": " How much money you had on ${dateOfClaim} must be an amount of money like 7.50 or 8.00."
+      "format": " How much money you had on ${dateOfClaim} must be an amount of money like 7.50 or 8.00.",
+      "change": "Change <span class=\"govuk-visually-hidden\">how much money you had on your claim start date</span>"
     },
     "moneyToday": {
       "label": "How much money do you have today?",
       "required": "Enter how much money you have today.",
-      "format": "How much money you have today must be an amount of money like 7.50 or 8.00."
+      "format": "How much money you have today must be an amount of money like 7.50 or 8.00.",
+      "change": "Change <span class=\"govuk-visually-hidden\">how much money you have today</span>"
     }
   }
 }
