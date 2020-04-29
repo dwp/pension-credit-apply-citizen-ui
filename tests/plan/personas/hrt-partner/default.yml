@@ -7,15 +7,15 @@ journey:
   partner-nationality-details:
     partnerNationality: "British"
     partnerCountry: "France"
-    partnerLastCameToUK[dd]: "01"
-    partnerLastCameToUK[mm]: "02"
-    partnerLastCameToUK[yyyy]: "2020"
+    partnerLastCameToUk[dd]: "01"
+    partnerLastCameToUk[mm]: "02"
+    partnerLastCameToUk[yyyy]: "2020"
     partnerCameToUkToWorkYes: click()
     partnerNoRecourseToPublicFundsNo: click()
     partnerLivedInUkBeforeYes: click()
-    partnerLastLeftUK[dd]: "11"
-    partnerLastLeftUK[mm]: "10"
-    partnerLastLeftUK[yyyy]: "2010"
+    partnerLastLeftUk[dd]: "11"
+    partnerLastLeftUk[mm]: "10"
+    partnerLastLeftUk[yyyy]: "2010"
     partnerFamilyReunionSchemeYes: click()
 
   partner-uk-sponsorship:

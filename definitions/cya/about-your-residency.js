@@ -48,10 +48,10 @@ module.exports = (t, context, claim) => {
 
     // What date did you last come to the UK?
     row({
-      changeHref: `${WP.HRT_CITIZEN_NATIONALITY_DETAILS}#f-lastCameToUK[dd]`,
-      changeHtml: t('nationality-details:field.lastCameToUK.change'),
-      key: t('nationality-details:field.lastCameToUK.legend'),
-      value: formatDateObject(nationalityDetails.lastCameToUK),
+      changeHref: `${WP.HRT_CITIZEN_NATIONALITY_DETAILS}#f-lastCameToUk[dd]`,
+      changeHtml: t('nationality-details:field.lastCameToUk.change'),
+      key: t('nationality-details:field.lastCameToUk.legend'),
+      value: formatDateObject(nationalityDetails.lastCameToUk),
     }),
 
     // Did you come to the UK to work?
@@ -80,10 +80,10 @@ module.exports = (t, context, claim) => {
 
     // What date did you last leave the UK?
     nationalityDetails.livedInUkBefore !== 'yes' ? undefined : row({
-      changeHref: `${WP.HRT_CITIZEN_NATIONALITY_DETAILS}#f-lastLeftUK[dd]`,
-      changeHtml: t('nationality-details:field.lastLeftUK.change'),
-      key: t('nationality-details:field.lastLeftUK.legend'),
-      value: formatDateObject(nationalityDetails.lastLeftUK),
+      changeHref: `${WP.HRT_CITIZEN_NATIONALITY_DETAILS}#f-lastLeftUk[dd]`,
+      changeHtml: t('nationality-details:field.lastLeftUk.change'),
+      key: t('nationality-details:field.lastLeftUk.legend'),
+      value: formatDateObject(nationalityDetails.lastLeftUk),
     }),
 
     // Have you come to the UK under the Family Reunion Scheme?

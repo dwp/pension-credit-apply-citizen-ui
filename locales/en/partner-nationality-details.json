@@ -13,7 +13,7 @@
       "strlen": "The country your partner has come from must be 500 characters or less.",
       "change": "Change <span class=\"govuk-visually-hidden\">which country your partner has come from</span>"
     },
-    "partnerLastCameToUK": {
+    "partnerLastCameToUk": {
       "legend": "What date did your partner last come to the UK?",
       "hint": "For example, 12 11 2007",
       "required": "Enter the date that your partner last came to the UK.",
@@ -48,7 +48,7 @@
       },
       "change": "Change <span class=\"govuk-visually-hidden\">whether your partner has lived in the UK before</span>"
     },
-    "partnerLastLeftUK": {
+    "partnerLastLeftUk": {
       "legend": "What date did your partner last leave the UK?",
       "hint": "For example, 12 11 2007",
       "required": "Enter the date that your partner last left the UK.",

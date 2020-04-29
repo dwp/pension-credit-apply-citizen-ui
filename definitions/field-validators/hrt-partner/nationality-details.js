@@ -22,10 +22,10 @@ const fieldValidators = Object.assign(Object.create(null), {
     }),
   ]),
 
-  partnerLastCameToUK: sf([
+  partnerLastCameToUk: sf([
     r.required.bind({
       errorMsg: {
-        summary: 'partner-nationality-details:field.partnerLastCameToUK.required',
+        summary: 'partner-nationality-details:field.partnerLastCameToUk.required',
         focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
       },
     }),
@@ -34,11 +34,11 @@ const fieldValidators = Object.assign(Object.create(null), {
       allowSingleDigitMonth: true,
       beforeOffsetFromNow: moment.duration(1, 'days'),
       errorMsg: {
-        summary: 'partner-nationality-details:field.partnerLastCameToUK.format',
+        summary: 'partner-nationality-details:field.partnerLastCameToUk.format',
         focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
       },
       errorMsgBeforeOffset: {
-        summary: 'partner-nationality-details:field.partnerLastCameToUK.future',
+        summary: 'partner-nationality-details:field.partnerLastCameToUk.future',
         focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
       },
     }),
@@ -74,10 +74,10 @@ const fieldValidators = Object.assign(Object.create(null), {
     }),
   ]),
 
-  partnerLastLeftUK: sf([
+  partnerLastLeftUk: sf([
     r.required.bind({
       errorMsg: {
-        summary: 'partner-nationality-details:field.partnerLastLeftUK.required',
+        summary: 'partner-nationality-details:field.partnerLastLeftUk.required',
         focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
       },
     }),
@@ -86,11 +86,11 @@ const fieldValidators = Object.assign(Object.create(null), {
       allowSingleDigitMonth: true,
       beforeOffsetFromNow: moment.duration(1, 'days'),
       errorMsg: {
-        summary: 'partner-nationality-details:field.partnerLastLeftUK.format',
+        summary: 'partner-nationality-details:field.partnerLastLeftUk.format',
         focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
       },
       errorMsgBeforeOffset: {
-        summary: 'partner-nationality-details:field.partnerLastLeftUK.future',
+        summary: 'partner-nationality-details:field.partnerLastLeftUk.future',
         focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
       },
     }),

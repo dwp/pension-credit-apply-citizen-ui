@@ -25,8 +25,8 @@ const stubDataBase = {
     dateOfClaim: stubDate,
   },
   [WP.HRT_CITIZEN_NATIONALITY_DETAILS]: {
-    lastCameToUK: stubDate,
-    lastLeftUK: stubDate,
+    lastCameToUk: stubDate,
+    lastLeftUk: stubDate,
   },
   [WP.HRT_CITIZEN_SPONSORSHIP_DETAILS]: {
     sponsorshipUndertakingSigned: stubDate,

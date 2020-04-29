@@ -49,7 +49,7 @@ describe('Validators: nationality-details', () => {
     });
   });
 
-  describe('field: lastCameToUK', () => {
+  describe('field: lastCameToUk', () => {
     let _now;
 
     before(() => {
@@ -61,33 +61,33 @@ describe('Validators: nationality-details', () => {
     });
 
     it('should fail "required" validator if no value is provided', async () => {
-      await expectValidatorToFail(validators, 'lastCameToUK', 'required', null, {
-        summary: 'nationality-details:field.lastCameToUK.required',
+      await expectValidatorToFail(validators, 'lastCameToUk', 'required', null, {
+        summary: 'nationality-details:field.lastCameToUk.required',
         focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
       });
     });
 
     it('should pass "required" validator if a non-empty value is provided', async () => {
-      await expectValidatorToPass(validators, 'lastCameToUK', 'required', { lastCameToUK: { dd: '01', mm: '02', yyyy: '2000' } });
+      await expectValidatorToPass(validators, 'lastCameToUk', 'required', { lastCameToUk: { dd: '01', mm: '02', yyyy: '2000' } });
     });
 
     it('should fail "dateObject" validator if value is not a valid date', async () => {
-      await expectValidatorToFail(validators, 'lastCameToUK', 'dateObject', { lastCameToUK: 'invalid-input' }, {
-        summary: 'nationality-details:field.lastCameToUK.format',
+      await expectValidatorToFail(validators, 'lastCameToUk', 'dateObject', { lastCameToUk: 'invalid-input' }, {
+        summary: 'nationality-details:field.lastCameToUk.format',
       });
     });
 
     it('should fail "dateObject" validator if value is beyond today', async () => {
       Date.now = () => (0); // 1970-01-01
-      await expectValidatorToFail(validators, 'lastCameToUK', 'dateObject', { lastCameToUK: { mm: 1, dd: 2, yyyy: 1970 } }, {
-        summary: 'nationality-details:field.lastCameToUK.future',
+      await expectValidatorToFail(validators, 'lastCameToUk', 'dateObject', { lastCameToUk: { mm: 1, dd: 2, yyyy: 1970 } }, {
+        summary: 'nationality-details:field.lastCameToUk.future',
         focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
       });
     });
 
     it('should pass "dateObject" validator if value is before today', async () => {
       Date.now = () => (86400000); // 1970-01-02
-      await expectValidatorToPass(validators, 'lastCameToUK', 'dateObject', { lastCameToUK: { mm: 1, dd: 1, yyyy: 1970 } });
+      await expectValidatorToPass(validators, 'lastCameToUk', 'dateObject', { lastCameToUk: { mm: 1, dd: 1, yyyy: 1970 } });
     });
   });
 
@@ -169,7 +169,7 @@ describe('Validators: nationality-details', () => {
     });
   });
 
-  describe('field: lastLeftUK', () => {
+  describe('field: lastLeftUk', () => {
     let _now;
 
     before(() => {
@@ -181,41 +181,41 @@ describe('Validators: nationality-details', () => {
     });
 
     it('should pass "required" validator if no value is provided and livedInUkBefore is no', async () => {
-      await expectValidatorToPass(validators, 'lastLeftUK', 'required', { livedInUkBefore: 'no' });
+      await expectValidatorToPass(validators, 'lastLeftUk', 'required', { livedInUkBefore: 'no' });
     });
 
     it('should fail "required" validator if no value is provided and livedInUkBefore is yes', async () => {
-      await expectValidatorToFail(validators, 'lastLeftUK', 'required', { livedInUkBefore: 'yes' }, {
-        summary: 'nationality-details:field.lastLeftUK.required',
+      await expectValidatorToFail(validators, 'lastLeftUk', 'required', { livedInUkBefore: 'yes' }, {
+        summary: 'nationality-details:field.lastLeftUk.required',
         focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
       });
     });
 
     it('should pass "required" validator if a non-empty value is provided and livedInUkBefore is yes', async () => {
-      await expectValidatorToPass(validators, 'lastLeftUK', 'required', { livedInUkBefore: 'yes', lastLeftUK: { dd: '01', mm: '02', yyyy: '2000' } });
+      await expectValidatorToPass(validators, 'lastLeftUk', 'required', { livedInUkBefore: 'yes', lastLeftUk: { dd: '01', mm: '02', yyyy: '2000' } });
     });
 
     it('should pass "dateObject" validator if value is not a valid date but livedInUkBefore is no', async () => {
-      await expectValidatorToPass(validators, 'lastLeftUK', 'dateObject', { livedInUkBefore: 'no', lastLeftUK: 'invalid-input' });
+      await expectValidatorToPass(validators, 'lastLeftUk', 'dateObject', { livedInUkBefore: 'no', lastLeftUk: 'invalid-input' });
     });
 
     it('should fail "dateObject" validator if value is not a valid date and livedInUkBefore is yes', async () => {
-      await expectValidatorToFail(validators, 'lastLeftUK', 'dateObject', { livedInUkBefore: 'yes', lastLeftUK: 'invalid-input' }, {
-        summary: 'nationality-details:field.lastLeftUK.format',
+      await expectValidatorToFail(validators, 'lastLeftUk', 'dateObject', { livedInUkBefore: 'yes', lastLeftUk: 'invalid-input' }, {
+        summary: 'nationality-details:field.lastLeftUk.format',
       });
     });
 
     it('should fail "dateObject" validator if value is beyond today', async () => {
       Date.now = () => (0); // 1970-01-01
-      await expectValidatorToFail(validators, 'lastLeftUK', 'dateObject', { livedInUkBefore: 'yes', lastLeftUK: { mm: 1, dd: 2, yyyy: 1970 } }, {
-        summary: 'nationality-details:field.lastLeftUK.future',
+      await expectValidatorToFail(validators, 'lastLeftUk', 'dateObject', { livedInUkBefore: 'yes', lastLeftUk: { mm: 1, dd: 2, yyyy: 1970 } }, {
+        summary: 'nationality-details:field.lastLeftUk.future',
         focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
       });
     });
 
     it('should pass "dateObject" validator if value is before today', async () => {
       Date.now = () => (86400000); // 1970-01-02
-      await expectValidatorToPass(validators, 'lastLeftUK', 'dateObject', { livedInUkBefore: 'yes', lastLeftUK: { mm: 1, dd: 1, yyyy: 1970 } });
+      await expectValidatorToPass(validators, 'lastLeftUk', 'dateObject', { livedInUkBefore: 'yes', lastLeftUk: { mm: 1, dd: 1, yyyy: 1970 } });
     });
   });
 

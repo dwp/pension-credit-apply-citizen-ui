@@ -8,15 +8,15 @@ journey:
   nationality-details:
     nationality: "British"
     country: "France"
-    lastCameToUK[dd]: "01"
-    lastCameToUK[mm]: "02"
-    lastCameToUK[yyyy]: "2020"
+    lastCameToUk[dd]: "01"
+    lastCameToUk[mm]: "02"
+    lastCameToUk[yyyy]: "2020"
     cameToUkToWorkYes: click()
     noRecourseToPublicFundsNo: click()
     livedInUkBeforeYes: click()
-    lastLeftUK[dd]: "11"
-    lastLeftUK[mm]: "10"
-    lastLeftUK[yyyy]: "2010"
+    lastLeftUk[dd]: "11"
+    lastLeftUk[mm]: "10"
+    lastLeftUk[yyyy]: "2010"
     familyReunionSchemeYes: click()
 
   uk-sponsorship:

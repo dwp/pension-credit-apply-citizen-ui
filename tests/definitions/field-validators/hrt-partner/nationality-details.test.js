@@ -49,7 +49,7 @@ describe('Validators: partner-nationality-details', () => {
     });
   });
 
-  describe('field: partnerLastCameToUK', () => {
+  describe('field: partnerLastCameToUk', () => {
     let _now;
 
     before(() => {
@@ -61,33 +61,33 @@ describe('Validators: partner-nationality-details', () => {
     });
 
     it('should fail "required" validator if no value is provided', async () => {
-      await expectValidatorToFail(validators, 'partnerLastCameToUK', 'required', null, {
-        summary: 'partner-nationality-details:field.partnerLastCameToUK.required',
+      await expectValidatorToFail(validators, 'partnerLastCameToUk', 'required', null, {
+        summary: 'partner-nationality-details:field.partnerLastCameToUk.required',
         focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
       });
     });
 
     it('should pass "required" validator if a non-empty value is provided', async () => {
-      await expectValidatorToPass(validators, 'partnerLastCameToUK', 'required', { partnerLastCameToUK: { dd: '01', mm: '02', yyyy: '2000' } });
+      await expectValidatorToPass(validators, 'partnerLastCameToUk', 'required', { partnerLastCameToUk: { dd: '01', mm: '02', yyyy: '2000' } });
     });
 
     it('should fail "dateObject" validator if value is not a valid date', async () => {
-      await expectValidatorToFail(validators, 'partnerLastCameToUK', 'dateObject', { partnerLastCameToUK: 'invalid-input' }, {
-        summary: 'partner-nationality-details:field.partnerLastCameToUK.format',
+      await expectValidatorToFail(validators, 'partnerLastCameToUk', 'dateObject', { partnerLastCameToUk: 'invalid-input' }, {
+        summary: 'partner-nationality-details:field.partnerLastCameToUk.format',
       });
     });
 
     it('should fail "dateObject" validator if value is beyond today', async () => {
       Date.now = () => (0); // 1970-01-01
-      await expectValidatorToFail(validators, 'partnerLastCameToUK', 'dateObject', { partnerLastCameToUK: { mm: 1, dd: 2, yyyy: 1970 } }, {
-        summary: 'partner-nationality-details:field.partnerLastCameToUK.future',
+      await expectValidatorToFail(validators, 'partnerLastCameToUk', 'dateObject', { partnerLastCameToUk: { mm: 1, dd: 2, yyyy: 1970 } }, {
+        summary: 'partner-nationality-details:field.partnerLastCameToUk.future',
         focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
       });
     });
 
     it('should pass "dateObject" validator if value is before today', async () => {
       Date.now = () => (86400000); // 1970-01-02
-      await expectValidatorToPass(validators, 'partnerLastCameToUK', 'dateObject', { partnerLastCameToUK: { mm: 1, dd: 1, yyyy: 1970 } });
+      await expectValidatorToPass(validators, 'partnerLastCameToUk', 'dateObject', { partnerLastCameToUk: { mm: 1, dd: 1, yyyy: 1970 } });
     });
   });
 
@@ -169,7 +169,7 @@ describe('Validators: partner-nationality-details', () => {
     });
   });
 
-  describe('field: partnerLastLeftUK', () => {
+  describe('field: partnerLastLeftUk', () => {
     let _now;
 
     before(() => {
@@ -181,41 +181,41 @@ describe('Validators: partner-nationality-details', () => {
     });
 
     it('should pass "required" validator if no value is provided and partnerLivedInUkBefore is no', async () => {
-      await expectValidatorToPass(validators, 'partnerLastLeftUK', 'required', { partnerLivedInUkBefore: 'no' });
+      await expectValidatorToPass(validators, 'partnerLastLeftUk', 'required', { partnerLivedInUkBefore: 'no' });
     });
 
     it('should fail "required" validator if no value is provided and partnerLivedInUkBefore is yes', async () => {
-      await expectValidatorToFail(validators, 'partnerLastLeftUK', 'required', { partnerLivedInUkBefore: 'yes' }, {
-        summary: 'partner-nationality-details:field.partnerLastLeftUK.required',
+      await expectValidatorToFail(validators, 'partnerLastLeftUk', 'required', { partnerLivedInUkBefore: 'yes' }, {
+        summary: 'partner-nationality-details:field.partnerLastLeftUk.required',
         focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
       });
     });
 
     it('should pass "required" validator if a non-empty value is provided and partnerLivedInUkBefore is yes', async () => {
-      await expectValidatorToPass(validators, 'partnerLastLeftUK', 'required', { partnerLivedInUkBefore: 'yes', partnerLastLeftUK: { dd: '01', mm: '02', yyyy: '2000' } });
+      await expectValidatorToPass(validators, 'partnerLastLeftUk', 'required', { partnerLivedInUkBefore: 'yes', partnerLastLeftUk: { dd: '01', mm: '02', yyyy: '2000' } });
     });
 
     it('should pass "dateObject" validator if value is not a valid date but partnerLivedInUkBefore is no', async () => {
-      await expectValidatorToPass(validators, 'partnerLastLeftUK', 'dateObject', { partnerLivedInUkBefore: 'no', partnerLastLeftUK: 'invalid-input' });
+      await expectValidatorToPass(validators, 'partnerLastLeftUk', 'dateObject', { partnerLivedInUkBefore: 'no', partnerLastLeftUk: 'invalid-input' });
     });
 
     it('should fail "dateObject" validator if value is not a valid date and partnerLivedInUkBefore is yes', async () => {
-      await expectValidatorToFail(validators, 'partnerLastLeftUK', 'dateObject', { partnerLivedInUkBefore: 'yes', partnerLastLeftUK: 'invalid-input' }, {
-        summary: 'partner-nationality-details:field.partnerLastLeftUK.format',
+      await expectValidatorToFail(validators, 'partnerLastLeftUk', 'dateObject', { partnerLivedInUkBefore: 'yes', partnerLastLeftUk: 'invalid-input' }, {
+        summary: 'partner-nationality-details:field.partnerLastLeftUk.format',
       });
     });
 
     it('should fail "dateObject" validator if value is beyond today', async () => {
       Date.now = () => (0); // 1970-01-01
-      await expectValidatorToFail(validators, 'partnerLastLeftUK', 'dateObject', { partnerLivedInUkBefore: 'yes', partnerLastLeftUK: { mm: 1, dd: 2, yyyy: 1970 } }, {
-        summary: 'partner-nationality-details:field.partnerLastLeftUK.future',
+      await expectValidatorToFail(validators, 'partnerLastLeftUk', 'dateObject', { partnerLivedInUkBefore: 'yes', partnerLastLeftUk: { mm: 1, dd: 2, yyyy: 1970 } }, {
+        summary: 'partner-nationality-details:field.partnerLastLeftUk.future',
         focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
       });
     });
 
     it('should pass "dateObject" validator if value is before today', async () => {
       Date.now = () => (86400000); // 1970-01-02
-      await expectValidatorToPass(validators, 'partnerLastLeftUK', 'dateObject', { partnerLivedInUkBefore: 'yes', partnerLastLeftUK: { mm: 1, dd: 1, yyyy: 1970 } });
+      await expectValidatorToPass(validators, 'partnerLastLeftUk', 'dateObject', { partnerLivedInUkBefore: 'yes', partnerLastLeftUk: { mm: 1, dd: 1, yyyy: 1970 } });
     });
   });
 

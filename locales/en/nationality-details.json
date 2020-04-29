@@ -13,7 +13,7 @@
       "strlen": "The country you have come from must be 500 characters or less.",
       "change": "Change <span class=\"govuk-visually-hidden\">which country have you come from</span>"
     },
-    "lastCameToUK": {
+    "lastCameToUk": {
       "legend": "What date did you last come to the UK?",
       "hint": "For example, 12 11 2007",
       "required": "Enter the date that you last came to the UK.",
@@ -48,7 +48,7 @@
       },
       "change": "Change <span class=\"govuk-visually-hidden\">whether you have lived in the UK before</span>"
     },
-    "lastLeftUK": {
+    "lastLeftUk": {
       "legend": "What date did you last leave the UK?",
       "hint": "For example, 12 11 2007",
       "required": "Enter the date that you last left the UK.",

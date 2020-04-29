@@ -34,18 +34,18 @@
   }) }}
 
   {{ casaGovukDateInput({
-    namePrefix: "lastCameToUK",
+    namePrefix: "lastCameToUk",
     fieldset: {
       legend: {
-        text: t("nationality-details:field.lastCameToUK.legend"),
+        text: t("nationality-details:field.lastCameToUk.legend"),
         classes: "govuk-fieldset__legend--m"
       }
     },
     hint: {
-      text: t("nationality-details:field.lastCameToUK.hint")
+      text: t("nationality-details:field.lastCameToUk.hint")
     },
     casaErrors: formErrors,
-    casaValue: formData.lastCameToUK
+    casaValue: formData.lastCameToUk
   }) }}
 
   {{ casaGovukRadios({
@@ -88,20 +88,20 @@
     casaErrors: formErrors
   }) }}
 
-  {% set lastLeftUK %}
+  {% set lastLeftUk %}
     {{ casaGovukDateInput({
-      namePrefix: "lastLeftUK",
+      namePrefix: "lastLeftUk",
       fieldset: {
         legend: {
-          text: t("nationality-details:field.lastLeftUK.legend"),
+          text: t("nationality-details:field.lastLeftUk.legend"),
           classes: "govuk-fieldset__legend--m"
         }
       },
       hint: {
-        text: t("nationality-details:field.lastLeftUK.hint")
+        text: t("nationality-details:field.lastLeftUk.hint")
       },
       casaErrors: formErrors,
-      casaValue: formData.lastLeftUK
+      casaValue: formData.lastLeftUk
     }) }}
   {% endset %}
 
@@ -117,7 +117,7 @@
       value: "yes",
       text: t("nationality-details:field.livedInUkBefore.options.yes"),
       conditional: {
-        html: lastLeftUK
+        html: lastLeftUk
       }
     }, {
       value: "no",

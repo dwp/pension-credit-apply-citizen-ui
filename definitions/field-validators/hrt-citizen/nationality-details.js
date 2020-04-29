@@ -22,10 +22,10 @@ const fieldValidators = Object.assign(Object.create(null), {
     }),
   ]),
 
-  lastCameToUK: sf([
+  lastCameToUk: sf([
     r.required.bind({
       errorMsg: {
-        summary: 'nationality-details:field.lastCameToUK.required',
+        summary: 'nationality-details:field.lastCameToUk.required',
         focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
       },
     }),
@@ -34,11 +34,11 @@ const fieldValidators = Object.assign(Object.create(null), {
       allowSingleDigitMonth: true,
       beforeOffsetFromNow: moment.duration(1, 'days'),
       errorMsg: {
-        summary: 'nationality-details:field.lastCameToUK.format',
+        summary: 'nationality-details:field.lastCameToUk.format',
         focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
       },
       errorMsgBeforeOffset: {
-        summary: 'nationality-details:field.lastCameToUK.future',
+        summary: 'nationality-details:field.lastCameToUk.future',
         focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
       },
     }),
@@ -74,10 +74,10 @@ const fieldValidators = Object.assign(Object.create(null), {
     }),
   ]),
 
-  lastLeftUK: sf([
+  lastLeftUk: sf([
     r.required.bind({
       errorMsg: {
-        summary: 'nationality-details:field.lastLeftUK.required',
+        summary: 'nationality-details:field.lastLeftUk.required',
         focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
       },
     }),
@@ -86,11 +86,11 @@ const fieldValidators = Object.assign(Object.create(null), {
       allowSingleDigitMonth: true,
       beforeOffsetFromNow: moment.duration(1, 'days'),
       errorMsg: {
-        summary: 'nationality-details:field.lastLeftUK.format',
+        summary: 'nationality-details:field.lastLeftUk.format',
         focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
       },
       errorMsgBeforeOffset: {
-        summary: 'nationality-details:field.lastLeftUK.future',
+        summary: 'nationality-details:field.lastLeftUk.future',
         focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
       },
     }),

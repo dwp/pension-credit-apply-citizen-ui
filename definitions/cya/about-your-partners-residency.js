@@ -50,10 +50,10 @@ module.exports = (t, context, claim) => {
 
     // What date did you last come to the UK?
     row({
-      changeHref: `${WP.HRT_PARTNER_NATIONALITY_DETAILS}#f-partnerLastCameToUK[dd]`,
-      changeHtml: t('partner-nationality-details:field.partnerLastCameToUK.change'),
-      key: t('partner-nationality-details:field.partnerLastCameToUK.legend'),
-      value: formatDateObject(nationalityDetails.partnerLastCameToUK),
+      changeHref: `${WP.HRT_PARTNER_NATIONALITY_DETAILS}#f-partnerLastCameToUk[dd]`,
+      changeHtml: t('partner-nationality-details:field.partnerLastCameToUk.change'),
+      key: t('partner-nationality-details:field.partnerLastCameToUk.legend'),
+      value: formatDateObject(nationalityDetails.partnerLastCameToUk),
     }),
 
     // Did you come to the UK to work?
@@ -82,10 +82,10 @@ module.exports = (t, context, claim) => {
 
     // What date did you last leave the UK?
     nationalityDetails.partnerLivedInUkBefore !== 'yes' ? undefined : row({
-      changeHref: `${WP.HRT_PARTNER_NATIONALITY_DETAILS}#f-partnerLastLeftUK[dd]`,
-      changeHtml: t('partner-nationality-details:field.partnerLastLeftUK.change'),
-      key: t('partner-nationality-details:field.partnerLastLeftUK.legend'),
-      value: formatDateObject(nationalityDetails.partnerLastLeftUK),
+      changeHref: `${WP.HRT_PARTNER_NATIONALITY_DETAILS}#f-partnerLastLeftUk[dd]`,
+      changeHtml: t('partner-nationality-details:field.partnerLastLeftUk.change'),
+      key: t('partner-nationality-details:field.partnerLastLeftUk.legend'),
+      value: formatDateObject(nationalityDetails.partnerLastLeftUk),
     }),
 
     // Have you come to the UK under the Family Reunion Scheme?
