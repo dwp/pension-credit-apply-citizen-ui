@@ -14,65 +14,65 @@ describe('Validators: manual-address', () => {
       await expectValidatorToPass(validators, 'addressLine1', 'required', { addressLine1: 'Valid Address' });
     });
 
-    it('should fail "strlen" validator if string length > 100', async () => {
-      const longString = Array(102).join('x');
-      expect(longString).has.length(101);
+    it('should fail "strlen" validator if string length > 500', async () => {
+      const longString = Array(502).join('x');
+      expect(longString).has.length(501);
       await expectValidatorToFail(validators, 'addressLine1', 'strlen', { addressLine1: longString }, {
         summary: 'manual-address:field.addressLine1.length',
       });
     });
 
-    it('should pass "strlen" validator if string length <= 100', async () => {
-      const longString = Array(101).join('x');
-      expect(longString).has.length(100);
+    it('should pass "strlen" validator if string length <= 500', async () => {
+      const longString = Array(501).join('x');
+      expect(longString).has.length(500);
       await expectValidatorToPass(validators, 'addressLine1', 'strlen', { addressLine1: longString });
     });
   });
 
   describe('field: addressLine2', () => {
-    it('should fail "strlen" validator if string length > 100', async () => {
-      const longString = Array(102).join('x');
-      expect(longString).has.length(101);
+    it('should fail "strlen" validator if string length > 500', async () => {
+      const longString = Array(502).join('x');
+      expect(longString).has.length(501);
       await expectValidatorToFail(validators, 'addressLine2', 'strlen', { addressLine2: longString }, {
         summary: 'manual-address:field.addressLine2.length',
       });
     });
 
-    it('should pass "strlen" validator if string length <= 100', async () => {
-      const longString = Array(101).join('x');
-      expect(longString).has.length(100);
+    it('should pass "strlen" validator if string length <= 500', async () => {
+      const longString = Array(501).join('x');
+      expect(longString).has.length(500);
       await expectValidatorToPass(validators, 'addressLine2', 'strlen', { addressLine2: longString });
     });
   });
 
   describe('field: town', () => {
-    it('should fail "strlen" validator if string length > 100', async () => {
-      const longString = Array(102).join('x');
-      expect(longString).has.length(101);
+    it('should fail "strlen" validator if string length > 500', async () => {
+      const longString = Array(502).join('x');
+      expect(longString).has.length(501);
       await expectValidatorToFail(validators, 'town', 'strlen', { town: longString }, {
         summary: 'manual-address:field.town.length',
       });
     });
 
-    it('should pass "strlen" validator if string length <= 100', async () => {
-      const longString = Array(101).join('x');
-      expect(longString).has.length(100);
+    it('should pass "strlen" validator if string length <= 500', async () => {
+      const longString = Array(501).join('x');
+      expect(longString).has.length(500);
       await expectValidatorToPass(validators, 'town', 'strlen', { town: longString });
     });
   });
 
   describe('field: county', () => {
-    it('should fail "strlen" validator if string length > 100', async () => {
-      const longString = Array(102).join('x');
-      expect(longString).has.length(101);
+    it('should fail "strlen" validator if string length > 500', async () => {
+      const longString = Array(502).join('x');
+      expect(longString).has.length(501);
       await expectValidatorToFail(validators, 'county', 'strlen', { county: longString }, {
         summary: 'manual-address:field.county.length',
       });
     });
 
-    it('should pass "strlen" validator if string length <= 100', async () => {
-      const longString = Array(101).join('x');
-      expect(longString).has.length(100);
+    it('should pass "strlen" validator if string length <= 500', async () => {
+      const longString = Array(501).join('x');
+      expect(longString).has.length(500);
       await expectValidatorToPass(validators, 'county', 'strlen', { county: longString });
     });
   });

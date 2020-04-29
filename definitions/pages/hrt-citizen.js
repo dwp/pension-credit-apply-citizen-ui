@@ -41,7 +41,7 @@ module.exports = (addressServiceFactory, mountUrl) => {
 
   pages[waypoints.HRT_CITIZEN_SPONSOR_ADDRESS_POSTCODE_LOOKUP] = {
     view: 'pages/common/postcode.njk',
-    fieldValidators: postcodeValidation,
+    fieldValidators: postcodeValidation('Sponsor'),
     fieldGatherModifiers: {
       postcode: trimWhitespace,
     },
@@ -50,7 +50,7 @@ module.exports = (addressServiceFactory, mountUrl) => {
 
   pages[waypoints.HRT_CITIZEN_SPONSOR_ADDRESS_SELECT] = {
     view: 'pages/common/select-address.njk',
-    fieldValidators: selectAddressValidation,
+    fieldValidators: selectAddressValidation('Sponsor'),
     hooks: selectAddressHooks(
       waypoints.HRT_CITIZEN_SPONSOR_ADDRESS_POSTCODE_LOOKUP,
       waypoints.HRT_CITIZEN_SPONSOR_ADDRESS_MANUAL,

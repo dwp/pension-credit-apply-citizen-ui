@@ -1,5 +1,5 @@
 const { expectValidatorToFail, expectValidatorToPass } = require('../../../helpers/validator-assertions.js');
-const validators = require('../../../../definitions/field-validators/common/select-address.js');
+const validators = require('../../../../definitions/field-validators/common/select-address.js')();
 
 describe('Validators: select-address', () => {
   describe('field: uprn', () => {

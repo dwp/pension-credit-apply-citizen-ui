@@ -6,13 +6,17 @@
   "field": {
     "postcode": {
       "label": "Postcode",
-      "required": "Enter a postcode.",
+      "required": "Enter your home postcode.",
+      "requiredLetters": "Enter the postcode of the address you want us to send letters to.",
+      "requiredSponsor": "Enter the postcode of your sponsor’s address.",
+      "requiredPartnerSponsor": "Enter the postcode of your partner’s sponsor’s address.",
       "format": "Enter a real postcode.",
       "noAddresses": "We could not find this postcode. Try again or enter your address manually."
     }
   },
   "submit": "Find address",
-  "enterManually": "Enter your address manually",
+  "enterManually": "Enter your home address manually",
+  "lettersEnterManually":"Enter the address you want us to send letters to manually",
   "sponsorEnterManually": "Enter your sponsor’s address manually",
   "partnerSponsorEnterManually": "Enter your partner’s sponsor’s address manually"
 }

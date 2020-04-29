@@ -23,7 +23,7 @@ module.exports = (addressServiceFactory, mountUrl) => {
 
   pages[waypoints.WHERE_YOU_LIVE_ADDRESS_POSTCODE_LOOKUP] = {
     view: 'pages/common/postcode.njk',
-    fieldValidators: postcodeValidation,
+    fieldValidators: postcodeValidation(),
     fieldGatherModifiers: {
       postcode: trimWhitespace,
     },
@@ -32,7 +32,7 @@ module.exports = (addressServiceFactory, mountUrl) => {
 
   pages[waypoints.WHERE_YOU_LIVE_ADDRESS_SELECT] = {
     view: 'pages/common/select-address.njk',
-    fieldValidators: selectAddressValidation,
+    fieldValidators: selectAddressValidation(),
     hooks: selectAddressHooks(
       waypoints.WHERE_YOU_LIVE_ADDRESS_POSTCODE_LOOKUP,
       waypoints.WHERE_YOU_LIVE_ADDRESS_MANUAL,
@@ -60,7 +60,7 @@ module.exports = (addressServiceFactory, mountUrl) => {
 
   pages[waypoints.LETTERS_ADDRESS_POSTCODE_LOOKUP] = {
     view: 'pages/common/postcode.njk',
-    fieldValidators: postcodeValidation,
+    fieldValidators: postcodeValidation('Letters'),
     fieldGatherModifiers: {
       postcode: trimWhitespace,
     },
@@ -69,7 +69,7 @@ module.exports = (addressServiceFactory, mountUrl) => {
 
   pages[waypoints.LETTERS_ADDRESS_SELECT] = {
     view: 'pages/common/select-address.njk',
-    fieldValidators: selectAddressValidation,
+    fieldValidators: selectAddressValidation('Letters'),
     hooks: selectAddressHooks(
       waypoints.LETTERS_ADDRESS_POSTCODE_LOOKUP,
       waypoints.LETTERS_ADDRESS_MANUAL,

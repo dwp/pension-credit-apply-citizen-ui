@@ -2,12 +2,16 @@
   "pageTitle": "Select your home address",
   "lettersPageTitle": "Select the address we should send letters to",
   "sponsorPageTitle": "Select your sponsor’s address",
+  "partnerSponsorPageTitle": "Select your partner’s sponsor’s address",
   "postcode": "Postcode",
   "change": "Change <span class=\"govuk-visually-hidden\">postcode</span>",
   "field": {
     "address": {
       "label": "Select an address",
-      "required": "Select an address or enter it manually.",
+      "required": "Select your home address or enter it manually.",
+      "requiredLetters": "Select the address you want us to send letters to or enter it manually.",
+      "requiredSponsor": "Select your sponsor’s address or enter it manually.",
+      "requiredPartnerSponsor": "Select your partner’s sponsor’s address or enter it manually.",
       "addressFound": "%s addresses found"
     }
   }

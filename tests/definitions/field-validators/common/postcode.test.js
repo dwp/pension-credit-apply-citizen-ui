@@ -1,5 +1,5 @@
 const { expectValidatorToFail, expectValidatorToPass } = require('../../../helpers/validator-assertions.js');
-const validators = require('../../../../definitions/field-validators/common/postcode.js');
+const validators = require('../../../../definitions/field-validators/common/postcode.js')();
 
 describe('Validators: postcode', () => {
   describe('field: postcode', () => {
