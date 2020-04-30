@@ -94,4 +94,30 @@ describe('build-claim', () => {
     expect(claim).to.not.haveOwnProperty('habitualResidencyTest');
     expect(claim.citizenHRTRequired()).to.be.false;
   });
+
+  it('should only include disregards data if the user went down this route', () => {
+    let traversed = [WP.DISREGARDED_MONEY];
+
+    const plan = {
+      traverse: sinon.stub().callsFake(() => traversed),
+    };
+
+    let claim = buildClaim(plan, context);
+    expect(claim.moneySavingsInvestments).to.haveOwnProperty('benefitArrears');
+    expect(claim.moneySavingsInvestments).to.haveOwnProperty('councilTaxArrears');
+    expect(claim.moneySavingsInvestments).to.haveOwnProperty('secondWorldWar');
+    expect(claim.moneySavingsInvestments).to.haveOwnProperty('personalInjury');
+    expect(claim.moneySavingsInvestments).to.haveOwnProperty('homeInsurance');
+    expect(claim.moneySavingsInvestments).to.haveOwnProperty('essentialRepairs');
+    expect(claim.moneySavingsInvestments).to.haveOwnProperty('independentLiving');
+    expect(claim.moneySavingsInvestments).to.haveOwnProperty('incidentEmergency');
+    expect(claim.moneySavingsInvestments).to.haveOwnProperty('windrush');
+    expect(claim.moneySavingsInvestments).to.haveOwnProperty('bloodInfection');
+    expect(claim.askedAboutDisregards()).to.be.true;
+
+    traversed = [];
+    claim = buildClaim(plan, context);
+    expect(claim.moneySavingsInvestments).to.not.haveOwnProperty('benefitArrears');
+    expect(claim.askedAboutDisregards()).to.be.false;
+  });
 });
