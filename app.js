@@ -131,6 +131,7 @@ module.exports = (CONFIG, baseLogger) => {
   const appPageDefinitions = pageDefinitions(
     addressServiceFactory,
     casaApp.config.mountUrl,
+    CONFIG.SESSION_TTL,
   );
   const appUserJourney = journeyPlan(baseLogger);
 
@@ -160,6 +161,7 @@ module.exports = (CONFIG, baseLogger) => {
     waypoints,
     CONSENT_COOKIE_NAME,
     CONFIG.SESSION_COOKIE_NAME,
+    CONFIG.SESSION_TTL,
   ));
   casaApp.router.get(`/${waypoints.COOKIE_POLICY}`, submissionCommonMw, cookiePolicyGet(waypoints));
   casaApp.router.post(`/${waypoints.COOKIE_POLICY}`, submissionCommonMw, cookiePolicyPost(CONSENT_COOKIE_NAME));

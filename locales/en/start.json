@@ -6,6 +6,6 @@
   "thatWeAlreadyHave": "that we already have about your State Pension and any benefits you receive",
   "thatWeGetFromHMRC": "that we get from HMRC about your income and earnings",
   "completeInOneGo": "You will need to complete your application all in one go. You will not be able to save it and come back later.",
-  "informationSecure": "To keep your information secure, if you do not enter any information for more than 30 minutes, your application will time out and you’ll have to start again.",
+  "informationSecure": "To keep your information secure, if you do not enter any information for more than %s minutes, your application will time out and you’ll have to start again.",
   "startNow": "Start now"
 }

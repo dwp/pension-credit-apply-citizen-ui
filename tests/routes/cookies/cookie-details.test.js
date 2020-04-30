@@ -7,6 +7,7 @@ const cookieDetailsGet = require('../../../routes/cookies/cookie-details.get.js'
 
 const consentCookieName = 'consent';
 const sessionCookieName = 'session';
+const sessionTtl = 60;
 
 describe('cookie/cookie-details', () => {
   describe('get', () => {
@@ -19,7 +20,7 @@ describe('cookie/cookie-details', () => {
     });
 
     it('should render template with data', () => {
-      const route = cookieDetailsGet(waypoints, consentCookieName, sessionCookieName);
+      const route = cookieDetailsGet(waypoints, consentCookieName, sessionCookieName, sessionTtl);
       const req = new Request();
       const res = new Response(req);
       const renderStub = sinon.stub();
@@ -27,6 +28,7 @@ describe('cookie/cookie-details', () => {
       route(req, res);
       expect(renderStub).to.be.calledOnceWithExactly('pages/cookies/cookie-details.njk', {
         cookiePreferencesUrl: waypoints.COOKIE_PREFERENCES,
+        sessionMinutes: sessionTtl / 60,
         consentCookieName,
         sessionCookieName,
       });

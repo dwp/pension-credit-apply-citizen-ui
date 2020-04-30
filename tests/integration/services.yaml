@@ -19,7 +19,8 @@ services:
       TRACE_REQUEST_HEADER_NAME: x-trace-id
       OUTBOUND_TRACE_REQUEST_HEADER_NAME: x-trace-id
       SESSION_COOKIE_NAME: integration-session-id
-      SESSION_TTL: 30
+      DISABLE_SESSION_TTL_RESTRICTIONS: "true"
+      SESSION_TTL: 10
       ADDRESSSERVICE_API_ENDPOINT: http://location-service-stub:5000/location-service/api
       CLAIMSERVICE_API_ENDPOINT: http://apply-claim-service:8110/claim-service/v1
       HTTP_TIMEOUT: 10

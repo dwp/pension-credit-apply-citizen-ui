@@ -171,17 +171,24 @@ describe('ConfigIngestor', () => {
     expect(ci.ENABLE_CSP).to.equal(true);
   });
 
-  it('SESSION_TTL should throw a RangeError if < 30 seconds or > 1 hour', () => {
+  it('SESSION_TTL should throw a RangeError if < 60 seconds or > 1 hour', () => {
     expect(() => ConfigIngestor({
       ...requiredVars,
-      SESSION_TTL: 29,
-    })).to.throw(RangeError, 'SESSION_TTL must be within the range 30 to 3600 seconds');
+      SESSION_TTL: 59,
+    })).to.throw(RangeError, 'SESSION_TTL must be within the range 60 to 3600 seconds');
 
 
     expect(() => ConfigIngestor({
       ...requiredVars,
       SESSION_TTL: 3601,
-    })).to.throw(RangeError, 'SESSION_TTL must be within the range 30 to 3600 seconds');
+    })).to.throw(RangeError, 'SESSION_TTL must be within the range 60 to 3600 seconds');
+  });
+
+  it('SESSION_TTL should throw an Error if not a factor of 60', () => {
+    expect(() => ConfigIngestor({
+      ...requiredVars,
+      SESSION_TTL: 61,
+    })).to.throw(Error, 'SESSION_TTL must be a factor of 60');
   });
 
   it('SESSION_TTL should default to 1800 seconds', () => {
@@ -195,10 +202,28 @@ describe('ConfigIngestor', () => {
   it('SESSION_TTL should be an integer', () => {
     const ci = ConfigIngestor({
       ...requiredVars,
-      SESSION_TTL: '30',
+      SESSION_TTL: '60',
     });
 
-    expect(ci.SESSION_TTL).to.equal(30);
+    expect(ci.SESSION_TTL).to.equal(60);
+  });
+
+  it('SESSION_TTL restrictions ignored if DISABLE_SESSION_TTL_RESTRICTIONS is true', () => {
+    const ci = ConfigIngestor({
+      ...requiredVars,
+      DISABLE_SESSION_TTL_RESTRICTIONS: 'true',
+      SESSION_TTL: '3',
+    });
+
+    expect(ci.SESSION_TTL).to.equal(3);
+
+    const ci2 = ConfigIngestor({
+      ...requiredVars,
+      DISABLE_SESSION_TTL_RESTRICTIONS: 'true',
+      SESSION_TTL: '5000',
+    });
+
+    expect(ci2.SESSION_TTL).to.equal(5000);
   });
 
   it('CONTEXT_PATH should throw a SyntaxError if it does not have leading/trailing slashes', () => {

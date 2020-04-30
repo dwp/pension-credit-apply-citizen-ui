@@ -7,15 +7,19 @@ const dateOfBirthValidation = require('../field-validators/eligibility/date-of-b
 const liveWithPartnerValidation = require('../field-validators/eligibility/live-with-partner.js');
 const partnerAgreeValidation = require('../field-validators/eligibility/partner-agree.js');
 const partnerHousingBenefitValidation = require('../field-validators/eligibility/partner-housing-benefit.js');
+const startHook = require('../hooks/eligibility/start.js');
 const withSkipLink = require('../hooks/common/with-skip-link.js');
 
-module.exports = () => {
+module.exports = (sessionTtl) => {
   const pages = Object.create(null);
 
   pages[waypoints.START] = {
     view: 'pages/start.njk',
     hooks: {
-      prerender: withSkipLink(waypoints.CLAIMED_STATE_PENSION),
+      prerender: [
+        withSkipLink(waypoints.CLAIMED_STATE_PENSION),
+        startHook(sessionTtl),
+      ],
     },
   };
 
