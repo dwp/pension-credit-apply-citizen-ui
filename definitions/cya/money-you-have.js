@@ -53,7 +53,7 @@ module.exports = (t, context, claim) => {
       // Payments to correct or compensate for an official error or for arrears
       // of benefits
       row({
-        changeHref: `${WP.DISREGARDED_MONEY}#f-disregardedMoney-1`,
+        changeHref: `${WP.DISREGARDED_MONEY}#f-disregardedMoney`,
         changeHtml: t('disregarded-money:field.disregardedMoney.options.officialError.change'),
         key: t('disregarded-money:field.disregardedMoney.options.officialError.label'),
         value: isCheckedYesNo(claim.moneySavingsInvestments.benefitArrears, 'officialError'),
@@ -207,7 +207,7 @@ module.exports = (t, context, claim) => {
 
       // Payments to support you with the effects of a blood infection or vCJD
       row({
-        changeHref: `${WP.DISREGARDED_MONEY}#f-disregardedMoney-9`,
+        changeHref: `${WP.DISREGARDED_MONEY}#f-disregardedMoney-10`,
         changeHtml: t('disregarded-money:field.disregardedMoney.options.blood.change'),
         key: t('disregarded-money:field.disregardedMoney.options.blood.label'),
         value: isCheckedYesNo(claim.moneySavingsInvestments.bloodInfection, 'blood'),

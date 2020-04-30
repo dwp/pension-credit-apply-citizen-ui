@@ -92,7 +92,7 @@ module.exports = (t, context, claim) => {
     // Are you responsible for paying the rent, Council Tax or both for the
     // place where you live?
     row({
-      changeHref: `${WP.LIVES_WITH_YOU}#f-responsibleForCouncilTax`,
+      changeHref: `${WP.RENT_COUNCIL_TAX}#f-responsibleForCouncilTax`,
       changeHtml: t('rent-council-tax:field.responsibleForCouncilTax.change'),
       key: t(`rent-council-tax:pageTitle${jointSingle}`),
       value: rov('rent-council-tax.responsibleForCouncilTax', 'rent-council-tax:field.responsibleForCouncilTax.options'),
