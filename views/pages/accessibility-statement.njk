@@ -1,0 +1,109 @@
+{% extends "layouts/main.njk" %}
+
+{% block casaPageTitle %}
+  {{ t('accessibility-statement:pageTitle') }} - {{ t('common:serviceName') }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        {{ t('accessibility-statement:pageTitle') }}
+      </h1>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:thisServiceIsPartOfGOVUK') | safe }}
+      </p>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:onlyInformationAboutPC') | safe }}
+      </p>
+      <h2 class="govuk-heading-m">
+        {{ t('accessibility-statement:usingThisService') }}
+      </h2>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:runByTheDWP') }}
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('accessibility-statement:changeColours') }}</li>
+        <li>{{ t('accessibility-statement:zoomIn') }}</li>
+        <li>{{ t('accessibility-statement:justKeyboard') }}</li>
+        <li>{{ t('accessibility-statement:speechRecognition') }}</li>
+        <li>{{ t('accessibility-statement:screenReader') }}</li>
+      </ul>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:simpleToUnderstand') }}
+      </p>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:abilityNet') | safe }}
+      </p>
+      <h2 class="govuk-heading-m">
+        {{ t('accessibility-statement:howAccessible') }}
+      </h2>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:commonStyles') }}
+      </p>
+      <h2 class="govuk-heading-m">
+        {{ t('accessibility-statement:whatToDoIfDifficult') }}
+      </h2>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:ifYouHaveDifficulty') | safe }}
+      </p>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:weMayNeedToSendYouLetters') }}
+      </p>
+      <h2 class="govuk-heading-m">
+        {{ t('accessibility-statement:reportingProblems') }}
+      </h2>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:alwaysLookingToImprove') | safe }}
+      </p>
+      <h2 class="govuk-heading-m">
+        {{ t('accessibility-statement:enformentProcedure') }}
+      </h2>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:theEHRC') | safe }}
+      </p>
+      <h2 class="govuk-heading-m">
+        {{ t('accessibility-statement:contactingUs') }}
+      </h2>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:textRelayService') }}
+      </p>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:audioInductionLoops') }}
+      </p>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:howToContactUs') | safe }}
+      </p>
+      <h2 class="govuk-heading-m">
+        {{ t('accessibility-statement:techincalInformation') }}
+      </h2>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:theDWPisCommitted') }}
+      </p>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:WCAGCompliant') }}
+      </p>
+      <h2 class="govuk-heading-m">
+        {{ t('accessibility-statement:howWeTested') }}
+      </h2>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:serviceLastTested') }}
+      </p>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:testedManualAutomated') }}
+      </p>
+      <h2 class="govuk-heading-m">
+        {{ t('accessibility-statement:whatWereDoingToImprove') }}
+      </h2>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:conductingMoreTesting') }}
+      </p>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:continueToIterate') }}
+      </p>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:thisPagePreparedOn') }}
+      </p>
+    </div>
+  </div>
+{% endblock %}

@@ -11,5 +11,8 @@
   "ucCallTimes": "Monday to Friday, 8am to 6pm (closed on bank holidays).<br/>Calls to 0800 numbers are free from landlines and mobiles.",
   "pensionCreditClaimLine": "If you need to speak to us, call the Pension Credit claim line.",
   "helpUsImprove": "Help us improve Pension Credit",
-  "takeSurvey": "Take a short survey (opens in a new window or tab)"
+  "takeSurvey": "Take a short survey (opens in a new window or tab)",
+  "footer": {
+    "accessibilityStatement": "Accessibility statement"
+  }
 }

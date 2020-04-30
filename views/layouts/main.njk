@@ -12,3 +12,14 @@
 {% block bodyEnd %}
   {% include "casa/partials/scripts.njk" %}
 {% endblock %}
+
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: [{
+        href: accessibilityStatementUrl,
+        text: t('common:footer.accessibilityStatement')
+      }]
+    }
+  }) }}
+{% endblock %}

@@ -121,10 +121,18 @@ module.exports = (CONFIG, baseLogger) => {
   // Add Google Tag Manger ID to view
   app.get('nunjucksEnv').addGlobal('googleTagManagerId', CONFIG.GOOGLE_TAG_MANAGER_ID);
 
+  // Set accessibility statment footer URL
+  app.get('nunjucksEnv').addGlobal('accessibilityStatementUrl', waypoints.ACCESSIBILITY_STATEMENT);
+
   // Index route
   casaApp.router.get('/', (req, res) => {
     // Redirect to first page in the journey
     res.status(302).redirect(`${casaApp.config.mountUrl}${waypoints.START}`);
+  });
+
+  // Accessibility statement
+  casaApp.router.get(`/${waypoints.ACCESSIBILITY_STATEMENT}`, (req, res) => {
+    res.render('pages/accessibility-statement.njk');
   });
 
   // Prepare page hooks for "Select your address" page
