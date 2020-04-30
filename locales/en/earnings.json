@@ -18,8 +18,8 @@
       "change": "Change <span class=\"govuk-visually-hidden\">details of your income from employment</span>"
     },
     "hasSelfEmploymentIncome": {
-      "legendSingle": "Do you have any income from self-employment now or in the 3 months before ${dateOfClaim}?",
-      "legendJoint": "Do you or your partner have any income from self-employment now or in the 3 months before ${dateOfClaim}?",
+      "legendSingle": "Did you have any income from self-employment between now and 3 months before ${dateOfClaim}?",
+      "legendJoint": "Did you or your partner have any income from self-employment between now and 3 months before ${dateOfClaim}?",
       "required": "Select yes if you have had any income from self-employment.",
       "options": {
         "yes": "Yes",
