@@ -64,7 +64,12 @@ module.exports = (addressServiceFactory, mountUrl) => {
     fieldGatherModifiers: {
       postcode: trimWhitespace,
     },
-    hooks: postcodeHooks(addressServiceFactory, waypoints.LETTERS_ADDRESS_MANUAL, 'lettersPageTitle'),
+    hooks: postcodeHooks(
+      addressServiceFactory,
+      waypoints.LETTERS_ADDRESS_MANUAL,
+      'lettersPageTitle',
+      'lettersEnterManually',
+    ),
   };
 
   pages[waypoints.LETTERS_ADDRESS_SELECT] = {
@@ -76,6 +81,7 @@ module.exports = (addressServiceFactory, mountUrl) => {
       waypoints.LETTERS_ADDRESS_HIDDEN,
       waypoints.LETTERS_ADDRESS_SELECT,
       'lettersPageTitle',
+      'lettersEnterManually',
     ),
   };
 
