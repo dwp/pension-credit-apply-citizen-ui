@@ -18,6 +18,7 @@ const earnings = require('./earnings.js');
 const moneyYouHave = require('./money-you-have.js');
 const aboutYourResidency = require('./about-your-residency.js');
 const aboutYourPartnersResidency = require('./about-your-partners-residency.js');
+const helpFromOthers = require('./help-from-others.js');
 
 module.exports = (t, context, claim) => ([
   aboutYou(t, context, claim),
@@ -29,4 +30,5 @@ module.exports = (t, context, claim) => ([
   moneyYouHave(t, context, claim),
   aboutYourResidency(t, context, claim),
   aboutYourPartnersResidency(t, context, claim),
+  helpFromOthers(t, context),
 ].filter((v) => v));
