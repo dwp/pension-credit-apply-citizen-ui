@@ -1,7 +1,8 @@
 {
-  "pageTitle": "Is any of the money you have from:",
+  "pageTitle": "Money from errors, insurance and compensation",
   "field": {
     "disregardedMoney": {
+      "legend": "Is any of the money you have from:",
       "options": {
         "officialError": {
           "label": "Payments to correct or compensate for an official error or for arrears of benefits",
