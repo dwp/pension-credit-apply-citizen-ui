@@ -1,10 +1,10 @@
-const { row, radioOptionValue, safeNl2br } = require('./utils.js');
+const { rowFactory, radioOptionValue, safeNl2br } = require('./utils.js');
 const { waypoints: WP } = require('../../lib/constants.js');
 const formatDateObject = require('../../utils/format-date-object.js');
 const needToBackdate = require('../../utils/need-to-backdate.js');
 const formatMoney = require('../../utils/format-money.js');
 
-module.exports = (t, context, claim) => {
+module.exports = (t, context, claim, cyaUrl) => {
   // Skip whole section if it was not completed
   if (claim.moneySavingsInvestments === undefined) {
     return undefined;
@@ -13,6 +13,7 @@ module.exports = (t, context, claim) => {
   const { dateOfClaim } = context.getDataForPage(WP.DATE_OF_CLAIM) || {};
   const formattedDateOfClaim = dateOfClaim && formatDateObject(dateOfClaim);
 
+  const row = rowFactory(cyaUrl);
   const rov = radioOptionValue(t, context);
   const isCheckedYesNo = (claimData, name) => (
     claimData

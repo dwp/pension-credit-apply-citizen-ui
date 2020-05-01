@@ -20,15 +20,15 @@ const aboutYourResidency = require('./about-your-residency.js');
 const aboutYourPartnersResidency = require('./about-your-partners-residency.js');
 const helpFromOthers = require('./help-from-others.js');
 
-module.exports = (t, context, claim) => ([
-  aboutYou(t, context, claim),
-  aboutYourPartner(t, context, claim),
-  aboutWhereYouLive(t, context, claim),
-  pensions(t, context, claim),
-  benefits(t, context, claim),
-  earnings(t, context, claim),
-  moneyYouHave(t, context, claim),
-  aboutYourResidency(t, context, claim),
-  aboutYourPartnersResidency(t, context, claim),
-  helpFromOthers(t, context),
+module.exports = (t, context, claim, cyaUrl) => ([
+  aboutYou(t, context, claim, cyaUrl),
+  aboutYourPartner(t, context, claim, cyaUrl),
+  aboutWhereYouLive(t, context, claim, cyaUrl),
+  pensions(t, context, claim, cyaUrl),
+  benefits(t, context, claim, cyaUrl),
+  earnings(t, context, claim, cyaUrl),
+  moneyYouHave(t, context, claim, cyaUrl),
+  aboutYourResidency(t, context, claim, cyaUrl),
+  aboutYourPartnersResidency(t, context, claim, cyaUrl),
+  helpFromOthers(t, context, cyaUrl),
 ].filter((v) => v));

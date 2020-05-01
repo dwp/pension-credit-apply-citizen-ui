@@ -1,7 +1,7 @@
-const { row, radioOptionValue, safeNl2br } = require('./utils.js');
+const { rowFactory, radioOptionValue, safeNl2br } = require('./utils.js');
 const { waypoints: WP } = require('../../lib/constants.js');
 
-module.exports = (t, context, claim) => {
+module.exports = (t, context, claim, cyaUrl) => {
   // Skip whole section if it was not completed
   if (claim.pensions === undefined) {
     return undefined;
@@ -10,6 +10,7 @@ module.exports = (t, context, claim) => {
   const { hasPartner } = claim.eligibility || {};
   const jointSingle = hasPartner ? 'Joint' : 'Single';
 
+  const row = rowFactory(cyaUrl);
   const rov = radioOptionValue(t, context);
 
   return {

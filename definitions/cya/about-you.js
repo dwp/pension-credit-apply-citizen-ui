@@ -1,16 +1,17 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 const {
-  row, checkboxOptionValues, radioOptionValue, safeNl2br,
+  rowFactory, checkboxOptionValues, radioOptionValue, safeNl2br,
 } = require('./utils.js');
 const formatDateObject = require('../../utils/format-date-object.js');
 const { waypoints: WP } = require('../../lib/constants.js');
 
-module.exports = (t, context, claim) => {
+module.exports = (t, context, claim, cyaUrl) => {
   // Skip whole section if it was not completed
   if (claim.eligibility === undefined) {
     return undefined;
   }
 
+  const row = rowFactory(cyaUrl);
   const rov = radioOptionValue(t, context);
   const cbv = checkboxOptionValues(t, context);
 

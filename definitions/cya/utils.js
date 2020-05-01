@@ -1,26 +1,24 @@
 const { lib: nunjucksLib } = require('nunjucks');
 const formatPostcode = require('../../utils/format-postcode.js');
 
-function row({
+const rowFactory = (cyaUrl = '/') => ({
   changeHref, changeHtml, key, value, valueHtml,
-}) {
-  return {
-    key: {
-      text: key,
-      classes: 'govuk-!-width-one-half',
-    },
-    value: {
-      [valueHtml ? 'html' : 'text']: valueHtml || value,
-    },
-    actions: !changeHref ? {} : {
-      items: [{
-        href: changeHref.replace('#', '?edit&editorigin=/check-your-answers#'),
-        html: changeHtml,
-        classes: 'govuk-link--no-visited-state',
-      }],
-    },
-  };
-}
+}) => ({
+  key: {
+    text: key,
+    classes: 'govuk-!-width-one-half',
+  },
+  value: {
+    [valueHtml ? 'html' : 'text']: valueHtml || value,
+  },
+  actions: !changeHref ? {} : {
+    items: [{
+      href: changeHref.replace('#', `?edit&editorigin=${cyaUrl}#`),
+      html: changeHtml,
+      classes: 'govuk-link--no-visited-state',
+    }],
+  },
+});
 
 const safeNl2br = (str) => str.split('\n').map(nunjucksLib.escape).join('<br/>');
 
@@ -55,7 +53,7 @@ const formatAddress = (address) => {
 };
 
 module.exports = {
-  row,
+  rowFactory,
   radioOptionValue,
   checkboxOptionValues,
   safeNl2br,

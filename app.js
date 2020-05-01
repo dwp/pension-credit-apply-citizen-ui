@@ -168,9 +168,11 @@ module.exports = (CONFIG, baseLogger) => {
 
   // Check your answers page
   casaApp.router.get(`/${waypoints.CHECK_YOUR_ANSWERS}`, submissionCommonMw, checkYourAnswersGet(
+    `${CONFIG.CONTEXT_PATH}${waypoints.CHECK_YOUR_ANSWERS}`,
     appUserJourney,
   ));
   casaApp.router.post(`/${waypoints.CHECK_YOUR_ANSWERS}`, submissionCommonMw, checkYourAnswersPost(
+    `${CONFIG.CONTEXT_PATH}${waypoints.CHECK_YOUR_ANSWERS}`,
     appUserJourney,
     claimServiceFactory,
     CONFIG.HTTP_TIMEOUT,

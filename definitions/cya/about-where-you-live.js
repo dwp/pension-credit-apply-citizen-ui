@@ -2,10 +2,10 @@
 const formatMoney = require('../../utils/format-money.js');
 const { waypoints: WP } = require('../../lib/constants.js');
 const {
-  row, radioOptionValue, formatAddress, safeNl2br,
+  rowFactory, radioOptionValue, formatAddress, safeNl2br,
 } = require('./utils.js');
 
-module.exports = (t, context, claim) => {
+module.exports = (t, context, claim, cyaUrl) => {
   // Skip whole section if it was not completed
   if (claim.whereClaimantLives === undefined) {
     return undefined;
@@ -14,6 +14,7 @@ module.exports = (t, context, claim) => {
   const { hasPartner } = claim.eligibility || {};
   const jointSingle = hasPartner ? 'Joint' : 'Single';
 
+  const row = rowFactory(cyaUrl);
   const rov = radioOptionValue(t, context);
   const homeAddress = context.getDataForPage(WP.WHERE_YOU_LIVE_ADDRESS_HIDDEN) || {};
   const lettersAddress = context.getDataForPage(WP.LETTERS_ADDRESS_HIDDEN) || {};

@@ -1,7 +1,8 @@
-const { row, radioOptionValue } = require('./utils.js');
+const { rowFactory, radioOptionValue } = require('./utils.js');
 const { waypoints: WP } = require('../../lib/constants.js');
 
-module.exports = (t, context) => {
+module.exports = (t, context, cyaUrl) => {
+  const row = rowFactory(cyaUrl);
   const rov = radioOptionValue(t, context);
 
   /* --------------------------------------------------------- claim-help */

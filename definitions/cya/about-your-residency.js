@@ -1,14 +1,15 @@
 /* eslint-disable max-len */
-const { row, radioOptionValue, formatAddress } = require('./utils.js');
+const { rowFactory, radioOptionValue, formatAddress } = require('./utils.js');
 const formatDateObject = require('../../utils/format-date-object.js');
 const { waypoints: WP } = require('../../lib/constants.js');
 
-module.exports = (t, context, claim) => {
+module.exports = (t, context, claim, cyaUrl) => {
   // Skip whole section if claimant does not need to go through the HRT questions
   if (!claim.citizenHRTRequired()) {
     return undefined;
   }
 
+  const row = rowFactory(cyaUrl);
   const rov = radioOptionValue(t, context);
   const sponsorAddress = context.getDataForPage(WP.HRT_CITIZEN_SPONSOR_ADDRESS_HIDDEN) || {};
   const nationalityDetails = context.data['nationality-details'] || {};

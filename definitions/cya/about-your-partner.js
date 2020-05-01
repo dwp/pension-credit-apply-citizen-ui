@@ -1,14 +1,15 @@
 /* eslint-disable sonarjs/no-duplicate-string */
-const { row, radioOptionValue, safeNl2br } = require('./utils.js');
+const { rowFactory, radioOptionValue, safeNl2br } = require('./utils.js');
 const formatDateObject = require('../../utils/format-date-object.js');
 const { waypoints: WP } = require('../../lib/constants.js');
 
-module.exports = (t, context, claim) => {
+module.exports = (t, context, claim, cyaUrl) => {
   // Skip whole section if claimant does not have a partner
   if (!claim.hasPartner()) {
     return undefined;
   }
 
+  const row = rowFactory(cyaUrl);
   const rov = radioOptionValue(t, context);
 
   return {
