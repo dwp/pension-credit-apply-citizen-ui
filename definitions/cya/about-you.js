@@ -137,7 +137,7 @@ module.exports = (t, context, claim) => {
       }),
 
       // What is your first language?
-      !claim.claimant.ableToSpeakEnglish ? undefined : row({
+      claim.claimant.ableToSpeakEnglish ? undefined : row({
         changeHref: `${WP.CLAIMANT_DETAILS}#f-firstLanguage`,
         changeHtml: t('claimant-details:field.firstLanguage.change'),
         key: t('claimant-details:field.firstLanguage.label'),
