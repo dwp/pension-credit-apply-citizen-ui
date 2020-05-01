@@ -58,6 +58,18 @@ describe('build-claim', () => {
     buildClaim(plan, context);
   });
 
+  it('should sanitise nino', () => {
+    stubData[WP.CLAIMANT_DETAILS] = {
+      nino: 'rn 00 10 01 a',
+    };
+    const plan = {
+      traverse: sinon.stub().returns([]),
+    };
+
+    const claim = buildClaim(plan, context);
+    expect(claim).to.haveOwnProperty('nino').that.equals('RN001001A');
+  });
+
   it('should only include "partner" section if the user has a partner', () => {
     stubData[WP.LIVE_WITH_PARTNER] = {
       liveWithPartner: 'yes',
@@ -76,6 +88,23 @@ describe('build-claim', () => {
     claim = buildClaim(plan, context);
     expect(claim).to.not.haveOwnProperty('partner');
     expect(claim.hasPartner()).to.be.false;
+  });
+
+  it('should sanitise partner nino', () => {
+    stubData[WP.LIVE_WITH_PARTNER] = {
+      liveWithPartner: 'yes',
+      partnerDateOfBirth: stubDate,
+    };
+    stubData[WP.PARTNER_DETAILS] = {
+      partnerNino: 'rn 00 10 01 b',
+    };
+
+    const plan = {
+      traverse: sinon.stub().returns([]),
+    };
+
+    const claim = buildClaim(plan, context);
+    expect(claim.partner).to.haveOwnProperty('nino').that.equals('RN001001B');
   });
 
   it('should only include a "habitualResidencyTest" section if the user went down this route', () => {
