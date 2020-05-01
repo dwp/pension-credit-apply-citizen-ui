@@ -47,8 +47,12 @@ module.exports = (CONFIG, baseLogger) => {
   const cryptoService = prepareCryptoService({
     logger: baseLogger,
     mode: CONFIG.REDIS_ENCRYPTION_MODE,
-    keyAlias: CONFIG.REDIS_ENCRYPTION_ALIAS,
-    awsEndpointUrl: CONFIG.AWS_KMS_ENDPOINT,
+    localMasterKey: CONFIG.REDIS_ENCRYPTION_LOCAL_KEY,
+    kmsKeyArn: CONFIG.REDIS_ENCRYPTION_ARN,
+    kmsCacheTtl: CONFIG.REDIS_ENCRYPTION_CACHE_TTL,
+    kmsCacheCapacity: CONFIG.REDIS_ENCRYPTION_CACHE_CAPACITY,
+    kmsCacheReuse: CONFIG.REDIS_ENCRYPTION_CACHE_REUSE_LIMIT,
+    kmsEndpoint: CONFIG.AWS_KMS_ENDPOINT,
   });
 
   // Prepare location service client

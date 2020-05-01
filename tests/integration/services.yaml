@@ -27,6 +27,7 @@ services:
       REDIS_HOSTS: secret@redis-single-server:6379
       REDIS_CLUSTER_MODE: "false"
       REDIS_ENCRYPTION_MODE: local
+      REDIS_ENCRYPTION_LOCAL_KEY: "7OsTreOFjEL2RURBjI881AgHG5w/xOxXAZhe0WR0CrM="
       GOOGLE_TAG_MANAGER_ID: ""
       ENABLE_CSP: "true"
       USE_TLS: "false"

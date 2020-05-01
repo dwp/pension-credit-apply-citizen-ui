@@ -82,13 +82,92 @@ describe('ConfigIngestor', () => {
     }).to.throw(SyntaxError, /^REDIS_ENCRYPTION_MODE must be one of <empty>, local or kms$/);
   });
 
-  it('ConfigIngestor should throw if REDIS_ENCRYPTION_MODE == kms and REDIS_ENCRYPTION_ALIAS is missing', () => {
+  it('ConfigIngestor should throw if REDIS_ENCRYPTION_MODE == kms and REDIS_ENCRYPTION_ARN is missing', () => {
     expect(() => {
       ConfigIngestor({
         ...requiredVars,
         REDIS_ENCRYPTION_MODE: 'kms',
       });
-    }).to.throw(Error, /^REDIS_ENCRYPTION_ALIAS is required when using kms encryption$/);
+    }).to.throw(Error, /^REDIS_ENCRYPTION_ARN is required when using kms encryption$/);
+  });
+
+  it('ConfigIngestor should throw if REDIS_ENCRYPTION_MODE == kms and REDIS_ENCRYPTION_ARN is invalid format', () => {
+    expect(() => {
+      ConfigIngestor({
+        ...requiredVars,
+        REDIS_ENCRYPTION_MODE: 'kms',
+        REDIS_ENCRYPTION_ARN: 'badformat',
+      });
+    }).to.throw(SyntaxError, 'REDIS_ENCRYPTION_ARN must use full ARN format (arn:aws:kms:<region>:<accountid>:key/<uuid>)');
+  });
+
+  it('ConfigIngestor should throw if REDIS_ENCRYPTION_CACHE_TTL is invalid', () => {
+    expect(() => {
+      ConfigIngestor({
+        ...requiredVars,
+        REDIS_ENCRYPTION_CACHE_TTL: 'string',
+      });
+    }).to.throw(TypeError, 'REDIS_ENCRYPTION_CACHE_TTL must be an integer');
+
+    expect(() => {
+      ConfigIngestor({
+        ...requiredVars,
+        REDIS_ENCRYPTION_CACHE_TTL: -1,
+      });
+    }).to.throw(RangeError, 'REDIS_ENCRYPTION_CACHE_TTL must be between 0 and 1800');
+
+    expect(() => {
+      ConfigIngestor({
+        ...requiredVars,
+        REDIS_ENCRYPTION_CACHE_TTL: 1801,
+      });
+    }).to.throw(RangeError, 'REDIS_ENCRYPTION_CACHE_TTL must be between 0 and 1800');
+  });
+
+  it('ConfigIngestor should throw if REDIS_ENCRYPTION_CACHE_CAPACITY is invalid', () => {
+    expect(() => {
+      ConfigIngestor({
+        ...requiredVars,
+        REDIS_ENCRYPTION_CACHE_CAPACITY: 'string',
+      });
+    }).to.throw(TypeError, 'REDIS_ENCRYPTION_CACHE_CAPACITY must be an integer');
+
+    expect(() => {
+      ConfigIngestor({
+        ...requiredVars,
+        REDIS_ENCRYPTION_CACHE_CAPACITY: -1,
+      });
+    }).to.throw(RangeError, 'REDIS_ENCRYPTION_CACHE_CAPACITY must be between 0 and 10000');
+
+    expect(() => {
+      ConfigIngestor({
+        ...requiredVars,
+        REDIS_ENCRYPTION_CACHE_CAPACITY: 10001,
+      });
+    }).to.throw(RangeError, 'REDIS_ENCRYPTION_CACHE_CAPACITY must be between 0 and 10000');
+  });
+
+  it('ConfigIngestor should throw if REDIS_ENCRYPTION_CACHE_REUSE_LIMIT is invalid', () => {
+    expect(() => {
+      ConfigIngestor({
+        ...requiredVars,
+        REDIS_ENCRYPTION_CACHE_REUSE_LIMIT: 'string',
+      });
+    }).to.throw(TypeError, 'REDIS_ENCRYPTION_CACHE_REUSE_LIMIT must be an integer');
+
+    expect(() => {
+      ConfigIngestor({
+        ...requiredVars,
+        REDIS_ENCRYPTION_CACHE_REUSE_LIMIT: -1,
+      });
+    }).to.throw(RangeError, 'REDIS_ENCRYPTION_CACHE_REUSE_LIMIT must be between 0 and 10000');
+
+    expect(() => {
+      ConfigIngestor({
+        ...requiredVars,
+        REDIS_ENCRYPTION_CACHE_REUSE_LIMIT: 10001,
+      });
+    }).to.throw(RangeError, 'REDIS_ENCRYPTION_CACHE_REUSE_LIMIT must be between 0 and 10000');
   });
 
   it('ConfigIngestor should throw if AWS_KMS_ENDPOINT is defined in a non-development environment', () => {

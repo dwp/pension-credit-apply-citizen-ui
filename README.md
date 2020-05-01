@@ -69,6 +69,13 @@ VAR1=x VAR2=y npm start
 
 # Or a combo of both ...
 PORT=1234 npm start -- --config=.env.example
+
+# If you are running with KMS encryption mode, against localstack in our
+# docker-local setup, you will need to grab the ARN of the CMK dynamically, like
+# so:
+env $(cat .env.example | grep -v '#') \
+  REDIS_ENCRYPTION_ARN=$(node tools/get-cmk-arn.js alias/ApplyCitizenUiKey) \
+  npm start
 ```
 
 To see messages from `debug` module, the `DEBUG=` variable _must_ be passed as an environment variable (it won't be read from a file), as well as the `LOG_LEVEL` setting, eg:
