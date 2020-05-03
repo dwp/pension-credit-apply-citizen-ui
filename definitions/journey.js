@@ -14,7 +14,9 @@ const hrtPartner = require('./journey/hrt-partner.js');
 const claimHelp = require('./journey/claim-help.js');
 
 module.exports = () => {
-  const plan = new Plan();
+  const plan = new Plan({
+    validateBeforeRouteCondition: true,
+  });
 
   plan.addOrigin(O.APPLY, WP.START);
 
