@@ -8,5 +8,6 @@ module.exports = (plan) => (req, res) => {
   // Render page
   res.render('pages/submission/check-your-answers.njk', {
     sections: buildCya(res.locals.t, req.casa.journeyContext, claim),
+    formButtonText: res.locals.t('check-your-answers:buttonText'),
   });
 };

@@ -224,6 +224,7 @@ describe('submission/check-your-answers', () => {
 
       expect(spyRender).to.be.calledOnceWithExactly('pages/submission/check-your-answers.njk', {
         error: 'check-your-answers:error.claim-service-failure',
+        formButtonText: 'check-your-answers:buttonText',
         sections: [],
       });
     });

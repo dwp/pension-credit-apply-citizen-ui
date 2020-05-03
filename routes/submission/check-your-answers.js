@@ -5,6 +5,7 @@ const buildCya = require('../../definitions/cya/index.js');
 const renderPage = (res, plan, journeyContext, tplContext) => {
   res.render('pages/submission/check-your-answers.njk', {
     sections: buildCya(res.locals.t, journeyContext, buildClaim(plan, journeyContext)),
+    formButtonText: res.locals.t('check-your-answers:buttonText'),
     ...tplContext,
   });
 };

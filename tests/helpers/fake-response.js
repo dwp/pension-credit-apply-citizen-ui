@@ -11,6 +11,7 @@ module.exports = class Response {
       casa: {
         mountUrl: '/',
       },
+      t: (s) => (s),
     };
   }
 

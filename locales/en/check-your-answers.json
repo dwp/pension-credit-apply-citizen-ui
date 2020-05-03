@@ -9,6 +9,7 @@
     "submission-locked": "Your claim is still being submitted. Please wait before continuing.",
     "claim-service-failure": "Your claim has not been submitted. Please try again."
   },
+  "buttonText": "Submit",
   "sectionHeading": {
     "about-you": "About you",
     "about-your-partner": "About your partner",
