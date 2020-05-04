@@ -13,7 +13,7 @@
     "otherIncomeDetails": {
       "label": "Tell us what this income is, how much you are paid and how often you are paid",
       "required": "Enter what this income is, how much you are paid and how often you are paid.",
-      "length": "What this income is, how much you are paid and how often you are paid must be less than 500 characters.",
+      "length": "What this income is, how much you are paid and how often you are paid must be 500 characters or less.",
       "change": "Change <span class=\"govuk-visually-hidden\">the details of other money you have coming in</span>"
     }
   }

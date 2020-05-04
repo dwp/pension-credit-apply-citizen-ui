@@ -13,7 +13,7 @@
     "privatePensionDetails": {
       "label": "For each pension you get, tell us who pays it, how much it is and how often it is paid. you do not need to tell us about your State Pension",
       "required": "Enter details of each pension you get.",
-      "length": "Details of pension you get must be less than 500 characters.",
+      "length": "Details of pension you get must be 500 characters or less.",
       "change": "Change <span class=\"govuk-visually-hidden\">the details of your private and workplace pensions</span>"
     }
   }

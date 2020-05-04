@@ -14,7 +14,7 @@
     "benefitsDetails": {
       "label": "Benefits have you applied for",
       "required": "Enter the benefits that you have applied for.",
-      "length": "Benefits that you have applied for must be less than 500 characters.",
+      "length": "Benefits that you have applied for must be 500 characters or less.",
       "change": "Change <span class=\"govuk-visually-hidden\">which benefits you have applied for</span>"
     },
     "anyoneGetCarers": {
