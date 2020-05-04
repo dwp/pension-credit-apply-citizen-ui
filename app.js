@@ -90,7 +90,7 @@ module.exports = (CONFIG, baseLogger) => {
       ],
     },
     compiledAssetsDir: path.resolve(__dirname, 'static'),
-    phase: 'live',
+    phase: 'alpha',
     serviceName: 'common:serviceName',
     sessions: getSessionConfig(
       CONFIG.SESSION_COOKIE_NAME,

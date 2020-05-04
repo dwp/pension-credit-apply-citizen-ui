@@ -9,6 +9,8 @@
 {% set mainClasses %}{{ mainClasses }} govuk-main-wrapper--auto-spacing{% endset %}
 
 {% block beforeContent %}
+  {{ super() }}
+
   {# Add back link #}
   {% set backUrl = editOriginUrl if inEditMode else casa.journeyPreviousUrl %}
   {% if backUrl %}
