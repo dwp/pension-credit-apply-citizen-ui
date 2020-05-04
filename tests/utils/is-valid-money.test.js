@@ -19,12 +19,26 @@ describe('Utils: is-valid-telephone-number', () => {
 
   it('should resolve if value is 2 decimal float', (done) => {
     const validator = isValidMoney({});
+    validator('10.00')
+      .then(() => done())
+      .catch(done);
+  });
+
+  it('should resolve if value has 1 character before the decimal point', (done) => {
+    const validator = isValidMoney({});
     validator('1.00')
       .then(() => done())
       .catch(done);
   });
 
-  it('should reject if value contains less than 2 decimals', (done) => {
+  it('should resolve if value has 10 characters before the decimal point', (done) => {
+    const validator = isValidMoney({});
+    validator('1000000000.00')
+      .then(() => done())
+      .catch(done);
+  });
+
+  it('should reject if value contains only 1 decimal', (done) => {
     const validator = isValidMoney({});
     validator('1.1')
       .then(() => done(RESOLVE_ERR))
@@ -38,9 +52,23 @@ describe('Utils: is-valid-telephone-number', () => {
       .catch(() => done());
   });
 
-  it('should reject if value contains more no decimals', (done) => {
+  it('should reject if value contains no decimals', (done) => {
     const validator = isValidMoney({});
     validator('1')
+      .then(() => done(RESOLVE_ERR))
+      .catch(() => done());
+  });
+
+  it('should reject if value contains less than 1 character before the decimal point', (done) => {
+    const validator = isValidMoney({});
+    validator('.50')
+      .then(() => done(RESOLVE_ERR))
+      .catch(() => done());
+  });
+
+  it('should reject if value contains more than 10 characters before the decimal point', (done) => {
+    const validator = isValidMoney({});
+    validator('10000000000.50')
       .then(() => done(RESOLVE_ERR))
       .catch(() => done());
   });
