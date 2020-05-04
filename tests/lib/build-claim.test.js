@@ -107,6 +107,127 @@ describe('build-claim', () => {
     expect(claim.partner).to.haveOwnProperty('nino').that.equals('RN001001B');
   });
 
+  it('should include home address from manual entry', () => {
+    stubData[WP.WHERE_YOU_LIVE_ADDRESS_HIDDEN] = {
+      addressFrom: 'manual',
+      address: {
+        addressLine1: '123 Test Street',
+        addressLine2: 'Testerton',
+        town: 'Testville',
+        county: 'Testershire',
+        postcode: 'TE573R',
+      },
+    };
+
+    const plan = {
+      traverse: sinon.stub().returns([]),
+    };
+
+    const claim = buildClaim(plan, context);
+    expect(claim.whereClaimantLives).to.haveOwnProperty('buildingAndStreet').that.equals('123 Test Street, Testerton');
+    expect(claim.whereClaimantLives).to.haveOwnProperty('townOrCity').that.equals('Testville');
+    expect(claim.whereClaimantLives).to.haveOwnProperty('county').that.equals('Testershire');
+    expect(claim.whereClaimantLives).to.haveOwnProperty('postcode').that.equals('TE5 73R');
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('uprn');
+  });
+
+  it('should include home uprn from select list', () => {
+    stubData[WP.WHERE_YOU_LIVE_ADDRESS_HIDDEN] = {
+      addressFrom: 'select',
+      address: {
+        addressLine1: '123 Test Street',
+        addressLine2: 'Testerton',
+        town: 'Testville',
+        county: 'Testershire',
+        postcode: 'TE573R',
+      },
+      uprn: '1234567',
+    };
+
+    const plan = {
+      traverse: sinon.stub().returns([]),
+    };
+
+    const claim = buildClaim(plan, context);
+    expect(claim.whereClaimantLives).to.haveOwnProperty('uprn').that.equals('1234567');
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('buildingAndStreet');
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('townOrCity');
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('county');
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('postcode');
+  });
+
+  it('should include contact address from manual sendLettersToHome is "no"', () => {
+    stubData[WP.LETTERS_HOME] = {
+      sendLettersToHome: 'no',
+    };
+    stubData[WP.LETTERS_ADDRESS_HIDDEN] = {
+      addressFrom: 'manual',
+      address: {
+        addressLine1: '123 Test Street',
+        addressLine2: 'Testerton',
+        town: 'Testville',
+        county: 'Testershire',
+        postcode: 'TE573R',
+      },
+    };
+
+    const plan = {
+      traverse: sinon.stub().returns([]),
+    };
+
+    const claim = buildClaim(plan, context);
+    expect(claim.whereClaimantLives).to.haveOwnProperty('homeAddressForCorrespondence').that.equals(false);
+    expect(claim.whereClaimantLives).to.haveOwnProperty('contactBuildingAndStreet').that.equals('123 Test Street, Testerton');
+    expect(claim.whereClaimantLives).to.haveOwnProperty('contactTownOrCity').that.equals('Testville');
+    expect(claim.whereClaimantLives).to.haveOwnProperty('contactCounty').that.equals('Testershire');
+    expect(claim.whereClaimantLives).to.haveOwnProperty('contactPostcode').that.equals('TE5 73R');
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('uprn');
+  });
+
+  it('should include contact uprn from select if sendLettersToHome is "no"', () => {
+    stubData[WP.LETTERS_HOME] = {
+      sendLettersToHome: 'no',
+    };
+    stubData[WP.LETTERS_ADDRESS_HIDDEN] = {
+      addressFrom: 'select',
+      uprn: '1234567',
+    };
+
+    const plan = {
+      traverse: sinon.stub().returns([]),
+    };
+
+    const claim = buildClaim(plan, context);
+    expect(claim.whereClaimantLives).to.haveOwnProperty('homeAddressForCorrespondence').that.equals(false);
+    expect(claim.whereClaimantLives).to.haveOwnProperty('contactUprn').that.equals('1234567');
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactBuildingAndStreet');
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactTownOrCity');
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactCounty');
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactPostcode');
+  });
+
+  it('should not include contact address if sendLettersToHome is "yes"', () => {
+    stubData[WP.LETTERS_HOME] = {
+      sendLettersToHome: 'yes',
+    };
+    stubData[WP.LETTERS_ADDRESS_HIDDEN] = {
+      addressFrom: 'select',
+      urpn: '1234567',
+    };
+
+    const plan = {
+      traverse: sinon.stub().returns([]),
+    };
+
+    const claim = buildClaim(plan, context);
+    expect(claim.whereClaimantLives).to.haveOwnProperty('homeAddressForCorrespondence').that.equals(true);
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('uprn');
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactBuildingAndStreet');
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactTownOrCity');
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactCounty');
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactPostcode');
+  });
+
   it('should only include a "habitualResidencyTest" section if the user went down this route', () => {
     let traversed = [WP.HRT_CITIZEN_RETURNED_TO_UK];
 
