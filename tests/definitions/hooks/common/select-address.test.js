@@ -170,6 +170,7 @@ describe('Hooks: select-address', () => {
       expect(addressData).to.be.an('object');
       expect(addressData.addressFrom).to.equal('select');
       expect(addressData.uprn).to.equal(2);
+      expect(addressData.completeAddressLine).to.equal('123 TEST STREET, TEST TOWN, FA33 1FA');
       expect(addressData.address).to.deep.equal({
         line1: '123 TEST STREET',
         line2: 'TEST TOWN',

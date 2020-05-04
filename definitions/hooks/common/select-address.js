@@ -62,6 +62,7 @@ const postvalidate = (postcodeWP, hiddenAddressWP, sourceAddressWP) => (req, _, 
 
   // Add address object to HIDDEN_ADDRESS_PAGE
   req.casa.journeyContext.setDataForPage(hiddenAddressWP, {
+    completeAddressLine: address.completeAddressLine,
     address: addressObj,
     addressFrom: 'select',
     uprn,

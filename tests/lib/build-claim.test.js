@@ -134,14 +134,11 @@ describe('build-claim', () => {
   it('should include home uprn from select list', () => {
     stubData[WP.WHERE_YOU_LIVE_ADDRESS_HIDDEN] = {
       addressFrom: 'select',
+      completeAddressLine: '123 Test Street, Testerton',
+      uprn: '1234567',
       address: {
-        addressLine1: '123 Test Street',
-        addressLine2: 'Testerton',
-        town: 'Testville',
-        county: 'Testershire',
         postcode: 'TE573R',
       },
-      uprn: '1234567',
     };
 
     const plan = {
@@ -150,10 +147,10 @@ describe('build-claim', () => {
 
     const claim = buildClaim(plan, context);
     expect(claim.whereClaimantLives).to.haveOwnProperty('uprn').that.equals('1234567');
-    expect(claim.whereClaimantLives).to.not.haveOwnProperty('buildingAndStreet');
+    expect(claim.whereClaimantLives).to.haveOwnProperty('buildingAndStreet').that.equals('123 Test Street, Testerton');
+    expect(claim.whereClaimantLives).to.haveOwnProperty('postcode').that.equals('TE5 73R');
     expect(claim.whereClaimantLives).to.not.haveOwnProperty('townOrCity');
     expect(claim.whereClaimantLives).to.not.haveOwnProperty('county');
-    expect(claim.whereClaimantLives).to.not.haveOwnProperty('postcode');
   });
 
   it('should include contact address from manual sendLettersToHome is "no"', () => {
@@ -190,6 +187,10 @@ describe('build-claim', () => {
     };
     stubData[WP.LETTERS_ADDRESS_HIDDEN] = {
       addressFrom: 'select',
+      completeAddressLine: '123 Test Street, Testerton',
+      address: {
+        postcode: 'TE573R',
+      },
       uprn: '1234567',
     };
 
@@ -200,10 +201,10 @@ describe('build-claim', () => {
     const claim = buildClaim(plan, context);
     expect(claim.whereClaimantLives).to.haveOwnProperty('homeAddressForCorrespondence').that.equals(false);
     expect(claim.whereClaimantLives).to.haveOwnProperty('contactUprn').that.equals('1234567');
-    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactBuildingAndStreet');
+    expect(claim.whereClaimantLives).to.haveOwnProperty('contactBuildingAndStreet').that.equals('123 Test Street, Testerton');
+    expect(claim.whereClaimantLives).to.haveOwnProperty('contactPostcode').that.equals('TE5 73R');
     expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactTownOrCity');
     expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactCounty');
-    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactPostcode');
   });
 
   it('should not include contact address if sendLettersToHome is "yes"', () => {
@@ -213,6 +214,9 @@ describe('build-claim', () => {
     stubData[WP.LETTERS_ADDRESS_HIDDEN] = {
       addressFrom: 'select',
       urpn: '1234567',
+      address: {
+        postcode: 'TE573R',
+      },
     };
 
     const plan = {
