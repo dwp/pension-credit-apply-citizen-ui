@@ -115,7 +115,13 @@ module.exports = (CONFIG, baseLogger) => {
       mediaMiddleware(this.expressApp, CONFIG.CONTEXT_PATH_PROXY, './public/');
       mountCommonMiddleware();
       nonceMiddleware(this.expressApp, CONFIG.ENABLE_CSP);
-      cookieMiddleware(this.expressApp, CONFIG.CONTEXT_PATH, CONSENT_COOKIE_NAME, waypoints);
+      cookieMiddleware(
+        this.expressApp,
+        CONFIG.CONTEXT_PATH,
+        CONFIG.CONTEXT_PATH_PROXY,
+        CONSENT_COOKIE_NAME,
+        waypoints,
+      );
     },
   });
 

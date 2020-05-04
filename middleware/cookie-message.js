@@ -1,8 +1,9 @@
 const qs = require('querystring');
 const setConsentCookie = require('../utils/set-consent-cookie.js');
 
-module.exports = (app, mountUrl = '/', consentCookieName, waypoints) => {
+module.exports = (app, mountUrl = '/', proxyMountUrl = mountUrl, consentCookieName, waypoints) => {
   const consecutiveSlashes = /\/+/g;
+  const reProxyMountUrl = new RegExp(`^${proxyMountUrl}`);
 
   // URL to cookie policy page
   const cookiePolicyUrl = `${mountUrl}${waypoints.COOKIE_POLICY}`;
@@ -27,7 +28,7 @@ module.exports = (app, mountUrl = '/', consentCookieName, waypoints) => {
 
     // Set backto query
     const { pathname, search } = new URL(String(req.originalUrl), 'http://dummy.test/');
-    const currentUrl = (pathname + search).replace(consecutiveSlashes, '/');
+    const currentUrl = (pathname + search).replace(reProxyMountUrl, mountUrl).replace(consecutiveSlashes, '/');
 
     // If already on cookie policy page, don't need set backto again
     if (pathname === cookiePolicyUrl) {
@@ -40,7 +41,7 @@ module.exports = (app, mountUrl = '/', consentCookieName, waypoints) => {
   });
 
   // Handle setting consent cookie from banner submisson
-  app.post(`${mountUrl}${waypoints.COOKIE_CONSENT}/:cookieMethod`, (req, res) => {
+  app.post(`${proxyMountUrl}${waypoints.COOKIE_CONSENT}/:cookieMethod`, (req, res) => {
     const { cookieMethod } = req.params;
 
     if (cookieMethod === 'reject' || cookieMethod === 'accept') {
