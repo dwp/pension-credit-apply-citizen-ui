@@ -34,4 +34,32 @@
   <p class="govuk-body govuk-!-font-weight-bold">
     {{ t("check-your-answers:declaration.information") }}
   </p>
+
+  {{ govukButton({
+    attributes: {
+      id: 'continue-button'
+    },
+    text: formButtonText
+  }) }}
+{% endblock %}
+
+{% block bodyEnd %}
+  {{ super() }}
+  <script{%- if nonce %} nonce="{{ nonce }}"{% endif -%}>
+    function debounceHTTP(event) {
+      if (this.debounceFormSubmitTimer) {
+        event.preventDefault()
+        return false
+      }
+
+      this.debounceFormSubmitTimer = setTimeout(function () {
+        this.debounceFormSubmitTimer = null
+      }.bind(this), {{ httpTimeout }} * 1000)
+    }
+
+    var $submit = document.getElementById('continue-button')
+
+    $submit.removeEventListener('click', GOVUKFrontend.Button.prototype.debounce)
+    $submit.addEventListener('click', debounceHTTP)
+  </script>
 {% endblock %}

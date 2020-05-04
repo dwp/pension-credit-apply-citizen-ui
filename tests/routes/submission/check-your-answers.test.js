@@ -32,7 +32,7 @@ describe('submission/check-your-answers', () => {
       const res = new Response();
       const next = sinon.stub();
 
-      checkLock('/', {})(req, res, next);
+      checkLock('/', {}, 10)(req, res, next);
 
       expect(next).to.be.calledOnceWithExactly();
     });
@@ -43,7 +43,7 @@ describe('submission/check-your-answers', () => {
       const res = new Response();
       const next = sinon.stub();
 
-      checkLock('/', {})(req, res, next);
+      checkLock('/', {}, 10)(req, res, next);
 
       expect(next).to.be.calledOnceWithExactly();
     });
@@ -54,7 +54,7 @@ describe('submission/check-your-answers', () => {
       const res = new Response();
       const renderSpy = sinon.spy(res, 'render');
 
-      checkLock('/test-url/cya', {})(req, res, () => {});
+      checkLock('/test-url/cya', {}, 10)(req, res, () => {});
 
       expect(renderSpy).to.be.calledWith('pages/submission/check-your-answers.njk', sinon.match.has('error', 'check-your-answers:error.submission-locked'));
       expect(stubBuildCya).to.be.calledWith(res.locals.t, req.casa.journeyContext, sinon.match.any, '/test-url/cya');
@@ -221,11 +221,13 @@ describe('submission/check-your-answers', () => {
       const spyRender = sinon.spy(res, 'render');
       const next = sinon.stub();
 
-      handleErrors('/test-url/cya', {})({}, req, res, next);
+      handleErrors('/test-url/cya', {}, 10)({}, req, res, next);
 
       expect(spyRender).to.be.calledOnceWithExactly('pages/submission/check-your-answers.njk', {
         error: 'check-your-answers:error.claim-service-failure',
         formButtonText: 'check-your-answers:buttonText',
+        hideButtonBar: true,
+        httpTimeout: 10,
         sections: [],
       });
       expect(stubBuildCya).to.be.calledWith(res.locals.t, req.casa.journeyContext, sinon.match.any, '/test-url/cya');
@@ -237,7 +239,7 @@ describe('submission/check-your-answers', () => {
       const spyLog = sinon.spy(req.log, 'error');
       const next = sinon.stub();
 
-      handleErrors('/', {})({
+      handleErrors('/', {}, 10)({
         name: 'HTTPError',
         response: { body: 'error message' },
       }, req, res, next);
@@ -251,7 +253,7 @@ describe('submission/check-your-answers', () => {
       const spyLog = sinon.spy(req.log, 'error');
       const next = sinon.stub();
 
-      handleErrors('/', {})({
+      handleErrors('/', {}, 10)({
         name: 'TimeoutError',
       }, req, res, next);
 
@@ -264,7 +266,7 @@ describe('submission/check-your-answers', () => {
       const spyLog = sinon.spy(req.log, 'error');
       const next = sinon.stub();
 
-      handleErrors('/', {})({
+      handleErrors('/', {}, 10)({
         name: 'ParseError',
         response: 'TEST RES',
       }, req, res, next);

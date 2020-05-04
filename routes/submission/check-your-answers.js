@@ -2,20 +2,22 @@ const moment = require('moment');
 const buildClaim = require('../../lib/build-claim.js');
 const buildCya = require('../../definitions/cya/index.js');
 
-const renderPage = (cyaUrl, res, plan, journeyContext, tplContext) => {
+const renderPage = (cyaUrl, res, plan, httpTimeout, journeyContext, tplContext) => {
   res.render('pages/submission/check-your-answers.njk', {
+    hideButtonBar: true,
     formButtonText: res.locals.t('check-your-answers:buttonText'),
     sections: buildCya(res.locals.t, journeyContext, buildClaim(plan, journeyContext), cyaUrl),
     ...tplContext,
+    httpTimeout,
   });
 };
 
-const checkLock = (cyaUrl, plan) => (req, res, next) => {
+const checkLock = (cyaUrl, plan, httpTimeout) => (req, res, next) => {
   // If another submission is currently under way, ask the user to wait
   const now = (new Date()).getTime();
   if (req.session.submissionLock && req.session.submissionLock > now) {
     req.log.info(`Submission lock present (expires ${(new Date(req.session.submissionLock)).toISOString()})`);
-    renderPage(cyaUrl, res, plan, req.casa.journeyContext, {
+    renderPage(cyaUrl, res, plan, httpTimeout, req.casa.journeyContext, {
       error: 'check-your-answers:error.submission-locked',
     });
   } else {
@@ -76,7 +78,7 @@ const redirectToFinal = (finalUrl) => (req, res) => {
 };
 
 /* eslint-disable-next-line no-unused-vars */
-const handleErrors = (cyaUrl, plan) => (err, req, res, next) => {
+const handleErrors = (cyaUrl, plan, httpTimeout) => (err, req, res, next) => {
   if (err.name === 'HTTPError') {
     req.log.error({ err: err.response.body }, 'Error response from Claim Service. Claim not submitted.');
   } else if (err.name === 'TimeoutError') {
@@ -90,7 +92,7 @@ const handleErrors = (cyaUrl, plan) => (err, req, res, next) => {
   // Clear the lock
   delete req.session.submissionLock;
 
-  renderPage(cyaUrl, res, plan, req.casa.journeyContext, {
+  renderPage(cyaUrl, res, plan, httpTimeout, req.casa.journeyContext, {
     error: 'check-your-answers:error.claim-service-failure',
   });
 };
