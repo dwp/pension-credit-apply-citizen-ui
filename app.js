@@ -137,6 +137,9 @@ module.exports = (CONFIG, baseLogger) => {
   // Set accessibility statment footer URL
   app.get('nunjucksEnv').addGlobal('accessibilityStatementUrl', waypoints.ACCESSIBILITY_STATEMENT);
 
+  // Set URL for feedback survey
+  app.get('nunjucksEnv').addGlobal('feedbackSurveyUrl', 'https://getinvolved.dwp.gov.uk/digital/7ae6ef38');
+
   // Prepare page hooks for "Select your address" page
   const appPageDefinitions = pageDefinitions(
     addressServiceFactory,
