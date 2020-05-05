@@ -3,7 +3,8 @@ const { validationRules: r, simpleFieldValidation: sf } = require('@dwp/govuk-ca
 // Validation is conditional on whether the associated checkbox was checked
 const ifPaymentsInclude = (payment) => ({ journeyContext: c, waypointId }) => {
   const { disregardedMoney } = c.getDataForPage(waypointId) || Object.create(null);
-  return disregardedMoney ? disregardedMoney.includes(payment) : false;
+  const disregards = Array.isArray(disregardedMoney) ? disregardedMoney : [disregardedMoney];
+  return disregards.includes(payment);
 };
 
 const fieldValidators = Object.assign(Object.create(null), {

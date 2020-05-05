@@ -1,4 +1,5 @@
 const { waypoints } = require('../../lib/constants.js');
+const checkboxesModifier = require('../field-gather-modifiers/checkboxes.js');
 const moneyYouHaveValidation = require('../field-validators/money/money-you-have.js');
 const secondPropertyValidation = require('../field-validators/money/second-property.js');
 const disregardedMoneyValidation = require('../field-validators/money/disregarded-money.js');
@@ -31,6 +32,9 @@ module.exports = () => {
   pages[waypoints.DISREGARDED_MONEY] = {
     view: 'pages/money/disregarded-money.njk',
     fieldValidators: disregardedMoneyValidation,
+    fieldGatherModifiers: {
+      disregardedMoney: checkboxesModifier,
+    },
   };
 
   return pages;

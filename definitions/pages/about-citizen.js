@@ -1,4 +1,5 @@
 const { waypoints } = require('../../lib/constants.js');
+const checkboxesModifier = require('../field-gather-modifiers/checkboxes.js');
 const claimantDetailsValidation = require('../field-validators/about-claimant/claimant-details.js');
 const contactFormatsValidation = require('../field-validators/about-claimant/contact-formats.js');
 const partnerDetailsValidation = require('../field-validators/about-claimant/partner-details.js');
@@ -16,6 +17,9 @@ module.exports = () => {
   pages[waypoints.CONTACT_FORMATS] = {
     view: 'pages/about-citizen/contact-formats.njk',
     fieldValidators: contactFormatsValidation,
+    fieldGatherModifiers: {
+      contactFormats: checkboxesModifier,
+    },
   };
 
   pages[waypoints.PARTNER_DETAILS] = {
