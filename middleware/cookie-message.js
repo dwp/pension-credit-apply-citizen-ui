@@ -2,8 +2,8 @@ const qs = require('querystring');
 const setConsentCookie = require('../utils/set-consent-cookie.js');
 
 module.exports = (app, mountUrl = '/', proxyMountUrl = mountUrl, consentCookieName, waypoints) => {
-  const consecutiveSlashes = /\/+/g;
   const reProxyMountUrl = new RegExp(`^${proxyMountUrl}`);
+  const sanitiseUrl = (url) => url.replace(reProxyMountUrl, mountUrl).replace(/\/+/g, '/');
 
   // URL to cookie policy page
   const cookiePolicyUrl = `${mountUrl}${waypoints.COOKIE_POLICY}`;
@@ -28,7 +28,7 @@ module.exports = (app, mountUrl = '/', proxyMountUrl = mountUrl, consentCookieNa
 
     // Set backto query
     const { pathname, search } = new URL(String(req.originalUrl), 'http://dummy.test/');
-    const currentUrl = (pathname + search).replace(reProxyMountUrl, mountUrl).replace(consecutiveSlashes, '/');
+    const currentUrl = sanitiseUrl(pathname + search);
 
     // If already on cookie policy page, don't need set backto again
     if (pathname === cookiePolicyUrl) {
@@ -36,6 +36,9 @@ module.exports = (app, mountUrl = '/', proxyMountUrl = mountUrl, consentCookieNa
     } else {
       res.locals.cookiePolicyUrl = `${cookiePolicyUrl}?${qs.stringify({ backto: currentUrl })}`;
     }
+
+    // Set strict referrer policy
+    res.set('Referrer-Policy', 'strict-origin');
 
     next();
   });
@@ -48,6 +51,16 @@ module.exports = (app, mountUrl = '/', proxyMountUrl = mountUrl, consentCookieNa
       setConsentCookie(req, res, consentCookieName, cookieMethod);
     }
 
-    return req.session.save(() => res.redirect('back'));
+    req.session.save(() => {
+      const referrer = req.get('Referrer');
+
+      if (referrer && !/^javascript:/.test(referrer)) {
+        const { pathname, search } = new URL(referrer, 'http://dummy.test/');
+        const redirectBackTo = sanitiseUrl(pathname + search);
+        res.redirect(redirectBackTo);
+      } else {
+        res.redirect('/');
+      }
+    });
   });
 };

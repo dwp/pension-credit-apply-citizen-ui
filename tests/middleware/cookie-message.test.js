@@ -94,6 +94,14 @@ describe('Middleware: cookie-message', () => {
       expect(res.locals).to.have.property('cookiePolicyUrl').that.equals(req.originalUrl);
     });
 
+    it('should set strict Referrer-Policy header', () => {
+      const req = new Request();
+      const res = new Response(req);
+      cookieMessage(app, mount, proxyMount, cookieName, waypoints);
+      app.use(req, res, () => {});
+      expect(res.headers['Referrer-Policy']).to.equal('strict-origin');
+    });
+
     it('should call next', (done) => {
       const req = new Request();
       const res = new Response(req);
@@ -130,12 +138,32 @@ describe('Middleware: cookie-message', () => {
       expect(res.cookies).to.not.have.property(cookieName);
     });
 
-    it('should redirect back', () => {
+    it('should redirect back to Referrer path', () => {
       const req = new Request();
       const res = new Response(req);
+      req.headers.Referrer = '/claims/page';
       cookieMessage(app, mount, proxyMount, cookieName, waypoints);
       app.all(req, res, () => {});
-      expect(res.redirectedTo).to.equal('back');
+      expect(res.redirectedTo).to.equal('/claims/page');
+    });
+
+    it('should redirect back to only path on this domain', () => {
+      const req = new Request();
+      const res = new Response(req);
+      req.headers.Referrer = 'http://other-domain/claims/page';
+      cookieMessage(app, mount, proxyMount, cookieName, waypoints);
+      app.all(req, res, () => {});
+      expect(res.redirectedTo).to.equal('/claims/page');
+    });
+
+    it('should redirect to / if referrer starts with "javascript:"', () => {
+      const req = new Request();
+      const res = new Response(req);
+      /* eslint-disable-next-line no-script-url */
+      req.headers.Referrer = 'javascript:alert(1)';
+      cookieMessage(app, mount, proxyMount, cookieName, waypoints);
+      app.all(req, res, () => {});
+      expect(res.redirectedTo).to.equal('/');
     });
   });
 });

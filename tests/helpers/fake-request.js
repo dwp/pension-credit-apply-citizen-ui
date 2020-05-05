@@ -38,4 +38,8 @@ module.exports = class Request {
       t: (key, value) => `${key}${value ? `:${value}` : ''}`,
     };
   }
+
+  get(header) {
+    return this.headers[header];
+  }
 };
