@@ -4,8 +4,16 @@
   Sorry, there is a problem with the service
 {% endblock %}
 
-{% block head %}
-  {% include "partials/styles.njk" %}
+{% block beforeContent %}
+  {% set phaseBannerContent %}
+    This is a new service – your <a class="govuk-link" href="{{ feedbackSurveyUrl }}" target="_blank" rel="noopener noreferrer">feedback</a> will help us to improve it.
+  {% endset %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "alpha"
+    },
+    html: phaseBannerContent
+  }) }}
 {% endblock %}
 
 {% block content %}
@@ -22,4 +30,25 @@
       </p>
     </div>
   </div>
+{% endblock %}
+
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: [{
+        href: accessibilityStatementUrl,
+        text: "Accessibility statement"
+      }, {
+        href: cookiePolicyUrl,
+        text: "Cookies"
+      }, {
+        href: "https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter",
+        text: "Personal Information Charter (opens in a new window or tab)",
+        attributes: {
+          target: "_blank",
+          rel: "noopener noreferrer"
+        }
+      }]
+    }
+  }) }}
 {% endblock %}
