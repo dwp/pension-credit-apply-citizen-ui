@@ -3,7 +3,6 @@
 {% from "components/footer/macro.njk" import govukFooter %}
 {% from "components/phase-banner/macro.njk" import govukPhaseBanner %}
 
-
 {% block head %}
   {%- if cookieMessage === "accept" -%}
     {% include "partials/gtm-script.njk" %}
@@ -25,7 +24,7 @@
     tag: {
       text: "alpha"
     },
-    html: t('common:phaseBanner', { url: feedbackSurveyUrl })
+    html: t("common:phaseBanner", { url: feedbackSurveyUrl })
   }) }}
 {% endblock %}
 
@@ -38,10 +37,17 @@
     meta: {
       items: [{
         href: accessibilityStatementUrl,
-        text: t('common:footer.accessibilityStatement')
+        text: t("common:footer.accessibilityStatement")
       }, {
         href: cookiePolicyUrl,
-        text: t('common:footer.cookies')
+        text: t("common:footer.cookies")
+      }, {
+        href: "https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter",
+        text: t("common:footer.personalInformationCharter"),
+        attributes: {
+          target: "_blank",
+          rel: "noopener noreferrer"
+        }
       }]
     }
   }) }}
