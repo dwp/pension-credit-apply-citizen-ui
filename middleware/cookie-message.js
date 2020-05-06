@@ -37,8 +37,8 @@ module.exports = (app, mountUrl = '/', proxyMountUrl = mountUrl, consentCookieNa
       res.locals.cookiePolicyUrl = `${cookiePolicyUrl}?${qs.stringify({ backto: currentUrl })}`;
     }
 
-    // Set strict referrer policy
-    res.set('Referrer-Policy', 'strict-origin');
+    // Set referrer policy
+    res.set('Referrer-Policy', 'same-origin');
 
     next();
   });

@@ -99,7 +99,7 @@ describe('Middleware: cookie-message', () => {
       const res = new Response(req);
       cookieMessage(app, mount, proxyMount, cookieName, waypoints);
       app.use(req, res, () => {});
-      expect(res.headers['Referrer-Policy']).to.equal('strict-origin');
+      expect(res.headers['Referrer-Policy']).to.equal('same-origin');
     });
 
     it('should call next', (done) => {
