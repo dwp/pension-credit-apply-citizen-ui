@@ -27,7 +27,7 @@ describe('cookie/cookie-details', () => {
       res.render = renderStub;
       route(req, res);
       expect(renderStub).to.be.calledOnceWithExactly('pages/cookies/cookie-details.njk', {
-        cookiePreferencesUrl: waypoints.COOKIE_PREFERENCES,
+        cookiePolicyUrl: waypoints.COOKIE_POLICY,
         sessionMinutes: sessionTtl / 60,
         consentCookieName,
         sessionCookieName,
