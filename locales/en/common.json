@@ -18,7 +18,7 @@
     "useAnalytics": "We’d like to use analytics cookies to collect information about how you use our services. This helps us to make them better.",
     "readMore": "You can <a href=\"${url}\" class=\"govuk-link\">read more about our cookies</a> before you decide.",
     "yes": "Yes, I’m OK with analytics cookies",
-    "no": "No, do no use analytics cookies",
+    "no": "No, do not use analytics cookies",
     "youAccepted": "You’ve accepted analytics cookies. You can <a href=\"${url}\" class=\"govuk-link\">change your cookie settings</a> at any time.",
     "youRejected": "You’ve rejected analytics cookies. You can  <a href=\"${url}\" class=\"govuk-link\">change your cookie settings</a> at any time.",
     "hide": "Hide"
