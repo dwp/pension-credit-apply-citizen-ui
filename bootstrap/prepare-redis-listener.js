@@ -15,9 +15,17 @@ module.exports = (logger, exitFn) => {
   });
 
   listener.on('error', (err) => {
-    logger.error({
-      stack: err.stack,
-    }, 'Redis service error (%s)', err.message);
+    // ECONNREFUSED will get thrown intermittently when connectivity is
+    // temporarily lost, and also in the lead up to a connection closing.
+    if (err.code === 'ECONNREFUSED') {
+      logger.info({
+        stack: err.stack,
+      }, 'Redis connection lost (%s)', err.message);
+    } else {
+      logger.error({
+        stack: err.stack,
+      }, 'Redis service error (%s)', err.message);
+    }
   });
 
   listener.on('end', () => {
