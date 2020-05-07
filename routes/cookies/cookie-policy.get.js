@@ -8,8 +8,8 @@ module.exports = (waypoints) => (req, res) => {
       text: t(cookieConsentError),
       href: '#f-cookieConsent',
     }],
-    formErrors: {
-      cookieConsent: cookieConsentError && [{
+    formErrors: cookieConsentError && {
+      cookieConsent: [{
         summary: cookieConsentError,
         inline: cookieConsentError,
       }],

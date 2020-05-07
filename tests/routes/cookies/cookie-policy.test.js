@@ -26,9 +26,7 @@ describe('cookies/cookie-policy', () => {
       expect(renderStub).to.be.calledOnceWithExactly('pages/cookies/cookie-policy.njk', {
         cookieDetailsUrl: waypoints.COOKIE_DETAILS,
         formErrorsGovukArray: undefined,
-        formErrors: {
-          cookieConsent: undefined,
-        },
+        formErrors: undefined,
       });
     });
 
