@@ -199,7 +199,7 @@ module.exports = (CONFIG, baseLogger) => {
 
   // End of middleware chain with no matching page, render 404 error
   casaApp.router.get(casaMwPrepare, (req, res) => {
-    req.log.error(`Resource '${req.originalUrl}' not found`);
+    req.log.info(`Resource '${req.originalUrl}' not found`);
     res.status(404).render('casa/errors/404.njk');
   });
 
