@@ -42,12 +42,21 @@
         {% call casaJourneyForm({
           csrfToken: casa.csrfToken,
           inEditMode: inEditMode,
-          buttonBarHidden: hideButtonBar,
+          buttonBarHidden: true,
           editOriginUrl: editOriginUrl,
           casaMountUrl: casa.mountUrl,
           buttonText: formButtonText
         }) %}
           {% block journey_form %}{% endblock %}
+          {% block journey_button %}
+            {{ govukButton({
+              text: t('common:continue'),
+              preventDoubleClick: true,
+              attributes: {
+                id: 'continue-button'
+              }
+            }) }}
+          {% endblock %}
         {% endcall %}
       </div>
     </div>

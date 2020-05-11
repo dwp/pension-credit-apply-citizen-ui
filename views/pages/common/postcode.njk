@@ -7,51 +7,34 @@
   {{ t(pageTitleKey) }} - {{ t("common:serviceName") }}
 {% endblock %}
 
-{% block journey_content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      {% if formErrorsGovukArray %}
-        {{ govukErrorSummary({
-          titleText: t("error:summary.h1"),
-          errorList: formErrorsGovukArray
-        }) }}
-      {% endif %}
+{% block journey_form %}
+  <h1 class="govuk-heading-xl">
+    {{ t(pageTitleKey) }}
+  </h1>
 
-      <h1 class="govuk-heading-xl">
-        {{ t(pageTitleKey) }}
-      </h1>
+  {{ casaGovukInput({
+    name: "postcode",
+    value: formData.postcode,
+    classes: "govuk-input--width-10",
+    label: {
+      html: t("postcode:field.postcode.label")
+    },
+    casaErrors: formErrors
+  }) }}
+{% endblock %}
 
-      {% call casaJourneyForm({
-        csrfToken: casa.csrfToken,
-        inEditMode: inEditMode,
-        editOriginUrl: editOriginUrl,
-        casaMountUrl: casa.mountUrl,
-        buttonBarHidden: true
-      }) %}
-        {{ casaGovukInput({
-          name: "postcode",
-          value: formData.postcode,
-          classes: "govuk-input--width-10",
-          label: {
-            html: t("postcode:field.postcode.label")
-          },
-          casaErrors: formErrors
-        }) }}
+{% block journey_button %}
+  {{ govukButton({
+    text: t("postcode:submit"),
+    preventDoubleClick: true,
+    attributes: {
+      id: "continue-button"
+    }
+  }) }}
 
-        {{ govukButton({
-          attributes: {
-            id: "continue-button"
-          },
-          text: t("postcode:submit"),
-          preventDoubleClick: true
-        }) }}
-
-        <p class="govuk-body">
-          <a class="govuk-link" href="{{ manualAddressUrl }}">
-            {{ t("postcode:enterManually") }}
-          </a>
-        </p>
-      {% endcall %}
-    </div>
-  </div>
+  <p class="govuk-body">
+    <a class="govuk-link" href="{{ manualAddressUrl }}">
+      {{ t("postcode:enterManually") }}
+    </a>
+  </p>
 {% endblock %}

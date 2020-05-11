@@ -4,8 +4,6 @@
 {% from "components/button/macro.njk" import govukButton %}
 {% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
 
-{% set hideButtonBar = true %}
-
 {% block casaPageTitle %}
   {{ t("cookie-policy:pageTitle") }} - {{ t("common:serviceName") }}
 {% endblock %}
@@ -69,7 +67,9 @@
     casaValue: cookieMessage,
     casaErrors: formErrors
   }) }}
+{% endblock %}
 
+{% block journey_button %}
   {{ govukButton({
     text: t("cookie-policy:saveAndContinue"),
     attributes: {

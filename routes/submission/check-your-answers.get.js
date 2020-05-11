@@ -9,7 +9,6 @@ module.exports = (cyaUrl, plan, httpTimeout) => (req, res) => {
   res.render('pages/submission/check-your-answers.njk', {
     formButtonText: res.locals.t('check-your-answers:buttonText'),
     sections: buildCya(res.locals.t, req.casa.journeyContext, claim, cyaUrl),
-    hideButtonBar: true,
     httpTimeout,
   });
 };
