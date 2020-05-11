@@ -4,7 +4,7 @@
 {% from "components/button/macro.njk" import govukButton %}
 
 {% block casaPageTitle %}
-  {{ t(pageTitleKey) }} - {{ t('common:serviceName') }}
+  {{ t(pageTitleKey) }} - {{ t("common:serviceName") }}
 {% endblock %}
 
 {% block journey_content %}
@@ -33,22 +33,22 @@
           value: formData.postcode,
           classes: "govuk-input--width-10",
           label: {
-            html: t('postcode:field.postcode.label')
+            html: t("postcode:field.postcode.label")
           },
           casaErrors: formErrors
         }) }}
 
         {{ govukButton({
           attributes: {
-            id: 'continue-button'
+            id: "continue-button"
           },
-          text: t('postcode:submit'),
+          text: t("postcode:submit"),
           preventDoubleClick: true
         }) }}
 
         <p class="govuk-body">
           <a class="govuk-link" href="{{ manualAddressUrl }}">
-            {{ t(manualEntryKey) }}
+            {{ t("postcode:enterManually") }}
           </a>
         </p>
       {% endcall %}

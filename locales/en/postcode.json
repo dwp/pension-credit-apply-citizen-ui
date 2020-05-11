@@ -15,8 +15,5 @@
     }
   },
   "submit": "Find address",
-  "enterManually": "Enter your home address manually",
-  "lettersEnterManually":"Enter the address you want us to send letters to manually",
-  "sponsorEnterManually": "Enter your sponsor’s address manually",
-  "partnerSponsorEnterManually": "Enter your partner’s sponsor’s address manually"
+  "enterManually": "Enter the address manually"
 }

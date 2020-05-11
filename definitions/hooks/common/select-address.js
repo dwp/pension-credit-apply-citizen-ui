@@ -2,7 +2,7 @@
 // eg: 123 FAKE STREET, FAUXVILLE, NOT TOWN[, ZE0 A00]
 const addressLinePostcode = /, ?[A-Z0-9]{3,4} [A-Z0-9]{3}$/i;
 
-const prerender = (postcodeWP, manualEntryWP, pageTitleKey, manualEntryKey) => (req, res, next) => {
+const prerender = (postcodeWP, manualEntryWP, pageTitleKey) => (req, res, next) => {
   // Grab addresses from the postcode-lookup page
   const { addresses = [] } = req.casa.journeyContext.getDataForPage(postcodeWP);
 
@@ -34,7 +34,6 @@ const prerender = (postcodeWP, manualEntryWP, pageTitleKey, manualEntryKey) => (
   res.locals.changePostcodeUrl = `${postcodeWP}#f-postcode`;
   res.locals.manualAddressUrl = `?skipto=${manualEntryWP}`;
   res.locals.pageTitleKey = `select-address:${pageTitleKey}`;
-  res.locals.manualEntryKey = `postcode:${manualEntryKey}`;
 
   next();
 };
@@ -71,7 +70,7 @@ const postvalidate = (postcodeWP, hiddenAddressWP, sourceAddressWP) => (req, _, 
   next();
 };
 
-module.exports = (postcodeWP = '', manualEntryWP = '', hiddenAddressWP = '', sourceAddressWP = '', pageTitleKey = 'pageTitle', manualEntryKey = 'enterManually') => ({
-  prerender: prerender(postcodeWP, manualEntryWP, pageTitleKey, manualEntryKey),
+module.exports = (postcodeWP = '', manualEntryWP = '', hiddenAddressWP = '', sourceAddressWP = '', pageTitleKey = 'pageTitle') => ({
+  prerender: prerender(postcodeWP, manualEntryWP, pageTitleKey),
   postvalidate: postvalidate(postcodeWP, hiddenAddressWP, sourceAddressWP),
 });

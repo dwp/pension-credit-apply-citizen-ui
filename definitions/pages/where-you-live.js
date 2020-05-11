@@ -68,7 +68,6 @@ module.exports = (addressServiceFactory, mountUrl) => {
       addressServiceFactory,
       waypoints.LETTERS_ADDRESS_MANUAL,
       'lettersPageTitle',
-      'lettersEnterManually',
     ),
   };
 
@@ -81,7 +80,6 @@ module.exports = (addressServiceFactory, mountUrl) => {
       waypoints.LETTERS_ADDRESS_HIDDEN,
       waypoints.LETTERS_ADDRESS_SELECT,
       'lettersPageTitle',
-      'lettersEnterManually',
     ),
   };
 

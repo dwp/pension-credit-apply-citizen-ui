@@ -3,7 +3,7 @@
 {% from "components/select/macro.njk" import govukSelect %}
 
 {% block casaPageTitle %}
-  {{ t(pageTitleKey) }} - {{ t('common:serviceName') }}
+  {{ t(pageTitleKey) }} - {{ t("common:serviceName") }}
 {% endblock %}
 
 {% block journey_form %}
@@ -12,11 +12,11 @@
   </h1>
 
   <dl class="govuk-list contact-numbers govuk-!-margin-bottom-8">
-    <dt class="govuk-!-font-weight-bold">{{ t('select-address:postcode') }}</dt>
+    <dt class="govuk-!-font-weight-bold">{{ t("select-address:postcode") }}</dt>
     <dd>{{ postcode }}</dd>
     <dd class="govuk-!-width-full">
       <a class="govuk-link" href="{{ changePostcodeUrl }}">
-        {{ t('select-address:change') | safe }}
+        {{ t("select-address:change") | safe }}
       </a>
     </dd>
   </dl>
@@ -25,7 +25,7 @@
     id: "f-uprn",
     name: "uprn",
     label: {
-      text: t('select-address:field.address.label')
+      text: t("select-address:field.address.label")
     },
     items: addresses,
     errorMessage: {
@@ -37,7 +37,7 @@
 {% block journey_form_footer %}
   <p class="govuk-body">
     <a class="govuk-link" href="{{ manualAddressUrl }}">
-      {{ t(manualEntryKey) }}
+      {{ t("postcode:enterManually") }}
     </a>
   </p>
 {% endblock %}

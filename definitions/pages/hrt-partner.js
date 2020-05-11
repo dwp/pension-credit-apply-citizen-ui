@@ -57,7 +57,6 @@ module.exports = (addressServiceFactory, mountUrl) => {
       waypoints.HRT_PARTNER_SPONSOR_ADDRESS_HIDDEN,
       waypoints.HRT_PARTNER_SPONSOR_ADDRESS_SELECT,
       'partnerSponsorPageTitle',
-      'partnerSponsorEnterManually',
     ),
   };
 

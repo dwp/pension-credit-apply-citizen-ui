@@ -79,15 +79,14 @@ const postvalidateFactory = (addressServiceFactory, manualEntryWaypoint) => (req
   });
 };
 
-const prerenderFactory = (manualWaypoint, pageTitleKey, manualEntryKey) => (req, res, next) => {
+const prerenderFactory = (manualWaypoint, pageTitleKey) => (req, res, next) => {
   // Make a hyperlink for visiting the manual address entry waypoint
   res.locals.manualAddressUrl = `?skipto=${manualWaypoint}`;
   res.locals.pageTitleKey = `postcode:${pageTitleKey}`;
-  res.locals.manualEntryKey = `postcode:${manualEntryKey}`;
   next();
 };
 
-module.exports = (addressServiceFactory, manualEntryWaypoint = '', pageTitleKey = 'pageTitle', manualEntryKey = 'enterManually') => ({
+module.exports = (addressServiceFactory, manualEntryWaypoint = '', pageTitleKey = 'pageTitle') => ({
   postvalidate: postvalidateFactory(addressServiceFactory, manualEntryWaypoint),
-  prerender: prerenderFactory(manualEntryWaypoint, pageTitleKey, manualEntryKey),
+  prerender: prerenderFactory(manualEntryWaypoint, pageTitleKey),
 });
