@@ -38,12 +38,11 @@ describe('Utils: filter-log-headers', () => {
 
     const filteredHeaders = filterLogHeaders(req.headers);
 
-    expect(filteredHeaders).to.have.all.keys('x-forwarded-for',
+    expect(filteredHeaders).to.have.all.keys(
       'x-forwarded-proto',
       'x-forwarded-port',
       'x-amzn-trace-id',
       'x-forwarded-host',
-      'x-real-ip',
       'upgrade-insecure-requests',
       'sec-fetch-user',
       'host',
@@ -53,8 +52,7 @@ describe('Utils: filter-log-headers', () => {
       'if-modified-since',
       'sec-fetch-site',
       'referer',
-      'authorization',
-      'tokenpayload');
+    );
   });
 
   it('should not include any key that is no from the whitelist', () => {
@@ -105,21 +103,21 @@ describe('Utils: filter-log-headers', () => {
 
   it('should sanitise invalid characters from each header', () => {
     req.headers = {
-      'x-forwarded-for': '<>\\{}!@£$&*^',
+      'x-amzn-trace-id': '<>\\{}!@£$&*^',
     };
 
     const filteredHeaders = filterLogHeaders(req.headers);
 
-    expect(filteredHeaders).to.have.property('x-forwarded-for').that.equals('............');
+    expect(filteredHeaders).to.have.property('x-amzn-trace-id').that.equals('............');
   });
 
   it('should clip length of each header', () => {
     req.headers = {
-      'x-forwarded-for': 'A'.repeat(500),
+      'x-amzn-trace-id': 'A'.repeat(500),
     };
 
     const filteredHeaders = filterLogHeaders(req.headers);
 
-    expect(filteredHeaders).to.have.property('x-forwarded-for').that.has.length(256);
+    expect(filteredHeaders).to.have.property('x-amzn-trace-id').that.has.length(256);
   });
 });

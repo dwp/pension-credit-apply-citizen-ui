@@ -1,10 +1,8 @@
 const headerWhitelist = [
-  'x-forwarded-for',
   'x-forwarded-proto',
   'x-forwarded-port',
   'x-amzn-trace-id',
   'x-forwarded-host',
-  'x-real-ip',
   'upgrade-insecure-requests',
   'sec-fetch-user',
   'host',
@@ -14,8 +12,7 @@ const headerWhitelist = [
   'if-modified-since',
   'sec-fetch-site',
   'referer',
-  'authorization',
-  'tokenpayload'];
+];
 
 const sanitise = (str) => String(str).replace(/[^a-z0-9;=._%/: ?()-]/ig, '.').substr(0, 256);
 
