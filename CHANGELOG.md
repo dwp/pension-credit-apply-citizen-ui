@@ -1,3 +1,13 @@
+## [0.3.2](https://github.com/dwp/pension-credit-citizen-apply/compare/0.3.1...0.3.2) (2020-05-12)
+
+
+### Bug Fixes
+
+* referrer policy header should be same-origin, not strict-origin ([13f20d4](https://github.com/dwp/pension-credit-citizen-apply/commit/13f20d488499d07df1934472011ef78977baa178))
+* sending empty formErrors object to cookie page adds Error: to title ([0f8d79b](https://github.com/dwp/pension-credit-citizen-apply/commit/0f8d79bbc509b067bea42605220cb97331806c26))
+
+
+
 ## [0.3.1](https://github.com/dwp/pension-credit-citizen-apply/compare/0.3.0...0.3.1) (2020-05-06)
 
 
