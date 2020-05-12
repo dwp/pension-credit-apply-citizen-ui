@@ -38,8 +38,9 @@ function makeKmsKeyRing(
 
   // Default encryption algortihm: AES-256-GCM + HKDF + ECDSA
   // ref: https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/concepts.html#crypto-algorithm
+  // ref: https://github.com/aws/aws-encryption-sdk-javascript/blob/master/modules/client-node/Readme.md
   const kmsKeyring = new KmsKeyringNode({
-    generatorKeyId: cmkId, // Could use an alias here
+    generatorKeyId: cmkId, // Could use alias here only if same key's full ARN is in keyIds too
     keyIds: [cmkId], // Cannot be an alias. Ideally should be different key
     clientProvider,
   });
@@ -51,19 +52,26 @@ function makeKmsKeyRing(
     // Keyring to encrypt/decrypt encryption keys
     backingMaterials: kmsKeyring,
 
-    // Max. no. cached keys at any one time; oldest purged
+    // Max. no. cached keys to hold at any one time; the oldest will be purged
+    // to make way for new keys.
     cache: getLocalCryptographicMaterialsCache(cacheCapacity),
 
-    // Max age of each cached key
+    // Max age of each cached key (ms)
+    // Once the key reaches this age it is purged from the cache and will need
+    // to be re-fetched from KMS.
     maxAge: cacheTtl * 1000,
 
-    // Allows multiple instances of the CMM to share the cache of keys;
+    // Allows multiple local instances of the CMM to share the cache of keys.
+    // This only makes a difference is multiple in-memory caches are created.
     partition: 'pencred-apply-citizen-ui',
 
     // Max no. bytes encrypted with the same key
     // maxBytesEncrypted,
 
-    // Max. no. messages that are encrypted using the same key
+    // Max. no. messages that are encrypted using the same key.
+    // In our case, each message written to the session is encrypted anew, so
+    // counts as a new message each time. To figure out a value, estimate how
+    // many write requests may happen during the TTL period.
     maxMessagesEncrypted: cacheReuse,
   });
 }
