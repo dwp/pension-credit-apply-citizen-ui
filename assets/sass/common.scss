@@ -1,0 +1,13 @@
+/* Contact numbers block */
+.contact-numbers dt, dd {
+  display: inline-block;
+  margin: 0;
+}
+.contact-numbers dt::after {
+  content: ': ';
+}
+
+/* Don't break a date across two lines */
+.date-nowrap {
+  white-space: nowrap;
+}

@@ -48,7 +48,7 @@
         element: "button",
         text: t("check-your-answers:print.buttonLabel"),
         attributes: {
-          id: "print-button"
+          "data-pc-module": "pc-print-button"
         }
       }) }}
     </p>
@@ -65,35 +65,11 @@
 
 {% block journey_button %}
   {{ govukButton({
+    text: formButtonText,
     attributes: {
-      id: 'continue-button'
-    },
-    text: formButtonText
-  }) }}
-{% endblock %}
-
-{% block bodyEnd %}
-  {{ super() }}
-  <script{%- if nonce %} nonce="{{ nonce }}"{% endif -%}>
-    function debounceHTTP(event) {
-      if (this.debounceFormSubmitTimer) {
-        event.preventDefault()
-        return false
-      }
-
-      this.debounceFormSubmitTimer = setTimeout(function () {
-        this.debounceFormSubmitTimer = null
-      }.bind(this), {{ httpTimeout }} * 1000)
+      id: 'continue-button',
+      "data-debounce-timeout": httpTimeout,
+      "data-pc-module": "pc-timeout-button"
     }
-
-    var $submit = document.getElementById('continue-button')
-
-    $submit.removeEventListener('click', GOVUKFrontend.Button.prototype.debounce)
-    $submit.addEventListener('click', debounceHTTP)
-
-    document.getElementById('print-button').addEventListener('click', function (event) {
-      window.print();
-      event.preventDefault ? event.preventDefault() : (event.returnValue = false);
-    });
-  </script>
+  }) }}
 {% endblock %}

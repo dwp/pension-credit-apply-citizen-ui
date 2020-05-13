@@ -1,0 +1,63 @@
+@import "govuk-frontend-src/src/govuk/base";
+
+.print-only {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+
+  .govuk-width-container  {
+    margin: 0;
+  }
+
+  .casa-cookie-banner,
+  .govuk-phase-banner,
+  .govuk-back-link,
+  .govuk-footer,
+  .govuk-button,
+  .govuk-summary-list__actions,
+  .govuk-panel,
+  .print-hidden {
+    display: none;
+  }
+
+  .print-only {
+    display: block;
+  }
+
+  .govuk-grid-column-two-thirds {
+    width: 100% !important;
+    float: none;
+    display: block;
+  }
+
+  /* Use desktop layout for summary list */
+  .govuk-summary-list {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    margin-bottom: 30px;
+  }
+  .govuk-summary-list__row {
+    display: table-row;
+  }
+  .govuk-summary-list__key,
+  .govuk-summary-list__value {
+    display: table-cell;
+    padding: 10px 20px 10px 0;
+    border-bottom: 1px solid $govuk-border-colour;
+  }
+  .govuk-summary-list__key {
+    width: 30%;
+  }
+  .govuk-summary-list__value {
+    width: 50%;
+  }
+  .govuk-summary-list__value:last-child {
+    width: 70%;
+  }
+}

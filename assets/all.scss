@@ -1,0 +1,6 @@
+$govuk-assets-path: "govuk-frontend-src/src/govuk/assets/";
+
+@import "govuk-frontend-src/src/govuk/all";
+@import "./sass/cookie-banner.scss";
+@import "./sass/common.scss";
+@import "./sass/print.scss";

@@ -116,7 +116,12 @@ module.exports = (CONFIG, baseLogger) => {
     mountController: function casaMountController(mountCommonMiddleware) {
       // Add some custom media assets (CSS, JS) to be served from the CASA router.
       // Serve this up before CASA middleware
-      mediaMiddleware(this.expressApp, CONFIG.CONTEXT_PATH_PROXY, './public/');
+      mediaMiddleware(
+        this.expressApp,
+        CONFIG.CONTEXT_PATH_PROXY,
+        './dist/',
+        CONFIG.AGGRESSIVE_ASSET_CACHING,
+      );
       mountCommonMiddleware();
       nonceMiddleware(this.expressApp, CONFIG.ENABLE_CSP);
       cookieMiddleware(

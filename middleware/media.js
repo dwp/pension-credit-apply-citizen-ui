@@ -1,10 +1,17 @@
 const expressjs = require('express');
 const npath = require('path');
 
-module.exports = (app, mountUrl, staticDir) => {
-  // Deliver project-specific CSS resources
-  app.use(
-    `${mountUrl}css/apply-citizen-ui.css`,
-    expressjs.static(npath.resolve(staticDir, 'css/apply-citizen-ui.css')),
-  );
+module.exports = (app, mountUrl, staticDir, aggresivelyCache) => {
+  const cacheOptions = aggresivelyCache ? {
+    etag: false,
+    lastModified: false,
+    immutable: true,
+    maxAge: 31536000000,
+  } : {
+    etag: true,
+    lastModified: true,
+  };
+
+  // Deliver frontend CSS and JS assets
+  app.use(mountUrl, expressjs.static(npath.resolve(staticDir), cacheOptions));
 };
