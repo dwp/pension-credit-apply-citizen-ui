@@ -20,7 +20,7 @@
     "serviceChargesAmount": {
       "label": "How much do you pay in service charges each month?",
       "required": "Enter how much you pay in service charges each month.",
-      "format": "How much you pay in service charges each month must be an amount of money, like 7.50 or 8.00.",
+      "format": "Enter how much you pay in service charges using only a £ symbol, numbers, commas and a decimal point. For example £1000 or £1,000.00.",
       "change": "Change <span class=\"govuk-visually-hidden\">how much you pay in service charges each month</span>"
     },
     "paysGroundRent": {
@@ -36,7 +36,7 @@
     "groundRentAmount": {
       "label": "How much do you pay in ground rent each month?",
       "required": "Enter how much you pay in ground rent each month.",
-      "format": "How much you pay in ground rent each month must be an amount of money, like 7.50 or 8.00.",
+      "format": "Enter how much you pay in ground rent using only a £ symbol, numbers, commas and a decimal point. For example £1000 or £1,000.00.",
       "change": "Change <span class=\"govuk-visually-hidden\"> how much you pay in ground rent each month</span>"
     },
     "getsHousingBenefit": {

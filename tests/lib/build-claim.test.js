@@ -9,7 +9,7 @@ const { waypoints: WP } = require('../../lib/constants.js');
 
 const buildClaim = require('../../lib/build-claim.js');
 
-const stubDate = { dd: '1', mm: '2', yyyy: '2000' };
+const stubDate = { dd: '1', mm: '2', yyyy: '2050' };
 const stubAddress = {
   addressLine1: 'Street',
   addressLine2: 'Estate',
@@ -18,6 +18,9 @@ const stubAddress = {
   postcode: 'AA1 1AA',
 };
 const stubDataBase = {
+  [WP.CLAIMANT_DETAILS]: {
+    nino: 'RN001001A',
+  },
   [WP.DATE_OF_BIRTH]: {
     dateOfBirth: stubDate,
   },
@@ -74,6 +77,9 @@ describe('build-claim', () => {
     stubData[WP.LIVE_WITH_PARTNER] = {
       liveWithPartner: 'yes',
       partnerDateOfBirth: stubDate,
+    };
+    stubData[WP.PARTNER_DETAILS] = {
+      partnerNino: 'NR001002B',
     };
 
     const plan = {

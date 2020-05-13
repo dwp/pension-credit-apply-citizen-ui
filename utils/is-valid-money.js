@@ -1,6 +1,6 @@
 const { ValidationError } = require('@dwp/govuk-casa');
 
-const isMoney = /^[0-9]{1,10}\.[0-9]{2}$/;
+const isMoney = /^£?[0-9]{1,3}(,?[0-9]{3}){0,2}(\.[0-9]{2})?$/;
 
 const validator = ({ errorMsg }) => function isValidMoney(value = '', dataContext) {
   return new Promise((resolve, reject) => {

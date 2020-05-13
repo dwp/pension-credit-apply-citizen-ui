@@ -37,24 +37,6 @@ describe('Validators: money-you-have', () => {
       });
     });
 
-    it('should fail "isValidMoney" validator if input is not to 2 decimal places', async () => {
-      const context1 = new JourneyContext({
-        ...needToBackDate,
-        [waypoint]: { moneyBackdated: '1' },
-      });
-      await assert.expectValidatorToFailWithJourney(validators, waypoint, 'moneyBackdated', 'isValidMoney', context1, {
-        summary: 'money-you-have:field.moneyBackdated.format',
-      });
-
-      const context2 = new JourneyContext({
-        ...needToBackDate,
-        [waypoint]: { moneyBackdated: '1.5' },
-      });
-      await assert.expectValidatorToFailWithJourney(validators, waypoint, 'moneyBackdated', 'isValidMoney', context2, {
-        summary: 'money-you-have:field.moneyBackdated.format',
-      });
-    });
-
     it('should pass "isValidMoney" validator if input is valid', async () => {
       const context = new JourneyContext({
         ...needToBackDate,
@@ -84,15 +66,6 @@ describe('Validators: money-you-have', () => {
 
     it('should fail "isValidMoney" validator if format is invalid', async () => {
       await assert.expectValidatorToFail(validators, 'moneyToday', 'isValidMoney', { moneyToday: '$Bad Balance$' }, {
-        summary: 'money-you-have:field.moneyToday.format',
-      });
-    });
-
-    it('should fail "isValidMoney" validator if input is not to 2 decimal places', async () => {
-      await assert.expectValidatorToFail(validators, 'moneyToday', 'isValidMoney', { moneyToday: '1' }, {
-        summary: 'money-you-have:field.moneyToday.format',
-      });
-      await assert.expectValidatorToFail(validators, 'moneyToday', 'isValidMoney', { moneyToday: '1.5' }, {
         summary: 'money-you-have:field.moneyToday.format',
       });
     });
