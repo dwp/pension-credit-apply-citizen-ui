@@ -15,9 +15,9 @@ module.exports = (logger, exitFn) => {
   });
 
   listener.on('error', (err) => {
-    // ECONNREFUSED will get thrown intermittently when connectivity is
+    // ECONNRESET will get thrown intermittently when connectivity is
     // temporarily lost, and also in the lead up to a connection closing.
-    if (err.code === 'ECONNREFUSED') {
+    if (err.code === 'ECONNRESET') {
       logger.info({
         stack: err.stack,
       }, 'Redis connection lost (%s)', err.message);
