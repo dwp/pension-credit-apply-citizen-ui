@@ -14,38 +14,22 @@
         {{ t("claim-includes-children:weNeedYouToCall") | safe }}
       </p>
       <h2 class="govuk-heading-m">
-        {{ t("claim-includes-children:pcClaimLine") }}
+        {{ t("claim-includes-children:" + northernIrelandPrefix + "pcClaimLine") }}
       </h2>
 
-      {% if isNorthernIrelandClaim %}
-        <dl class="govuk-list contact-numbers">
-          <div>
-            <dt>{{ t("common:telephone") }}</dt>
-            <dd>{{ t("common:northernIreland.telephoneNumber") }}</dd>
-          </div>
-          <div>
-            <dt>{{ t("common:textphone") }}</dt>
-            <dd>{{ t("common:northernIreland.textphoneNumber") }}</dd>
-          </div>
-        </dl>
-        <p class="govuk-body">
-          {{ t("common:northernIreland.callTimes") | safe }}
-        </p>
-      {% else %}
-        <dl class="govuk-list contact-numbers">
-          <div>
-            <dt>{{ t("common:telephone") }}</dt>
-            <dd>{{ t("common:telephoneNumber") }}</dd>
-          </div>
-          <div>
-            <dt>{{ t("common:textphone") }}</dt>
-            <dd>{{ t("common:textphoneNumber") }}</dd>
-          </div>
-        </dl>
-        <p class="govuk-body">
-          {{ t("common:callTimes") | safe }}
-        </p>
-      {% endif %}
+      <dl class="govuk-list contact-numbers">
+        <div>
+          <dt>{{ t("common:telephone") }}</dt>
+          <dd>{{ t("common:" + northernIrelandPrefix + "telephoneNumber") }}</dd>
+        </div>
+        <div>
+          <dt>{{ t("common:textphone") }}</dt>
+          <dd>{{ t("common:" + northernIrelandPrefix + "textphoneNumber") }}</dd>
+        </div>
+      </dl>
+      <p class="govuk-body">
+        {{ t("common:" + northernIrelandPrefix + "callTimes") | safe }}
+      </p>
 
       <h2 class="govuk-heading-m">
         {{ t("common:helpUsImprove") }}

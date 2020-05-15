@@ -2,5 +2,8 @@
   "pageTitle": "Page not found",
   "typedAddress": "If you typed the web address, check it is correct.",
   "pastedAddress": "If you pasted the web address, check you copied the entire address.",
-  "selectedLinkHtml": "If the web address is correct or you selected a link or button, contact the <a class=\"govuk-link\" href=\"https://www.gov.uk/pension-credit/how-to-claim\">Pension Credit Claim line</a> if you need to speak to someone about your Pension Credit."
+  "selectedLinkHtml": "If the web address is correct or you selected a link or button, contact the <a class=\"govuk-link\" href=\"https://www.gov.uk/pension-credit/how-to-claim\">Pension Credit claim line</a> if you need to speak to someone about your Pension Credit.",
+  "northernIreland": {
+    "selectedLinkHtml": "If the web address is correct or you selected a link or button, contact the <a class=\"govuk-link\" href=\"https://www.nidirect.gov.uk/articles/ways-claim-state-pension\">Pension Credit Application Line</a> if you need to speak to someone about your Pension Credit."
+  }
 }

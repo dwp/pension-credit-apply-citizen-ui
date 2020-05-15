@@ -25,6 +25,7 @@ const cookieMiddleware = require('./middleware/cookie-message.js');
 const cookieDetailsGet = require('./routes/cookies/cookie-details.get.js');
 const cookiePolicyPost = require('./routes/cookies/cookie-policy.post.js');
 const cookiePolicyGet = require('./routes/cookies/cookie-policy.get.js');
+const northernIrelandPrerenderHook = require('./definitions/hooks/common/northern-ireland-claim.js');
 
 module.exports = (CONFIG, baseLogger) => {
   baseLogger.info(`CACHAIN has ${!CONFIG.CACHAIN ? 'not ' : ''}been found`);
@@ -198,7 +199,7 @@ module.exports = (CONFIG, baseLogger) => {
   casaApp.router.get(`/${waypoints.WHAT_HAPPENS_NEXT}`, whatHappensNextGet);
 
   // End of middleware chain with no matching page, render 404 error
-  casaApp.router.get(casaMwPrepare, (req, res) => {
+  casaApp.router.get(casaMwPrepare, northernIrelandPrerenderHook(waypoints), (req, res) => {
     req.log.info(`Resource '${req.originalUrl}' not found`);
     res.status(404).render('casa/errors/404.njk');
   });
