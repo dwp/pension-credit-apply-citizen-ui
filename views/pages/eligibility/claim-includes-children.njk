@@ -16,19 +16,37 @@
       <h2 class="govuk-heading-m">
         {{ t("claim-includes-children:pcClaimLine") }}
       </h2>
-      <dl class="govuk-list contact-numbers">
-        <div>
-          <dt>{{ t("common:telephone") }}</dt>
-          <dd>{{ t("common:telephoneNumber") }}</dd>
-        </div>
-        <div>
-          <dt>{{ t("common:textphone") }}</dt>
-          <dd>{{ t("common:textphoneNumber") }}</dd>
-        </div>
-      </dl>
-      <p class="govuk-body">
-        {{ t("common:callTimes") | safe }}
-      </p>
+
+      {% if isNorthernIrelandClaim %}
+        <dl class="govuk-list contact-numbers">
+          <div>
+            <dt>{{ t("common:telephone") }}</dt>
+            <dd>{{ t("common:northernIreland.telephoneNumber") }}</dd>
+          </div>
+          <div>
+            <dt>{{ t("common:textphone") }}</dt>
+            <dd>{{ t("common:northernIreland.textphoneNumber") }}</dd>
+          </div>
+        </dl>
+        <p class="govuk-body">
+          {{ t("common:northernIreland.callTimes") | safe }}
+        </p>
+      {% else %}
+        <dl class="govuk-list contact-numbers">
+          <div>
+            <dt>{{ t("common:telephone") }}</dt>
+            <dd>{{ t("common:telephoneNumber") }}</dd>
+          </div>
+          <div>
+            <dt>{{ t("common:textphone") }}</dt>
+            <dd>{{ t("common:textphoneNumber") }}</dd>
+          </div>
+        </dl>
+        <p class="govuk-body">
+          {{ t("common:callTimes") | safe }}
+        </p>
+      {% endif %}
+
       <h2 class="govuk-heading-m">
         {{ t("common:helpUsImprove") }}
       </h2>

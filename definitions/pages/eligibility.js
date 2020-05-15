@@ -48,6 +48,9 @@ module.exports = (sessionTtl) => {
 
   pages[waypoints.CLAIM_INCLUDES_CHILDREN] = {
     view: 'pages/eligibility/claim-includes-children.njk',
+    hooks: {
+      prerender: northernIrelandClaim(waypoints),
+    },
   };
 
   pages[waypoints.DO_NOT_LIVE_UK] = {
