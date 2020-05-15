@@ -9,6 +9,7 @@ const partnerAgreeValidation = require('../field-validators/eligibility/partner-
 const partnerHousingBenefitValidation = require('../field-validators/eligibility/partner-housing-benefit.js');
 const startHook = require('../hooks/eligibility/start.js');
 const withSkipLink = require('../hooks/common/with-skip-link.js');
+const northernIrelandClaim = require('../hooks/common/northern-ireland-claim.js');
 
 module.exports = (sessionTtl) => {
   const pages = Object.create(null);
@@ -35,6 +36,9 @@ module.exports = (sessionTtl) => {
 
   pages[waypoints.STATE_PENSION_NOT_CLAIMED] = {
     view: 'pages/eligibility/state-pension-not-claimed.njk',
+    hooks: {
+      prerender: northernIrelandClaim(waypoints),
+    },
   };
 
   pages[waypoints.CHILDREN_LIVING_WITH_YOU] = {
