@@ -6,13 +6,14 @@ const postcodeHooks = require('../hooks/common/postcode.js');
 const manualAddressHooks = require('../hooks/common/manual-address.js');
 const selectAddressHooks = require('../hooks/common/select-address.js');
 const jointOrSingleClaim = require('../hooks/common/joint-or-single-claim.js');
+const northernIrelandClaim = require('../hooks/common/northern-ireland-claim.js');
 
 const postcodeValidation = require('../field-validators/common/postcode.js');
 const selectAddressValidation = require('../field-validators/common/select-address.js');
 const manualAddressValidation = require('../field-validators/common/manual-address.js');
 const lettersHomeValidation = require('../field-validators/where-you-live/letters-home.js');
 const livesWithYouValidation = require('../field-validators/where-you-live/lives-with-you.js');
-const rentCouncilTaxValidation = require('../field-validators/where-you-live/rent-council-tax.js');
+const rentCouncilTaxValidation = require('../field-validators/where-you-live/rent-council-tax-rates.js');
 const homeOwnershipValidation = require('../field-validators/where-you-live/home-ownership.js');
 const serviceChargesValidation = require('../field-validators/where-you-live/service-charges.js');
 const homeLoanValidation = require('../field-validators/where-you-live/home-loan.js');
@@ -104,11 +105,14 @@ module.exports = (addressServiceFactory, mountUrl) => {
     },
   };
 
-  pages[waypoints.RENT_COUNCIL_TAX] = {
-    view: 'pages/where-you-live/rent-council-tax.njk',
+  pages[waypoints.RENT_COUNCIL_TAX_RATES] = {
+    view: 'pages/where-you-live/rent-council-tax-rates.njk',
     fieldValidators: rentCouncilTaxValidation,
     hooks: {
-      prerender: jointOrSingleClaim(waypoints),
+      prerender: [
+        jointOrSingleClaim(waypoints),
+        northernIrelandClaim(waypoints),
+      ],
     },
   };
 

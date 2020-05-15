@@ -28,7 +28,7 @@ journey:
   lives-with-you:
     "no": click()
 
-  rent-council-tax:
+  rent-council-tax-rates:
     "yes": click()
 
   home-ownership:

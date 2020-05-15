@@ -1,7 +1,7 @@
 const { JourneyContext } = require('@dwp/govuk-casa');
 const { waypoints: WP } = require('../../../../lib/constants.js');
 const assert = require('../../../helpers/validator-assertions.js');
-const validators = require('../../../../definitions/field-validators/where-you-live/rent-council-tax.js');
+const validators = require('../../../../definitions/field-validators/where-you-live/rent-council-tax-rates.js');
 
 const waypoint = WP.LIVES_WITH_YOU;
 const liveWithPartner = {
@@ -10,18 +10,18 @@ const liveWithPartner = {
   },
 };
 
-describe('Validators: rent-council-tax', () => {
+describe('Validators: rent-council-tax-rates', () => {
   describe('field: responsibleForCouncilTax', () => {
     it('should fail "required" validator if no value is provided', async () => {
       await assert.expectValidatorToFail(validators, 'responsibleForCouncilTax', 'required', null, {
-        summary: 'rent-council-tax:field.responsibleForCouncilTax.requiredSingle',
+        summary: 'rent-council-tax-rates:field.responsibleForCouncilTax.requiredSingle',
       });
     });
 
     it('should fail "required" validator if no value is provided with joint message if liveWithPartner is "yes"', async () => {
       const context = new JourneyContext(liveWithPartner);
       await assert.expectValidatorToFailWithJourney(validators, waypoint, 'responsibleForCouncilTax', 'required', context, {
-        summary: 'rent-council-tax:field.responsibleForCouncilTax.requiredJoint',
+        summary: 'rent-council-tax-rates:field.responsibleForCouncilTax.requiredJoint',
       });
     });
 
@@ -31,7 +31,7 @@ describe('Validators: rent-council-tax', () => {
 
     it('should fail "inArray" validator if value is not one of the valid options', async () => {
       await assert.expectValidatorToFail(validators, 'responsibleForCouncilTax', 'inArray', { responsibleForCouncilTax: 'bad-value' }, {
-        summary: 'rent-council-tax:field.responsibleForCouncilTax.requiredSingle',
+        summary: 'rent-council-tax-rates:field.responsibleForCouncilTax.requiredSingle',
       });
     });
 
@@ -41,7 +41,7 @@ describe('Validators: rent-council-tax', () => {
         [waypoint]: { responsibleForCouncilTax: 'bad-value' },
       });
       await assert.expectValidatorToFailWithJourney(validators, waypoint, 'responsibleForCouncilTax', 'inArray', context, {
-        summary: 'rent-council-tax:field.responsibleForCouncilTax.requiredJoint',
+        summary: 'rent-council-tax-rates:field.responsibleForCouncilTax.requiredJoint',
       });
     });
 

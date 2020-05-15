@@ -13,6 +13,7 @@ module.exports = (t, context, claim, cyaUrl) => {
 
   const { hasPartner } = claim.eligibility || {};
   const jointSingle = hasPartner ? 'Joint' : 'Single';
+  const northernIreland = claim.isNorthernIrelandClaim() ? 'northernIreland.' : '';
 
   const row = rowFactory(cyaUrl);
   const rov = radioOptionValue(t, context);
@@ -89,14 +90,14 @@ module.exports = (t, context, claim, cyaUrl) => {
       valueHtml: safeNl2br(claim.whereClaimantLives.othersNamesAndRelationships),
     }),
 
-    /* --------------------------------------------------- rent-council-tax */
+    /* --------------------------------------------------- rent-council-tax-rates */
     // Are you responsible for paying the rent, Council Tax or both for the
     // place where you live?
     row({
-      changeHref: `${WP.RENT_COUNCIL_TAX}#f-responsibleForCouncilTax`,
-      changeHtml: t('rent-council-tax:field.responsibleForCouncilTax.change'),
-      key: t(`rent-council-tax:pageTitle${jointSingle}`),
-      value: rov('rent-council-tax.responsibleForCouncilTax', 'rent-council-tax:field.responsibleForCouncilTax.options'),
+      changeHref: `${WP.RENT_COUNCIL_TAX_RATES}#f-responsibleForCouncilTax`,
+      changeHtml: t(`rent-council-tax-rates:${northernIreland}field.responsibleForCouncilTax.change`),
+      key: t(`rent-council-tax-rates:${northernIreland}pageTitle${jointSingle}`),
+      value: rov('rent-council-tax-rates.responsibleForCouncilTax', 'rent-council-tax-rates:field.responsibleForCouncilTax.options'),
     }),
 
     /* ----------------------------------------------------- home-ownership */

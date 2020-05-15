@@ -1,6 +1,6 @@
 const { testutils: { BaseTestWaypoint } } = require('@dwp/govuk-casa');
 
-class RentCouncilTax extends BaseTestWaypoint {
+class RentCouncilTaxRates extends BaseTestWaypoint {
   static fieldSelectors() {
     return {
       yes: '[name="responsibleForCouncilTax"][value="yes"]',
@@ -9,4 +9,4 @@ class RentCouncilTax extends BaseTestWaypoint {
   }
 }
 
-module.exports = RentCouncilTax;
+module.exports = RentCouncilTaxRates;

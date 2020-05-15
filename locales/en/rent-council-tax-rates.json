@@ -12,5 +12,17 @@
       },
       "change": "Change <span class=\"govuk-visually-hidden\">whether you are responsible for paying the rent, Council Tax or both for the place where you live</span>"
     }
+  },
+  "northernIreland": {
+    "pageTitleSingle": "Are you responsible for paying the rent or rates for the place where you live?",
+    "pageTitleJoint": "Are you or your partner responsible for paying the rent or rates for the place where you live?",
+    "field": {
+      "responsibleForCouncilTax": {
+        "hint": "This includes if they are paid through Housing Benefit or Rates Relief.",
+        "requiredSingle": "Select yes if you are responsible for paying the rent or rates for the place where you live.",
+        "requiredJoint": "Select yes if you or your partner are responsible for paying the rent or rates for the place where you live.",
+        "change": "Change <span class=\"govuk-visually-hidden\">whether you are responsible for paying the rent, rates or both for the place where you live</span>"
+      }
+    }
   }
 }

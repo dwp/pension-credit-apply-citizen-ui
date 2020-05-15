@@ -4,11 +4,11 @@ const jointSingleErrorMsg = require('../../../utils/joint-single-error-message.j
 const fieldValidators = Object.assign(Object.create(null), {
   responsibleForCouncilTax: sf([
     r.required.bind({
-      errorMsg: jointSingleErrorMsg('rent-council-tax:field.responsibleForCouncilTax.required'),
+      errorMsg: jointSingleErrorMsg('rent-council-tax-rates:field.responsibleForCouncilTax.required', true),
     }),
     r.inArray.bind({
       source: ['yes', 'no'],
-      errorMsg: jointSingleErrorMsg('rent-council-tax:field.responsibleForCouncilTax.required'),
+      errorMsg: jointSingleErrorMsg('rent-council-tax-rates:field.responsibleForCouncilTax.required', true),
     }),
   ]),
 });
