@@ -18,6 +18,15 @@ module.exports = (t, context, claim, cyaUrl) => {
   return {
     heading: t('check-your-answers:sectionHeading.about-you'),
     rows: [
+      /* ------------------------------------------------ country-you-live-in */
+      // Do you live in England, Scotland or Wales?
+      row({
+        changeHref: `${WP.COUNTRY_YOU_LIVE_IN}#f-countryOfResidence`,
+        changeHtml: t('country-you-live-in:field.countryOfResidence.change'),
+        key: t('country-you-live-in:pageTitle'),
+        value: rov('country-you-live-in.countryOfResidence', 'country-you-live-in:field.countryOfResidence.options'),
+      }),
+
       /* ---------------------------------------------- claimed-state-pension */
       // Have you claimed your State Pension?
       row({
@@ -34,15 +43,6 @@ module.exports = (t, context, claim, cyaUrl) => {
         changeHtml: t('children-living-with-you:field.hasChildren.change'),
         key: t('children-living-with-you:pageTitle'),
         value: rov('children-living-with-you.hasChildren', 'children-living-with-you:field.hasChildren.options'),
-      }),
-
-      /* ---------------------------------------- live-england-scotland-wales */
-      // Do you live in England, Scotland or Wales?
-      row({
-        changeHref: `${WP.LIVE_ENGLAND_SCOTLAND_WALES}#f-inEnglandScotlandWales`,
-        changeHtml: t('live-england-scotland-wales:field.inEnglandScotlandWales.change'),
-        key: t('live-england-scotland-wales:pageTitle'),
-        value: rov('live-england-scotland-wales.inEnglandScotlandWales', 'live-england-scotland-wales:field.inEnglandScotlandWales.options'),
       }),
 
       /* --------------------------------------------------- your-nationality */

@@ -3,13 +3,7 @@ name: default
 journey:
   start:
   # ---------------------------------------------------------------- eligibility
-  claimed-state-pension:
-    "yes": click()
-
-  children-living-with-you:
-    "no": click()
-
-  live-england-scotland-wales:
-    "no": click()
+  country-you-live-in:
+    "somewhereElse": click()
 
   do-not-live-uk:

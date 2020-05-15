@@ -1,7 +1,7 @@
 const { waypoints } = require('../../lib/constants.js');
+const countryYouLiveInValidation = require('../field-validators/eligibility/country-you-live-in.js');
 const claimedStatePensionValidation = require('../field-validators/eligibility/claimed-state-pension.js');
 const childrenLivingWithYouValidation = require('../field-validators/eligibility/children-living-with-you.js');
-const liveEnglandScotlandWalesValidation = require('../field-validators/eligibility/live-england-scotland-wales.js');
 const yourNationalityValidation = require('../field-validators/eligibility/your-nationality.js');
 const dateOfBirthValidation = require('../field-validators/eligibility/date-of-birth.js');
 const liveWithPartnerValidation = require('../field-validators/eligibility/live-with-partner.js');
@@ -17,10 +17,15 @@ module.exports = (sessionTtl) => {
     view: 'pages/start.njk',
     hooks: {
       prerender: [
-        withSkipLink(waypoints.CLAIMED_STATE_PENSION),
+        withSkipLink(waypoints.COUNTRY_YOU_LIVE_IN),
         startHook(sessionTtl),
       ],
     },
+  };
+
+  pages[waypoints.COUNTRY_YOU_LIVE_IN] = {
+    view: 'pages/eligibility/country-you-live-in.njk',
+    fieldValidators: countryYouLiveInValidation,
   };
 
   pages[waypoints.CLAIMED_STATE_PENSION] = {
@@ -39,11 +44,6 @@ module.exports = (sessionTtl) => {
 
   pages[waypoints.CLAIM_INCLUDES_CHILDREN] = {
     view: 'pages/eligibility/claim-includes-children.njk',
-  };
-
-  pages[waypoints.LIVE_ENGLAND_SCOTLAND_WALES] = {
-    view: 'pages/eligibility/live-england-scotland-wales.njk',
-    fieldValidators: liveEnglandScotlandWalesValidation,
   };
 
   pages[waypoints.DO_NOT_LIVE_UK] = {

@@ -1,5 +1,7 @@
 const { waypoints: WP } = require('../../lib/constants.js');
-const { isYes, isNo } = require('../../utils/journey-helpers.js');
+const {
+  isYes, isNo, isEqualTo, isNotEqualTo,
+} = require('../../utils/journey-helpers.js');
 const checkSPA = require('../route-conditions/check-state-pension-age.js');
 
 module.exports = (plan) => {
@@ -16,7 +18,11 @@ module.exports = (plan) => {
   const partnerUnderSPA = checkSPA(WP.LIVE_WITH_PARTNER, 'partnerDateOfBirth', false);
 
   // Start page
-  plan.addSequence(WP.START, WP.CLAIMED_STATE_PENSION);
+  plan.addSequence(WP.START, WP.COUNTRY_YOU_LIVE_IN);
+
+  // Kick out if claimant does not live in England, Scotland or Wales
+  plan.setRoute(WP.COUNTRY_YOU_LIVE_IN, WP.DO_NOT_LIVE_UK, isEqualTo('countryOfResidence', 'somewhereElse'));
+  plan.setRoute(WP.COUNTRY_YOU_LIVE_IN, WP.CLAIMED_STATE_PENSION, isNotEqualTo('countryOfResidence', 'somewhereElse'));
 
   // Kick out if claimant has not claimed their State Pension
   plan.setRoute(WP.CLAIMED_STATE_PENSION, WP.STATE_PENSION_NOT_CLAIMED, isNo('statePensionClaimed'));
@@ -24,11 +30,7 @@ module.exports = (plan) => {
 
   // Kick out if claimant has children
   plan.setRoute(WP.CHILDREN_LIVING_WITH_YOU, WP.CLAIM_INCLUDES_CHILDREN, isYes('hasChildren'));
-  plan.setRoute(WP.CHILDREN_LIVING_WITH_YOU, WP.LIVE_ENGLAND_SCOTLAND_WALES, isNo('hasChildren'));
-
-  // Kick out if claimant does not live in England, Scotland or Wales
-  plan.setRoute(WP.LIVE_ENGLAND_SCOTLAND_WALES, WP.DO_NOT_LIVE_UK, isNo('inEnglandScotlandWales'));
-  plan.setRoute(WP.LIVE_ENGLAND_SCOTLAND_WALES, WP.YOUR_NATIONALITY, isYes('inEnglandScotlandWales'));
+  plan.setRoute(WP.CHILDREN_LIVING_WITH_YOU, WP.YOUR_NATIONALITY, isNo('hasChildren'));
   plan.addSequence(WP.YOUR_NATIONALITY, WP.DATE_OF_BIRTH);
 
   // Kick out if claimant is under State Pension age

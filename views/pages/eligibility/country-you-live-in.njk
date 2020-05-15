@@ -1,0 +1,39 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("country-you-live-in:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukRadios({
+    name: "countryOfResidence",
+    fieldset: {
+      legend: {
+        text: t("country-you-live-in:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "ENGLAND",
+      text: t("country-you-live-in:field.countryOfResidence.options.ENGLAND")
+    }, {
+      value: "SCOTLAND",
+      text: t("country-you-live-in:field.countryOfResidence.options.SCOTLAND")
+    }, {
+      value: "WALES",
+      text: t("country-you-live-in:field.countryOfResidence.options.WALES")
+    }, {
+      value: "NORTHERN_IRELAND",
+      text: t("country-you-live-in:field.countryOfResidence.options.NORTHERN_IRELAND")
+    }, {
+      value: "somewhereElse",
+      text: t("country-you-live-in:field.countryOfResidence.options.somewhereElse")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.countryOfResidence,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

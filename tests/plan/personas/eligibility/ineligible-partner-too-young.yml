@@ -3,14 +3,14 @@ name: default
 journey:
   start:
   # ---------------------------------------------------------------- eligibility
+  country-you-live-in:
+    "england": click()
+
   claimed-state-pension:
     "yes": click()
 
   children-living-with-you:
     "no": click()
-
-  live-england-scotland-wales:
-    "yes": click()
 
   your-nationality:
     "rightToResideYes": click()

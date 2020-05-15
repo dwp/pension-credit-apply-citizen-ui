@@ -3,6 +3,9 @@ name: default
 journey:
   start:
   # ---------------------------------------------------------------- eligibility
+  country-you-live-in:
+    "england": click()
+
   claimed-state-pension:
     "no": click()
 
