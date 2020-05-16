@@ -3,7 +3,7 @@
 {% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
 
 {% block casaPageTitle %}
-  {{ t("rent-council-tax-rates:" + northerIrelandPrefix + "pageTitle" + claimType) }} - {{ t("common:serviceName") }}
+  {{ t("rent-council-tax-rates:" + northernIrelandPrefix + "pageTitle" + claimType) }} - {{ t("common:serviceName") }}
 {% endblock %}
 
 {% block journey_form %}
@@ -11,13 +11,13 @@
     name: "responsibleForCouncilTax",
     fieldset: {
       legend: {
-        text: t("rent-council-tax-rates:" + northerIrelandPrefix + "pageTitle" + claimType),
+        text: t("rent-council-tax-rates:" + northernIrelandPrefix + "pageTitle" + claimType),
         isPageHeading: true,
         classes: "govuk-fieldset__legend--xl"
       }
     },
     hint: {
-      text: t("rent-council-tax-rates:" + northerIrelandPrefix + "field.responsibleForCouncilTax.hint")
+      text: t("rent-council-tax-rates:" + northernIrelandPrefix + "field.responsibleForCouncilTax.hint")
     },
     items: [{
       value: "yes",

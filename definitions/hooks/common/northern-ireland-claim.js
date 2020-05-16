@@ -4,7 +4,7 @@ const prerender = (waypoints) => (req, res, next) => {
   ) || Object.create(null);
 
   res.locals.isNorthernIrelandClaim = countryOfResidence === 'NORTHERN_IRELAND';
-  res.locals.northerIrelandPrefix = countryOfResidence === 'NORTHERN_IRELAND' ? 'northernIreland.' : '';
+  res.locals.northernIrelandPrefix = countryOfResidence === 'NORTHERN_IRELAND' ? 'northernIreland.' : '';
 
   next();
 };
