@@ -94,6 +94,9 @@ module.exports = (sessionTtl) => {
 
   pages[waypoints.DONE_PARTNER] = {
     view: 'pages/eligibility/done-partner.njk',
+    hooks: {
+      prerender: northernIrelandClaim(waypoints),
+    },
   };
 
   return pages;

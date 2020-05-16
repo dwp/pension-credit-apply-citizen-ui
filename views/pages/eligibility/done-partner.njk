@@ -16,34 +16,42 @@
       <h2 class="govuk-heading-m">
         {{ t("common:applyForUniversalCredit") }}
       </h2>
-      <dl class="govuk-list contact-numbers">
-        <div>
-          <dt>{{ t("common:telephone") }}</dt>
-          <dd>{{ t("common:ucTelephoneNumber") }}</dd>
-        </div>
-        <div>
-          <dt>{{ t("common:textphone") }}</dt>
-          <dd>{{ t("common:ucTextphoneNumber") }}</dd>
-        </div>
-      </dl>
-      <p class="govuk-body">
-        {{ t("common:ucCallTimes") | safe }}
+
+      {% if isNorthernIrelandClaim %}
+        <p class="govuk-body-m">
+        {{ t("common:northernIreland.applyForUniversalCreditLink") | safe }}
       </p>
+      {% else %}
+        <dl class="govuk-list contact-numbers">
+          <div>
+            <dt>{{ t("common:telephone") }}</dt>
+            <dd>{{ t("common:ucTelephoneNumber") }}</dd>
+          </div>
+          <div>
+            <dt>{{ t("common:textphone") }}</dt>
+            <dd>{{ t("common:ucTextphoneNumber") }}</dd>
+          </div>
+        </dl>
+        <p class="govuk-body">
+          {{ t("common:ucCallTimes") | safe }}
+        </p>
+      {% endif %}
+
       <h2 class="govuk-heading-m govuk-!-width-two-thirds">
-        {{ t("common:pensionCreditClaimLine") }}
+        {{ t("common:" + northernIrelandPrefix + "pensionCreditClaimLine") }}
       </h2>
       <dl class="govuk-list contact-numbers">
         <div>
           <dt>{{ t("common:telephone") }}</dt>
-          <dd>{{ t("common:telephoneNumber") }}</dd>
+          <dd>{{ t("common:" + northernIrelandPrefix + "telephoneNumber") }}</dd>
         </div>
         <div>
           <dt>{{ t("common:textphone") }}</dt>
-          <dd>{{ t("common:textphoneNumber") }}</dd>
+          <dd>{{ t("common:" + northernIrelandPrefix + "textphoneNumber") }}</dd>
         </div>
       </dl>
       <p class="govuk-body">
-        {{ t("common:callTimes") | safe }}
+        {{ t("common:" + northernIrelandPrefix + "callTimes") | safe }}
       </p>
       <h2 class="govuk-heading-m">
         {{ t("common:helpUsImprove") }}
