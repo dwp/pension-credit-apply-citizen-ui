@@ -72,6 +72,9 @@ module.exports = (sessionTtl) => {
 
   pages[waypoints.TOO_YOUNG_TO_CLAIM] = {
     view: 'pages/eligibility/too-young-to-claim.njk',
+    hooks: {
+      prerender: northernIrelandClaim(waypoints),
+    },
   };
 
   pages[waypoints.LIVE_WITH_PARTNER] = {

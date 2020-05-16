@@ -5,5 +5,9 @@
   "ucTelephoneNumber": "0800 328 5644",
   "ucTextphoneNumber": "0800 328 1344",
   "ucCallTimes": "Monday to Friday, 8am to 6pm (closed on bank holidays).<br/>Calls to 0800 numbers are free from landlines and mobiles.",
-  "pensionCreditClaimLine": "If you need to speak to us, call the Pension Credit claim line."
+  "northernIreland": {
+    "applyForUniversalCreditLink": "<a href=\"https://www.nidirect.gov.uk/campaigns/universal-credit\" class=\"govuk-link\">Apply online for Universal Credit</a>",
+    "ucTelephoneNumber": "0800 328 5644",
+    "ucTextphoneNumber": "0800 328 1344"
+  }
 }
