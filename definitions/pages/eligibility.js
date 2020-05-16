@@ -60,6 +60,9 @@ module.exports = (sessionTtl) => {
   pages[waypoints.YOUR_NATIONALITY] = {
     view: 'pages/eligibility/your-nationality.njk',
     fieldValidators: yourNationalityValidation,
+    hooks: {
+      prerender: northernIrelandClaim(waypoints),
+    },
   };
 
   pages[waypoints.DATE_OF_BIRTH] = {

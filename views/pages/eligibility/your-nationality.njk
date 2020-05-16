@@ -21,7 +21,7 @@
     },
     hint: {
       text: t("your-nationality:field.rightToReside.hint")
-    },
+    } if not isNorthernIrelandClaim else null,
     items: [{
       value: "yes",
       text: t("your-nationality:field.rightToReside.options.yes")
