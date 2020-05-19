@@ -1,0 +1,32 @@
+{
+  "pageTitle": "Ydych chi angen i ni gysylltu â chi mewn unrhyw ffurf gwahanol?",
+  "field": {
+    "contactFormats": {
+      "hint": "Dewiswch bob un sy'n berthnasol:",
+      "options": {
+        "audio": "Sain",
+        "braille": "Braille",
+        "largePrint": "Print bras",
+        "signLanguage": "Iaith arwyddion",
+        "textPhone": "Ffôn testun",
+        "typeTalk": "TypeTalk",
+        "other": "Arall"
+      },
+      "noneSelected": "Na",
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych angen i ni gysylltu â chi mewn unrhyw ffurf gwahanol</span>"
+    },
+    "textPhoneNumber": {
+      "label": "Beth yw eich rhif ffôn testun (Text Relay)?",
+      "required": "Rhowch eich rhif ffôn testun (Text Relay).",
+      "length": "Rhowch eich rhif ffôn testun (Text Relay) gan ddefnyddio 20 nod neu lai.",
+      "format": "Rhowch eich rhif ffôn testun (Text Relay) gan ddefnyddio rhifau 0 i 9, gofodau, cysylltnodau, cromfachau a dash.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">eich rhif ffôn testun</span>"
+    },
+    "otherDetails": {
+      "label": "Dywedwch wrthym am unrhyw ffyrdd eraill y gallwn eich helpu pan fyddwn yn cysylltu â chi",
+      "required": "Rhowch unrhyw ffyrdd eraill y gallwn eich helpu pan fyddwn yn cysylltu â chi.",
+      "length": "Mae'n rhaid i unrhyw ffyrdd eraill y gallwn eich helpu pan fyddwn yn cysylltu â chi fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">os oes unrhyw ffyrdd eraill y gallwn eich helpu pan fyddwn yn cysylltu â chi</span>"
+    }
+  }
+}

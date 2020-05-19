@@ -1,0 +1,33 @@
+{
+  "pageTitle": "Beth yw cyfeiriad eich cartref?",
+  "lettersPageTitle": "Beth yw y cyfeiriad y dylem anfon llythyrau i?",
+  "sponsorPageTitle": "Beth yw cyfeiriad eich noddwr?",
+  "partnerSponsorPageTitle": "Beth yw cyfeiriad noddwr eich partner?",
+  "addressLookupFailed": "Chwilio am gyfeiriad wedi methu, rhowch y cyfeiriad â llaw",
+  "field": {
+    "addressLine1": {
+      "label": "Adeilad a stryd <span class=\"govuk-visually-hidden\">llinell 1 o 2</span>",
+      "required": "Rhowch yr adeilad a stryd.",
+      "length": "Rhowch yr adeilad a stryd gan ddefnyddio 500 nod neu lai."
+    },
+    "addressLine2": {
+      "label": "<span class=\"govuk-visually-hidden\">Adeilad a stryd llinell 2 o 2</span>",
+      "length": "Rhowch linell 2 o'r adeilad a stryd gan ddefnyddio 500 nod neu lai."
+    },
+    "town": {
+      "label": "Tref neu ddinas",
+      "required": "Rhowch y dref neu ddinas.",
+      "length": "Rhowch y dref neu ddinas gan ddefnyddio 500 nod neu lai."
+    },
+    "county": {
+      "label": "Sir",
+      "length": "Rhowch y sir gan ddefnyddio 500 nod neu lai."
+    },
+    "postcode": {
+      "label": "Cod post",
+      "required": "Rhowch y cod post.",
+      "format": "Rhowch god post gwirioneddol."
+    }
+  },
+  "lookupLinkText": "Defnyddiwch y cod post i ddod o hyd i gyfeiriad"
+}

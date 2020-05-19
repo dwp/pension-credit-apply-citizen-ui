@@ -1,0 +1,21 @@
+{
+  "pageTitle": "Pa un sy'n disgrifio orau y lle rydych yn byw?",
+  "field": {
+    "homeOwnership": {
+      "required": "Dewiswch yr opsiwn sy'n disgrifio orau y lle rydych yn byw.",
+      "options": {
+        "own": "Chi sy'n berchen arno",
+        "rent": "Rydych yn ei rentu",
+        "other": "Arall"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">pa un sy'n disgrifio orau y lle rydych yn byw</span>"
+    },
+    "homeDescription": {
+      "label": "Disgrifiad o ble rydych yn byw",
+      "hint": "Er enghraifft, efallai eich bod yn byw mewn llety a rennir, carafán, neu yng nghartref rhywun arall heb dalu rhent",
+      "required": "Rhowch ddisgrifiad o ble rydych yn byw.",
+      "length": "Mae'n rhaid i'r disgrifiad o ble rydych yn byw fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">disgrifiad o ble rydych yn byw</span>"
+    }
+  }
+}

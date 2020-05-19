@@ -107,7 +107,7 @@ module.exports = (CONFIG, baseLogger) => {
     ),
     i18n: {
       dirs: [path.resolve(__dirname, 'locales')],
-      locales: ['en'],
+      locales: ['en', 'cy'],
     },
     allowPageEdit: true,
     mountController: function casaMountController(mountCommonMiddleware) {

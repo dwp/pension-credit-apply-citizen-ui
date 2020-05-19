@@ -1,0 +1,12 @@
+{
+  "pageTitle": "Beth yw eich dyddiad geni?",
+  "field": {
+    "dateOfBirth": {
+      "hint": "Er enghraifft, 31 3 1948.",
+      "required": "Rhowch eich dyddiad geni.",
+      "format": "Rhowch ddyddiad geni gwirioneddol.",
+      "future": "Rhowch ddyddiad geni sydd yn y gorffennol.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">eich dyddiad geni</span>"
+    }
+  }
+}

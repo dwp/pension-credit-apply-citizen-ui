@@ -1,0 +1,24 @@
+{
+  "pageTitle": "Eich cenedligrwydd",
+  "field": {
+    "rightToReside": {
+      "legend": "Oes gennych chi'r hawl i fyw neu weithio yn y DU heb unrhyw gyfyngiadau mewnfudo?",
+      "hint": "Mae gennych yr hawl hwn os oes gennych basbort Prydeinig neu yn ddinesydd Prydeinig neu'n ddinesydd Prydeinig gyda hawl i breswylio.",
+      "required": "Dewiswch oes os oes gennych yr hawl i fyw neu weithio yn y DU heb unrhyw gyfyngiadau mewnfudo.",
+      "options": {
+        "yes": "Oes",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os oes gennych yr hawl i fyw neu weithio yn y DU heb unrhyw gyfyngiadau mewnfudo</span>"
+    },
+    "lived2Years": {
+      "legend": "Ydych chi wedi byw'n barhaol yn y DU am y 2 flynedd diwethaf?",
+      "required": "Dewiswch ydw os ydych wedi byw'n barhaol yn y DU am y 2 flynedd diwethaf.",
+      "options": {
+        "yes": "Ydw",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi byw'n barhaol yn y DU am y 2 flynedd diwethaf</span>"
+    }
+  }
+}

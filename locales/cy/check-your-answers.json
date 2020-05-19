@@ -1,0 +1,91 @@
+{
+  "pageTitle": "Edrychwch dros eich atebion cyn anfon eich cais",
+  "declaration": {
+    "heading": "Drwy wneud cais rydych yn cytuno:",
+    "bullets_html": "<li>bod y wybodaeth yn gywir a chyflawn cyn belled ag rydych yn gwybod</li><li>y byddwch yn talu'n ôl unrhyw arian a or-dalwyd i chi os gofynnir i chi wneud hynny</li>",
+    "information": "Gallech gael eich erlyn neu orfod talu cosb ariannol os byddwch yn rhoi’r wybodaeth anghywir neu anghyflawn yn fwriadol neu os nad ydych yn rhoi gwybod am newidiadau."
+  },
+  "error": {
+    "submission-locked": "Mae eich cais yn dal i gael ei hanfon. Arhoswch cyn parhau.",
+    "claim-service-failure": "Nid yw eich cais wedi cael ei hanfon. Rhowch gynnig arall."
+  },
+  "buttonText": "Anfon",
+  "sectionHeading": {
+    "about-you": "Amdanoch chi",
+    "about-your-partner": "Am eich partner",
+    "about-where-you-live": "Am ble rydych yn byw",
+    "pensions": "Pensiynau",
+    "benefits": "Budd-daliadau rydych wedi gwneud cais amdanynt",
+    "earnings": "Cyflogaeth ac enillion",
+    "money-you-have": "Arian sydd gennych",
+    "hrt-citizen": "Am eich preswyliad yn y DU",
+    "hrt-partner": "Am breswyliad eich partner yn y DU",
+    "claim-help": "Help gan bobl eraill"
+  },
+  "othersLiveWithYouDetails": {
+    "label": "Manylion unrhyw un arall sy'n byw gyda chi"
+  },
+  "homeAddress": {
+    "label": "Cyfeiriad eich cartref",
+    "change": "Newid <span class=\"govuk-visually-hidden\">cyfeiriad eich cartref</span>"
+  },
+  "lettersAddress": {
+    "label": "Y cyfeiriad y dylem anfon llythyrau i",
+    "change": "Newid <span class=\"govuk-visually-hidden\">y cyfeiriad y dylem anfon llythyrau i</span>"
+  },
+  "privatePensionDetails": {
+    "label": "Manylion eich pensiynau preifat neu weithle"
+  },
+  "employmentIncomeDetails": {
+    "label": "Manylion eich incwm o gyflogaeth"
+  },
+  "selfEmploymentIncomeDetails": {
+    "label": "Manylion eich incwm o hunangyflogaeth"
+  },
+  "otherIncomeDetails": {
+    "label": "Manylion am arian arall sydd gennych yn dod i mewn"
+  },
+  "officialErrorDetails": {
+    "label": "Manylion am ôl-ddyledion budd-daliadau, taliadau cywiro neu iawndal"
+  },
+  "councilTaxReductionDetails": {
+    "label": "Manylion am daliadau sy'n gysylltiedig â Gostyngiad Treth Cyngor"
+  },
+  "armedForcesDetails": {
+    "label": "Manylion am daliadau iawndal sy'n gysylltiedig â'r ail ryfel byd neu wasanaeth yn y lluoedd arfog"
+  },
+  "personalInjuryDetails": {
+    "label": "Manylion am daliadau ceisiadau anaf personol"
+  },
+  "homeInsuranceDetails": {
+    "label": "Manylion am daliadau o bolisi yswiriant cartref i dalu am eiddo personol sydd wedi'i golli neu wedi'i ddifrodi"
+  },
+  "homeRepairsDetails": {
+    "label": "Manylion am gynilion rydych yn bwriadu eu defnyddio i brynu neu wneud atgyweiriadau angenrheidiol i'ch prif gartref"
+  },
+  "liveIndependentDetails": {
+    "label": "Manylion am daliadau i'ch helpu i fyw'n annibynnol yn eich cartref eich hun neu yn y gymuned"
+  },
+  "incidentDetails": {
+    "label": "Manylion am daliadau i'ch helpu os ydych wedi bod yn rhan o ddigwyddiad neu argyfwng"
+  },
+  "windrushDetails": {
+    "label": "Manylion am iawndal plentyn Windrush"
+  },
+  "bloodDetails": {
+    "label": "Manylion am daliadau i'ch cefnogi gydag effeithiau haint gwaed neu vCJD"
+  },
+  "sponsorAddress": {
+    "label": "Cyfeiriad eich noddwr",
+    "change": "Newid <span class=\"govuk-visually-hidden\">cyfeiriad eich noddwr</span>"
+  },
+  "partnerSponsorAddress": {
+    "label": "Cyfeiriad noddwr eich partner",
+    "change": "Newid <span class=\"govuk-visually-hidden\">cyfeiriad noddwr eich partner</span>"
+  },
+  "northernIreland": {
+    "councilTaxReductionDetails": {
+      "label": "Manylion o daliadau sy'n gysylltiedig â Rhyddhad Ardrethi"
+    }
+  }
+}

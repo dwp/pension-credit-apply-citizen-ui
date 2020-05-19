@@ -1,0 +1,69 @@
+{
+  "pageTitle": "Eich cenedligrwydd a phreswyliad",
+  "field": {
+    "nationality": {
+      "label": "Beth yw eich cenedligrwydd?",
+      "required": "Rhowch eich cenedligrwydd.",
+      "strlen": "Mae'n rhaid i'ch cenedligrwydd fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">eich cenedligrwydd</span>"
+    },
+    "country": {
+      "label": "O ba wlad ydych chi wedi dod o?",
+      "required": "Rhowch y wlad rydych chi wedi dod o.",
+      "strlen": "Mae'n rhaid i'r wlad rydych wedi dod o fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">o ba wlad ydych chi wedi dod o</span>"
+    },
+    "lastCameToUk": {
+      "legend": "Pa ddyddiad y daethoch chi i'r DU ddiwethaf?",
+      "hint": "Er enghraifft, 12 11 2007",
+      "required": "Rhowch y dyddiad y daethoch chi i'r DU ddiwethaf.",
+      "format": "Rhowch ddyddiad gwirioneddol y daethoch chi i'r DU ddiwethaf.",
+      "future": "Rhowch ddyddiad y daethoch chi i'r DU ddiwethaf sydd yn y gorffennol.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">pa ddyddiad y daethoch chi i'r DU ddiwethaf</span>"
+    },
+    "cameToUkToWork": {
+      "legend": "A wnaethoch chi ddod i'r DU i weithio?",
+      "required": "Dewiswch do os gwnaethoch chi ddod i'r DU i weithio.",
+      "options": {
+        "yes": "Do",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi dod i'r DU i weithio</span>"
+    },
+    "noRecourseToPublicFunds": {
+      "legend": "Ydy eich pasbort yn dweud nad oes gennych fynediad i gyllid cyhoeddus?",
+      "required": "Dewiswch ydy os yw eich pasbort yn dweud nad oes gennych fynediad i gyllid cyhoeddus.",
+      "options": {
+        "yes": "Ydy",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os yw eich pasbort yn dweud nad oes gennych fynediad i gyllid cyhoeddus</span>"
+    },
+    "livedInUkBefore": {
+      "legend": "Ydych chi wedi byw yn y DU o'r blaen?",
+      "required": "Dewiswch ydw os ydych wedi byw yn y DU o'r blaen.",
+      "options": {
+        "yes": "Ydw",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi byw yn y DU o'r blaen</span>"
+    },
+    "lastLeftUk": {
+      "legend": "Pa ddyddiad y gwnaethoch chi adael y DU ddiwethaf?",
+      "hint": "Er enghraifft, 12 11 2007",
+      "required": "Rhowch y ddyddiad y gwnaethoch chi adael y DU ddiwethaf.",
+      "format": "Rhowch ddyddiad gwirioneddol y gwnaethoch chi adael y DU ddiwethaf.",
+      "future": "Rhowch ddyddiad y gwnaethoch chi adael y DU ddiwethaf sydd yn y gorffennol.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">pa ddyddiad y gwnaethoch chi adael y DU ddiwethaf</span>"
+    },
+    "familyReunionScheme": {
+      "legend": "Ydych chi wedi dod i'r DU o dan y Cynllun Aduniad Teulu?",
+      "required": "Dewiswch ydw os ydych wedi dod i'r DU o dan y Cynllun Aduniad Teulu.",
+      "options": {
+        "yes": "Ydw",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi dod i'r DU o dan y Cynllun Aduniad Teulu</span>"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Ni allwch wneud cais am Gredyd Pensiwn ar hyn o bryd",
+  "4monthsBefore": "Gallwch wneud cais am Gredyd Pensiwn hyd at 4 mis cyn i chi gyrraedd eich oedran Pensiwn y Wladwriaeth.",
+  "applyForUniversalCredit": "Efallai y gallech wneud cais am Gredyd Cynhwysol.",
+  "ucPhoneNumber": "0800 328 1744",
+  "ucTexttestunNumber": "0800 328 1344",
+  "ucCallTimes": "Dydd Llun i ddydd Gwener, 8am i 6pm (wedi cau ar wyliau banc).<br/>Mae galwadau i rifau 0800 am ddim o linellau daear a ffonau symudol.",
+  "northernIreland": {
+    "applyForUniversalCreditLink": "<a href=\"https://www.nidirect.gov.uk/campaigns/universal-credit\" class=\"govuk-link\">Gwneud cais am Gredyd Cynhwysol</a>",
+    "ucTelephoneNumber": "0800 328 5644",
+    "ucTextphoneNumber": "0800 328 1344"
+  }
+}

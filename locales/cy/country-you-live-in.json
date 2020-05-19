@@ -1,0 +1,16 @@
+{
+  "pageTitle": "Pa wlad ydych chi'n byw ynddi?",
+  "field": {
+    "countryOfResidence": {
+      "required": "Dewiswch y wlad rydych yn byw ynddi.",
+      "options": {
+        "ENGLAND": "Lloegr",
+        "SCOTLAND": "Yr Alban",
+        "WALES": "Cymru",
+        "NORTHERN_IRELAND": "Gogledd Iwerddon",
+        "somewhereElse": "Rhywle arall"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">pa wlad ydych chi'n byw ynddi</span>"
+    }
+  }
+}

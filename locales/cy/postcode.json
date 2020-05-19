@@ -1,0 +1,19 @@
+{
+  "pageTitle": "Beth yw cod post eich cartref?",
+  "lettersPageTitle": "Beth yw cod post y cyfeiriad y dylem anfon llythyrau i?",
+  "sponsorPageTitle": "Beth yw cod post cartref eich noddwr?",
+  "partnerSponsorPageTitle": "Beth yw cod post cartref noddwr eich partner?",
+  "field": {
+    "postcode": {
+      "label": "Cod post",
+      "required": "Rhowch god post eich cartref.",
+      "requiredLetters": "Rhowch god post y cyfeiriad rydych eisiau i ni anfon llythyrau i.",
+      "requiredSponsor": "Rhowch god post cyfeiriad eich noddwr.",
+      "requiredPartnerSponsor": "Rhowch god post cyfeiriad noddwr eich partner.",
+      "format": "Rhowch god post gwirioneddol.",
+      "noAddresses": "Nid oeddem yn gallu dod o hyd i'r cod post hwn. Rhowch gynnig arall neu rhowch eich cyfeiriad â llaw."
+    }
+  },
+  "submit": "Darganfod cyfeiriad",
+  "enterManually": "Rhowch gyfeiriad eich cartref â llaw"
+}

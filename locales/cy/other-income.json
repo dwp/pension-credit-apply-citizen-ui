@@ -1,0 +1,20 @@
+{
+  "pageTitleSingle": "Oes gennych chi unrhyw arian arall yn dod i mewn?",
+  "pageTitleJoint": "Oes gennych chi neu'ch partner unrhyw arian arall yn dod i mewn?",
+  "field": {
+    "hasOtherIncome": {
+      "required": "Dewiswch oes os oes gennych unrhyw arian arall yn dod i mewn.",
+      "options": {
+        "yes": "Oes",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os oes gennych unrhyw arian arall yn dod i mewn</span>"
+    },
+    "otherIncomeDetails": {
+      "label": "Dywedwch wrthym beth yw'r incwm yma, faint rydych yn cael eich talu a pha mor aml rydych yn cael eich talu",
+      "required": "Rhowch beth yw'r incwm yma, faint rydych yn cael eich talu a pha mor aml rydych yn cael eich talu.",
+      "length": "Mae'n rhaid i beth yw'r incwm yma, faint rydych yn cael eich talu a pha mor aml rydych yn cael eich talu fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">y manylion o arian arall sydd gennych yn dod i mewn</span>"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Ydych chi wedi gwneud cais am eich Pensiwn y Wladwriaeth?",
+  "field": {
+    "statePensionClaimed": {
+      "required": "Dewiswch ydw os ydych wedi gwneud cais am eich Pensiwn y Wladwriaeth.",
+      "options": {
+        "yes": "Ydw",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi gwneud cais am eich Pensiwn y Wladwriaeth</span>"
+    }
+  }
+}

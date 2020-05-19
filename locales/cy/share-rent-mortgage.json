@@ -1,0 +1,14 @@
+{
+  "pageTitleSingle": "Ydych chi'n rhannu y rhent neu forgais am y lle rydych yn byw gydag unrhyw un?",
+  "pageTitleJoint": "Ydych chi'n rhannu y rhent neu forgais am y lle rydych yn byw gydag unrhyw un oni bai am eich partner?",
+  "field": {
+    "shareRentMortgage": {
+      "required": "Dewiswch ydw os ydych yn rhannu y rhent neu forgais gydag unrhyw un.",
+      "options": {
+        "yes": "Ydw",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych yn rhannu y rhent neu forgais am y lle rydych yn byw gydag unrhyw un</span>"
+    }
+  }
+}

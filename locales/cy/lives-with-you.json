@@ -1,0 +1,21 @@
+{
+  "pageTitleSingle": "Oes unrhyw un arall yn byw gyda chi?",
+  "pageTitleJoint": "Oes unrhyw un arall yn byw gyda chi oni bai am eich partner?",
+  "field": {
+    "othersLiveWithYou": {
+      "requiredSingle": "Dewiswch oes os oes unrhyw un arall yn byw gyda chi.",
+      "requiredJoint": "Dewiswch oes os oes unrhyw un arall yn byw gyda chi oni bai am eich partner.",
+      "options": {
+        "yes": "Oes",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os oes unrhyw un arall yn byw gyda chi</span>"
+    },
+    "othersLiveWithYouDetails": {
+      "label": "Dywedwch wrthym enw unrhyw un arall sy'n byw gyda chi, eu perthynas i chi ac os ydynt yn ddibynnol arnoch.",
+      "required": "Rhowch enw unrhyw un arall sy'n byw gyda chi, eu perthynas i chi ac os ydynt yn ddibynnol arnoch.",
+      "length": "Mae'n rhaid i enw unrhyw un arall sy'n byw gyda chi, eu perthynas i chi ac os ydynt yn ddibynnol arnoch fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\"> manylion unrhyw un arall sy'n byw gyda chi</span>"
+    }
+  }
+}

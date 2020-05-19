@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Ar unrhyw adeg, ydy eich partner wedi dod i fyw yn y DU neu ddychwelyd i fyw i'r DU o dramor?",
+  "field": {
+    "partnerCameToUk": {
+      "required": "Dewiswch ydy os yw eich partner wedi dod i fyw yn y DU neu ddychwelyd i fyw i'r DU o dramor.",
+      "options": {
+        "yes": "Ydy",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os yw eich partner wedi dod i fyw yn y DU neu ddychwelyd i fyw i'r DU o dramor</span>"
+    }
+  }
+}

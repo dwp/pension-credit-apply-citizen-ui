@@ -1,0 +1,69 @@
+{
+  "pageTitle": "Cenedligrwydd a phreswyliad eich partner",
+  "field": {
+    "partnerNationality": {
+      "label": "Beth yw cenedligrwydd eich partner?",
+      "required": "Rhowch genedligrwydd eich partner.",
+      "strlen": "Mae'n rhaid i genedligrwydd eich partner fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">cenedligrwydd eich partner</span>"
+    },
+    "partnerCountry": {
+      "label": "O ba wlad mae eich partner wedi dod o?",
+      "required": "Rhowch y wlad mae eich partner wedi dod o",
+      "strlen": "Mae'n rhaid i'r wlad mae eich partner wedi dod o fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">o ba wlad mae eich partner wedi dod o</span>"
+    },
+    "partnerLastCameToUk": {
+      "legend": "Pa ddyddiad y daeth eich partner i'r DU ddiwethaf?",
+      "hint": "Er enghraifft, 12 11 2007",
+      "required": "Rhowch y dyddiad y daeth eich partner i'r DU ddiwethaf.",
+      "format": "Rhowch ddyddiad gwirioneddol y daeth eich partner i'r DU ddiwethaf.",
+      "future": "Rhowch ddyddiad y daeth eich partner i'r DU ddiwethaf sydd yn y gorffennol.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">pa ddyddiad y daeth eich partner i'r DU ddiwethaf</span>"
+    },
+    "partnerCameToUkToWork": {
+      "legend": "A ddaeth eich partner i'r DU i weithio?",
+      "required": "Dewiswch do os daeth eich partner i'r DU i weithio.",
+      "options": {
+        "yes": "Do",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os daeth eich partner i'r DU i weithio</span>"
+    },
+    "partnerNoRecourseToPublicFunds": {
+      "legend": "Ydy pasbort eich partner yn dweud nad oes ganddynt fynediad i gyllid cyhoeddus?",
+      "required": "Dewiswch ydy os yw pasbort eich partner yn dweud nad oes ganddynt fynediad i gyllid cyhoeddus.",
+      "options": {
+        "yes": "Ydy",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os yw pasbort eich partner yn dweud nad oes ganddynt fynediad i gyllid cyhoeddus</span>"
+    },
+    "partnerLivedInUkBefore": {
+      "legend": "Ydy eich partner wedi byw yn y DU o'r blaen?",
+      "required": "Dewiswch ydy os yw eich partner wedi byw yn y DU o'r blaen.",
+      "options": {
+        "yes": "Ydy",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os yw eich partner wedi byw yn y DU o'r blaen</span>"
+    },
+    "partnerLastLeftUk": {
+      "legend": "Pa ddyddiad y gwnaeth eich partner adael y DU ddiwethaf?",
+      "hint": "Er enghraifft, 12 11 2007",
+      "required": "Rhowch y dyddiad y gwnaeth eich partner adael y DU ddiwethaf.",
+      "format": "Rhowch ddyddiad gwirioneddol y gwnaeth eich partner adael y DU ddiwethaf.",
+      "future": "Rhowch ddyddiad y gwnaeth eich partner adael y DU ddiwethaf sydd yn y gorffennol.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">pa ddyddiad y gwnaeth eich partner adael y DU ddiwethaf</span>"
+    },
+    "partnerFamilyReunionScheme": {
+      "legend": "Ydy eich partner wedi dod i'r DU o dan y Cynllun Aduniad Teulu?",
+      "required": "Dewiswch ydy os yw eich partner wedi dod i'r DU o dan y Cynllun Aduniad Teulu.",
+      "options": {
+        "yes": "Ydy",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os yw eich partner wedi dod i'r DU o dan y Cynllun Aduniad Teulu</span>"
+    }
+  }
+}

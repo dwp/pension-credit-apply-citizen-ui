@@ -1,0 +1,14 @@
+{
+  "pageTitle": "Oes unrhyw blant neu berson ifanc cymwys yn byw gyda chi?",
+  "field": {
+    "hasChildren": {
+      "hint": "Mae plant o dan 16 oed. Mae person ifanc cymwys rhwng 16 ac 19 oed ac mewn addysg llawn amser sydd heb fod yn addysg uwch neu hyfforddiant.",
+      "required": "Dewiswch oes os oes unrhyw blant neu berson ifanc cymwys yn byw gyda chi.",
+      "options": {
+        "yes": "Oes",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os oes unrhyw blant neu berson ifanc cymwys yn byw gyda chi</span>"
+    }
+  }
+}

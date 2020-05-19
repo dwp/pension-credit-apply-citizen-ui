@@ -1,0 +1,22 @@
+{
+  "pageTitle": "Ydych chi'n byw gyda phartner?",
+  "field": {
+    "liveWithPartner": {
+      "hint": "Partner yw gwr, gwraig, partner sifil neu rywun rydych yn byw gyda fel cwpwl.",
+      "required": "Dewiswch ydw os ydych yn byw gyda phartner.",
+      "options": {
+        "yes": "Ydw",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych yn byw gyda phartner</span>"
+    },
+    "partnerDateOfBirth": {
+      "legend": "Beth yw dyddiad geni eich partner?",
+      "hint": "Er enghraifft, 31 3 1948.",
+      "required": "Rhowch ddyddiad geni eich partner.",
+      "format": "Rhowch ddyddiad geni gwirioneddol.",
+      "future": "Rhowch ddyddiad geni sydd yn y gorffennol.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">dyddiad geni eich partner</span>"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "pageTitle": "A ddaeth eich partner i'r DU ar drefniant noddi?",
+  "field": {
+    "partnerSponsorshipUndertaking": {
+      "required": "Dewiswch do os daeth eich partner i'r DU ar drefniant noddi.",
+      "options": {
+        "yes": "Do",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os daeth eich partner i'r DU ar drefniant noddi</span>"
+    }
+  }
+}

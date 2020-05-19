@@ -1,0 +1,27 @@
+{
+  "pageTitleSingle": "Faint o arian sydd gennych?",
+  "pageTitleJoint": "Faint o arian sydd gennych chi a'ch partner?",
+  "thisIncludes": "Mae hyn yn cynnwys:",
+  "moneyInAccounts": "arian mewn cyfrifon cyfredol, cynilo neu gadw gyda banc, cymdeithas adeiladu, undeb credyd neu'r Swyddfa Bost ",
+  "ns&iBonds": "Cynhyrchion Cynilion a Buddsoddiadau Cenedlaethol fel Tystysgrifau Cynilo, Bondiau Premiwm, Bondiau Incwm a chyfrifon gweddilliol",
+  "cashAtHome": "arian yn y cartref mewn arian parod",
+  "investments": "buddsoddiadau fel ISA, PEP a TOISA",
+  "shares": "cyfranddaliadau",
+  "unitTrusts": "arian a fuddsoddwyd mewn ymddiriedolaethau uned",
+  "incomeCapitalBonds": "bondiau incwm a chyfalaf",
+  "moneyOverseas": "unrhyw arian arall yn y wlad hon neu dramor",
+  "field": {
+    "moneyBackdated": {
+      "label": "Faint o arian oedd gennych ar ${dateOfClaim}?",
+      "required": "Rhowch faint o arian oedd gennych ar ${dateOfClaim}",
+      "format": " Rhowch faint o arian oedd gennych ar ${dateOfClaim} drwy ond defnyddio symbol £, rhifau, atalnodau a phwynt degol. Er enghraifft £1000 neu £1,000.00.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">faint o arian oedd gennych ar ddyddiad dechrau eich cais</span>"
+    },
+    "moneyToday": {
+      "label": "Faint o arian sydd gennych heddiw?",
+      "required": "Rhowch faint o arian sydd gennych heddiw.",
+      "format": "Rhowch faint o arian sydd gennych heddiw drwy ond defnyddio symbol £, rhifau, atalnodau a phwynt degol. Er enghraifft £1000 neu £1,000.00.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">faint o arian sydd gennych heddiw</span>"
+    }
+  }
+}

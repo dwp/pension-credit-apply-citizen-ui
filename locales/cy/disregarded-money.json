@@ -1,0 +1,181 @@
+{
+  "pageTitle": "Arian o gamgymeriadau, yswiriant ac iawndal",
+  "field": {
+    "disregardedMoney": {
+      "legend": "Ydy unrhyw arian sydd gennych o:",
+      "options": {
+        "officialError": {
+          "label": "Taliadau i gywiro neu roi iawndal am gamgymeriad swyddogol neu am ôl-ddyledion budd-daliadau",
+          "change": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi cael unrhyw daliadau am ôl-ddyledion budd-daliadau, neu unrhyw daliadau i gywiro neu roi iawndal am gamgymeriad swyddogol</span>",
+          "cyaYes": "Ydy",
+          "cyaNo": "Na"
+        },
+        "councilTaxReduction": {
+          "label": "Taliadau sy'n gysylltiedig â Gostyngiad Treth Cyngor",
+          "change": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi cael unrhyw daliadau sy'n gysylltiedig â Gostyngiad Treth Cyngor</span>",
+          "cyaYes": "Ydy",
+          "cyaNo": "Na"
+        },
+        "armedForces": {
+          "label": "Taliadau iawndal sy'n gysylltiedig â'r ail ryfel byd neu wasanaeth yn y lluoedd arfog",
+          "change": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi cael unrhyw daliadau iawndal sy'n gysylltiedig â'r ail ryfel byd neu wasanaeth yn y lluoedd arfog</span>",
+          "cyaYes": "Ydy",
+          "cyaNo": "Na"
+        },
+        "personalInjury": {
+          "label": "Taliadau ceisiadau anaf personol",
+          "change": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi cael unrhyw daliadau ceisiadau anaf personol</span>",
+          "cyaYes": "Ydy",
+          "cyaNo": "Na"
+        },
+        "homeInsurance": {
+          "label": "Taliadau o bolisi yswiriant cartref i dalu am eiddo personol sydd wedi'i golli neu wedi'i ddifrodi",
+          "change": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi cael unrhyw daliadau o bolisi yswiriant cartref i dalu am eiddo personol sydd wedi'i golli neu wedi'i ddifrodi</span>",
+          "cyaYes": "Ydy",
+          "cyaNo": "Na"
+        },
+        "homeRepairs": {
+          "label": "Cynilion rydych yn bwriadu eu defnyddio i brynu neu wneud atgyweiriadau angenrheidiol i'ch prif gartref",
+          "change": "Newid <span class=\"govuk-visually-hidden\"> os oes gennych unrhyw gynilion rydych yn bwriadu eu defnyddio i brynu neu wneud atgyweiriadau angenrheidiol i'ch prif gartref</span>",
+          "cyaYes": "Ydy",
+          "cyaNo": "Na"
+        },
+        "liveIndependent": {
+          "label": "Taliadau i'ch helpu i fyw'n annibynnol yn eich cartref eich hun neu yn y gymuned",
+          "change": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi cael unrhyw daliadau i'ch helpu i fyw'n annibynnol yn eich cartref eich hun neu yn y gymuned</span>",
+          "cyaYes": "Ydy",
+          "cyaNo": "Na"
+        },
+        "incident": {
+          "label": "Taliadau i'ch helpu os ydych wedi bod yn rhan o ddigwyddiad neu argyfwng",
+          "change": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi cael unrhyw daliadau i'ch helpu os ydych wedi bod yn rhan o ddigwyddiad neu argyfwng</span>",
+          "cyaYes": "Ydy",
+          "cyaNo": "Na"
+        },
+        "windrush": {
+          "label": "Iawndal plentyn Windrush",
+          "change": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi cael taliad iawndal plentyn Windrush</span>",
+          "cyaYes": "Ydy",
+          "cyaNo": "Na"
+        },
+        "blood": {
+          "label": "Taliadau i'ch cefnogi gydag effeithiau haint gwaed neu vCJD",
+          "change": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi cael unrhyw daliadau i'ch cefnogi gydag effeithiau haint gwaed neu vCJD</span>",
+          "cyaYes": "Ydy",
+          "cyaNo": "Na"
+        }
+      }
+    },
+    "officialErrorDetails": {
+      "label": "Disgrifiwch y taliadau am ôl-ddyledion neu gamgymeriad swyddogol, y dyddiad y cafodd ei dalu a'r swm",
+      "required": "Rhowch ddisgrifiad o'r taliadau am ôl-ddyledion neu gamgymeriad swyddogol, y dyddiad y cafodd ei dalu a'r swm.",
+      "length": "Mae'n rhaid i'r disgrifiad o'r taliadau am ôl-ddyledion neu gamgymeriad swyddogol, y dyddiad y cafodd ei dalu a'r swm fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">manylion o ôl-ddyledion budd-daliadau, taliadau cywiro neu iawndal</span>"
+    },
+    "councilTaxReductionDetails": {
+      "label": "Disgrifiwch y taliad sy'n gysylltiedig â Gostyngiad Treth Cyngor, y dyddiad y cafodd ei dalu a'r swm",
+      "required": "Rhowch ddisgrifiad o'r taliad sy'n gysylltiedig â Gostyngiad Treth Cyngor, y dyddiad y cafodd ei dalu a'r swm.",
+      "length": "Mae'n rhaid i'r disgrifiad o'r taliad sy'n gysylltiedig â Gostyngiad Treth Cyngor, y dyddiad y cafodd ei dalu a'r swm fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">manylion o daliadau sy'n gysylltiedig â Gostyngiad Treth Cyngor</span>"
+    },
+    "armedForcesDetails": {
+      "label": "Disgrifiwch y taliadau iawndal sy'n gysylltiedig â'r ail ryfel byd neu wasanaeth yn y lluoedd arfog, y dyddiad y cawsant eu talu a'r swm",
+      "hint": {
+        "thisIncludes": "Mae hyn yn cynnwys:",
+        "payments": "Taliadau (heblaw Pensiwn Anabledd Rhyfel neu Bensiwn Gweddw Rhyfel) i wneud iawn am y ffaith eich bod chi yn ystod yr ail ryfel byd:",
+        "slaveLabour": "yn gaethweision a orfodwyd i weithio neu yn weithiwr a orfodwyd i weithio",
+        "propertyLoss": "wedi dioddef colli eiddo neu anaf personol",
+        "parent": "yn rhiant i blentyn a fu farw",
+        "farEastPOW": "Taliadau a wnaed i Garcharorion Rhyfel y Dwyrain Pell neu eu partneriaid",
+        "independencePayment": "Taliad Annibyniaeth y Lluoedd Arfog"
+      },
+      "required": "Rhowch ddisgrifiad o'r daliadau iawndal sy'n gysylltiedig â'r ail ryfel byd neu wasanaeth yn y lluoedd arfog, y dyddiad y cawsant eu talu a'r swm.",
+      "length": "Mae'n rhaid i'r disgrifiad o'r daliadau iawndal sy'n gysylltiedig â'r ail ryfel byd neu wasanaeth yn y lluoedd arfog, y dyddiad y cawsant eu talu a'r swm fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">manylion o daliadau iawndal sy'n gysylltiedig â'r ail ryfel byd neu wasanaeth yn y lluoedd arfog</span>"
+    },
+    "personalInjuryDetails": {
+      "label": "Disgrifiwch y taliad anaf personol hwn, y dyddiad y cafodd ei dalu a'r swm",
+      "required": "Rhowch ddisgrifiad o'r taliad anaf personol hwn, y dyddiad y cafodd ei dalu a'r swm.",
+      "length": "Mae'n rhaid i'r disgrifiad o'r taliad anaf personol, y dyddiad y cafodd ei dalu a'r swm fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">manylion o daliadau ceisiadau anaf personol</span>"
+    },
+    "homeInsuranceDetails": {
+      "label": "Disgrifiwch y taliad o yswiriant cartref, y dyddiad y cafodd ei dalu a'r swm",
+      "required": "Rhowch ddisgrifiad o'r taliadau o yswiriant cartref, y dyddiad y cafodd ei dalu a'r swm.",
+      "length": "Mae'n rhaid i'r disgrifiad o'r taliad o yswiriant cartref, y dyddiad y cafodd ei dalu a'r swm fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">manylion o daliadau o bolisi yswiriant cartref i dalu am eiddo personol sydd wedi'i golli neu wedi'i ddifrodi</span>"
+    },
+    "homeRepairsDetails": {
+      "label": "Disgrifiwch yr arian i brynu neu wneud atgyweiriadau angenrheidiol i'r cartref, y dyddiad ers pryd y mae gennych a'r swm",
+      "required": "Rhowch ddisgrifiad o'r arian i brynu neu wneud atgyweiriadau angenrheidiol i'r cartref, y dyddiad ers pryd y mae gennych a'r swm.",
+      "length": "Mae'n rhaid i'r disgrifiad o'r arian i brynu neu wneud atgyweiriadau angenrheidiol i'r cartref, y dyddiad ers pryd y mae gennych a'r swm fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">manylion o gynilion rydych yn bwriadu eu defnyddio i brynu neu wneud atgyweiriadau angenrheidiol i'ch prif gartref</span>"
+    },
+    "liveIndependentDetails": {
+      "label": "Disgrifiwch y taliadau i'ch helpu i fyw'n annibynnol, y dyddiad y cawsant eu talu a'r swm",
+      "hint": {
+        "thisIncludes": "Mae hyn yn cynnwys:",
+        "independentLivingFund": "taliadau o'r Gronfa Byw'n Annibynnol",
+        "localAuthority": "taliadau awdurdodau lleol i'ch helpu i barhau i fyw'n annibynnol yn eich cartref eich hun am flwyddyn",
+        "welfareAssistance": "grantiau cymorth lles gan yr awdurdod lleol am flwyddyn"
+      },
+      "required": "Rhowch ddisgrifiad o'r taliadau i'ch helpu i fyw'n annibynnol, y dyddiad y cawsant eu talu a'r swm.",
+      "length": "Mae'n rhaid i'r disgrifiad o'r taliadau i'ch helpu i fyw'n annibynnol, y dyddiad y cawsant eu talu a'r swm fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">manylion o daliadau i'ch helpu i fyw'n annibynnol yn eich cartref eich hun neu yn y gymuned</span>"
+    },
+    "incidentDetails": {
+      "label": "Disgrifiwch y taliad i'ch helpu ar ôl digwyddiad neu argyfwng, y dyddiad y cafodd ei dalu a'r swm",
+      "hint": {
+        "thisIncludes": "Mae hyn yn cynnwys taliadau gan:",
+        "nationalEmergenciesTrust": "The National Emergencies Trust",
+        "londonEmergencyTrust": "London Emergency Trust",
+        "weLoveManchester": "The We Love Manchester Emergency Fund",
+        "londonBombing": "The London Bombing Charitable Trust",
+        "rugbyPortobello": "The Rugby Portobello Trust",
+        "grenfell": "Grenfell Tower Residents’ Discretionary Fund"
+      },
+      "required": "Rhowch ddisgrifiad o'r taliad i'ch helpu ar ôl digwyddiad neu argyfwng, y dyddiad y cafodd ei dalu a'r swm.",
+      "length": "Mae'n rhaid i'r disgrifiad o'r taliad i'ch helpu ar ôl digwyddiad neu argyfwng, y dyddiad y cafodd ei dalu a'r swm fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">manylion o daliadau i'ch helpu os ydych wedi bod yn rhan o ddigwyddiad neu argyfwng</span>"
+    },
+    "windrushDetails": {
+      "label": "Disgrifiwch y taliad iawndal plentyn Windrush, y dyddiad y cafodd ei dalu a'r swm",
+      "required": "Rhowch ddisgrifiad o'r taliad iawndal plentyn Windrush, y dyddiad y cafodd ei dalu a'r swm.",
+      "length": "Mae'n rhaid i'r disgrifiad o'r taliad iawndal plentyn Windrush, y dyddiad y cafodd ei dalu a'r swm fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">manylion o iawndal plentyn Windrush</span>"
+    },
+    "bloodDetails": {
+      "label": "Disgrifiwch y taliad i'ch cefnogi gydag effeithiau haint gwaed neu vCJD, y dyddiad y cafodd ei dalu a'r swm",
+      "hint": {
+        "thisIncludes": "Mae hyn yn cynnwys taliadau gan:",
+        "mcFarlaneTrust": "The McFarlane Trust",
+        "mcFarlaneSpecial": "McFarlane (Special Payments) Trust",
+        "mfetLimited": "Trust MFET Limited",
+        "skiptonFund": "The Skipton Fund",
+        "caxtonFoundation": "The Caxton Foundation",
+        "scottishInfectedBlood": "The Scottish Infected Blood Support Scheme neu gynllun gwaed cymeradwy"
+      },
+      "required": "Rhowch ddisgrifiad o'r taliad i'ch cefnogi gydag effeithiau haint gwaed neu vCJD.",
+      "length": "Mae'n rhaid i'r disgrifiad o'r taliad i'ch cefnogi gydag effeithiau haint gwaed neu vCJD fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">manylion o daliadau i'ch cefnogi gydag effeithiau haint gwaed neu vCJD</span>"
+    }
+  },
+  "northernIreland": {
+    "field": {
+      "disregardedMoney": {
+        "options": {
+          "councilTaxReduction": {
+            "label": "Taliadau yn gysylltiedig â Rhyddhad Ardrethi",
+            "change": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi cael unrhyw daliadau sy'n gysylltiedig â Rhyddhad Ardrethi</span>"
+          }
+        }
+      },
+      "councilTaxReductionDetails": {
+        "label": "Disgrifiwch y taliad sy'n gysylltiedig â Rhyddhad Ardrethi, y dyddiad y cafodd ei dalu a'r swm",
+        "required": "Rhowch ddisgrifiad o'r taliad sy'n gysylltiedig â Rhyddhad Ardrethi, y dyddiad y cafodd ei dalu a'r swm.",
+        "length": "Mae'n rhaid i'r disgrifiad o'r taliad sy'n gysylltiedig â Rhyddhad Ardrethi, y dyddiad y cafodd ei dalu a'r swm fod yn 500 nod neu lai.",
+        "change": "Newid <span class=\"govuk-visually-hidden\">manylion taliadau sy'n gysylltiedig â Rhyddhad Ardrethi</span>"
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "pageTitle": "Costau eiddo",
+  "field": {
+    "paysServiceCharges": {
+      "legend": "Ydych chi'n talu unrhyw daliadau gwasanaeth?",
+      "hint": {
+        "chargesInclude": "Gall taliadau gwasanaeth gynnwys:",
+        "wardenServices": "gwasanaethau warden",
+        "caretakerServices": "gwasanaethau gofalwr fel garddio, cynnal a chadw a glanhau ardaloedd cymdeithasol",
+        "laundry": "defnyddio ystafell golchi dillad",
+        "communalAreas": "ardaloedd cymdeithasol fel lolfa neu ardal deledu"
+      },
+      "required": "Dewiswch ydw os ydych yn talu unrhyw daliadau gwasanaeth.",
+      "options": {
+        "yes": "Ydw",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych yn talu unrhyw daliadau gwasanaeth</span>"
+    },
+    "serviceChargesAmount": {
+      "label": "Faint ydych yn ei dalu mewn taliadau gwasanaeth bob mis?",
+      "required": "Rhowch faint ydych yn ei dalu mewn taliadau gwasanaeth bob mis.",
+      "format": "Rhowch faint ydych yn ei dalu mewn taliadau gwasanaeth bob mis drwy ond defnyddio symbol £, rhifau, atalnodau a phwynt degol. Er enghraifft £1000 neu £1,000.00.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">faint ydych yn ei dalu mewn taliadau gwasanaeth bob mis</span>"
+    },
+    "paysGroundRent": {
+      "legend": "Ydych chi'n talu rhent daear?",
+      "hint": "Efallai eich bod yn talu rhent daear os mai chi yw lesddeiliad eich cartref.",
+      "required": "Dewiswch ydw os ydych yn talu rhent daear.",
+      "options": {
+        "yes": "Ydw",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych yn talu rhent daear</span>"
+    },
+    "groundRentAmount": {
+      "label": "Faint ydych yn ei dalu mewn rhent daear bob mis?",
+      "required": "Rhowch faint ydych yn ei dalu mewn rhent daear bob mis.",
+      "format": "Rhowch faint ydych yn ei dalu mewn rhent daear bob mis drwy ond defnyddio symbol £, rhifau, atalnodau a phwynt degol. Er enghraifft £1000 neu £1,000.00.",
+      "change": "Newid <span class=\"govuk-visually-hidden\"> faint rydych yn ei dalu mewn rhent daear bob mis</span>"
+    },
+    "getsHousingBenefit": {
+      "legend": "Ydych chi'n cael Budd-dal Tai?",
+      "required": "Dewiswch ydw os ydych yn cael Budd-dal Tai.",
+      "options": {
+        "yes": "Ydw",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych yn cael  budd-dal tai</span>"
+    },
+    "wantsHousingBenefit": {
+      "legend": "Ydych chi eisiau gwneud cais am Fudd-dal Tai?",
+      "required": "Dewiswch ydw os ydych eisiau gwneud cais am Fudd-dal Tai.",
+      "options": {
+        "yes": "Ydw",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych eisiau gwneud cais am Fudd-dal Tai</span>"
+    }
+  }
+}

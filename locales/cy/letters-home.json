@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Allwn ni anfon llythyrau i gyfeiriad eich cartref?",
+  "field": {
+    "sendLettersToHome": {
+      "required": "Dewiswch gallwch os allwn ni anfon llythyrau i gyfeiriad eich cartref.",
+      "options": {
+        "yes": "Gallwch",
+        "no": "Na - anfonwch lythyrau i gyfeiriad gwahanol"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os allwn ni anfon llythyrau i gyfeiriad eich cartref</span>"
+    }
+  }
+}

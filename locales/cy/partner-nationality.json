@@ -1,0 +1,24 @@
+{
+  "pageTitle": "Cenedligrwydd eich partner",
+  "field": {
+    "partnerRightToReside": {
+      "legend": "Oes gan eich partner yr hawl i fyw neu weithio yn y DU heb unrhyw gyfyngiadau mewnfudo?",
+      "hint": "Mae gennych yr hawl hwn os oes gennych basbort Prydeinig neu yn ddinesydd Prydeinig neu'n ddinesydd Prydeinig gyda hawl i breswylio.",
+      "required": "Dewiswch oes os oes gan eich partner yr hawl i fyw neu weithio yn y DU heb unrhyw gyfyngiadau mewnfudo.",
+      "options": {
+        "yes": "Oes",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os oes gan eich partner yr hawl i fyw neu weithio yn y DU heb unrhyw gyfyngiadau mewnfudo</span>"
+    },
+    "partnerLived2Years": {
+      "legend": "Ydy eich partner wedi byw'n barhaol yn y DU am y 2 flynedd diwethaf?",
+      "required": "Dewiswch ydy os yw eich partner wedi byw'n barhaol yn y DU am y 2 flynedd diwethaf.",
+      "options": {
+        "yes": "Ydy",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os yw eich partner wedi byw'n barhaol yn y DU am y 2 flynedd diwethaf</span>"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Ar unrhyw adeg, ydych chi wedi dod i fyw yn y DU neu ddychwelyd i fyw i'r DU o dramor?",
+  "field": {
+    "cameToUk": {
+      "required": "Dewiswch ydw os ydych chi wedi dod i fyw yn y DU neu ddychwelyd i fyw i'r DU o dramor.",
+      "options": {
+        "yes": "Ydw",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych have wedi dod i fyw yn y DU neu ddychwelyd i fyw i'r DU o dramor</span>"
+    }
+  }
+}

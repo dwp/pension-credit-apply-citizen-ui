@@ -1,0 +1,24 @@
+{
+  "pageTitle": "Manylion noddi eich partner",
+  "field": {
+    "partnerSponsorName": {
+      "label": "Beth yw enw noddwr eich partner?",
+      "required": "Rhowch enw noddwr eich partner.",
+      "strlen": "Mae'n rhaid i enw noddwr eich partner fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">enw noddwr eich partner</span>"
+    },
+    "partnerHomeOfficeReference": {
+      "label": "Beth yw rhif cyfeirnod Swyddfa Gartref eich partner?",
+      "required": "Rhowch rif cyfeirnod Swyddfa Gartref eich partner.",
+      "strlen": "Mae'n rhaid i rif cyfeirnod Swyddfa Gartref eich partner fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">rhif cyfeirnod Swyddfa Gartref eich partner</span>"
+    },
+    "partnerSponsorshipUndertakingSigned": {
+      "legend": "Pa ddyddiad y cafodd trefniant noddi eich partner ei lofnodi?",
+      "hint": "Er enghraifft, 12 11 2007",
+      "required": "Rhowch y dyddiad y cafodd trefniant noddi eich partner ei lofnodi.",
+      "format": "Rhowch ddyddiad gwirioneddol y cafodd trefniant noddi eich partner ei lofnodi.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">y dyddiad y cafodd trefniant noddi eich partner ei lofnodi</span>"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Ydy eich partner yn cael Budd-dal Tai oedran pensiwn?",
+  "field": {
+    "partnerGetsHousingBenefit": {
+      "required": "Dewiswch ydy os yw eich partner yn cael Budd-dal Tai oedran pensiwn.",
+      "options": {
+        "yes": "Ydy",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os yw eich partner yn cael Budd-dal Tai oedran pensiwn</span>"
+    }
+  }
+}

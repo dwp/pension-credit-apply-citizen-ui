@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Ydy eich partner yn cytuno i chi wneud y cais hwn?",
+  "field": {
+    "partnerAgree": {
+      "required": "Dewiswch ydy os yw eich partner yn cytuno i chi wneud y cais hwn.",
+      "options": {
+        "yes": "Ydy",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os yw eich partner yn cytuno i chi wneud y cais hwn</span>"
+    }
+  }
+}

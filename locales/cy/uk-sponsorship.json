@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Ydych chi wedi dod i'r DU ar drefniant noddi?",
+  "field": {
+    "sponsorshipUndertaking": {
+      "required": "Dewiswch ydw os ydych chi wedi dod i'r DU ar drefniant noddi.",
+      "options": {
+        "yes": "Ydw",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi dod i'r DU ar drefniant noddi</span>"
+    }
+  }
+}

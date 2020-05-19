@@ -1,0 +1,24 @@
+{
+  "pageTitle": "Eich manylion noddi",
+  "field": {
+    "sponsorName": {
+      "label": "Beth yw enw eich noddwr?",
+      "required": "Rhowch enw eich noddwr.",
+      "strlen": "Mae'n rhaid i enw eich noddwr fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">enw eich noddwr</span>"
+    },
+    "homeOfficeReference": {
+      "label": "Beth yw eich rhif cyfeirnod Swyddfa Gartref?",
+      "required": "Rhowch eich rhif cyfeirnod Swyddfa Gartref.",
+      "strlen": "Mae'n rhaid i'ch rhif cyfeirnod Swyddfa Gartref fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">eich rhif cyfeirnod Swyddfa Gartref</span>"
+    },
+    "sponsorshipUndertakingSigned": {
+      "legend": "Pa ddyddiad y cafodd eich trefniant noddi ei lofnodi?",
+      "hint": "Er enghraifft, 12 11 2007",
+      "required": "Rhowch y dyddiad y cafodd eich trefniant noddi ei lofnodi.",
+      "format": "Rhowch ddyddiad gwirioneddol y cafodd eich trefniant noddi ei lofnodi.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">y dyddiad y cafodd eich trefniant noddi ei lofnodi</span>"
+    }
+  }
+}

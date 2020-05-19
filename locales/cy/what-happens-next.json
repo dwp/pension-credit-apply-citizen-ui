@@ -1,0 +1,45 @@
+{
+  "pageTitle": "Cais wedi'i anfon",
+  "panelTitle": "Cais wedi'i anfon",
+  "section": {
+    "whatHappensNext": {
+      "heading": "Beth sy'n digwydd nesaf",
+      "leadParaPropertyHtml": "Byddwn yn anfon ffurflen i chi erbyn <strong class=\"date-nowrap\">%s (4 wythnos)</strong> i ofyn i chi am fanylion yr eiddo neu dir rydych yn berchen arno.",
+      "leadParaDefaultHtml": "Rydym yn gwneud rhai gwiriadau terfynol ar eich cais. Byddwn yn cysylltu â chi erbyn <strong class=\"date-nowrap\">%s (4 wythnos)</strong> naill ai i gadarnhau eich dyfarniad neu ofyn i chi am fwy o wybodaeth. Nid oes angen i chi gysylltu â ni cyn hynny oni bai bod unrhyw beth yn newid.",
+      "subHeadingSuccess": "Os yw eich cais yn llwyddiannus byddwn yn talu eich Credyd Pensiwn i'r un cyfrif rydych yn cael eich Pensiwn y Wladwriaeth iddo.",
+      "paraSuccess": "Byddwch yn gallu newid hyn i gyfrif gwahanol unwaith mae eich Credyd Pensiwn yn cael ei dalu.",
+      "subHeadingChanges": "Os oes unrhyw beth yn newid",
+      "paraChangesHtml": "Tra rydych yn cael Credyd Pensiwn, mae'n rhaid i chi ddweud wrthym yn syth am unrhyw <a href=\"https://www.gov.uk/credyd-pensiwn/rhoi-gwybod-am-newid-mewn-amgylchiadau\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"govuk-link\">newidiadau a allai effeithio'r swm o Gredyd Pensiwn a gewch (agor mewn ffenestr neu mewn tab newydd).</a>"
+    },
+    "housingBenefit": {
+      "heading": "Budd-dal Tai",
+      "para": "Os ydych yn talu rhent am y lle rydych chi'n byw, efallai y byddwch chi'n gymwys am Fudd-dal Tai. Byddwn yn gwneud y cais hwn ar eich rhan gan ddefnyddio'r manylion o'ch cais Credyd Pensiwn. Bydd eich awdurdod lleol yn cysylltu â chi."
+    },
+    "councilTaxReduction": {
+      "heading": "Gostyngiad Treth Cyngor",
+      "para": "Os yw eich cais yn llwyddiannus, efallai y byddwch yn gallu gwneud cais am Ostyngiad Treth Cyngor. Dylech gysylltu â'ch awdurdod lleol i wneud cais."
+    },
+    "carersAllowance": {
+      "heading": "Lwfans Gofalwr",
+      "paraHtml": "Efallai y gallwch wneud cais am <a href=\"https://www.gov.uk/lwfans-gofalwr\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"govuk-link\">Lwfans Gofalwr (agor mewn ffenestr neu mewn tab newydd)</a> os ydych yn gofalu am rywun am 35 awr neu fwy yr wythnos."
+    },
+    "survey": {
+      "heading": "Helpwch ni i wella Credyd Pensiwn",
+      "linkLabel": "Cymerwch arolwg byr (agor mewn ffenestr neu mewn tab newydd)"
+    }
+  },
+  "northernIreland": {
+    "section": {
+      "whatHappensNext": {
+        "paraChangesHtml": "Tra rydych yn cael Credyd Pensiwn, mae'n rhaid i chi ddweud wrthym yn syth am unrhyw <a href=\"https://www.nidirect.gov.uk/articles/pensions-report-change-your-circumstances\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"govuk-link\">newidiadau a allai effeithio'r swm o Gredyd Pensiwn a gewch (agor mewn ffenestr neu mewn tab newydd).</a>"
+      },
+      "councilTaxReduction": {
+        "heading": "Rhyddhad Ardrethi",
+        "para": "Os yw eich cais yn llwyddiannus, efallai y byddwch yn gallu gwneud cais am Ryddhad Ardrethi. Dylech gysylltu â'ch awdurdod lleol i wneud cais."
+      },
+      "carersAllowance": {
+        "paraHtml": "Efallai y gallwch wneud cais am <a href=\"https://www.nidirect.gov.uk/articles/carers-allowance\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"govuk-link\">Lwfans Gofalwr (agor mewn ffenestr neu mewn tab newydd)</a> os ydych yn gofalu am rywun am 35 awr neu fwy yr wythnos."
+      }
+    }
+  }
+}

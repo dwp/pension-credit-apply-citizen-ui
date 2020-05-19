@@ -1,0 +1,14 @@
+{
+  "pageTitle": "Ydych chi eisiau gwneud cais am gymorth gyda llog ar forgais neu fenthyciad sydd wedi'i ddiogelu yn erbyn eich cartref?",
+  "field": {
+    "wantsSMI": {
+      "hint": "Telir y cymorth hwn fel benthyciad y mae'n rhaid i chi ei ad-dalu pan fydd eich cartref yn cael ei werthu neu ei drosglwyddo. Byddwn yn anfon mwy o wybodaeth a ffurflen gais i chi drwy'r post.",
+      "required": "Dewiswch ydw os ydych eisiau gwneud cais am gymorth gyda llog ar forgais neu fenthyciad sydd wedi'i ddiogelu yn erbyn eich cartref.",
+      "options": {
+        "yes": "Ydw",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych eisiau gwneud cais am gymorth gyda llog ar forgais neu fenthyciad sydd wedi'i ddiogelu yn erbyn eich cartref</span>"
+    }
+  }
+}

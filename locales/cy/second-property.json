@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Ydych chi'n berchen ar unrhyw eiddo neu dir oni bai am eich cartref?",
+  "field": {
+    "hasSecondProperty": {
+      "required": "Dewiswch ydw os ydych yn berchen ar unrhyw eiddo neu dir oni bai am eich cartref.",
+      "options": {
+        "yes": "Ydw",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych yn berchen ar unrhyw eiddo neu dir oni bai am eich cartref</span>"
+    }
+  }
+}

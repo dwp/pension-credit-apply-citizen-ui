@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Oeddech chi angen help i gwblhau'r cais hwn?",
+  "field": {
+    "helpMakingClaim": {
+      "required": "Dewiswch oeddwn os oeddech angen help i gwblhau'r cais hwn.",
+      "options": {
+        "yes": "Oeddwn",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os oeddech angen help i gwblhau'r cais hwn</span>"
+    }
+  }
+}

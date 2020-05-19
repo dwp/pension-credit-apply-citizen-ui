@@ -1,0 +1,9 @@
+{
+  "pageTitle": "Tudalen heb ei darganfod",
+  "typedAddress": "Os ydych wedi teipio cyfeiriad gwefan, edrychwch i weld os yw'n gywir.",
+  "pastedAddress": "Os ydych wedi pastio'r cyfeiriad gwefan, edrychwch i weld os ydych wedi copio'r cyfeiriad llawn.",
+  "selectedLinkHtml": "Os yw'r cyfeiriad gwefan yn gywir neu rydych wedi dewis dolen neu fotwm, cysylltwch â'r <a class=\"govuk-link\" href=\"https://www.gov.uk/pension-credit/how-to-claim\">llinell gwneud cais am Gredyd Pensiwn</a> os ydych angen siarad â rhywun am eich Credyd Pensiwn.",
+  "northernIreland": {
+    "selectedLinkHtml": "Os yw'r cyfeiriad gwefan yn gywir neu rydych wedi dewis dolen neu fotwm, cysylltwch â'r <a class=\"govuk-link\" href=\"https://www.nidirect.gov.uk/articles/ways-claim-state-pension\">Llinell Gwneud Cais am Gredyd Pensiwn</a> os ydych angen siarad â rhywun am eich Credyd Pensiwn."
+  }
+}
