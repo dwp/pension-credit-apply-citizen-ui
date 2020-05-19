@@ -49,6 +49,7 @@ const submitClaim = (plan, claimServiceFactory) => (req, res, next) => {
   req.claimCompleteData = {
     ownsAdditionalProperty: claim.ownsAdditionalProperty(),
     contactDate: moment().add(4, 'weeks').format('DD MMM YYYY'),
+    isNorthernIrelandClaim: claim.isNorthernIrelandClaim(),
   };
 
   req.log.trace('Calling claim service');
