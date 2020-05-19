@@ -2,10 +2,15 @@ const moment = require('moment');
 const buildClaim = require('../../lib/build-claim.js');
 const buildCya = require('../../definitions/cya/index.js');
 
-const renderPage = (cyaUrl, res, plan, httpTimeout, journeyContext, tplContext) => {
+const renderPage = (cyaUrl, req, res, plan, httpTimeout, journeyContext, tplContext) => {
   res.render('pages/submission/check-your-answers.njk', {
     formButtonText: res.locals.t('check-your-answers:buttonText'),
-    sections: buildCya(res.locals.t, journeyContext, buildClaim(plan, journeyContext), cyaUrl),
+    sections: buildCya(
+      res.locals.t,
+      journeyContext,
+      buildClaim(plan, journeyContext, req.session.language),
+      cyaUrl,
+    ),
     ...tplContext,
     httpTimeout,
   });
@@ -16,7 +21,7 @@ const checkLock = (cyaUrl, plan, httpTimeout) => (req, res, next) => {
   const now = (new Date()).getTime();
   if (req.session.submissionLock && req.session.submissionLock > now) {
     req.log.info(`Submission lock present (expires ${(new Date(req.session.submissionLock)).toISOString()})`);
-    renderPage(cyaUrl, res, plan, httpTimeout, req.casa.journeyContext, {
+    renderPage(cyaUrl, req, res, plan, httpTimeout, req.casa.journeyContext, {
       error: 'check-your-answers:error.submission-locked',
     });
   } else {
@@ -37,7 +42,7 @@ const submitClaim = (plan, claimServiceFactory) => (req, res, next) => {
   req.log.info('Preparing to submit claim');
 
   req.log.info('Building claim object');
-  const claim = buildClaim(plan, req.casa.journeyContext);
+  const claim = buildClaim(plan, req.casa.journeyContext, req.session.language);
 
   req.log.trace('Creating claim service');
   const claimService = claimServiceFactory.create({
@@ -92,7 +97,7 @@ const handleErrors = (cyaUrl, plan, httpTimeout) => (err, req, res, next) => {
   // Clear the lock
   delete req.session.submissionLock;
 
-  renderPage(cyaUrl, res, plan, httpTimeout, req.casa.journeyContext, {
+  renderPage(cyaUrl, req, res, plan, httpTimeout, req.casa.journeyContext, {
     error: 'check-your-answers:error.claim-service-failure',
   });
 };

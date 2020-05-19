@@ -274,4 +274,19 @@ describe('build-claim', () => {
     expect(claim.moneySavingsInvestments).to.not.haveOwnProperty('benefitArrears');
     expect(claim.askedAboutDisregards()).to.be.false;
   });
+
+  it('should set claim language based on session language', () => {
+    const plan = {
+      traverse: sinon.stub().returns([]),
+    };
+
+    let claim = buildClaim(plan, context, 'en');
+    expect(claim).to.have.property('claimLanguage').that.equals('ENGLISH');
+
+    claim = buildClaim(plan, context, 'cy');
+    expect(claim).to.have.property('claimLanguage').that.equals('WELSH');
+
+    claim = buildClaim(plan, context, 'unsupported');
+    expect(claim).to.have.property('claimLanguage').that.equals('ENGLISH');
+  });
 });

@@ -3,7 +3,7 @@ const buildCya = require('../../definitions/cya/index.js');
 
 module.exports = (cyaUrl, plan, httpTimeout) => (req, res) => {
   // Build the claim from which the CYA is constructed
-  const claim = buildClaim(plan, req.casa.journeyContext);
+  const claim = buildClaim(plan, req.casa.journeyContext, req.session.language);
 
   // Render page
   res.render('pages/submission/check-your-answers.njk', {
