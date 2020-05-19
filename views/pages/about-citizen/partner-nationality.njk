@@ -21,7 +21,7 @@
     },
     hint: {
       text: t("partner-nationality:field.partnerRightToReside.hint")
-    },
+    } if not isNorthernIrelandClaim else null,
     items: [{
       value: "yes",
       text: t("partner-nationality:field.partnerRightToReside.options.yes")
