@@ -54,7 +54,7 @@
         },
         "windrush": {
           "label": "Windrush child compensation",
-          "change": "Change <span class=\"govuk-visually-hidden\">whether you hve been paid Windrush child compensation</span>",
+          "change": "Change <span class=\"govuk-visually-hidden\">whether you have been paid Windrush child compensation</span>",
           "cyaYes": "Yes",
           "cyaNo": "No"
         },
@@ -101,14 +101,14 @@
     },
     "homeInsuranceDetails": {
       "label": "Describe the payment from home insurance, the date it was paid and amount",
-      "required": "Enter a description of the payments payment from home insurance, the date it was paid and amount.",
+      "required": "Enter a description of the payment from home insurance, the date it was paid and amount.",
       "length": "Description of the payment from home insurance, the date it was paid and amount must be 500 characters or less.",
       "change": "Change <span class=\"govuk-visually-hidden\">details of payments from a home insurance policy to cover lost or damaged personal possessions</span>"
     },
     "homeRepairsDetails": {
       "label": "Describe the money to buy or make essential repairs to a home, the date you have had it since and amount",
       "required": "Enter a description of the money to buy or make essential repairs to a home, the date you have had it since and amount.",
-      "length": "Description of the payments money to buy or make essential repairs to a home, the date you have had it since and amount must be 500 characters or less.",
+      "length": "Description of the money to buy or make essential repairs to a home, the date you have had it since and amount must be 500 characters or less.",
       "change": "Change <span class=\"govuk-visually-hidden\">details of savings that you intend to use to buy or make essential repairs to your main home</span>"
     },
     "liveIndependentDetails": {
