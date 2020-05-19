@@ -14,7 +14,7 @@ async function getKeyArn(keyAlias) {
     credentials: {
       accessKeyId: AWS_ACCESS_KEY_ID,
       secretAccessKey: AWS_SECRET_ACCESS_KEY,
-    }
+    },
   });
 
   const info = await kms.describeKey({

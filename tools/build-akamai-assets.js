@@ -48,16 +48,12 @@ const maps = {
   [`^${mountUrl}govuk/casa/(.+)$`]: `${casaRoot}/dist/casa/$1`,
 
   // govuk-frontend assets
-  // [`^${mountUrl}govuk/frontend/js/all.js$`]: `${govukRoot}/all.js`,
   [`^${assetPath}/assets/(.+)$`]: `${govukRoot}/assets/$1`,
   [`^${assetPath}/(.+)$`]: `${govukRoot}/assets/$1`,
   [`^${mountUrl}govuk/frontend/assets/(.*)$`]: `${govukRoot}/assets/$1`,
-
-  // // govuk_jinja_template assets
-  // [`^${mountUrl}govuk/frontend/js/govuk-template.js$`]: `${jinjaRoot}/assets/javascripts/govuk-template.js`,
 };
 
-function mapUrlToType(ext) {
+function mapUrlToType(url) {
   if (url.match(/.png$/)) {
     return 'image/png';
   }
@@ -86,38 +82,35 @@ function mapUrlToPath(pathname) {
 
 
 function loadUrlContent(u, base64 = false) {
-  try {
-    const { pathname } = URL.parse(u);
-    const file = mapUrlToPath(pathname);
-    const buffer = Buffer.from(fs.readFileSync(file, { encoding: base64 ? null : 'utf8' }));
-    return buffer.toString(base64 ? 'base64' : 'utf8');
-  } catch (ex) {
-    throw ex;
-  }
+  const { pathname } = URL.parse(u);
+  const file = mapUrlToPath(pathname);
+  const buffer = Buffer.from(fs.readFileSync(file, { encoding: base64 ? null : 'utf8' }));
+  return buffer.toString(base64 ? 'base64' : 'utf8');
 }
 
-function replaceCssUrlsWithBase64(html) {
+function replaceCssUrlsWithBase64(htmlSource) {
+  let htmlContent = htmlSource;
   const replacements = {};
 
   // Replace inline CSS URLs with data URIs
-  const cssUrls = html.matchAll(/url\("(.+?)"\)/g);
+  const cssUrls = htmlContent.matchAll(/url\("(.+?)"\)/g);
   if (cssUrls) {
     [...cssUrls].forEach((u) => {
-      url = u[1].replace('~~~CASA_MOUNT_URL~~~', mountUrl);
+      const url = u[1].replace('~~~CASA_MOUNT_URL~~~', mountUrl);
       const content = loadUrlContent(url, true);
 
       const repl = `repl${Math.round(Math.random() * 10000000)}`;
       replacements[repl] = `data:${mapUrlToType(url)};base64,${content}`;
 
-      html = html.replace(u[1], repl);
+      htmlContent = htmlContent.replace(u[1], repl);
     });
   }
 
   Object.keys(replacements).forEach((k) => {
-    html = html.replace(k, replacements[k]);
+    htmlContent = htmlContent.replace(k, replacements[k]);
   });
 
-  return html;
+  return htmlContent;
 }
 
 /* --------------------------------------------------------------- first pass */
@@ -182,7 +175,7 @@ $('image[src]').get().forEach((link) => {
   const $link = $(link);
   const url = $link.attr('src');
   const content = loadUrlContent(url, true);
-  const markup = $.html(link);
+  // const markup = $.html(link);
 
   const repl = `repl${Math.round(Math.random() * 10000000)}`;
   replacements[repl] = `src="data:image/png;base64,${content}"`;
