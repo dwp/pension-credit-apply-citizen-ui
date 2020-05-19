@@ -6,6 +6,7 @@ const disregardedMoneyValidation = require('../field-validators/money/disregarde
 const jointOrSingleClaim = require('../hooks/common/joint-or-single-claim.js');
 const withDataFromPage = require('../hooks/common/with-data-from-page.js');
 const needToBackdate = require('../hooks/common/need-to-backdate.js');
+const northernIrelandClaim = require('../hooks/common/northern-ireland-claim.js');
 
 module.exports = () => {
   const pages = Object.create(null);
@@ -34,6 +35,9 @@ module.exports = () => {
     fieldValidators: disregardedMoneyValidation,
     fieldGatherModifiers: {
       disregardedMoney: checkboxesModifier,
+    },
+    hooks: {
+      prerender: northernIrelandClaim(waypoints),
     },
   };
 

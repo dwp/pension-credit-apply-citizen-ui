@@ -82,5 +82,10 @@
   "partnerSponsorAddress": {
     "label": "Your partner’s sponsor’s address",
     "change": "Change <span class=\"govuk-visually-hidden\">your partner’s sponsor’s address</span>"
+  },
+  "northernIreland": {
+    "councilTaxReductionDetails": {
+      "label": "Details of payments related to Rate Relief"
+    }
   }
 }

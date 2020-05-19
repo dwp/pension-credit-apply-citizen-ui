@@ -1,4 +1,5 @@
 const { validationRules: r, simpleFieldValidation: sf } = require('@dwp/govuk-casa');
+const northernIrelandErrorMsg = require('../../../utils/northern-ireland-error-message.js');
 
 // Validation is conditional on whether the associated checkbox was checked
 const ifPaymentsInclude = (payment) => ({ journeyContext: c, waypointId }) => {
@@ -22,11 +23,11 @@ const fieldValidators = Object.assign(Object.create(null), {
   ], ifPaymentsInclude('officialError')),
   councilTaxReductionDetails: sf([
     r.required.bind({
-      errorMsg: 'disregarded-money:field.councilTaxReductionDetails.required',
+      errorMsg: northernIrelandErrorMsg('disregarded-money:field.councilTaxReductionDetails.required'),
     }),
     r.strlen.bind({
       max: 500,
-      errorMsgMax: 'disregarded-money:field.councilTaxReductionDetails.length',
+      errorMsgMax: northernIrelandErrorMsg('disregarded-money:field.councilTaxReductionDetails.length'),
     }),
   ], ifPaymentsInclude('councilTaxReduction')),
   armedForcesDetails: sf([

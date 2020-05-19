@@ -159,5 +159,23 @@
       "length": "Description of the payment to support you with the effects of a blood infection or vCJD must be 500 characters or less.",
       "change": "Change <span class=\"govuk-visually-hidden\">details of payments to support you with the effects of a blood infection or vCJD</span>"
     }
+  },
+  "northernIreland": {
+    "field": {
+      "disregardedMoney": {
+        "options": {
+          "councilTaxReduction": {
+            "label": "Payments related to Rate Relief",
+            "change": "Change <span class=\"govuk-visually-hidden\">whether you have had any payments related to Rate Relief</span>"
+          }
+        }
+      },
+      "councilTaxReductionDetails": {
+        "label": "Describe the payment related to Rate Relief, the date it was paid and amount",
+        "required": "Enter a description of the payment related to Rate Relief, the date it was paid and amount.",
+        "length": "Description of the payment related to Rate Relief, the date it was paid and amount must be 500 characters or less.",
+        "change": "Change <span class=\"govuk-visually-hidden\">details of payments related to Rate Relief</span>"
+      }
+    }
   }
 }

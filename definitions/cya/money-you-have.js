@@ -12,6 +12,7 @@ module.exports = (t, context, claim, cyaUrl) => {
 
   const { dateOfClaim } = context.getDataForPage(WP.DATE_OF_CLAIM) || {};
   const formattedDateOfClaim = dateOfClaim && formatDateObject(dateOfClaim);
+  const northernIreland = claim.isNorthernIrelandClaim() ? 'northernIreland.' : '';
 
   const row = rowFactory(cyaUrl);
   const rov = radioOptionValue(t, context);
@@ -71,16 +72,16 @@ module.exports = (t, context, claim, cyaUrl) => {
     // Payments related to Council Tax Reduction
     row({
       changeHref: `${WP.DISREGARDED_MONEY}#f-disregardedMoney-2`,
-      changeHtml: t('disregarded-money:field.disregardedMoney.options.councilTaxReduction.change'),
-      key: t('disregarded-money:field.disregardedMoney.options.councilTaxReduction.label'),
+      changeHtml: t(`disregarded-money:${northernIreland}field.disregardedMoney.options.councilTaxReduction.change`),
+      key: t(`disregarded-money:${northernIreland}field.disregardedMoney.options.councilTaxReduction.label`),
       value: isCheckedYesNo(claim.moneySavingsInvestments.councilTaxArrears, 'councilTaxReduction'),
     }),
 
     // Details of payments related to Council Tax Reduction
     claim.moneySavingsInvestments.councilTaxArrears && row({
       changeHref: `${WP.DISREGARDED_MONEY}#f-councilTaxReductionDetails`,
-      changeHtml: t('disregarded-money:field.councilTaxReductionDetails.change'),
-      key: t('check-your-answers:councilTaxReductionDetails.label'),
+      changeHtml: t(`disregarded-money:${northernIreland}field.councilTaxReductionDetails.change`),
+      key: t(`check-your-answers:${northernIreland}councilTaxReductionDetails.label`),
       valueHtml: safeNl2br(claim.moneySavingsInvestments.councilTaxArrearsDetails),
     }),
 
@@ -90,7 +91,7 @@ module.exports = (t, context, claim, cyaUrl) => {
       changeHref: `${WP.DISREGARDED_MONEY}#f-disregardedMoney-3`,
       changeHtml: t('disregarded-money:field.disregardedMoney.options.armedForces.change'),
       key: t('disregarded-money:field.disregardedMoney.options.armedForces.label'),
-      value: isCheckedYesNo(claim.moneySavingsInvestments.councilTaxArrears, 'armedForces'),
+      value: isCheckedYesNo(claim.moneySavingsInvestments.secondWorldWar, 'armedForces'),
     }),
 
     // Details of compensation payments related to the second world war or

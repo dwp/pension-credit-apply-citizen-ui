@@ -29,7 +29,7 @@
       casaErrors: formErrors,
       label: {
         classes: "govuk-label--s",
-        text: t("disregarded-money:field.councilTaxReductionDetails.label")
+        text: t("disregarded-money:" + northernIrelandPrefix + "field.councilTaxReductionDetails.label")
       }
     }) }}
   {% endset -%}
@@ -225,7 +225,7 @@
       }
     }, {
       value: "councilTaxReduction",
-      text: t("disregarded-money:field.disregardedMoney.options.councilTaxReduction.label"),
+      text: t("disregarded-money:" + northernIrelandPrefix + "field.disregardedMoney.options.councilTaxReduction.label"),
       conditional: {
         html: councilTaxReductionDetails
       }
