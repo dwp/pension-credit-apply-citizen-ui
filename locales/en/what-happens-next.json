@@ -21,7 +21,7 @@
     },
     "carersAllowance": {
       "heading": "Carer’s Allowance",
-      "paraHtml": "You might be able to claim <a href=\"https://www.gov.uk/carers-allowance\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"govuk-link\">Carer’s Allowance (Opens in a new window or tab)</a> if you care for someone for 35 hours or more a week."
+      "paraHtml": "You might be able to claim <a href=\"https://www.gov.uk/carers-allowance\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"govuk-link\">Carer’s Allowance (opens in a new window or tab)</a> if you care for someone for 35 hours or more a week."
     },
     "survey": {
       "heading": "Help us improve Pension Credit",
@@ -36,6 +36,9 @@
       "councilTaxReduction": {
         "heading": "Rate Relief",
         "para": "If your application is successful, you might be able to claim Rate Relief. You should contact your local authority to apply."
+      },
+      "carersAllowance": {
+        "paraHtml": "You might be able to claim <a href=\"https://www.nidirect.gov.uk/articles/carers-allowance\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"govuk-link\">Carer’s Allowance (opens in a new window or tab)</a> if you care for someone for 35 hours or more a week."
       }
     }
   }
