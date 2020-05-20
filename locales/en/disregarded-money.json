@@ -73,9 +73,9 @@
       "change": "Change <span class=\"govuk-visually-hidden\">details of benefit arrears, correction or compensation payments</span>"
     },
     "councilTaxReductionDetails": {
-      "label": "Describe the payment related to Council Tax Reduction, the date it was paid and amount",
-      "required": "Enter a description of the payment related to Council Tax Reduction, the date it was paid and amount.",
-      "length": "Description of the payment related to Council Tax Reduction, the date it was paid and amount must be 500 characters or less.",
+      "label": "Describe the payment related to Council Tax Reduction, the date it was paid and the amount",
+      "required": "Enter a description of the payment related to Council Tax Reduction, the date it was paid and the amount.",
+      "length": "Description of the payment related to Council Tax Reduction, the date it was paid and the amount must be 500 characters or less.",
       "change": "Change <span class=\"govuk-visually-hidden\">details of payments related to Council Tax Reduction</span>"
     },
     "armedForcesDetails": {
@@ -94,15 +94,15 @@
       "change": "Change <span class=\"govuk-visually-hidden\">details of compensation payments related to the second world war or service in the armed forces</span>"
     },
     "personalInjuryDetails": {
-      "label": "Describe this personal injury payment, the date it was paid and amount",
-      "required": "Enter a description of this personal injury payment, the date it was paid and amount.",
-      "length": "Description of this personal injury payment, the date it was paid and amount must be 500 characters or less.",
+      "label": "Describe this personal injury payment, the date it was paid and the amount",
+      "required": "Enter a description of this personal injury payment, the date it was paid and the amount.",
+      "length": "Description of this personal injury payment, the date it was paid and the amount must be 500 characters or less.",
       "change": "Change <span class=\"govuk-visually-hidden\">details of personal injury claim payments</span>"
     },
     "homeInsuranceDetails": {
-      "label": "Describe the payment from home insurance, the date it was paid and amount",
-      "required": "Enter a description of the payment from home insurance, the date it was paid and amount.",
-      "length": "Description of the payment from home insurance, the date it was paid and amount must be 500 characters or less.",
+      "label": "Describe the payment from home insurance, the date it was paid and the amount",
+      "required": "Enter a description of the payment from home insurance, the date it was paid and the amount.",
+      "length": "Description of the payment from home insurance, the date it was paid and the amount must be 500 characters or less.",
       "change": "Change <span class=\"govuk-visually-hidden\">details of payments from a home insurance policy to cover lost or damaged personal possessions</span>"
     },
     "homeRepairsDetails": {
@@ -124,7 +124,7 @@
       "change": "Change <span class=\"govuk-visually-hidden\">details of payments to help you live independently in your own home or the community</span>"
     },
     "incidentDetails": {
-      "label": "Describe the payment to help you after an incident or emergency, the date it was paid and amount",
+      "label": "Describe the payment to help you after an incident or emergency, the date it was paid and the amount",
       "hint": {
         "thisIncludes": "This includes payments from:",
         "nationalEmergenciesTrust": "The National Emergencies Trust",
@@ -134,18 +134,18 @@
         "rugbyPortobello": "The Rugby Portobello Trust",
         "grenfell": "Grenfell Tower Residents’ Discretionary Fund"
       },
-      "required": "Enter a description of the payment to help you after an incident or emergency, the date it was paid and amount.",
-      "length": "Description of the payment to help you after an incident or emergency, the date it was paid and amount must be 500 characters or less.",
+      "required": "Enter a description of the payment to help you after an incident or emergency, the date it was paid and the amount.",
+      "length": "Description of the payment to help you after an incident or emergency, the date it was paid and the amount must be 500 characters or less.",
       "change": "Change <span class=\"govuk-visually-hidden\">details of payments to help you if you have been involved in an incident or emergency</span>"
     },
     "windrushDetails": {
-      "label": "Describe the Windrush child compensation payment, the date it was paid and amount",
-      "required": "Enter a description of Windrush child compensation payment, the date it was paid and amount.",
-      "length": "Description of the Windrush child compensation payment, the date it was paid and amount must be 500 characters or less.",
+      "label": "Describe the Windrush child compensation payment, the date it was paid and the amount",
+      "required": "Enter a description of Windrush child compensation payment, the date it was paid and the amount.",
+      "length": "Description of the Windrush child compensation payment, the date it was paid and the amount must be 500 characters or less.",
       "change": "Change <span class=\"govuk-visually-hidden\">details of Windrush child compensation</span>"
     },
     "bloodDetails": {
-      "label": "Describe the payment to support you with the effects of a blood infection or vCJD, the date it was paid and amount",
+      "label": "Describe the payment to support you with the effects of a blood infection or vCJD, the date it was paid and the amount",
       "hint": {
         "thisIncludes": "This includes payments from:",
         "mcFarlaneTrust": "The McFarlane Trust",
@@ -171,9 +171,9 @@
         }
       },
       "councilTaxReductionDetails": {
-        "label": "Describe the payment related to Rate Relief, the date it was paid and amount",
-        "required": "Enter a description of the payment related to Rate Relief, the date it was paid and amount.",
-        "length": "Description of the payment related to Rate Relief, the date it was paid and amount must be 500 characters or less.",
+        "label": "Describe the payment related to Rate Relief, the date it was paid and the amount",
+        "required": "Enter a description of the payment related to Rate Relief, the date it was paid and the amount.",
+        "length": "Description of the payment related to Rate Relief, the date it was paid and the amount must be 500 characters or less.",
         "change": "Change <span class=\"govuk-visually-hidden\">details of payments related to Rate Relief</span>"
       }
     }
