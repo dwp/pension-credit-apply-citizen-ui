@@ -191,3 +191,15 @@ npm run graphviz
 ```
 
 This will generate a `graphviz/graph.png` image.
+
+## Translations
+
+All translations are held in `locales/<language-code>`; currently supporting `en` (English) and `cy` (Welsh).
+
+Primarily we will make changes to the English version first, and then pass on all changes to our translator colleagues. Once all English changes are made, use the `tools/locale-diff.js` script to generate a ZIP file that can be passed to translators. This contains a "before" and "after" snapshot of each dictionary file that has been modified between any two points in time. E.g
+
+```bash
+node ./tools/locale-diff.js --from 0.3.2 --to HEAD --output diff.zip
+```
+
+This will generate a `diff.zip` file containing info about all changes between the commits, `0.3.2` and `HEAD`. You can use any commit-ish reference.
