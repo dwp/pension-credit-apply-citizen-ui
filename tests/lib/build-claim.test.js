@@ -61,6 +61,30 @@ describe('build-claim', () => {
     buildClaim(plan, context);
   });
 
+  it('should include claimant nationality information', () => {
+    const plan = {
+      traverse: sinon.stub().returns([]),
+    };
+
+    stubData[WP.YOUR_NATIONALITY] = {
+      rightToReside: 'yes',
+      lived2Years: 'yes',
+    };
+
+    const claim1 = buildClaim(plan, context);
+    expect(claim1.claimant).to.haveOwnProperty('rightToWorkUk').that.equals(true);
+    expect(claim1.claimant).to.haveOwnProperty('permanentResidency').that.equals(true);
+
+    stubData[WP.YOUR_NATIONALITY] = {
+      rightToReside: 'no',
+      lived2Years: 'no',
+    };
+
+    const claim2 = buildClaim(plan, context);
+    expect(claim2.claimant).to.haveOwnProperty('rightToWorkUk').that.equals(false);
+    expect(claim2.claimant).to.haveOwnProperty('permanentResidency').that.equals(false);
+  });
+
   it('should sanitise nino', () => {
     stubData[WP.CLAIMANT_DETAILS] = {
       nino: 'rn 00 10 01 a',
