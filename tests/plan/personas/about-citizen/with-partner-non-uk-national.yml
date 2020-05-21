@@ -8,8 +8,7 @@ journey:
     nino: "RN001001A"
     contactTelephone: 1234567890
     "registeredBlindNo": click()
-    "canSpeakEnglishYes": click()
-    "speakInWelshNo": click()
+    "preferredLanguageEnglish": click()
     "helpWithLettersPhoneNo": click()
 
   partner-details:

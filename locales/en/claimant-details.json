@@ -46,29 +46,21 @@
       },
       "change": "Change <span class=\"govuk-visually-hidden\">whether you are registered blind or severely sight impaired</span>"
     },
-    "canSpeakEnglish": {
-      "legend": "Are you able to speak to us in English?",
-      "required": "Select yes if you are able to speak to us in English.",
+    "preferredLanguage": {
+      "legend": "What language do you want us to speak to you in?",
+      "required": "Select the language that you want us to speak to you in.",
       "options": {
-        "yes": "Yes",
-        "no": "No"
+        "english": "English",
+        "welsh": "Welsh",
+        "other": "Other"
       },
-      "change": "Change <span class=\"govuk-visually-hidden\">whether you are able to speak to us in English</span>"
+      "change": "Change <span class=\"govuk-visually-hidden\">what language you want us to speak to you in</span>"
     },
-    "firstLanguage": {
-      "label": "What is your first language?",
-      "required": "Enter your first language.",
-      "length": "Language must be 500 characters or less.",
-      "change": "Change <span class=\"govuk-visually-hidden\">your first language</span>"
-    },
-    "speakInWelsh": {
-      "legend": "If you live in Wales, do you want to speak to us in Welsh?",
-      "required": "Select yes if you want to speak to us in Welsh.",
-      "options": {
-        "yes": "Yes",
-        "no": "No"
-      },
-      "change": "Change <span class=\"govuk-visually-hidden\">whether you want to speak to us in Welsh</span>"
+    "preferredLanguageOther": {
+      "label": "What language do you want us to use?",
+      "required": "Enter the language that you want us to use.",
+      "length": "Enter the language that you want us to use in 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">what language you want us to use</span>"
     },
     "helpWithLettersPhone": {
       "legend": "Do you need help with letters or phone calls?",

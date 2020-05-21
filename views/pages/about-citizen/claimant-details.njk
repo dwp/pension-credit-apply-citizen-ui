@@ -111,59 +111,42 @@
     casaErrors: formErrors
   }) }}
 
-  {% set firstLanguage %}
+  {% set preferredLanguageOther %}
     {{ casaGovukInput({
-      name: "firstLanguage",
+      name: "preferredLanguageOther",
       classes: "govuk-input--width-20",
       label: {
-        text: t("claimant-details:field.firstLanguage.label"),
+        text: t("claimant-details:field.preferredLanguageOther.label"),
         classes: "govuk-label--m"
       },
-      value: formData.firstLanguage,
+      value: formData.preferredLanguageOther,
       casaErrors: formErrors
     }) }}
   {% endset %}
 
   {{ casaGovukRadios({
-    name: "canSpeakEnglish",
+    name: "preferredLanguage",
     fieldset: {
       legend: {
-        text: t("claimant-details:field.canSpeakEnglish.legend"),
+        text: t("claimant-details:field.preferredLanguage.legend"),
         classes: "govuk-fieldset__legend--m"
       }
     },
     items: [{
-      value: "yes",
-      text: t("claimant-details:field.canSpeakEnglish.options.yes")
+      value: "english",
+      text: t("claimant-details:field.preferredLanguage.options.english")
     }, {
-      value: "no",
-      text: t("claimant-details:field.canSpeakEnglish.options.no"),
+      value: "welsh",
+      text: t("claimant-details:field.preferredLanguage.options.welsh")
+    }, {
+      value: "other",
+      text: t("claimant-details:field.preferredLanguage.options.other"),
       conditional: {
-        html: firstLanguage
+        html: preferredLanguageOther
       }
     }],
     casaWithAnalytics: true,
-    casaValue: formData.canSpeakEnglish,
-    casaErrors: formErrors
-  }) }}
-
-  {{ casaGovukRadios({
-    name: "speakInWelsh",
-    fieldset: {
-      legend: {
-        text: t("claimant-details:field.speakInWelsh.legend"),
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
-    items: [{
-      value: "yes",
-      text: t("claimant-details:field.speakInWelsh.options.yes")
-    }, {
-      value: "no",
-      text: t("claimant-details:field.speakInWelsh.options.no")
-    }],
-    casaWithAnalytics: true,
-    casaValue: formData.speakInWelsh,
+    casaValue: formData.preferredLanguage,
     casaErrors: formErrors
   }) }}
 

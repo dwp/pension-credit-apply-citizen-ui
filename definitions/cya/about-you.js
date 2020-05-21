@@ -14,6 +14,7 @@ module.exports = (t, context, claim, cyaUrl) => {
   const row = rowFactory(cyaUrl);
   const rov = radioOptionValue(t, context);
   const cbv = checkboxOptionValues(t, context);
+  const preferredLanguageChoice = context.getDataForPage(WP.CLAIMANT_DETAILS).preferredLanguage;
 
   return {
     heading: t('check-your-answers:sectionHeading.about-you'),
@@ -129,28 +130,20 @@ module.exports = (t, context, claim, cyaUrl) => {
         value: rov('claimant-details.registeredBlind', 'claimant-details:field.registeredBlind.options'),
       }),
 
-      // Are you able to speak to us in English?
+      // What language do you want us to speak to you in?
       row({
-        changeHref: `${WP.CLAIMANT_DETAILS}#f-canSpeakEnglish`,
-        changeHtml: t('claimant-details:field.canSpeakEnglish.change'),
-        key: t('claimant-details:field.canSpeakEnglish.legend'),
-        value: rov('claimant-details.canSpeakEnglish', 'claimant-details:field.canSpeakEnglish.options'),
+        changeHref: `${WP.CLAIMANT_DETAILS}#f-preferredLanguage`,
+        changeHtml: t('claimant-details:field.preferredLanguage.change'),
+        key: t('claimant-details:field.preferredLanguage.legend'),
+        value: rov('claimant-details.preferredLanguage', 'claimant-details:field.preferredLanguage.options'),
       }),
 
-      // What is your first language?
-      claim.claimant.ableToSpeakEnglish ? undefined : row({
-        changeHref: `${WP.CLAIMANT_DETAILS}#f-firstLanguage`,
-        changeHtml: t('claimant-details:field.firstLanguage.change'),
-        key: t('claimant-details:field.firstLanguage.label'),
-        value: context.data['claimant-details'].firstLanguage,
-      }),
-
-      // If you live in Wales, do you want to speak to us in Welsh?
-      row({
-        changeHref: `${WP.CLAIMANT_DETAILS}#f-speakInWelsh`,
-        changeHtml: t('claimant-details:field.speakInWelsh.change'),
-        key: t('claimant-details:field.speakInWelsh.legend'),
-        value: rov('claimant-details.speakInWelsh', 'claimant-details:field.speakInWelsh.options'),
+      // What language do you want us to use?
+      preferredLanguageChoice !== 'other' ? undefined : row({
+        changeHref: `${WP.CLAIMANT_DETAILS}#f-preferredLanguageOther`,
+        changeHtml: t('claimant-details:field.preferredLanguageOther.change'),
+        key: t('claimant-details:field.preferredLanguageOther.label'),
+        value: context.data['claimant-details'].preferredLanguageOther,
       }),
 
       // Do you need help with letters or phone calls?

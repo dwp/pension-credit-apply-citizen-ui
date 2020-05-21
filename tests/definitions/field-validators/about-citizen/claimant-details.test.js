@@ -157,88 +157,70 @@ describe('Validators: claimant-details', () => {
     });
   });
 
-  describe('field: canSpeakEnglish', () => {
+  describe('field: preferredLanguage', () => {
     it('should fail "required" validator if no value is provided', async () => {
-      await expectValidatorToFail(validators, 'canSpeakEnglish', 'required', null, {
-        summary: 'claimant-details:field.canSpeakEnglish.required',
+      await expectValidatorToFail(validators, 'preferredLanguage', 'required', null, {
+        summary: 'claimant-details:field.preferredLanguage.required',
       });
     });
 
     it('should pass "required" validator if a non-empty value is provided', async () => {
-      await expectValidatorToPass(validators, 'canSpeakEnglish', 'required', { canSpeakEnglish: 'test-value' });
+      await expectValidatorToPass(validators, 'preferredLanguage', 'required', { preferredLanguage: 'test-value' });
     });
 
     it('should fail "inArray" validator if value is not one of the valid options', async () => {
-      await expectValidatorToFail(validators, 'canSpeakEnglish', 'inArray', { canSpeakEnglish: 'bad-value' }, {
-        summary: 'claimant-details:field.canSpeakEnglish.required',
+      await expectValidatorToFail(validators, 'preferredLanguage', 'inArray', { preferredLanguage: 'bad-value' }, {
+        summary: 'claimant-details:field.preferredLanguage.required',
       });
     });
 
-    it('should pass "inArray" validator if value is yes', async () => {
-      await expectValidatorToPass(validators, 'canSpeakEnglish', 'inArray', { canSpeakEnglish: 'yes' });
+    it('should pass "inArray" validator if value is english', async () => {
+      await expectValidatorToPass(validators, 'preferredLanguage', 'inArray', { preferredLanguage: 'english' });
     });
 
-    it('should pass "inArray" validator if value is no', async () => {
-      await expectValidatorToPass(validators, 'canSpeakEnglish', 'inArray', { canSpeakEnglish: 'no' });
+    it('should pass "inArray" validator if value is welsh', async () => {
+      await expectValidatorToPass(validators, 'preferredLanguage', 'inArray', { preferredLanguage: 'welsh' });
+    });
+
+    it('should pass "inArray" validator if value is other', async () => {
+      await expectValidatorToPass(validators, 'preferredLanguage', 'inArray', { preferredLanguage: 'other' });
     });
   });
 
-  describe('field: firstLanguage', () => {
-    it('should pass "required" validator if no value is provided and canSpeakEnglish is "yes"', async () => {
-      await expectValidatorToPass(validators, 'firstLanguage', 'required', { canSpeakEnglish: 'yes' });
+  describe('field: preferredLanguageOther', () => {
+    it('should pass "required" validator if no value is provided and preferredLanguage is "english"', async () => {
+      await expectValidatorToPass(validators, 'preferredLanguageOther', 'required', { preferredLanguage: 'english' });
     });
 
-    it('should fail "required" validator if no value is provided and canSpeakEnglish is "no"', async () => {
-      await expectValidatorToFail(validators, 'firstLanguage', 'required', { canSpeakEnglish: 'no' }, {
-        summary: 'claimant-details:field.firstLanguage.required',
+    it('should pass "required" validator if no value is provided and preferredLanguage is "welsh"', async () => {
+      await expectValidatorToPass(validators, 'preferredLanguageOther', 'required', { preferredLanguage: 'english' });
+    });
+
+    it('should fail "required" validator if no value is provided and preferredLanguage is "other"', async () => {
+      await expectValidatorToFail(validators, 'preferredLanguageOther', 'required', { preferredLanguage: 'other' }, {
+        summary: 'claimant-details:field.preferredLanguageOther.required',
       });
     });
 
-    it('should pass "required" validator if a non-empty value is provided and canSpeakEnglish is "no"', async () => {
-      await expectValidatorToPass(validators, 'firstLanguage', 'required', { canSpeakEnglish: 'no', firstLanguage: 'Welsh' });
+    it('should pass "required" validator if a non-empty value is provided and preferredLanguage is "other"', async () => {
+      await expectValidatorToPass(validators, 'preferredLanguageOther', 'required', { preferredLanguage: 'other', preferredLanguageOther: 'Finnish' });
     });
 
-    it('should pass "strlen" validator if string length > 500 and canSpeakEnglish is "yes"', async () => {
+    it('should pass "strlen" validator if string length > 500 and preferredLanguage is "english"', async () => {
       const longString = Array(502).join('x');
-      await expectValidatorToPass(validators, 'firstLanguage', 'required', { canSpeakEnglish: 'yes', firstLanguage: longString });
+      await expectValidatorToPass(validators, 'preferredLanguageOther', 'required', { preferredLanguage: 'english', preferredLanguageOther: longString });
     });
 
-    it('should fail "strlen" validator if string length > 500 and canSpeakEnglish is "no"', async () => {
+    it('should fail "strlen" validator if string length > 500 and preferredLanguage is "other"', async () => {
       const longString = Array(502).join('x');
-      await expectValidatorToFail(validators, 'firstLanguage', 'strlen', { canSpeakEnglish: 'no', firstLanguage: longString }, {
-        summary: 'claimant-details:field.firstLanguage.length',
+      await expectValidatorToFail(validators, 'preferredLanguageOther', 'strlen', { preferredLanguage: 'other', preferredLanguageOther: longString }, {
+        summary: 'claimant-details:field.preferredLanguageOther.length',
       });
     });
 
-    it('should pass "strlen" validator if string length <= 500 and canSpeakEnglish is "no"', async () => {
+    it('should pass "strlen" validator if string length <= 500 and preferredLanguage is "other"', async () => {
       const longString = Array(501).join('x');
-      await expectValidatorToPass(validators, 'firstLanguage', 'strlen', { canSpeakEnglish: 'no', firstLanguage: longString });
-    });
-  });
-
-  describe('field: speakInWelsh', () => {
-    it('should fail "required" validator if no value is provided', async () => {
-      await expectValidatorToFail(validators, 'speakInWelsh', 'required', null, {
-        summary: 'claimant-details:field.speakInWelsh.required',
-      });
-    });
-
-    it('should pass "required" validator if a non-empty value is provided', async () => {
-      await expectValidatorToPass(validators, 'speakInWelsh', 'required', { speakInWelsh: 'test-value' });
-    });
-
-    it('should fail "inArray" validator if value is not one of the valid options', async () => {
-      await expectValidatorToFail(validators, 'speakInWelsh', 'inArray', { speakInWelsh: 'bad-value' }, {
-        summary: 'claimant-details:field.speakInWelsh.required',
-      });
-    });
-
-    it('should pass "inArray" validator if value is yes', async () => {
-      await expectValidatorToPass(validators, 'speakInWelsh', 'inArray', { speakInWelsh: 'yes' });
-    });
-
-    it('should pass "inArray" validator if value is no', async () => {
-      await expectValidatorToPass(validators, 'speakInWelsh', 'inArray', { speakInWelsh: 'no' });
+      await expectValidatorToPass(validators, 'preferredLanguageOther', 'strlen', { preferredLanguage: 'other', preferredLanguageOther: longString });
     });
   });
 

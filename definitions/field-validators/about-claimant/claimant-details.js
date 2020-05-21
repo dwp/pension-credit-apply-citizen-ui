@@ -58,35 +58,26 @@ const fieldValidators = Object.assign(Object.create(null), {
       errorMsg: 'claimant-details:field.registeredBlind.required',
     }),
   ]),
-  canSpeakEnglish: sf([
+  preferredLanguage: sf([
     r.required.bind({
-      errorMsg: 'claimant-details:field.canSpeakEnglish.required',
+      errorMsg: 'claimant-details:field.preferredLanguage.required',
     }),
     r.inArray.bind({
-      source: ['yes', 'no'],
-      errorMsg: 'claimant-details:field.canSpeakEnglish.required',
+      source: ['english', 'welsh', 'other'],
+      errorMsg: 'claimant-details:field.preferredLanguage.required',
     }),
   ]),
-  firstLanguage: sf([
+  preferredLanguageOther: sf([
     r.required.bind({
-      errorMsg: 'claimant-details:field.firstLanguage.required',
+      errorMsg: 'claimant-details:field.preferredLanguageOther.required',
     }),
     r.strlen.bind({
       max: 500,
-      errorMsgMax: 'claimant-details:field.firstLanguage.length',
+      errorMsgMax: 'claimant-details:field.preferredLanguageOther.length',
     }),
   ], ({ journeyContext: c, waypointId: w }) => (
-    (c.getDataForPage(w) || {}).canSpeakEnglish === 'no'
+    (c.getDataForPage(w) || {}).preferredLanguage === 'other'
   )),
-  speakInWelsh: sf([
-    r.required.bind({
-      errorMsg: 'claimant-details:field.speakInWelsh.required',
-    }),
-    r.inArray.bind({
-      source: ['yes', 'no'],
-      errorMsg: 'claimant-details:field.speakInWelsh.required',
-    }),
-  ]),
   helpWithLettersPhone: sf([
     r.required.bind({
       errorMsg: 'claimant-details:field.helpWithLettersPhone.required',
