@@ -79,7 +79,7 @@
       "change": "Change <span class=\"govuk-visually-hidden\">details of payments related to Council Tax Reduction</span>"
     },
     "armedForcesDetails": {
-      "label": "Describe the compensation payments related to the second world war or service in the armed forces, the date they were paid and amount",
+      "label": "Describe the compensation payments related to the second world war or service in the armed forces, the date they were paid and the amount",
       "hint": {
         "thisIncludes": "This includes:",
         "payments": "Payments (other than War Disablement Pension or War Widow(er)’s Pension) to compensate for the fact that during the second world war you:",
@@ -106,13 +106,13 @@
       "change": "Change <span class=\"govuk-visually-hidden\">details of payments from a home insurance policy to cover lost or damaged personal possessions</span>"
     },
     "homeRepairsDetails": {
-      "label": "Describe the money to buy or make essential repairs to a home, the date you have had it since and amount",
+      "label": "Describe the money to buy or make essential repairs to a home, the date you have had it since and the amount",
       "required": "Enter a description of the money to buy or make essential repairs to a home, the date you have had it since and amount.",
       "length": "Description of the money to buy or make essential repairs to a home, the date you have had it since and amount must be 500 characters or less.",
       "change": "Change <span class=\"govuk-visually-hidden\">details of savings that you intend to use to buy or make essential repairs to your main home</span>"
     },
     "liveIndependentDetails": {
-      "label": "Describe the payments to help you live independently, the date they were paid and amount",
+      "label": "Describe the payments to help you live independently, the date they were paid and the amount",
       "hint": {
         "thisIncludes": "This includes:",
         "independentLivingFund": "payments from The Independent Living Fund",
