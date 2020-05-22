@@ -140,8 +140,8 @@ module.exports = (t, context, claim, cyaUrl) => {
         changeHref: sponsorAddress.addressFrom === 'select'
           ? `${WP.HRT_PARTNER_SPONSOR_ADDRESS_SELECT}#f-uprn`
           : `${WP.HRT_PARTNER_SPONSOR_ADDRESS_MANUAL}#f-addressLine1`,
-        changeHtml: t('check-your-answers:sponsorAddress.change'),
-        key: t('check-your-answers:sponsorAddress.label'),
+        changeHtml: t('check-your-answers:partnerSponsorAddress.change'),
+        key: t('check-your-answers:partnerSponsorAddress.label'),
         valueHtml: formatAddress(sponsorAddress.address),
       }),
     ];

@@ -16,7 +16,7 @@
         "yes": "Yes",
         "no": "No"
       },
-      "change": "Change <span class=\"govuk-visually-hidden\">whether your partner first appled for asylum before 3 April 2000</span>"
+      "change": "Change <span class=\"govuk-visually-hidden\">whether your partner first applied for asylum before 3 April 2000</span>"
     },
     "partnerSuccessfulDecision": {
       "legend": "Has your partner recently had a successful decision on their asylum application?",
