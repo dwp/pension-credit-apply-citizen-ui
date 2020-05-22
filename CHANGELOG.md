@@ -1,3 +1,46 @@
+# [0.4.0](https://github.com/dwp/pension-credit-citizen-apply/compare/0.3.2...0.4.0) (2020-05-22)
+
+
+### Bug Fixes
+
+* heading on partner sponsor address manual entry was incorrect ([e9eea9b](https://github.com/dwp/pension-credit-citizen-apply/commit/e9eea9b3864f8f6bd681542b7776963c5057a523))
+* make sure claimant nationality info is sent to the backend ([1c0b43e](https://github.com/dwp/pension-credit-citizen-apply/commit/1c0b43ee6f2ad8d60815bf7e9a18c3d53bd8379c))
+* send countryOfResidence in correct namespace ([9d05a94](https://github.com/dwp/pension-credit-citizen-apply/commit/9d05a94f0455218850b372480eaf97b468b6935a))
+* use correct carers allowance link for NI context ([a9c70b3](https://github.com/dwp/pension-credit-citizen-apply/commit/a9c70b3cb21077c982ad67c639a4ec9c656a0012))
+
+
+### Code Refactoring
+
+* [bc] ask the customer which country they live in ([1a63c4b](https://github.com/dwp/pension-credit-citizen-apply/commit/1a63c4b8c4e3b7198206f5e36ff9b7c90b42b01f))
+* [bc] show different content for NI on council tax/rates pages ([179a91c](https://github.com/dwp/pension-credit-citizen-apply/commit/179a91c9c7f23aae54ad402c6877305da5290fae))
+
+
+### Features
+
+* add claim language to built claim ([5b7a9a1](https://github.com/dwp/pension-credit-citizen-apply/commit/5b7a9a15668d0f4d68d33f7cea0fc03364bc2173))
+* add Welsh translations ([c4b7400](https://github.com/dwp/pension-credit-citizen-apply/commit/c4b7400156c2860fa880e3d98c789fad76d1cd61))
+* loosen up money validation and update error messages to match ([76dd604](https://github.com/dwp/pension-credit-citizen-apply/commit/76dd604ba1a91107cd6e52f644d045cfdd9d3e51))
+* make content across all address look up links  the same ([1ed2c1c](https://github.com/dwp/pension-credit-citizen-apply/commit/1ed2c1c62e0244d7d27853d9d80d716c9f1c2a6d))
+* remove cancel link from forms while in edit mode ([195651b](https://github.com/dwp/pension-credit-citizen-apply/commit/195651b77453785cb05d199b242d685030068c97))
+* tool to generate before/after locale dictionary snapshots ([50d2698](https://github.com/dwp/pension-credit-citizen-apply/commit/50d2698d376db2879ea476c3d4cb00d7cc5b4f87))
+
+
+### BREAKING CHANGES
+
+* the url has changed from `rent-council-tax` to
+`rent-council-tax-rates`, which will break an journeys that are
+in-progress.
+
+Resolves AFPC-282
+* the url live-england-scotland-wales has been replaced
+with country-you-live-in, and move to the start of the journey. Any
+in-progress journeys will fail to traverse correctly, so must be
+completed before deployment.
+
+Resolves AFPC-280
+
+
+
 ## [0.3.2](https://github.com/dwp/pension-credit-citizen-apply/compare/0.3.1...0.3.2) (2020-05-12)
 
 
