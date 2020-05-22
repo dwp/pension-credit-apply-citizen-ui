@@ -62,6 +62,9 @@ const fieldValidators = Object.assign(Object.create(null), {
     r.required.bind({
       errorMsg: 'claimant-details:field.preferredLanguage.required',
     }),
+    // See journey/about-citizen.js for controls over residence/language combos.
+    // Validation is currently not run during plan traversal, so protection
+    // needs to be in route conditions.
     r.inArray.bind({
       source: ['english', 'welsh', 'other'],
       errorMsg: 'claimant-details:field.preferredLanguage.required',

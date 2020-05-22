@@ -6,6 +6,7 @@ const partnerDetailsValidation = require('../field-validators/about-claimant/par
 const partnerNationalityValidation = require('../field-validators/about-claimant/partner-nationality.js');
 const careHomeValidation = require('../field-validators/about-claimant/care-home.js');
 const northernIrelandClaim = require('../hooks/common/northern-ireland-claim.js');
+const withDataFromPage = require('../hooks/common/with-data-from-page.js');
 
 module.exports = () => {
   const pages = Object.create(null);
@@ -13,6 +14,11 @@ module.exports = () => {
   pages[waypoints.CLAIMANT_DETAILS] = {
     view: 'pages/about-citizen/claimant-details.njk',
     fieldValidators: claimantDetailsValidation,
+    hooks: {
+      prerender: withDataFromPage({
+        [waypoints.COUNTRY_YOU_LIVE_IN]: ['countryOfResidence'],
+      }),
+    },
   };
 
   pages[waypoints.CONTACT_FORMATS] = {
