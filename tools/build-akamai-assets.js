@@ -14,7 +14,6 @@ const govukViews = `${govukRoot}`;
 
 // const jinjaRoot = path.resolve(require.resolve('govuk_template_jinja'), '../../../');
 
-
 const views = [
   path.resolve(__dirname, '../views'),
   casaViews,
@@ -25,20 +24,6 @@ nunjucks.configure(views, {});
 
 const mountUrl = '/CASA-MNT/';
 const assetPath = '/ASSET-PATH';
-let html = nunjucks.render('akamai/error.njk', {
-  casa: { mountUrl },
-  govuk: {
-    assetPath,
-    components: {
-      header: {
-        assetsPath: `${assetPath}/assets/images`,
-        serviceName: 'Apply for Pension Credit',
-        serviceUrl: mountUrl,
-        homepageUrl: 'https://www.gov.uk/',
-      },
-    },
-  },
-});
 
 const maps = {
   // app assets
@@ -114,6 +99,29 @@ function replaceCssUrlsWithBase64(htmlSource) {
 }
 
 /* --------------------------------------------------------------- first pass */
+if (!process.argv[2]) {
+  throw new Error('You must specify a source nunjucks template to build');
+}
+const templateFile = process.argv[2];
+if (!fs.existsSync(path.resolve(__dirname, '../views', templateFile))) {
+  throw new Error('Source template does not exist');
+}
+
+let html = nunjucks.render(templateFile, {
+  casa: { mountUrl },
+  govuk: {
+    assetPath,
+    components: {
+      header: {
+        assetsPath: `${assetPath}/assets/images`,
+        serviceName: 'Apply for Pension Credit',
+        serviceUrl: mountUrl,
+        homepageUrl: 'https://www.gov.uk/',
+      },
+    },
+  },
+});
+
 const $ = cheerio.load(html);
 let replacements = {};
 

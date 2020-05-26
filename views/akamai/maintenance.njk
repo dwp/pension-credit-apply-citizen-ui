@@ -1,0 +1,25 @@
+{% extends "casa/layouts/main.njk" %}
+
+{% block casaPageTitle %}
+  Sorry, the service is closed
+{% endblock %}
+
+{% block head %}
+  {% include "partials/styles.njk" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Sorry, the service is closed
+      </h1>
+      <p class="govuk-body">
+        We have closed the service for a short time for planned maintenance.
+      </p>
+      <p class="govuk-body">
+        You can try again later or <a href="https://www.gov.uk/pension-credit/how-to-claim" class="govuk-link">apply another way</a>.
+      </p>
+    </div>
+  </div>
+{% endblock %}
