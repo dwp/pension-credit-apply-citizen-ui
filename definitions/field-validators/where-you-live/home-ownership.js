@@ -6,7 +6,12 @@ const fieldValidators = Object.assign(Object.create(null), {
       errorMsg: 'home-ownership:field.homeOwnership.required',
     }),
     r.inArray.bind({
-      source: ['own', 'rent', 'other'],
+      source: [
+        'own',
+        'rent',
+        'sharedOwnership',
+        'other',
+      ],
       errorMsg: 'home-ownership:field.homeOwnership.required',
     }),
   ]),

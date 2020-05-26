@@ -137,6 +137,58 @@ describe('build-claim', () => {
     expect(claim.partner).to.haveOwnProperty('nino').that.equals('RN001001B');
   });
 
+  it('should set home ownership as OWN', () => {
+    stubData[WP.HOME_OWNERSHIP] = {
+      homeOwnership: 'own',
+    };
+
+    const plan = {
+      traverse: sinon.stub().returns([]),
+    };
+
+    const claim = buildClaim(plan, context);
+    expect(claim.whereClaimantLives).to.haveOwnProperty('rentOrOwnProperty').that.equals('OWN');
+  });
+
+  it('should set home ownership as RENT', () => {
+    stubData[WP.HOME_OWNERSHIP] = {
+      homeOwnership: 'rent',
+    };
+
+    const plan = {
+      traverse: sinon.stub().returns([]),
+    };
+
+    const claim = buildClaim(plan, context);
+    expect(claim.whereClaimantLives).to.haveOwnProperty('rentOrOwnProperty').that.equals('RENT');
+  });
+
+  it('should set home ownership as SHARED_OWNERSHIP', () => {
+    stubData[WP.HOME_OWNERSHIP] = {
+      homeOwnership: 'sharedOwnership',
+    };
+
+    const plan = {
+      traverse: sinon.stub().returns([]),
+    };
+
+    const claim = buildClaim(plan, context);
+    expect(claim.whereClaimantLives).to.haveOwnProperty('rentOrOwnProperty').that.equals('SHARED_OWNERSHIP');
+  });
+
+  it('should set home ownership as OTHER', () => {
+    stubData[WP.HOME_OWNERSHIP] = {
+      homeOwnership: 'other',
+    };
+
+    const plan = {
+      traverse: sinon.stub().returns([]),
+    };
+
+    const claim = buildClaim(plan, context);
+    expect(claim.whereClaimantLives).to.haveOwnProperty('rentOrOwnProperty').that.equals('OTHER');
+  });
+
   it('should include home address from manual entry', () => {
     stubData[WP.WHERE_YOU_LIVE_ADDRESS_HIDDEN] = {
       addressFrom: 'manual',

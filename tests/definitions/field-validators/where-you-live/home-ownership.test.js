@@ -30,6 +30,10 @@ describe('Validators: home-ownership', () => {
     it('should pass "inArray" validator if value is other', async () => {
       await expectValidatorToPass(validators, 'homeOwnership', 'inArray', { homeOwnership: 'other' });
     });
+
+    it('should pass "inArray" validator if value is sharedOwnership', async () => {
+      await expectValidatorToPass(validators, 'homeOwnership', 'inArray', { homeOwnership: 'sharedOwnership' });
+    });
   });
 
   describe('field: homeDescription', () => {
@@ -39,6 +43,10 @@ describe('Validators: home-ownership', () => {
 
     it('should pass "required" validator if no value is provided and homeOwnership is rent', async () => {
       await expectValidatorToPass(validators, 'homeDescription', 'required', { homeOwnership: 'rent' });
+    });
+
+    it('should pass "required" validator if no value is provided and homeOwnership is sharedOwnership', async () => {
+      await expectValidatorToPass(validators, 'homeDescription', 'required', { homeOwnership: 'sharedOwnership' });
     });
 
     it('should fail "required" validator if no value is provided and homeOwnership is other', async () => {
@@ -54,6 +62,11 @@ describe('Validators: home-ownership', () => {
     it('should pass "strlen" validator if string length > 500 and homeOwnership is own', async () => {
       const longString = Array(502).join('x');
       await expectValidatorToPass(validators, 'homeDescription', 'required', { homeOwnership: 'own', homeDescription: longString });
+    });
+
+    it('should pass "strlen" validator if string length > 500 and homeOwnership is sharedOwnership', async () => {
+      const longString = Array(502).join('x');
+      await expectValidatorToPass(validators, 'homeDescription', 'required', { homeOwnership: 'sharedOwnership', homeDescription: longString });
     });
 
     it('should pass "strlen" validator if string length > 500 and homeOwnership is rent', async () => {

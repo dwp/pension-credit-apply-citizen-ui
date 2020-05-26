@@ -6,6 +6,7 @@
       "options": {
         "own": "You own it",
         "rent": "You rent it",
+        "sharedOwnership": "Shared ownership",
         "other": "Other"
       },
       "change": "Change <span class=\"govuk-visually-hidden\">which best describes the place where you live</span>"
