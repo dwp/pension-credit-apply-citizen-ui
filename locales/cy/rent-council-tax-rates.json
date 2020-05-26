@@ -4,10 +4,10 @@
   "field": {
     "responsibleForCouncilTax": {
       "hint": "Mae hyn yn cynnwys os ydynt yn cael eu talu drwy Fudd-dal Tai neu Ostyngiad Treth Cyngor.",
-      "requiredSingle": "Dewiswch ydw/ydym os ydych chi'n gyfrifol am dalu'r rhent neu Dreth Cyngor am y lle rydych yn byw.",
-      "requiredJoint": "Dewiswch ydw/ydym os ydych chi neu'ch partner yn gyfrifol am dalu'r rhent neu Dreth Cyngor am y lle rydych yn byw.",
+      "requiredSingle": "Dewiswch ydw os ydych chi'n gyfrifol am dalu'r rhent neu Dreth Cyngor am y lle rydych yn byw.",
+      "requiredJoint": "Dewiswch ydw os ydych chi neu'ch partner yn gyfrifol am dalu'r rhent neu Dreth Cyngor am y lle rydych yn byw.",
       "options": {
-        "yes": "Ydw/Ydym",
+        "yes": "Ydw",
         "no": "Na"
       },
       "change": "Newid <span class=\"govuk-visually-hidden\">os ydych yn gyfrifol am dalu'r rhent, Treth Cyngor neu'r ddau am y lle rydych yn byw</span>"

@@ -1,11 +1,11 @@
 {
   "pageTitleSingle": "Ydych chi'n cael pensiwn preifat, pensiwn o le roeddech yn arfer gweithio neu unrhyw bensiwn arall?",
-  "pageTitleJoint": "Ydych chi neu'ch yn partner cael pensiwn preifat, pensiwn o le roeddech yn arfer gweithio neu unrhyw bensiwn arall?",
+  "pageTitleJoint": "Ydych chi neu'ch partner yn cael pensiwn preifat, pensiwn o le roeddech yn arfer gweithio neu unrhyw bensiwn arall?",
   "field": {
     "hasPrivatePensions": {
-      "required": "Dewiswch ydw/ydym os ydych yn cael unrhyw bensiynau.",
+      "required": "Dewiswch ydw os ydych yn cael unrhyw bensiynau.",
       "options": {
-        "yes": "Ydw/Ydym",
+        "yes": "Ydw",
         "no": "Na"
       },
       "change": "Newid <span class=\"govuk-visually-hidden\">os ydych cael pensiwn preifat, pensiwn o le roeddech yn arfer gweithio neu unrhyw bensiwn arall</span>"
