@@ -63,7 +63,7 @@
     name: "hasSelfEmploymentIncome",
     fieldset: {
       legend: {
-        text: t("earnings:field.hasSelfEmploymentIncome.legend" + claimType, { dateOfClaim: dateOfClaim | formatDateObject }),
+        text: t("earnings:field.hasSelfEmploymentIncome.legend" + claimType, { dateOfClaim: dateOfClaim | formatDateObject({ locale: locale }) }),
         classes: "govuk-fieldset__legend--m"
       }
     },

@@ -10,7 +10,9 @@ const fieldValidators = Object.assign(Object.create(null), {
       errorMsg: ({ journeyContext: c }) => ({
         summary: 'money-you-have:field.moneyBackdated.required',
         variables: {
-          dateOfClaim: formatDateObject(c.getDataForPage(WP.DATE_OF_CLAIM).dateOfClaim),
+          dateOfClaim: formatDateObject(c.getDataForPage(WP.DATE_OF_CLAIM).dateOfClaim, {
+            locale: c.nav.language,
+          }),
         },
       }),
     }),
@@ -18,7 +20,9 @@ const fieldValidators = Object.assign(Object.create(null), {
       errorMsg: ({ journeyContext: c }) => ({
         summary: 'money-you-have:field.moneyBackdated.format',
         variables: {
-          dateOfClaim: formatDateObject(c.getDataForPage(WP.DATE_OF_CLAIM).dateOfClaim),
+          dateOfClaim: formatDateObject(c.getDataForPage(WP.DATE_OF_CLAIM).dateOfClaim, {
+            locale: c.nav.language,
+          }),
         },
       }),
     }),

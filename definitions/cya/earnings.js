@@ -11,7 +11,9 @@ module.exports = (t, context, claim, cyaUrl) => {
   const { hasPartner } = claim.eligibility || {};
   const jointSingle = hasPartner ? 'Joint' : 'Single';
   const { dateOfClaim } = context.getDataForPage(WP.DATE_OF_CLAIM) || {};
-  const formattedDateOfClaim = dateOfClaim && formatDateObject(dateOfClaim);
+  const formattedDateOfClaim = dateOfClaim && formatDateObject(dateOfClaim, {
+    locale: context.nav.language,
+  });
 
   const row = rowFactory(cyaUrl);
   const rov = radioOptionValue(t, context);

@@ -11,7 +11,9 @@ module.exports = (t, context, claim, cyaUrl) => {
   }
 
   const { dateOfClaim } = context.getDataForPage(WP.DATE_OF_CLAIM) || {};
-  const formattedDateOfClaim = dateOfClaim && formatDateObject(dateOfClaim);
+  const formattedDateOfClaim = dateOfClaim && formatDateObject(dateOfClaim, {
+    locale: context.nav.language,
+  });
   const northernIreland = claim.isNorthernIrelandClaim() ? 'northernIreland.' : '';
 
   const row = rowFactory(cyaUrl);

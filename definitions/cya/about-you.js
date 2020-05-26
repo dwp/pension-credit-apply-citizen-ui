@@ -16,6 +16,9 @@ module.exports = (t, context, claim, cyaUrl) => {
   const cbv = checkboxOptionValues(t, context);
   const preferredLanguageChoice = context.getDataForPage(WP.CLAIMANT_DETAILS).preferredLanguage;
 
+  // Common options for `formatDateObject()` calls
+  const dateOpts = { locale: context.nav.language };
+
   return {
     heading: t('check-your-answers:sectionHeading.about-you'),
     rows: [
@@ -69,7 +72,7 @@ module.exports = (t, context, claim, cyaUrl) => {
         changeHref: `${WP.DATE_OF_CLAIM}#f-dateOfClaim`,
         changeHtml: t('date-of-claim:field.dateOfClaim.change'),
         key: t('date-of-claim:pageTitle'),
-        value: formatDateObject(context.data['date-of-claim'].dateOfClaim),
+        value: formatDateObject(context.data['date-of-claim'].dateOfClaim, dateOpts),
       }),
 
       /* ------------------------------------------------------ date-of-birth */
@@ -78,7 +81,7 @@ module.exports = (t, context, claim, cyaUrl) => {
         changeHref: `${WP.DATE_OF_BIRTH}#f-dateOfBirth`,
         changeHtml: t('date-of-birth:field.dateOfBirth.change'),
         key: t('date-of-birth:pageTitle'),
-        value: formatDateObject(context.data['date-of-birth'].dateOfBirth),
+        value: formatDateObject(context.data['date-of-birth'].dateOfBirth, dateOpts),
       }),
 
       /* --------------------------------------------------- claimant-details */

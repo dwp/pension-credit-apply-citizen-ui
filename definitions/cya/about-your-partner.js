@@ -12,6 +12,9 @@ module.exports = (t, context, claim, cyaUrl) => {
   const row = rowFactory(cyaUrl);
   const rov = radioOptionValue(t, context);
 
+  // Common options for `formatDateObject()` calls
+  const dateOpts = { locale: context.nav.language };
+
   return {
     heading: t('check-your-answers:sectionHeading.about-your-partner'),
     rows: [
@@ -29,7 +32,7 @@ module.exports = (t, context, claim, cyaUrl) => {
         changeHref: `${WP.LIVE_WITH_PARTNER}#f-partnerDateOfBirth`,
         changeHtml: t('live-with-partner:field.partnerDateOfBirth.change'),
         key: t('live-with-partner:field.partnerDateOfBirth.legend'),
-        value: formatDateObject(context.data['live-with-partner'].partnerDateOfBirth),
+        value: formatDateObject(context.data['live-with-partner'].partnerDateOfBirth, dateOpts),
       }),
 
       /* -------------------------------------------- partner-housing-benefit */

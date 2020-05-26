@@ -30,7 +30,7 @@
       name: "moneyBackdated",
       classes: "govuk-input--width-20",
       label: {
-        text: t("money-you-have:field.moneyBackdated.label", { dateOfClaim: dateOfClaim | formatDateObject }),
+        text: t("money-you-have:field.moneyBackdated.label", { dateOfClaim: dateOfClaim | formatDateObject({ locale: locale }) }),
         classes: "govuk-label--s"
       },
       value: formData.moneyBackdated,

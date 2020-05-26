@@ -17,6 +17,9 @@ module.exports = (t, context, claim, cyaUrl) => {
   const sponsorshipDetails = context.data['partner-sponsorship-details'] || {};
   const asylumSeeker = context.data['partner-asylum-seeker'] || {};
 
+  // Common options for `formatDateObject()` calls
+  const dateOpts = { locale: context.nav.language };
+
   /* ------------------------------------------------- partner-returned-to-uk */
   const returnedToUkRows = [
     // At any time, have you come to live in the UK or returned to the UK to
@@ -53,7 +56,7 @@ module.exports = (t, context, claim, cyaUrl) => {
       changeHref: `${WP.HRT_PARTNER_NATIONALITY_DETAILS}#f-partnerLastCameToUk[dd]`,
       changeHtml: t('partner-nationality-details:field.partnerLastCameToUk.change'),
       key: t('partner-nationality-details:field.partnerLastCameToUk.legend'),
-      value: formatDateObject(nationalityDetails.partnerLastCameToUk),
+      value: formatDateObject(nationalityDetails.partnerLastCameToUk, dateOpts),
     }),
 
     // Did you come to the UK to work?
@@ -85,7 +88,7 @@ module.exports = (t, context, claim, cyaUrl) => {
       changeHref: `${WP.HRT_PARTNER_NATIONALITY_DETAILS}#f-partnerLastLeftUk[dd]`,
       changeHtml: t('partner-nationality-details:field.partnerLastLeftUk.change'),
       key: t('partner-nationality-details:field.partnerLastLeftUk.legend'),
-      value: formatDateObject(nationalityDetails.partnerLastLeftUk),
+      value: formatDateObject(nationalityDetails.partnerLastLeftUk, dateOpts),
     }),
 
     // Have you come to the UK under the Family Reunion Scheme?
@@ -127,7 +130,7 @@ module.exports = (t, context, claim, cyaUrl) => {
       changeHref: `${WP.HRT_PARTNER_SPONSORSHIP_DETAILS}#f-partnerSponsorshipUndertakingSigned[dd]`,
       changeHtml: t('partner-sponsorship-details:field.partnerSponsorshipUndertakingSigned.change'),
       key: t('partner-sponsorship-details:field.partnerSponsorshipUndertakingSigned.legend'),
-      value: formatDateObject(sponsorshipDetails.partnerSponsorshipUndertakingSigned),
+      value: formatDateObject(sponsorshipDetails.partnerSponsorshipUndertakingSigned, dateOpts),
     }),
   ];
 
@@ -178,7 +181,7 @@ module.exports = (t, context, claim, cyaUrl) => {
       changeHref: `${WP.HRT_PARTNER_ASYLUM_SEEKER}#f-partnerSuccessfulDecisionDate[dd]`,
       changeHtml: t('partner-asylum-seeker:field.partnerSuccessfulDecisionDate.change'),
       key: t('partner-asylum-seeker:field.partnerSuccessfulDecisionDate.legend'),
-      value: formatDateObject(asylumSeeker.partnerSuccessfulDecisionDate),
+      value: formatDateObject(asylumSeeker.partnerSuccessfulDecisionDate, dateOpts),
     }),
 
     // Have you been supported by the Home Office while waiting for a decision on your application?
