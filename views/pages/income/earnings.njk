@@ -1,7 +1,7 @@
 {% extends "layouts/form-journey.njk" %}
 
 {% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
-{% from "casa/components/character-count/macro.njk" import casaGovukCharacterCount with context %}
+{% from "casa/components/textarea/macro.njk" import casaGovukTextarea with context %}
 
 {% block casaPageTitle %}
   {{ t("earnings:pageTitle") }} - {{ t("common:serviceName") }}
@@ -13,9 +13,8 @@
   </h1>
 
   {% set employmentIncomeDetails %}
-    {{ casaGovukCharacterCount({
+    {{ casaGovukTextarea({
       name: "employmentIncomeDetails",
-      maxlength: 500,
       label: {
         text: t("earnings:field.employmentIncomeDetails.label"),
         classes: "govuk-label--s"
@@ -49,9 +48,8 @@
   }) }}
 
   {% set selfEmploymentIncomeDetails %}
-    {{ casaGovukCharacterCount({
+    {{ casaGovukTextarea({
       name: "selfEmploymentIncomeDetails",
-      maxlength: 500,
       label: {
         text: t("earnings:field.selfEmploymentIncomeDetails.label"),
         classes: "govuk-label--s"

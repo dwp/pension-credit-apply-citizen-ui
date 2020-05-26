@@ -1,7 +1,7 @@
 {% extends "layouts/form-journey.njk" %}
 
 {% from "casa/components/checkboxes/macro.njk" import casaGovukCheckboxes with context %}
-{% from "casa/components/character-count/macro.njk" import casaGovukCharacterCount with context %}
+{% from "casa/components/textarea/macro.njk" import casaGovukTextarea with context %}
 
 {% block casaPageTitle %}
   {{ t("disregarded-money:pageTitle") }} - {{ t("common:serviceName") }}
@@ -9,8 +9,7 @@
 
 {% block journey_form %}
   {% set officialErrorDetails %}
-    {{ casaGovukCharacterCount({
-      maxlength: 500,
+    {{ casaGovukTextarea({
       name: "officialErrorDetails",
       value: formData.officialErrorDetails,
       casaErrors: formErrors,
@@ -22,8 +21,7 @@
   {% endset -%}
 
   {% set councilTaxReductionDetails %}
-    {{ casaGovukCharacterCount({
-      maxlength: 500,
+    {{ casaGovukTextarea({
       name: "councilTaxReductionDetails",
       value: formData.councilTaxReductionDetails,
       casaErrors: formErrors,
@@ -51,8 +49,7 @@
   {% endset -%}
 
   {% set armedForcesDetails %}
-    {{ casaGovukCharacterCount({
-      maxlength: 500,
+    {{ casaGovukTextarea({
       name: "armedForcesDetails",
       value: formData.armedForcesDetails,
       casaErrors: formErrors,
@@ -67,8 +64,7 @@
   {% endset -%}
 
   {% set personalInjuryDetails %}
-    {{ casaGovukCharacterCount({
-      maxlength: 500,
+    {{ casaGovukTextarea({
       name: "personalInjuryDetails",
       value: formData.personalInjuryDetails,
       casaErrors: formErrors,
@@ -80,8 +76,7 @@
   {% endset -%}
 
   {% set homeInsuranceDetails %}
-    {{ casaGovukCharacterCount({
-      maxlength: 500,
+    {{ casaGovukTextarea({
       name: "homeInsuranceDetails",
       value: formData.homeInsuranceDetails,
       casaErrors: formErrors,
@@ -93,8 +88,7 @@
   {% endset -%}
 
   {% set homeRepairsDetails %}
-    {{ casaGovukCharacterCount({
-      maxlength: 500,
+    {{ casaGovukTextarea({
       name: "homeRepairsDetails",
       value: formData.homeRepairsDetails,
       casaErrors: formErrors,
@@ -117,8 +111,7 @@
   {% endset -%}
 
   {% set liveIndependentDetails %}
-    {{ casaGovukCharacterCount({
-      maxlength: 500,
+    {{ casaGovukTextarea({
       name: "liveIndependentDetails",
       value: formData.liveIndependentDetails,
       casaErrors: formErrors,
@@ -147,8 +140,7 @@
   {% endset -%}
 
   {% set incidentDetails %}
-    {{ casaGovukCharacterCount({
-      maxlength: 500,
+    {{ casaGovukTextarea({
       name: "incidentDetails",
       value: formData.incidentDetails,
       casaErrors: formErrors,
@@ -163,8 +155,7 @@
   {% endset -%}
 
   {% set windrushDetails %}
-    {{ casaGovukCharacterCount({
-      maxlength: 500,
+    {{ casaGovukTextarea({
       name: "windrushDetails",
       value: formData.windrushDetails,
       casaErrors: formErrors,
@@ -190,8 +181,7 @@
   {% endset -%}
 
   {% set bloodDetails %}
-    {{ casaGovukCharacterCount({
-      maxlength: 500,
+    {{ casaGovukTextarea({
       name: "bloodDetails",
       value: formData.bloodDetails,
       casaErrors: formErrors,

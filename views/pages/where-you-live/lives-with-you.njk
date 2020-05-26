@@ -1,7 +1,7 @@
 {% extends "layouts/form-journey.njk" %}
 
 {% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
-{% from "casa/components/character-count/macro.njk" import casaGovukCharacterCount with context %}
+{% from "casa/components/textarea/macro.njk" import casaGovukTextarea with context %}
 
 {% block casaPageTitle %}
   {{ t("lives-with-you:pageTitle" + claimType) }} - {{ t("common:serviceName") }}
@@ -9,9 +9,8 @@
 
 {% block journey_form %}
   {% set othersLiveWithYouDetails %}
-    {{ casaGovukCharacterCount({
+    {{ casaGovukTextarea({
       name: "othersLiveWithYouDetails",
-      maxlength: 500,
       label: {
         text: t("lives-with-you:field.othersLiveWithYouDetails.label"),
         classes: "govuk-label--s"
