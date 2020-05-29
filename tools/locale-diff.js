@@ -111,14 +111,22 @@ const meta = {
   renamed: getRenamedFiles(from, to),
 };
 
+if (!meta.files.length) {
+  process.stderr.write('No files changed!');
+  process.exit(1);
+}
+
 fs.writeFileSync(`${DIR}/meta.json`, JSON.stringify(meta));
 log(`Wrote meta file to ${DIR}/meta.json`);
 
 // Copy files in `from` and `to` commits
-log(`Retrieving files from ${from} ...`);
+log(`Retrieving cy files from ${from} ...`);
+retrieveFiles(from, meta.files.map(f => f.replace(/en\//, 'cy/')), `${DIR}/old-cy/`);
+
+log(`Retrieving en files from ${from} ...`);
 retrieveFiles(from, meta.files, `${DIR}/old/`);
 
-log(`Retrieving files from ${to} ...`);
+log(`Retrieving en files from ${to} ...`);
 retrieveFiles(to, meta.files, `${DIR}/new/`);
 
 // ZIP
