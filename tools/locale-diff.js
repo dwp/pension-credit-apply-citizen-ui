@@ -121,7 +121,7 @@ log(`Wrote meta file to ${DIR}/meta.json`);
 
 // Copy files in `from` and `to` commits
 log(`Retrieving cy files from ${from} ...`);
-retrieveFiles(from, meta.files.map(f => f.replace(/en\//, 'cy/')), `${DIR}/old-cy/`);
+retrieveFiles(from, meta.files.map((f) => f.replace(/en\//, 'cy/')), `${DIR}/old-cy/`);
 
 log(`Retrieving en files from ${from} ...`);
 retrieveFiles(from, meta.files, `${DIR}/old/`);
