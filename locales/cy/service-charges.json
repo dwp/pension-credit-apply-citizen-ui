@@ -17,12 +17,6 @@
       },
       "change": "Newid <span class=\"govuk-visually-hidden\">os ydych yn talu unrhyw daliadau gwasanaeth</span>"
     },
-    "serviceChargesAmount": {
-      "label": "Faint ydych yn ei dalu mewn taliadau gwasanaeth bob mis?",
-      "required": "Rhowch faint ydych yn ei dalu mewn taliadau gwasanaeth bob mis.",
-      "format": "Rhowch faint ydych yn ei dalu mewn taliadau gwasanaeth bob mis drwy ond defnyddio symbol £, rhifau, atalnodau a phwynt degol. Er enghraifft £1000 neu £1,000.00.",
-      "change": "Newid <span class=\"govuk-visually-hidden\">faint ydych yn ei dalu mewn taliadau gwasanaeth bob mis</span>"
-    },
     "paysGroundRent": {
       "legend": "Ydych chi'n talu rhent daear?",
       "hint": "Efallai eich bod yn talu rhent daear os mai chi yw lesddeiliad eich cartref.",
@@ -32,12 +26,6 @@
         "no": "Na"
       },
       "change": "Newid <span class=\"govuk-visually-hidden\">os ydych yn talu rhent daear</span>"
-    },
-    "groundRentAmount": {
-      "label": "Faint ydych yn ei dalu mewn rhent daear bob mis?",
-      "required": "Rhowch faint ydych yn ei dalu mewn rhent daear bob mis.",
-      "format": "Rhowch faint ydych yn ei dalu mewn rhent daear bob mis drwy ond defnyddio symbol £, rhifau, atalnodau a phwynt degol. Er enghraifft £1000 neu £1,000.00.",
-      "change": "Newid <span class=\"govuk-visually-hidden\"> faint rydych yn ei dalu mewn rhent daear bob mis</span>"
     },
     "getsHousingBenefit": {
       "legend": "Ydych chi'n cael Budd-dal Tai?",

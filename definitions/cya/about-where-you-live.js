@@ -1,5 +1,4 @@
 /* eslint-disable sonarjs/no-duplicate-string */
-const formatMoney = require('../../utils/format-money.js');
 const { waypoints: WP } = require('../../lib/constants.js');
 const {
   rowFactory, radioOptionValue, formatAddress, safeNl2br,
@@ -126,28 +125,12 @@ module.exports = (t, context, claim, cyaUrl) => {
       value: rov('service-charges.paysServiceCharges', 'service-charges:field.paysServiceCharges.options'),
     }),
 
-    // How much do you pay in service charges each month?
-    claim.whereClaimantLives.serviceCharges && row({
-      changeHref: `${WP.SERVICE_CHARGES}#f-serviceChargesAmount`,
-      changeHtml: t('service-charges:field.serviceChargesAmount.change'),
-      key: t('service-charges:field.serviceChargesAmount.label'),
-      value: formatMoney(claim.whereClaimantLives.serviceChargesAmount),
-    }),
-
     // Do you pay ground rent?
     row({
       changeHref: `${WP.SERVICE_CHARGES}#f-paysGroundRent`,
       changeHtml: t('service-charges:field.paysGroundRent.change'),
       key: t('service-charges:field.paysGroundRent.legend'),
       value: rov('service-charges.paysGroundRent', 'service-charges:field.paysGroundRent.options'),
-    }),
-
-    // How much do you pay in service charges each month?
-    claim.whereClaimantLives.groundRent && row({
-      changeHref: `${WP.SERVICE_CHARGES}#f-groundRentAmount`,
-      changeHtml: t('service-charges:field.groundRentAmount.change'),
-      key: t('service-charges:field.groundRentAmount.label'),
-      value: formatMoney(claim.whereClaimantLives.groundRentAmount),
     }),
 
     // Do you get Housing Benefit?

@@ -28,36 +28,6 @@ describe('Validators: service-charges', () => {
     });
   });
 
-  describe('field: serviceChargesAmount', () => {
-    it('should pass "required" validator if no value is provided and paysServiceCharges is "no"', async () => {
-      await expectValidatorToPass(validators, 'serviceChargesAmount', 'required', { paysServiceCharges: 'no' });
-    });
-
-    it('should fail "required" validator if no value is provided and paysServiceCharges is "yes"', async () => {
-      await expectValidatorToFail(validators, 'serviceChargesAmount', 'required', { paysServiceCharges: 'yes' }, {
-        summary: 'service-charges:field.serviceChargesAmount.required',
-      });
-    });
-
-    it('should pass "required" validator if a non-empty value is provided and paysServiceCharges is "yes"', async () => {
-      await expectValidatorToPass(validators, 'serviceChargesAmount', 'required', { paysServiceCharges: 'yes', serviceChargesAmount: 'Hammond Eggs' });
-    });
-
-    it('should pass "isValidMoney" validator if format is invalid and paysServiceCharges is "no"', async () => {
-      await expectValidatorToPass(validators, 'serviceChargesAmount', 'isValidMoney', { paysServiceCharges: 'no', serviceChargesAmount: '$Bad Balance$' });
-    });
-
-    it('should fail "isValidMoney" validator if format is invalid and paysServiceCharges is "yes"', async () => {
-      await expectValidatorToFail(validators, 'serviceChargesAmount', 'isValidMoney', { paysServiceCharges: 'yes', serviceChargesAmount: '$Bad Balance$' }, {
-        summary: 'service-charges:field.serviceChargesAmount.format',
-      });
-    });
-
-    it('should pass "isValidMoney" validator if input is valid and paysServiceCharges is "yes"', async () => {
-      await expectValidatorToPass(validators, 'serviceChargesAmount', 'isValidMoney', { paysServiceCharges: 'yes', serviceChargesAmount: '1.23' });
-    });
-  });
-
   describe('field: paysGroundRent', () => {
     it('should fail "required" validator if no value is provided', async () => {
       await expectValidatorToFail(validators, 'paysGroundRent', 'required', null, {
@@ -81,36 +51,6 @@ describe('Validators: service-charges', () => {
 
     it('should pass "inArray" validator if value is no', async () => {
       await expectValidatorToPass(validators, 'paysGroundRent', 'inArray', { paysGroundRent: 'no' });
-    });
-  });
-
-  describe('field: paysGroundRentAmount', () => {
-    it('should pass "required" validator if no value is provided and paysGroundRent is "no"', async () => {
-      await expectValidatorToPass(validators, 'groundRentAmount', 'required', { paysGroundRent: 'no' });
-    });
-
-    it('should fail "required" validator if no value is provided and paysGroundRent is "yes"', async () => {
-      await expectValidatorToFail(validators, 'groundRentAmount', 'required', { paysGroundRent: 'yes' }, {
-        summary: 'service-charges:field.groundRentAmount.required',
-      });
-    });
-
-    it('should pass "required" validator if a non-empty value is provided and paysGroundRent is "yes"', async () => {
-      await expectValidatorToPass(validators, 'groundRentAmount', 'required', { paysGroundRent: 'yes', groundRentAmount: 'Hammond Eggs' });
-    });
-
-    it('should pass "isValidMoney" validator if format is invalid and paysGroundRent is "no"', async () => {
-      await expectValidatorToPass(validators, 'groundRentAmount', 'isValidMoney', { paysGroundRent: 'no', groundRentAmount: '$Bad Balance$' });
-    });
-
-    it('should fail "isValidMoney" validator if format is invalid and paysGroundRent is "yes"', async () => {
-      await expectValidatorToFail(validators, 'groundRentAmount', 'isValidMoney', { paysGroundRent: 'yes', groundRentAmount: '$Bad Balance$' }, {
-        summary: 'service-charges:field.groundRentAmount.format',
-      });
-    });
-
-    it('should pass "isValidMoney" validator if input is valid and paysGroundRent is "yes"', async () => {
-      await expectValidatorToPass(validators, 'groundRentAmount', 'isValidMoney', { paysGroundRent: 'yes', groundRentAmount: '1.23' });
     });
   });
 

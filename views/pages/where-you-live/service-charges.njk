@@ -12,18 +12,6 @@
     {{ t("service-charges:pageTitle") }}
   </h1>
 
-  {% set serviceChargesAmount %}
-    {{ casaGovukInput({
-      name: "serviceChargesAmount",
-      classes: "govuk-input--width-20",
-      label: {
-        text: t("service-charges:field.serviceChargesAmount.label")
-      },
-      value: formData.serviceChargesAmount,
-      casaErrors: formErrors
-    }) }}
-  {% endset %}
-
   {% set serviceChargesHint %}
     <p class="govuk-hint govuk-!-margin-top-0">
       {{ t("service-charges:field.paysServiceCharges.hint.chargesInclude") }}
@@ -49,10 +37,7 @@
     },
     items: [{
       value: "yes",
-      text: t("service-charges:field.paysServiceCharges.options.yes"),
-      conditional: {
-        html: serviceChargesAmount
-      }
+      text: t("service-charges:field.paysServiceCharges.options.yes")
     }, {
       value: "no",
       text: t("service-charges:field.paysServiceCharges.options.no")
@@ -61,18 +46,6 @@
     casaValue: formData.paysServiceCharges,
     casaErrors: formErrors
   }) }}
-
-  {% set groundRentAmount %}
-    {{ casaGovukInput({
-      name: "groundRentAmount",
-      classes: "govuk-input--width-20",
-      label: {
-        text: t("service-charges:field.groundRentAmount.label")
-      },
-      value: formData.groundRentAmount,
-      casaErrors: formErrors
-    }) }}
-  {% endset %}
 
   {{ casaGovukRadios({
     name: "paysGroundRent",
@@ -87,10 +60,7 @@
     },
     items: [{
       value: "yes",
-      text: t("service-charges:field.paysGroundRent.options.yes"),
-      conditional: {
-        html: groundRentAmount
-      }
+      text: t("service-charges:field.paysGroundRent.options.yes")
     }, {
       value: "no",
       text: t("service-charges:field.paysGroundRent.options.no")
