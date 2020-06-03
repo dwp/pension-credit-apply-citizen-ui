@@ -69,7 +69,7 @@ module.exports = (t, context, claim, cyaUrl) => {
         valueHtml: safeNl2br(context.data['partner-details'].partnerPreviousNames),
       }),
 
-      // What is the your partner’s National Insurance number?
+      // What is your partner’s National Insurance number?
       row({
         changeHref: `${WP.PARTNER_DETAILS}#f-partnerNino`,
         changeHtml: t('partner-details:field.partnerNino.change'),
