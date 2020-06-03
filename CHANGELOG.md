@@ -1,3 +1,13 @@
+## [0.4.2](https://github.com/dwp/pension-credit-citizen-apply/compare/0.4.1...0.4.2) (2020-06-03)
+
+
+### Bug Fixes
+
+* correct typo in partner-details ([477a1ec](https://github.com/dwp/pension-credit-citizen-apply/commit/477a1ecfcd1c6b3b3b9ca1e66a5457ef53aabe61))
+* incorrect date formatting in what-happens-next ([2a77e64](https://github.com/dwp/pension-credit-citizen-apply/commit/2a77e64e95791369998bbf4b20c6c452db7c3de5))
+
+
+
 ## [0.4.1](https://github.com/dwp/pension-credit-citizen-apply/compare/0.4.0...0.4.1) (2020-05-27)
 
 
