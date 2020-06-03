@@ -1,6 +1,6 @@
 const { waypoints: WP } = require('../../lib/constants.js');
 const {
-  d, isEqualTo, wasSkipped, isYes, isNo,
+  d, isEqualTo, isNotEqualTo, wasSkipped, isYes, isNo,
 } = require('../../utils/journey-helpers.js');
 
 module.exports = (plan) => {
@@ -121,6 +121,26 @@ module.exports = (plan) => {
     WP.RENT_COUNCIL_TAX_RATES,
     WP.HOME_OWNERSHIP,
     WP.SERVICE_CHARGES,
+  );
+
+  // If renters pay ground rent we need to ask them if they have a 21 year lease
+  plan.setRoute(WP.SERVICE_CHARGES, WP.TWENTY_ONE_YEAR_LEASE, (r, c) => (
+    isYes('paysGroundRent')(r, c) && (
+      isEqualTo('homeOwnership', 'rent', WP.HOME_OWNERSHIP)(r, c)
+      || isEqualTo('homeOwnership', 'sharedOwnership', WP.HOME_OWNERSHIP)(r, c)
+    )
+  ));
+
+  plan.addSequence(WP.TWENTY_ONE_YEAR_LEASE, WP.HOME_LOAN);
+
+  // Otherwise we continue to HOME_LOAN
+  plan.setRoute(WP.SERVICE_CHARGES, WP.HOME_LOAN, (r, c) => (
+    isNotEqualTo('homeOwnership', 'rent', WP.HOME_OWNERSHIP)(r, c)
+    || isNo('paysGroundRent')(r, c)
+  ));
+
+  // Continue where you live journey
+  plan.addSequence(
     WP.HOME_LOAN,
     WP.SHARE_RENT_MORTGAGE,
     WP.PRIVATE_PENSIONS,

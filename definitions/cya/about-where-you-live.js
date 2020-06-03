@@ -149,6 +149,15 @@ module.exports = (t, context, claim, cyaUrl) => {
       value: rov('service-charges.wantsHousingBenefit', 'service-charges:field.wantsHousingBenefit.options'),
     }),
 
+    /* ------------------------------------------------------ 21-year-lease */
+    // Is the lease for your property or land for 21 years or more?
+    claim.whereClaimantLives.lease21YearsOrMore !== undefined && row({
+      changeHref: `${WP.TWENTY_ONE_YEAR_LEASE}#f-twentyOneYearLease`,
+      changeHtml: t('21-year-lease:field.twentyOneYearLease.change'),
+      key: t('21-year-lease:pageTitle'),
+      value: rov('21-year-lease.twentyOneYearLease', '21-year-lease:field.twentyOneYearLease.options'),
+    }),
+
     /* ---------------------------------------------------------- home-loan */
     // Do you want to apply for support with interest on a mortgage or loan
     // secured against your home?

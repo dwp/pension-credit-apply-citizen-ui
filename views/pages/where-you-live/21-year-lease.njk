@@ -1,0 +1,30 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("21-year-lease:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukRadios({
+    name: "twentyOneYearLease",
+    fieldset: {
+      legend: {
+        text: t("21-year-lease:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("21-year-lease:field.twentyOneYearLease.options.yes")
+    }, {
+      value: "no",
+      text: t("21-year-lease:field.twentyOneYearLease.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.twentyOneYearLease,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

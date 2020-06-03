@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Is the lease for your property or land for 21 years or more?",
+  "field": {
+    "twentyOneYearLease": {
+      "required": "Select yes if the lease for your property or land is for 21 years or more.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether the lease for your property or land is for 21 years or more</span>"
+    }
+  }
+}

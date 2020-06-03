@@ -1,0 +1,36 @@
+name: where-you-live-21-year-lease
+
+journey:
+  # ------------------------------------------------------- About where you live
+  postcode-lookup:
+    enterManualLink: click()
+
+  address-manual:
+    addressLine1: "Address line 1"
+    addressLine2: "Address line 2"
+    town: "Town"
+    county: "County"
+    postcode: "AA1 1AA"
+
+  letters-home:
+    "yes": click()
+
+  lives-with-you:
+    "no": click()
+
+  rent-council-tax-rates:
+    "yes": click()
+
+  home-ownership:
+    "rent": click()
+
+  service-charges:
+    "paysServiceChargesNo":  click()
+    "paysGroundRentYes":  click()
+    "getsHousingBenefitYes":  click()
+
+  21-year-lease:
+    "no": click()
+
+  home-loan:
+    "no": click()

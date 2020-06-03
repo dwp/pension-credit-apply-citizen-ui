@@ -16,6 +16,7 @@ const livesWithYouValidation = require('../field-validators/where-you-live/lives
 const rentCouncilTaxValidation = require('../field-validators/where-you-live/rent-council-tax-rates.js');
 const homeOwnershipValidation = require('../field-validators/where-you-live/home-ownership.js');
 const serviceChargesValidation = require('../field-validators/where-you-live/service-charges.js');
+const twetyOneYearLeaseValidation = require('../field-validators/where-you-live/21-year-lease.js');
 const homeLoanValidation = require('../field-validators/where-you-live/home-loan.js');
 const shareRentMortgageValidation = require('../field-validators/where-you-live/share-rent-mortgage.js');
 
@@ -124,6 +125,11 @@ module.exports = (addressServiceFactory, mountUrl) => {
   pages[waypoints.SERVICE_CHARGES] = {
     view: 'pages/where-you-live/service-charges.njk',
     fieldValidators: serviceChargesValidation,
+  };
+
+  pages[waypoints.TWENTY_ONE_YEAR_LEASE] = {
+    view: 'pages/where-you-live/21-year-lease.njk',
+    fieldValidators: twetyOneYearLeaseValidation,
   };
 
   pages[waypoints.HOME_LOAN] = {

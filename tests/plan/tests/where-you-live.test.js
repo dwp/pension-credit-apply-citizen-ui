@@ -17,6 +17,16 @@ describe('where-you-live', () => {
     return testTraversal({ app, waypoints, waypointHandlerFactory });
   }).timeout(TIMEOUT);
 
+  it('21 year lease', () => {
+    const waypoints = mergePersonaJourneys([
+      'eligibility/default',
+      'about-citizen/default',
+      'where-you-live/21-year-lease',
+    ]);
+
+    return testTraversal({ app, waypoints, waypointHandlerFactory });
+  }).timeout(TIMEOUT);
+
   it('correspondence address', () => {
     const waypoints = mergePersonaJourneys([
       'eligibility/default',
