@@ -1,5 +1,6 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 const { waypoints: WP } = require('../../lib/constants.js');
+const rentOrMortgage = require('../../utils/rent-or-mortgage.js');
 const {
   rowFactory, radioOptionValue, formatAddress, safeNl2br,
 } = require('./utils.js');
@@ -12,6 +13,7 @@ module.exports = (t, context, claim, cyaUrl) => {
 
   const { hasPartner } = claim.eligibility || {};
   const jointSingle = hasPartner ? 'Joint' : 'Single';
+  const paymentType = rentOrMortgage(context);
   const northernIreland = claim.isNorthernIrelandClaim() ? 'northernIreland.' : '';
 
   const row = rowFactory(cyaUrl);
@@ -176,7 +178,7 @@ module.exports = (t, context, claim, cyaUrl) => {
     row({
       changeHref: `${WP.SHARE_RENT_MORTGAGE}#f-shareRentMortgage`,
       changeHtml: t('share-rent-mortgage:field.shareRentMortgage.change'),
-      key: t(`share-rent-mortgage:pageTitle${jointSingle}`),
+      key: t(`share-rent-mortgage:pageTitle${paymentType}${jointSingle}`),
       value: rov('share-rent-mortgage.shareRentMortgage', 'share-rent-mortgage:field.shareRentMortgage.options'),
     }),
   ];

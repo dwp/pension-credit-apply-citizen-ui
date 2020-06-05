@@ -3,8 +3,10 @@
 {% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
 {% from "casa/components/textarea/macro.njk" import casaGovukTextarea with context %}
 
+{% set pageTitle = t("share-rent-mortgage:pageTitle" + paymentType + claimType) %}
+
 {% block casaPageTitle %}
-  {{ t("share-rent-mortgage:pageTitle" + claimType) }} - {{ t("common:serviceName") }}
+  {{ pageTitle }} - {{ t("common:serviceName") }}
 {% endblock %}
 
 {% block journey_form %}
@@ -12,7 +14,7 @@
     name: "shareRentMortgage",
     fieldset: {
       legend: {
-        text: t("share-rent-mortgage:pageTitle" + claimType),
+        text: pageTitle,
         isPageHeading: true,
         classes: "govuk-fieldset__legend--xl"
       }

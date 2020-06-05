@@ -7,6 +7,7 @@ const manualAddressHooks = require('../hooks/common/manual-address.js');
 const selectAddressHooks = require('../hooks/common/select-address.js');
 const jointOrSingleClaim = require('../hooks/common/joint-or-single-claim.js');
 const northernIrelandClaim = require('../hooks/common/northern-ireland-claim.js');
+const shareRentMortgageHook = require('../hooks/where-you-live/share-rent-mortgage.js');
 
 const postcodeValidation = require('../field-validators/common/postcode.js');
 const selectAddressValidation = require('../field-validators/common/select-address.js');
@@ -153,7 +154,10 @@ module.exports = (addressServiceFactory, mountUrl) => {
     view: 'pages/where-you-live/share-rent-mortgage.njk',
     fieldValidators: shareRentMortgageValidation,
     hooks: {
-      prerender: jointOrSingleClaim(waypoints),
+      prerender: [
+        jointOrSingleClaim(waypoints),
+        shareRentMortgageHook,
+      ],
     },
   };
 

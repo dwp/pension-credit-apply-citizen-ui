@@ -5,7 +5,7 @@ describe('Validators: share-rent-mortgage', () => {
   describe('field: shareRentMortgage', () => {
     it('should fail "required" validator if no value is provided', async () => {
       await expectValidatorToFail(validators, 'shareRentMortgage', 'required', null, {
-        summary: 'share-rent-mortgage:field.shareRentMortgage.required',
+        summary: 'share-rent-mortgage:field.shareRentMortgage.requiredEitherSingle',
       });
     });
 
@@ -15,7 +15,7 @@ describe('Validators: share-rent-mortgage', () => {
 
     it('should fail "inArray" validator if value is not one of the valid options', async () => {
       await expectValidatorToFail(validators, 'shareRentMortgage', 'inArray', { shareRentMortgage: 'bad-value' }, {
-        summary: 'share-rent-mortgage:field.shareRentMortgage.required',
+        summary: 'share-rent-mortgage:field.shareRentMortgage.requiredEitherSingle',
       });
     });
 

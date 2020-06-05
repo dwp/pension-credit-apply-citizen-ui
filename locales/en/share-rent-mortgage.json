@@ -1,9 +1,18 @@
 {
-  "pageTitleSingle": "Do you share the rent or mortgage for the place where you live with anyone?",
-  "pageTitleJoint": "Do you share the rent or mortgage for the place where you live with anyone other than your partner?",
+  "pageTitleMortgageSingle": "Do you share the mortgage for the place where you live with anyone?",
+  "pageTitleMortgageJoint": "Do you share the mortgage for the place where you live with anyone other than your partner?",
+  "pageTitleRentSingle": "Do you share the rent for the place where you live with anyone?",
+  "pageTitleRentJoint": "Do you share the rent for the place where you live with anyone other than your partner?",
+  "pageTitleEitherSingle": "Do you share the rent or mortgage for the place where you live with anyone?",
+  "pageTitleEitherJoint": "Do you share the rent or mortgage for the place where you live with anyone other than your partner?",
   "field": {
     "shareRentMortgage": {
-      "required": "Select yes if you share the rent or mortgage with anyone.",
+      "requiredMortgageSingle": "Select yes if you share the mortgage with anyone.",
+      "requiredRentSingle": "Select yes if you share the rent with anyone.",
+      "requiredEitherSingle": "Select yes if you share the rent or mortgage with anyone.",
+      "requiredMortgageJoint": "Select yes if you share the mortgage with anyone other than your partner.",
+      "requiredRentJoint": "Select yes if you share the rent with anyone other than your partner.",
+      "requiredEitherJoint": "Select yes if you share the rent or mortgage with anyone other than your partner.",
       "options": {
         "yes": "Yes",
         "no": "No"
