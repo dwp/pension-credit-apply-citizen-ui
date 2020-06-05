@@ -1,0 +1,14 @@
+{
+  "pageTitle": "Ydych chi'n talu rhent daear?",
+  "field": {
+    "paysGroundRent": {
+      "hint": "Efallai y byddwch yn talu rhent daear os mai chi yw lesddeiliad eich cartref",
+      "required": "Dewiswch ydw os ydych yn talu rhent daear.",
+      "options": {
+        "yes": "Ydw",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych yn talu rhent daear</span>"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Ydy'r brydles ar gyfer eich eiddo neu dir am 21 mlynedd neu fwy?",
+  "field": {
+    "twentyOneYearLease": {
+      "required": "Dewiswch ydy os yw'r brydles ar gyfer eich eiddo neu dir am 21 mlynedd neu fwy.",
+      "options": {
+        "yes": "Ydy",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">mae'r brydles ar gyfer eich eiddo neu dir am 21 mlynedd neu fwy</span>"
+    }
+  }
+}

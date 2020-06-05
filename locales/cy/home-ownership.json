@@ -6,6 +6,7 @@
       "options": {
         "own": "Chi sy'n berchen arno",
         "rent": "Rydych yn ei rentu",
+        "sharedOwnership": "Perchnogaeth wedi'i rannu",
         "other": "Arall"
       },
       "change": "Newid <span class=\"govuk-visually-hidden\">pa un sy'n disgrifio orau y lle rydych yn byw</span>"

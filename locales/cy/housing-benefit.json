@@ -1,0 +1,22 @@
+{
+  "pageTitle": "Ydych chi'n cael Budd-dal Tai?",
+  "field": {
+    "getsHousingBenefit": {
+      "required": "Dewiswch ydw os ydych chi'n cael Budd-dal Tai.",
+      "options": {
+        "yes": "Ydw",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych chi'n cael Budd-dal Tai</span>"
+    },
+    "wantsHousingBenefit": {
+      "legend": "Ydych chi eisiau gwneud cais am Fudd-dal Tai",
+      "required": "Dewiswch ydw os ydych chi eisiau gwneud cais am Fudd-dal Tai.",
+      "options": {
+        "yes": "Ydw",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych chi eisiau gwneud cais am Fudd-dal Tai</span>"
+    }
+  }
+}
