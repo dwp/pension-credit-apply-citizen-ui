@@ -1,0 +1,22 @@
+{
+  "pageTitle": "Do you get Housing Benefit?",
+  "field": {
+    "getsHousingBenefit": {
+      "required": "Select yes if you get Housing Benefit.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you get housing benefit</span>"
+    },
+    "wantsHousingBenefit": {
+      "legend": "Do you want to apply for Housing Benefit?",
+      "required": "Select yes if you want to apply for Housing Benefit.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you want to apply for Housing Benefit</span>"
+    }
+  }
+}

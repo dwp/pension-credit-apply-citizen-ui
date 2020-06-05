@@ -1,0 +1,14 @@
+{
+  "pageTitle": "Do you pay ground rent?",
+  "field": {
+    "paysGroundRent": {
+      "hint": "You might pay ground rent if you are the leaseholder of your home.",
+      "required": "Select yes if you pay ground rent.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you pay ground rent</span>"
+    }
+  }
+}

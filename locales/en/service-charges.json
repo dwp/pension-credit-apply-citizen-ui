@@ -1,8 +1,7 @@
 {
-  "pageTitle": "Property charges",
-  "field": {
+    "pageTitle": "Do you pay any service charges?",
+    "field": {
     "paysServiceCharges": {
-      "legend": "Do you pay any service charges?",
       "hint": {
         "chargesInclude": "Service charges can include:",
         "wardenServices": "warden services",
@@ -16,34 +15,6 @@
         "no": "No"
       },
       "change": "Change <span class=\"govuk-visually-hidden\">whether you pay any service charges</span>"
-    },
-    "paysGroundRent": {
-      "legend": "Do you pay ground rent?",
-      "hint": "You might pay ground rent if you are the leaseholder of your home.",
-      "required": "Select yes if you pay ground rent.",
-      "options": {
-        "yes": "Yes",
-        "no": "No"
-      },
-      "change": "Change <span class=\"govuk-visually-hidden\">whether you pay ground rent</span>"
-    },
-    "getsHousingBenefit": {
-      "legend": "Do you get Housing Benefit?",
-      "required": "Select yes if you get Housing Benefit.",
-      "options": {
-        "yes": "Yes",
-        "no": "No"
-      },
-      "change": "Change <span class=\"govuk-visually-hidden\">whether you get housing benefit</span>"
-    },
-    "wantsHousingBenefit": {
-      "legend": "Do you want to apply for Housing Benefit?",
-      "required": "Select yes if you want to apply for Housing Benefit.",
-      "options": {
-        "yes": "Yes",
-        "no": "No"
-      },
-      "change": "Change <span class=\"govuk-visually-hidden\">whether you want to apply for Housing Benefit</span>"
     }
   }
 }

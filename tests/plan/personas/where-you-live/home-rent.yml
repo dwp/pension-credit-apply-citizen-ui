@@ -1,4 +1,4 @@
-name: where-you-live-21-year-lease
+name: where-you-live-home-rent
 
 journey:
   # ------------------------------------------------------- About where you live
@@ -24,13 +24,11 @@ journey:
   home-ownership:
     "rent": click()
 
-  service-charges:
-    "paysServiceChargesNo":  click()
-    "paysGroundRentYes":  click()
-    "getsHousingBenefitYes":  click()
-
-  21-year-lease:
+  ground-rent:
     "no": click()
 
-  home-loan:
+  housing-benefit:
+    "getsHousingBenefitYes": click()
+
+  share-rent-mortgage:
     "no": click()

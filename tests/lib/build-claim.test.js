@@ -314,6 +314,94 @@ describe('build-claim', () => {
     expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactPostcode');
   });
 
+  it('should not have serviceCharges if page not traversed', () => {
+    const plan = {
+      traverse: sinon.stub().returns([]),
+    };
+
+    const claim = buildClaim(plan, context);
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('serviceCharges');
+  });
+
+  it('should have serviceCharges if page traversed', () => {
+    stubData[WP.SERVICE_CHARGES] = {
+      paysServiceCharges: 'yes',
+    };
+
+    const plan = {
+      traverse: sinon.stub().returns([WP.SERVICE_CHARGES]),
+    };
+
+    const claim = buildClaim(plan, context);
+    expect(claim.whereClaimantLives).to.haveOwnProperty('serviceCharges').that.equals(true);
+  });
+
+  it('should not have receiveHousingBenefit if page not traversed', () => {
+    const plan = {
+      traverse: sinon.stub().returns([]),
+    };
+
+    const claim = buildClaim(plan, context);
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('receiveHousingBenefit');
+  });
+
+  it('should have receiveHousingBenefit if page traversed', () => {
+    stubData[WP.HOUSING_BENEFIT] = {
+      getsHousingBenefit: 'yes',
+    };
+
+    const plan = {
+      traverse: sinon.stub().returns([WP.HOUSING_BENEFIT]),
+    };
+
+    const claim = buildClaim(plan, context);
+    expect(claim.whereClaimantLives).to.haveOwnProperty('receiveHousingBenefit').that.equals(true);
+  });
+
+  it('should not have twentyOneYearLease if page not traversed', () => {
+    const plan = {
+      traverse: sinon.stub().returns([]),
+    };
+
+    const claim = buildClaim(plan, context);
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('lease21YearsOrMore');
+  });
+
+  it('should have twentyOneYearLease if page traversed', () => {
+    stubData[WP.TWENTY_ONE_YEAR_LEASE] = {
+      twentyOneYearLease: 'yes',
+    };
+
+    const plan = {
+      traverse: sinon.stub().returns([WP.TWENTY_ONE_YEAR_LEASE]),
+    };
+
+    const claim = buildClaim(plan, context);
+    expect(claim.whereClaimantLives).to.haveOwnProperty('lease21YearsOrMore').that.equals(true);
+  });
+
+  it('should not have supportWithInterest if page not traversed', () => {
+    const plan = {
+      traverse: sinon.stub().returns([]),
+    };
+
+    const claim = buildClaim(plan, context);
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('supportWithInterest');
+  });
+
+  it('should have supportWithInterest if page traversed', () => {
+    stubData[WP.HOME_LOAN] = {
+      wantsSMI: 'yes',
+    };
+
+    const plan = {
+      traverse: sinon.stub().returns([WP.HOME_LOAN]),
+    };
+
+    const claim = buildClaim(plan, context);
+    expect(claim.whereClaimantLives).to.haveOwnProperty('supportWithInterest').that.equals(true);
+  });
+
   it('should only include a "habitualResidencyTest" section if the user went down this route', () => {
     let traversed = [WP.HRT_CITIZEN_RETURNED_TO_UK];
 

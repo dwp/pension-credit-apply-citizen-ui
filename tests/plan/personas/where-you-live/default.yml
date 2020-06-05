@@ -25,12 +25,15 @@ journey:
     "own": click()
 
   service-charges:
-    "paysServiceChargesNo":  click()
-    "paysGroundRentNo":  click()
-    "getsHousingBenefitYes":  click()
+    "no":  click()
+
+  ground-rent:
+    "yes": click()
 
   home-loan:
     "no": click()
 
   share-rent-mortgage:
     "no": click()
+
+  private-pensions:

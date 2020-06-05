@@ -8,10 +8,6 @@
 {% endblock %}
 
 {% block journey_form %}
-  <h1 class="govuk-heading-xl">
-    {{ t("service-charges:pageTitle") }}
-  </h1>
-
   {% set serviceChargesHint %}
     <p class="govuk-hint govuk-!-margin-top-0">
       {{ t("service-charges:field.paysServiceCharges.hint.chargesInclude") }}
@@ -28,8 +24,9 @@
     name: "paysServiceCharges",
     fieldset: {
       legend: {
-        text: t("service-charges:field.paysServiceCharges.legend"),
-        classes: "govuk-fieldset__legend--m"
+        text: t("service-charges:pageTitle"),
+        classes: "govuk-fieldset__legend--xl",
+        isPageHeading: true
       }
     },
     hint: {
@@ -44,74 +41,6 @@
     }],
     casaWithAnalytics: true,
     casaValue: formData.paysServiceCharges,
-    casaErrors: formErrors
-  }) }}
-
-  {{ casaGovukRadios({
-    name: "paysGroundRent",
-    fieldset: {
-      legend: {
-        text: t("service-charges:field.paysGroundRent.legend"),
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
-    hint: {
-      text: t("service-charges:field.paysGroundRent.hint")
-    },
-    items: [{
-      value: "yes",
-      text: t("service-charges:field.paysGroundRent.options.yes")
-    }, {
-      value: "no",
-      text: t("service-charges:field.paysGroundRent.options.no")
-    }],
-    casaWithAnalytics: true,
-    casaValue: formData.paysGroundRent,
-    casaErrors: formErrors
-  }) }}
-
-  {% set wantsHousingBenefit %}
-    {{ casaGovukRadios({
-      name: "wantsHousingBenefit",
-      fieldset: {
-        legend: {
-          text: t("service-charges:field.wantsHousingBenefit.legend"),
-          classes: "govuk-fieldset__legend--m"
-        }
-      },
-      items: [{
-        value: "yes",
-        text: t("service-charges:field.wantsHousingBenefit.options.yes")
-      }, {
-        value: "no",
-        text: t("service-charges:field.wantsHousingBenefit.options.no")
-      }],
-      casaWithAnalytics: true,
-      casaValue: formData.wantsHousingBenefit,
-      casaErrors: formErrors
-    }) }}
-  {% endset %}
-
-  {{ casaGovukRadios({
-    name: "getsHousingBenefit",
-    fieldset: {
-      legend: {
-        text: t("service-charges:field.getsHousingBenefit.legend"),
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
-    items: [{
-      value: "yes",
-      text: t("service-charges:field.getsHousingBenefit.options.yes")
-    }, {
-      value: "no",
-      text: t("service-charges:field.getsHousingBenefit.options.no"),
-      conditional: {
-        html: wantsHousingBenefit
-      }
-    }],
-    casaWithAnalytics: true,
-    casaValue: formData.getsHousingBenefit,
     casaErrors: formErrors
   }) }}
 {% endblock %}

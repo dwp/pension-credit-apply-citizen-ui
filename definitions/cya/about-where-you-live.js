@@ -89,7 +89,7 @@ module.exports = (t, context, claim, cyaUrl) => {
       valueHtml: safeNl2br(claim.whereClaimantLives.othersNamesAndRelationships),
     }),
 
-    /* --------------------------------------------------- rent-council-tax-rates */
+    /* --------------------------------------------- rent-council-tax-rates */
     // Are you responsible for paying the rent, Council Tax or both for the
     // place where you live?
     row({
@@ -118,35 +118,20 @@ module.exports = (t, context, claim, cyaUrl) => {
 
     /* ---------------------------------------------------- service-charges */
     // Do you pay any service charges?
-    row({
+    claim.whereClaimantLives.serviceCharges !== undefined && row({
       changeHref: `${WP.SERVICE_CHARGES}#f-paysServiceCharges`,
       changeHtml: t('service-charges:field.paysServiceCharges.change'),
-      key: t('service-charges:field.paysServiceCharges.legend'),
+      key: t('service-charges:pageTitle'),
       value: rov('service-charges.paysServiceCharges', 'service-charges:field.paysServiceCharges.options'),
     }),
 
+    /* -------------------------------------------------------- ground-rent */
     // Do you pay ground rent?
     row({
-      changeHref: `${WP.SERVICE_CHARGES}#f-paysGroundRent`,
-      changeHtml: t('service-charges:field.paysGroundRent.change'),
-      key: t('service-charges:field.paysGroundRent.legend'),
-      value: rov('service-charges.paysGroundRent', 'service-charges:field.paysGroundRent.options'),
-    }),
-
-    // Do you get Housing Benefit?
-    row({
-      changeHref: `${WP.SERVICE_CHARGES}#f-getsHousingBenefit`,
-      changeHtml: t('service-charges:field.getsHousingBenefit.change'),
-      key: t('service-charges:field.getsHousingBenefit.legend'),
-      value: rov('service-charges.getsHousingBenefit', 'service-charges:field.getsHousingBenefit.options'),
-    }),
-
-    // Do you want to apply for Housing Benefit?
-    !claim.whereClaimantLives.receiveHousingBenefit && row({
-      changeHref: `${WP.SERVICE_CHARGES}#f-wantsHousingBenefit`,
-      changeHtml: t('service-charges:field.wantsHousingBenefit.change'),
-      key: t('service-charges:field.wantsHousingBenefit.legend'),
-      value: rov('service-charges.wantsHousingBenefit', 'service-charges:field.wantsHousingBenefit.options'),
+      changeHref: `${WP.GROUND_RENT}#f-paysGroundRent`,
+      changeHtml: t('ground-rent:field.paysGroundRent.change'),
+      key: t('ground-rent:pageTitle'),
+      value: rov('ground-rent.paysGroundRent', 'ground-rent:field.paysGroundRent.options'),
     }),
 
     /* ------------------------------------------------------ 21-year-lease */
@@ -158,10 +143,27 @@ module.exports = (t, context, claim, cyaUrl) => {
       value: rov('21-year-lease.twentyOneYearLease', '21-year-lease:field.twentyOneYearLease.options'),
     }),
 
+    /* ---------------------------------------------------- housing-benefit */
+    // Do you get Housing Benefit?
+    claim.whereClaimantLives.receiveHousingBenefit !== undefined && row({
+      changeHref: `${WP.HOUSING_BENEFIT}#f-getsHousingBenefit`,
+      changeHtml: t('housing-benefit:field.getsHousingBenefit.change'),
+      key: t('housing-benefit:pageTitle'),
+      value: rov('housing-benefit.getsHousingBenefit', 'housing-benefit:field.getsHousingBenefit.options'),
+    }),
+
+    // Do you want to apply for Housing Benefit?
+    claim.whereClaimantLives.wantsToApplyForHousingBenefit !== undefined && row({
+      changeHref: `${WP.HOUSING_BENEFIT}#f-wantsHousingBenefit`,
+      changeHtml: t('housing-benefit:field.wantsHousingBenefit.change'),
+      key: t('housing-benefit:field.wantsHousingBenefit.legend'),
+      value: rov('housing-benefit.wantsHousingBenefit', 'housing-benefit:field.wantsHousingBenefit.options'),
+    }),
+
     /* ---------------------------------------------------------- home-loan */
     // Do you want to apply for support with interest on a mortgage or loan
     // secured against your home?
-    row({
+    claim.whereClaimantLives.supportWithInterest !== undefined && row({
       changeHref: `${WP.HOME_LOAN}#f-wantsSMI`,
       changeHtml: t('home-loan:field.wantsSMI.change'),
       key: t('home-loan:pageTitle'),

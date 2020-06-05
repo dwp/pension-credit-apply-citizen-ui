@@ -1,4 +1,4 @@
-name: where-you-live-correspondence-address
+name: where-you-live-home-other
 
 journey:
   # ------------------------------------------------------- About where you live
@@ -13,17 +13,7 @@ journey:
     postcode: "AA1 1AA"
 
   letters-home:
-    "no": click()
-
-  letters-postcode-lookup:
-    enterManualLink: click()
-
-  letters-address:
-    addressLine1: "Address line 1"
-    addressLine2: "Address line 2"
-    town: "Town"
-    county: "County"
-    postcode: "AA1 1AA"
+    "yes": click()
 
   lives-with-you:
     "no": click()
@@ -32,7 +22,7 @@ journey:
     "yes": click()
 
   home-ownership:
-    "own": click()
+    "other": click()
 
   service-charges:
     "no":  click()
@@ -40,10 +30,11 @@ journey:
   ground-rent:
     "yes": click()
 
+  housing-benefit:
+    "getsHousingBenefitYes": click()
+
   home-loan:
     "no": click()
 
   share-rent-mortgage:
     "no": click()
-
-  private-pensions:

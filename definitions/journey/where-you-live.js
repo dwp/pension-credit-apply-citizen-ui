@@ -1,6 +1,6 @@
 const { waypoints: WP } = require('../../lib/constants.js');
 const {
-  d, isEqualTo, isNotEqualTo, wasSkipped, isYes, isNo,
+  d, isEqualTo, wasSkipped, isYes, isNo,
 } = require('../../utils/journey-helpers.js');
 
 module.exports = (plan) => {
@@ -120,29 +120,63 @@ module.exports = (plan) => {
     WP.LIVES_WITH_YOU,
     WP.RENT_COUNCIL_TAX_RATES,
     WP.HOME_OWNERSHIP,
-    WP.SERVICE_CHARGES,
   );
 
-  // If renters pay ground rent we need to ask them if they have a 21 year lease
-  plan.setRoute(WP.SERVICE_CHARGES, WP.TWENTY_ONE_YEAR_LEASE, (r, c) => (
+  // If the claimant owns their own home, we need to ask about service charges
+  // before ground rent
+  plan.setRoute(WP.HOME_OWNERSHIP, WP.SERVICE_CHARGES, (r, c) => (
+    isEqualTo('homeOwnership', 'own')(r, c) || isEqualTo('homeOwnership', 'other')(r, c)
+  ));
+
+  // Then ground rent
+  plan.addSequence(WP.SERVICE_CHARGES, WP.GROUND_RENT);
+
+  // If the claimant does not own their we don't need to ask about service
+  // charges so can go straight to ground rent
+  plan.setRoute(WP.HOME_OWNERSHIP, WP.GROUND_RENT, (r, c) => (
+    isEqualTo('homeOwnership', 'rent')(r, c) || isEqualTo('homeOwnership', 'sharedOwnership')(r, c)
+  ));
+
+  // If renters or part owners pay ground rent we need to ask them if they have
+  // a 21 year lease
+  plan.setRoute(WP.GROUND_RENT, WP.TWENTY_ONE_YEAR_LEASE, (r, c) => (
     isYes('paysGroundRent')(r, c) && (
       isEqualTo('homeOwnership', 'rent', WP.HOME_OWNERSHIP)(r, c)
       || isEqualTo('homeOwnership', 'sharedOwnership', WP.HOME_OWNERSHIP)(r, c)
     )
   ));
 
-  plan.addSequence(WP.TWENTY_ONE_YEAR_LEASE, WP.HOME_LOAN);
+  // Then housing benefit
+  plan.addSequence(WP.TWENTY_ONE_YEAR_LEASE, WP.HOUSING_BENEFIT);
 
-  // Otherwise we continue to HOME_LOAN
-  plan.setRoute(WP.SERVICE_CHARGES, WP.HOME_LOAN, (r, c) => (
-    isNotEqualTo('homeOwnership', 'rent', WP.HOME_OWNERSHIP)(r, c)
-    || isNo('paysGroundRent')(r, c)
+  // We go straight to housing benefit for 'other' or renters/parter owners who
+  // don't pay ground rent
+  plan.setRoute(WP.GROUND_RENT, WP.HOUSING_BENEFIT, (r, c) => (
+    isEqualTo('homeOwnership', 'other', WP.HOME_OWNERSHIP)(r, c)
+    || (
+      isNo('paysGroundRent')(r, c) && (
+        isEqualTo('homeOwnership', 'rent', WP.HOME_OWNERSHIP)(r, c)
+        || isEqualTo('homeOwnership', 'sharedOwnership', WP.HOME_OWNERSHIP)(r, c)
+      )
+    )
   ));
 
-  // Continue where you live journey
-  plan.addSequence(
-    WP.HOME_LOAN,
-    WP.SHARE_RENT_MORTGAGE,
-    WP.PRIVATE_PENSIONS,
-  );
+  // Home owners go to question about SMI after ground rent
+  plan.setRoute(WP.GROUND_RENT, WP.HOME_LOAN, isEqualTo('homeOwnership', 'own', WP.HOME_OWNERSHIP));
+
+  // Share ownership claimants and those with 'other' arrangements need to be
+  // asked about SMI
+  plan.setRoute(WP.HOUSING_BENEFIT, WP.HOME_LOAN, (r, c) => (
+    isEqualTo('homeOwnership', 'sharedOwnership', WP.HOME_OWNERSHIP)(r, c)
+    || isEqualTo('homeOwnership', 'other', WP.HOME_OWNERSHIP)(r, c)
+  ));
+
+  // Then shared mortage/rent etc
+  plan.addSequence(WP.HOME_LOAN, WP.SHARE_RENT_MORTGAGE);
+
+  // Renters don't need to be asked about SMI as they won't have mortgages
+  plan.setRoute(WP.HOUSING_BENEFIT, WP.SHARE_RENT_MORTGAGE, isEqualTo('homeOwnership', 'rent', WP.HOME_OWNERSHIP));
+
+  // Continue to income journey
+  plan.addSequence(WP.SHARE_RENT_MORTGAGE, WP.PRIVATE_PENSIONS);
 };

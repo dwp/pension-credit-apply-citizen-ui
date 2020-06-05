@@ -1,0 +1,55 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("housing-benefit:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {% set wantsHousingBenefit %}
+    {{ casaGovukRadios({
+      name: "wantsHousingBenefit",
+      fieldset: {
+        legend: {
+          text: t("housing-benefit:field.wantsHousingBenefit.legend"),
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [{
+        value: "yes",
+        text: t("housing-benefit:field.wantsHousingBenefit.options.yes")
+      }, {
+        value: "no",
+        text: t("housing-benefit:field.wantsHousingBenefit.options.no")
+      }],
+      casaWithAnalytics: true,
+      casaValue: formData.wantsHousingBenefit,
+      casaErrors: formErrors
+    }) }}
+  {% endset %}
+
+  {{ casaGovukRadios({
+    name: "getsHousingBenefit",
+    fieldset: {
+      legend: {
+        text: t("housing-benefit:pageTitle"),
+        classes: "govuk-fieldset__legend--xl",
+        isPageHeading: true
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("housing-benefit:field.getsHousingBenefit.options.yes")
+    }, {
+      value: "no",
+      text: t("housing-benefit:field.getsHousingBenefit.options.no"),
+      conditional: {
+        html: wantsHousingBenefit
+      }
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.getsHousingBenefit,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

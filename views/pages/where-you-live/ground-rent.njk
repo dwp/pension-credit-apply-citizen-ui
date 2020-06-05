@@ -1,0 +1,33 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("ground-rent:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukRadios({
+    name: "paysGroundRent",
+    fieldset: {
+      legend: {
+        text: t("ground-rent:pageTitle"),
+        classes: "govuk-fieldset__legend--xl",
+        isPageHeading: true
+      }
+    },
+    hint: {
+      text: t("ground-rent:field.paysGroundRent.hint")
+    },
+    items: [{
+      value: "yes",
+      text: t("ground-rent:field.paysGroundRent.options.yes")
+    }, {
+      value: "no",
+      text: t("ground-rent:field.paysGroundRent.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.paysGroundRent,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}
