@@ -84,6 +84,15 @@ module.exports = (t, context, claim, cyaUrl) => {
         value: formatDateObject(context.data['date-of-birth'].dateOfBirth, dateOpts),
       }),
 
+      /* ------------------------------------------------- national-insurance */
+      // What is your National Insurance number?
+      row({
+        changeHref: `${WP.NATIONAL_INSURANCE}#f-nino`,
+        changeHtml: t('national-insurance:field.nino.change'),
+        key: t('national-insurance:pageTitle'),
+        value: context.data['national-insurance'].nino,
+      }),
+
       /* --------------------------------------------------- claimant-details */
       // What is your full name?
       row({
@@ -107,14 +116,6 @@ module.exports = (t, context, claim, cyaUrl) => {
         changeHtml: t('claimant-details:field.previousNames.change'),
         key: t('claimant-details:field.previousNames.label'),
         valueHtml: safeNl2br(context.data['claimant-details'].previousNames),
-      }),
-
-      // What is your National Insurance number?
-      row({
-        changeHref: `${WP.CLAIMANT_DETAILS}#f-nino`,
-        changeHtml: t('claimant-details:field.nino.change'),
-        key: t('claimant-details:field.nino.label'),
-        value: context.data['claimant-details'].nino,
       }),
 
       // What is your contact telephone number?

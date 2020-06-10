@@ -18,7 +18,7 @@ const stubAddress = {
   postcode: 'AA1 1AA',
 };
 const stubDataBase = {
-  [WP.CLAIMANT_DETAILS]: {
+  [WP.NATIONAL_INSURANCE]: {
     nino: 'RN001001A',
   },
   [WP.DATE_OF_BIRTH]: {
@@ -86,7 +86,7 @@ describe('build-claim', () => {
   });
 
   it('should sanitise nino', () => {
-    stubData[WP.CLAIMANT_DETAILS] = {
+    stubData[WP.NATIONAL_INSURANCE] = {
       nino: 'rn 00 10 01 a',
     };
     const plan = {

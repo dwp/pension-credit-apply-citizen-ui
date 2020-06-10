@@ -85,28 +85,6 @@ describe('Validators: claimant-details', () => {
     });
   });
 
-  describe('field: nino', () => {
-    it('should fail "required" validator if no value is provided', async () => {
-      await expectValidatorToFail(validators, 'nino', 'required', null, {
-        summary: 'claimant-details:field.nino.required',
-      });
-    });
-
-    it('should pass "required" validator if a non-empty value is provided', async () => {
-      await expectValidatorToPass(validators, 'nino', 'required', { nino: 'a-nino' });
-    });
-
-    it('should fail "nino" validator if an invalid nino is provided', async () => {
-      await expectValidatorToFail(validators, 'nino', 'nino', { nino: 'invalid-nino' }, {
-        summary: 'claimant-details:field.nino.format',
-      });
-    });
-
-    it('should pass "nino" validator if a valid nino is provided', async () => {
-      await expectValidatorToPass(validators, 'nino', 'nino', { nino: 'RN001001A' });
-    });
-  });
-
   describe('field: contactTelephone', () => {
     it('should fail "strlen" validator if string length > 20', async () => {
       const longString = Array(22).join('x');

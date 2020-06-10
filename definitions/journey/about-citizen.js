@@ -16,6 +16,8 @@ module.exports = (plan) => {
     return cor === 'WALES' || pl !== 'welsh';
   };
 
+  plan.addSequence(WP.NATIONAL_INSURANCE, WP.CLAIMANT_DETAILS);
+
   // Claimant details either goes to contact formats if they need them,
   // partner details if they have a partner but don't need other formats or
   // straight to care home if they have neither.

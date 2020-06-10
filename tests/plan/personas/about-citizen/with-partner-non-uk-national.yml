@@ -2,10 +2,12 @@ name: about-citizen-non-uk-national
 
 journey:
   # ---------------------------------------------------------- About the citizen
+  national-insurance:
+    nino: "RN001001A"
+
   claimant-details:
     fullName: "Alex Smith"
     "hasPreviousNamesNo": click()
-    nino: "RN001001A"
     contactTelephone: 1234567890
     "registeredBlindNo": click()
     "preferredLanguageEnglish": click()

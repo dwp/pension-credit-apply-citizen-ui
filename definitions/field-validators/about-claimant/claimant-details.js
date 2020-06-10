@@ -31,15 +31,6 @@ const fieldValidators = Object.assign(Object.create(null), {
   ], ({ journeyContext: c, waypointId: w }) => (
     (c.getDataForPage(w) || {}).hasPreviousNames === 'yes'
   )),
-  nino: sf([
-    r.required.bind({
-      errorMsg: 'claimant-details:field.nino.required',
-    }),
-    r.nino.bind({
-      errorMsg: 'claimant-details:field.nino.format',
-      allowWhitespace: true,
-    }),
-  ]),
   contactTelephone: sf([
     r.strlen.bind({
       max: 20,
