@@ -1,0 +1,24 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+
+{% block casaPageTitle %}
+  {{ t("partner-national-insurance:field.partnerNino.label") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukInput({
+    name: "partnerNino",
+    classes: "govuk-input--width-10",
+    label: {
+      text: t("partner-national-insurance:field.partnerNino.label"),
+      isPageHeading: true,
+      classes: "govuk-label--xl"
+    },
+    hint: {
+      text: t("partner-national-insurance:field.partnerNino.hint")
+    },
+    value: formData.partnerNino,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

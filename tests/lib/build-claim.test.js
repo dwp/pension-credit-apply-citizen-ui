@@ -102,7 +102,7 @@ describe('build-claim', () => {
       liveWithPartner: 'yes',
       partnerDateOfBirth: stubDate,
     };
-    stubData[WP.PARTNER_DETAILS] = {
+    stubData[WP.PARTNER_NI_NUMBER] = {
       partnerNino: 'NR001002B',
     };
 
@@ -125,7 +125,7 @@ describe('build-claim', () => {
       liveWithPartner: 'yes',
       partnerDateOfBirth: stubDate,
     };
-    stubData[WP.PARTNER_DETAILS] = {
+    stubData[WP.PARTNER_NI_NUMBER] = {
       partnerNino: 'rn 00 10 01 b',
     };
 

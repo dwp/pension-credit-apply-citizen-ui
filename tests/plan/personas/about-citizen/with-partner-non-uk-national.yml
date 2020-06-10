@@ -21,10 +21,12 @@ journey:
   help-letters-calls:
     "no": click()
 
+  partner-national-insurance:
+    partnerNino: RN001002B
+
   partner-details:
     partnerFullName: "Alyx Smith"
     "partnerHasPreviousNamesNo": click()
-    partnerNino: RN001002B
     partnerRegisteredBlindNo: click()
 
   partner-nationality:

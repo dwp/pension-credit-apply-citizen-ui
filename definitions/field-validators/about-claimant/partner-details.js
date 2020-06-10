@@ -30,15 +30,6 @@ const fieldValidators = Object.assign(Object.create(null), {
   ], ({ journeyContext: c, waypointId: w }) => (
     (c.getDataForPage(w) || {}).partnerHasPreviousNames === 'yes'
   )),
-  partnerNino: sf([
-    r.required.bind({
-      errorMsg: 'partner-details:field.partnerNino.required',
-    }),
-    r.nino.bind({
-      errorMsg: 'partner-details:field.partnerNino.format',
-      allowWhitespace: true,
-    }),
-  ]),
   partnerRegisteredBlind: sf([
     r.required.bind({
       errorMsg: 'partner-details:field.partnerRegisteredBlind.required',

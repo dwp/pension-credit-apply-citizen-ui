@@ -65,20 +65,6 @@
     casaErrors: formErrors
   }) }}
 
-  {{ casaGovukInput({
-    name: "partnerNino",
-    classes: "govuk-input--width-10",
-    label: {
-      text: t("partner-details:field.partnerNino.label"),
-      classes: "govuk-label--m"
-    },
-    hint: {
-      text: t("partner-details:field.partnerNino.hint")
-    },
-    value: formData.partnerNino,
-    casaErrors: formErrors
-  }) }}
-
   {{ casaGovukRadios({
     name: "partnerRegisteredBlind",
     fieldset: {

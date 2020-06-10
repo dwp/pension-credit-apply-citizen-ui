@@ -71,10 +71,10 @@ module.exports = (t, context, claim, cyaUrl) => {
 
       // What is your partner’s National Insurance number?
       row({
-        changeHref: `${WP.PARTNER_DETAILS}#f-partnerNino`,
-        changeHtml: t('partner-details:field.partnerNino.change'),
-        key: t('partner-details:field.partnerNino.label'),
-        value: context.data['partner-details'].partnerNino,
+        changeHref: `${WP.PARTNER_NI_NUMBER}#f-partnerNino`,
+        changeHtml: t('partner-national-insurance:field.partnerNino.change'),
+        key: t('partner-national-insurance:field.partnerNino.label'),
+        value: context.data['partner-national-insurance'].partnerNino,
       }),
 
       // Is your partner registered blind or severely sight impaired?

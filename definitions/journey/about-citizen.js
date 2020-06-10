@@ -33,16 +33,17 @@ module.exports = (plan) => {
   // partner details if they have a partner but don't need other formats or
   // straight to care home if they have neither.
   plan.setRoute(WP.HELP_LETTERS_CALLS, WP.CONTACT_FORMATS, isYes('helpWithLettersPhone'));
-  plan.setRoute(WP.HELP_LETTERS_CALLS, WP.PARTNER_DETAILS, (r, c) => isNo('helpWithLettersPhone')(r, c) && hasPartner(r, c));
+  plan.setRoute(WP.HELP_LETTERS_CALLS, WP.PARTNER_NI_NUMBER, (r, c) => isNo('helpWithLettersPhone')(r, c) && hasPartner(r, c));
   plan.setRoute(WP.HELP_LETTERS_CALLS, WP.CARE_HOME, (r, c) => isNo('helpWithLettersPhone')(r, c) && noPartner(r, c));
 
   // Contact formats will go to partner details if they live with a partner or
   // skip straight to home
-  plan.setRoute(WP.CONTACT_FORMATS, WP.PARTNER_DETAILS, hasPartner);
+  plan.setRoute(WP.CONTACT_FORMATS, WP.PARTNER_NI_NUMBER, hasPartner);
   plan.setRoute(WP.CONTACT_FORMATS, WP.CARE_HOME, noPartner);
 
   // Partner details has its own linear journey finishing on care home
   plan.addSequence(
+    WP.PARTNER_NI_NUMBER,
     WP.PARTNER_DETAILS,
     WP.PARTNER_NATIONALITY,
     WP.CARE_HOME,
