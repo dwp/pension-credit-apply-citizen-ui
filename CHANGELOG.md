@@ -1,3 +1,7 @@
+## [0.4.3](https://github.com/dwp/pension-credit-citizen-apply/compare/0.4.2...0.4.3) (2020-06-10)
+
+
+
 ## [0.4.2](https://github.com/dwp/pension-credit-citizen-apply/compare/0.4.1...0.4.2) (2020-06-03)
 
 
