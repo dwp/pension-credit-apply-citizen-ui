@@ -44,6 +44,7 @@ module.exports = (plan) => {
   // Partner details has its own linear journey finishing on care home
   plan.addSequence(
     WP.PARTNER_NI_NUMBER,
+    WP.PARTNER_NAME,
     WP.PARTNER_DETAILS,
     WP.PARTNER_NATIONALITY,
     WP.CARE_HOME,

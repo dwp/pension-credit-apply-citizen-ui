@@ -13,58 +13,6 @@
     {{ t("partner-details:pageTitle") }}
   </h1>
 
-  {{ casaGovukInput({
-    name: "partnerFullName",
-    classes: "govuk-input--width-20",
-    label: {
-      text: t("partner-details:field.partnerFullName.label"),
-      classes: "govuk-label--m"
-    },
-    hint: {
-      text: t("partner-details:field.partnerFullName.hint")
-    },
-    value: formData.partnerFullName,
-    casaErrors: formErrors
-  }) }}
-
-  {% set partnerPreviousNames %}
-    {{ casaGovukTextarea({
-      name: "partnerPreviousNames",
-      label: {
-        text: t("partner-details:field.partnerPreviousNames.label"),
-        classes: "govuk-label--m"
-      },
-      value: formData.partnerPreviousNames,
-      casaErrors: formErrors
-    }) }}
-  {% endset %}
-
-  {{ casaGovukRadios({
-    name: "partnerHasPreviousNames",
-    fieldset: {
-      legend: {
-        text: t("partner-details:field.partnerHasPreviousNames.legend"),
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
-    hint: {
-      text: t("partner-details:field.partnerHasPreviousNames.hint")
-    },
-    items: [{
-      value: "yes",
-      text: t("partner-details:field.partnerHasPreviousNames.options.yes"),
-      conditional: {
-        html: partnerPreviousNames
-      }
-    }, {
-      value: "no",
-      text: t("partner-details:field.partnerHasPreviousNames.options.no")
-    }],
-    casaWithAnalytics: true,
-    casaValue: formData.partnerHasPreviousNames,
-    casaErrors: formErrors
-  }) }}
-
   {{ casaGovukRadios({
     name: "partnerRegisteredBlind",
     fieldset: {

@@ -47,26 +47,26 @@ module.exports = (t, context, claim, cyaUrl) => {
       /* ---------------------------------------------------- partner-details */
       // What is your partner’s full name?
       row({
-        changeHref: `${WP.PARTNER_DETAILS}#f-partnerFullName`,
-        changeHtml: t('partner-details:field.partnerFullName.change'),
-        key: t('partner-details:field.partnerFullName.label'),
-        value: context.data['partner-details'].partnerFullName,
+        changeHref: `${WP.PARTNER_NAME}#f-partnerFullName`,
+        changeHtml: t('partner-name:field.partnerFullName.change'),
+        key: t('partner-name:field.partnerFullName.label'),
+        value: context.data['partner-name'].partnerFullName,
       }),
 
       // Has your partner been known by any previous names?
       row({
-        changeHref: `${WP.PARTNER_DETAILS}#f-partnerHasPreviousNames`,
-        changeHtml: t('partner-details:field.partnerHasPreviousNames.change'),
-        key: t('partner-details:field.partnerHasPreviousNames.legend'),
-        value: rov('partner-details.partnerHasPreviousNames', 'partner-details:field.partnerHasPreviousNames.options'),
+        changeHref: `${WP.PARTNER_NAME}#f-partnerHasPreviousNames`,
+        changeHtml: t('partner-name:field.partnerHasPreviousNames.change'),
+        key: t('partner-name:field.partnerHasPreviousNames.legend'),
+        value: rov('partner-name.partnerHasPreviousNames', 'partner-name:field.partnerHasPreviousNames.options'),
       }),
 
       // What were your partner’s previous names?
       claim.partner.otherNames === undefined ? undefined : row({
-        changeHref: `${WP.PARTNER_DETAILS}#f-partnerPreviousNames`,
-        changeHtml: t('partner-details:field.partnerPreviousNames.change'),
-        key: t('partner-details:field.partnerPreviousNames.label'),
-        valueHtml: safeNl2br(context.data['partner-details'].partnerPreviousNames),
+        changeHref: `${WP.PARTNER_NAME}#f-partnerPreviousNames`,
+        changeHtml: t('partner-name:field.partnerPreviousNames.change'),
+        key: t('partner-name:field.partnerPreviousNames.label'),
+        valueHtml: safeNl2br(context.data['partner-name'].partnerPreviousNames),
       }),
 
       // What is your partner’s National Insurance number?

@@ -1,0 +1,67 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "casa/components/textarea/macro.njk" import casaGovukTextarea with context %}
+
+{% block casaPageTitle %}
+  {{ t("partner-name:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  <h1 class="govuk-heading-xl">
+    {{ t("partner-name:pageTitle") }}
+  </h1>
+
+  {{ casaGovukInput({
+    name: "partnerFullName",
+    classes: "govuk-input--width-20",
+    label: {
+      text: t("partner-name:field.partnerFullName.label"),
+      classes: "govuk-label--m"
+    },
+    hint: {
+      text: t("partner-name:field.partnerFullName.hint")
+    },
+    value: formData.partnerFullName,
+    casaErrors: formErrors
+  }) }}
+
+  {% set partnerPreviousNames %}
+    {{ casaGovukTextarea({
+      name: "partnerPreviousNames",
+      label: {
+        text: t("partner-name:field.partnerPreviousNames.label"),
+        classes: "govuk-label--m"
+      },
+      value: formData.partnerPreviousNames,
+      casaErrors: formErrors
+    }) }}
+  {% endset %}
+
+  {{ casaGovukRadios({
+    name: "partnerHasPreviousNames",
+    fieldset: {
+      legend: {
+        text: t("partner-name:field.partnerHasPreviousNames.legend"),
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      text: t("partner-name:field.partnerHasPreviousNames.hint")
+    },
+    items: [{
+      value: "yes",
+      text: t("partner-name:field.partnerHasPreviousNames.options.yes"),
+      conditional: {
+        html: partnerPreviousNames
+      }
+    }, {
+      value: "no",
+      text: t("partner-name:field.partnerHasPreviousNames.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.partnerHasPreviousNames,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

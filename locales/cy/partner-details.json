@@ -1,29 +1,6 @@
 {
   "pageTitle": "Am eich partner",
   "field": {
-    "partnerFullName": {
-      "label": "Beth yw enw llawn eich partner?",
-      "hint": "Dylech gynnwys unrhyw enwau canol.",
-      "required": "Rhowch enw llawn eich partner.",
-      "length": "Mae'n rhaid i enw llawn eich partner fod yn 500 nod neu lai.",
-      "change": "Newid <span class=\"govuk-visually-hidden\">enw llawn eich partner</span>"
-    },
-    "partnerHasPreviousNames": {
-      "legend": "Ydy eich partner wedi cael eu hadnabod gan unrhyw enwau eraill?",
-      "hint": "Er enghraifft, enwau cyn priodi neu enwau priod blaenorol.",
-      "required": "Dewiswch ydy os yw eich partner wedi cael eu hadnabod gan unrhyw enwau eraill.",
-      "options": {
-        "yes": "Ydy",
-        "no": "Na"
-      },
-      "change": "Newid <span class=\"govuk-visually-hidden\">os yw eich partner wedi cael eu hadnabod gan unrhyw enwau eraill</span>"
-    },
-    "partnerPreviousNames": {
-      "label": "Beth oedd enwau blaenorol eich partner?",
-      "required": "Rhowch enwau blaenorol eich partner.",
-      "length": "Mae'n rhaid i enwau blaenorol eich partner fod yn 500 nod neu lai.",
-      "change": "Newid <span class=\"govuk-visually-hidden\">enwau blaenorol eich partner</span>"
-    },
     "partnerRegisteredBlind": {
       "legend": "Ydy eich partner wedi'u cofrestru'n ddall neu â nam difrifol ar eu golwg?",
       "required": "Dewiswch ydy os yw eich partner wedi'u cofrestru'n ddall neu â nam difrifol ar eu golwg.",

@@ -1,0 +1,28 @@
+{
+  "pageTitle": "Your partner’s name",
+  "field": {
+    "partnerFullName": {
+      "label": "What is your partner’s full name?",
+      "hint": "Include any middle names.",
+      "required": "Enter your partner’s full name.",
+      "length": "Your partner’s full name must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">your partner’s full name</span>"
+    },
+    "partnerHasPreviousNames": {
+      "legend": "Has your partner been known by any previous names?",
+      "hint": "For example, maiden names or previous married names.",
+      "required": "Select yes if your partner has been known by any other names.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether your partner has been known by any previous names</span>"
+    },
+    "partnerPreviousNames": {
+      "label": "What were your partner’s previous names?",
+      "required": "Enter your partner’s previous names.",
+      "length": "Your partner’s previous names must be 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">your partner’s previous names</span>"
+    }
+  }
+}

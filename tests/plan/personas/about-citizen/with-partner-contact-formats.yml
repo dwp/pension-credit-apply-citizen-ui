@@ -27,9 +27,11 @@ journey:
   partner-national-insurance:
     partnerNino: RN001002B
 
-  partner-details:
+  partner-name:
     partnerFullName: "Alyx Smith"
     "partnerHasPreviousNamesNo": click()
+
+  partner-details:
     partnerRegisteredBlindNo: click()
 
   partner-nationality:
