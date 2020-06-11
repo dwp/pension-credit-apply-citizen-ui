@@ -79,10 +79,10 @@ module.exports = (t, context, claim, cyaUrl) => {
 
       // Is your partner registered blind or severely sight impaired?
       row({
-        changeHref: `${WP.PARTNER_DETAILS}#f-partnerRegisteredBlind`,
-        changeHtml: t('partner-details:field.partnerRegisteredBlind.change'),
-        key: t('partner-details:field.partnerRegisteredBlind.legend'),
-        value: rov('partner-details.partnerRegisteredBlind', 'partner-details:field.partnerRegisteredBlind.options'),
+        changeHref: `${WP.PARTNER_BLIND}#f-partnerRegisteredBlind`,
+        changeHtml: t('partner-registered-blind:field.partnerRegisteredBlind.change'),
+        key: t('partner-registered-blind:field.partnerRegisteredBlind.legend'),
+        value: rov('partner-registered-blind.partnerRegisteredBlind', 'partner-registered-blind:field.partnerRegisteredBlind.options'),
       }),
 
       /* ------------------------------------------------ partner-nationality */

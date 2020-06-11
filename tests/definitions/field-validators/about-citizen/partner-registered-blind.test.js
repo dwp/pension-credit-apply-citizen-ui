@@ -1,11 +1,11 @@
 const { expectValidatorToFail, expectValidatorToPass } = require('../../../helpers/validator-assertions.js');
-const validators = require('../../../../definitions/field-validators/about-claimant/partner-details.js');
+const validators = require('../../../../definitions/field-validators/about-claimant/partner-registered-blind.js');
 
-describe('Validators: partner-details', () => {
+describe('Validators: partner-registered-blind', () => {
   describe('field: partnerRegisteredBlind', () => {
     it('should fail "required" validator if no value is provided', async () => {
       await expectValidatorToFail(validators, 'partnerRegisteredBlind', 'required', null, {
-        summary: 'partner-details:field.partnerRegisteredBlind.required',
+        summary: 'partner-registered-blind:field.partnerRegisteredBlind.required',
       });
     });
 
@@ -15,7 +15,7 @@ describe('Validators: partner-details', () => {
 
     it('should fail "inArray" validator if value is not one of the valid options', async () => {
       await expectValidatorToFail(validators, 'partnerRegisteredBlind', 'inArray', { partnerRegisteredBlind: 'bad-value' }, {
-        summary: 'partner-details:field.partnerRegisteredBlind.required',
+        summary: 'partner-registered-blind:field.partnerRegisteredBlind.required',
       });
     });
 

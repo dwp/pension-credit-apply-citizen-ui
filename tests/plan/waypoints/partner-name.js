@@ -5,7 +5,6 @@ class PartnerName extends BaseTestWaypoint {
     return {
       partnerHasPreviousNamesYes: '[name="partnerHasPreviousNames"][value="yes"]',
       partnerHasPreviousNamesNo: '[name="partnerHasPreviousNames"][value="no"]',
-      partnerRegisteredBlindYes: '[name="partnerRegisteredBlind"][value="yes"]',
     };
   }
 }

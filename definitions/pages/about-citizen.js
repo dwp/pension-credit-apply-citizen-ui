@@ -9,7 +9,7 @@ const helpLettersCallsValidation = require('../field-validators/about-claimant/h
 const contactFormatsValidation = require('../field-validators/about-claimant/contact-formats.js');
 const partnerNationalInsuranceValidation = require('../field-validators/about-claimant/partner-national-insurance.js');
 const partnerNameValidation = require('../field-validators/about-claimant/partner-name.js');
-const partnerDetailsValidation = require('../field-validators/about-claimant/partner-details.js');
+const partnerRegisteredBlindValidation = require('../field-validators/about-claimant/partner-registered-blind.js');
 const partnerNationalityValidation = require('../field-validators/about-claimant/partner-nationality.js');
 const careHomeValidation = require('../field-validators/about-claimant/care-home.js');
 const northernIrelandClaim = require('../hooks/common/northern-ireland-claim.js');
@@ -71,9 +71,9 @@ module.exports = () => {
     fieldValidators: partnerNameValidation,
   };
 
-  pages[waypoints.PARTNER_DETAILS] = {
-    view: 'pages/about-citizen/partner-details.njk',
-    fieldValidators: partnerDetailsValidation,
+  pages[waypoints.PARTNER_BLIND] = {
+    view: 'pages/about-citizen/partner-registered-blind.njk',
+    fieldValidators: partnerRegisteredBlindValidation,
   };
 
   pages[waypoints.PARTNER_NATIONALITY] = {

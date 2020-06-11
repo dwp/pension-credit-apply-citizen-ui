@@ -31,8 +31,8 @@ journey:
     partnerFullName: "Alyx Smith"
     "partnerHasPreviousNamesNo": click()
 
-  partner-details:
-    partnerRegisteredBlindNo: click()
+  partner-registered-blind:
+    "no": click()
 
   partner-nationality:
     "partnerRightToResideYes": click()
