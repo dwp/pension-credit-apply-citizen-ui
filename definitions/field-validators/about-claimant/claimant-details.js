@@ -2,35 +2,6 @@ const { validationRules: r, simpleFieldValidation: sf } = require('@dwp/govuk-ca
 const isValidTelephoneNumber = require('../../../utils/is-valid-telephone-number.js');
 
 const fieldValidators = Object.assign(Object.create(null), {
-  fullName: sf([
-    r.required.bind({
-      errorMsg: 'claimant-details:field.fullName.required',
-    }),
-    r.strlen.bind({
-      max: 500,
-      errorMsgMax: 'claimant-details:field.fullName.length',
-    }),
-  ]),
-  hasPreviousNames: sf([
-    r.required.bind({
-      errorMsg: 'claimant-details:field.hasPreviousNames.required',
-    }),
-    r.inArray.bind({
-      source: ['yes', 'no'],
-      errorMsg: 'claimant-details:field.hasPreviousNames.required',
-    }),
-  ]),
-  previousNames: sf([
-    r.required.bind({
-      errorMsg: 'claimant-details:field.previousNames.required',
-    }),
-    r.strlen.bind({
-      max: 500,
-      errorMsgMax: 'claimant-details:field.previousNames.length',
-    }),
-  ], ({ journeyContext: c, waypointId: w }) => (
-    (c.getDataForPage(w) || {}).hasPreviousNames === 'yes'
-  )),
   contactTelephone: sf([
     r.strlen.bind({
       max: 20,

@@ -93,31 +93,32 @@ module.exports = (t, context, claim, cyaUrl) => {
         value: context.data['national-insurance'].nino,
       }),
 
-      /* --------------------------------------------------- claimant-details */
+      /* ---------------------------------------------------------- your-name */
       // What is your full name?
       row({
-        changeHref: `${WP.CLAIMANT_DETAILS}#f-fullName`,
-        changeHtml: t('claimant-details:field.fullName.change'),
-        key: t('claimant-details:field.fullName.label'),
-        value: context.data['claimant-details'].fullName,
+        changeHref: `${WP.YOUR_NAME}#f-fullName`,
+        changeHtml: t('your-name:field.fullName.change'),
+        key: t('your-name:field.fullName.label'),
+        value: context.data['your-name'].fullName,
       }),
 
       // Have you been known by any previous names?
       row({
-        changeHref: `${WP.CLAIMANT_DETAILS}#f-hasPreviousNames`,
-        changeHtml: t('claimant-details:field.hasPreviousNames.change'),
-        key: t('claimant-details:field.hasPreviousNames.legend'),
-        value: rov('claimant-details.hasPreviousNames', 'claimant-details:field.hasPreviousNames.options'),
+        changeHref: `${WP.YOUR_NAME}#f-hasPreviousNames`,
+        changeHtml: t('your-name:field.hasPreviousNames.change'),
+        key: t('your-name:field.hasPreviousNames.legend'),
+        value: rov('your-name.hasPreviousNames', 'your-name:field.hasPreviousNames.options'),
       }),
 
       // What were your previous names?
       claim.claimant.claimantPreviousNames === undefined ? undefined : row({
-        changeHref: `${WP.CLAIMANT_DETAILS}#f-previousNames`,
-        changeHtml: t('claimant-details:field.previousNames.change'),
-        key: t('claimant-details:field.previousNames.label'),
-        valueHtml: safeNl2br(context.data['claimant-details'].previousNames),
+        changeHref: `${WP.YOUR_NAME}#f-previousNames`,
+        changeHtml: t('your-name:field.previousNames.change'),
+        key: t('your-name:field.previousNames.label'),
+        valueHtml: safeNl2br(context.data['your-name'].previousNames),
       }),
 
+      /* --------------------------------------------------- claimant-details */
       // What is your contact telephone number?
       row({
         changeHref: `${WP.CLAIMANT_DETAILS}#f-contactTelephone`,

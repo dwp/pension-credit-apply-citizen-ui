@@ -5,9 +5,11 @@ journey:
   national-insurance:
     nino: "RN001001A"
 
-  claimant-details:
+  your-name:
     fullName: "Alex Smith"
     "hasPreviousNamesNo": click()
+
+  claimant-details:
     contactTelephone: 1234567890
     "registeredBlindNo": click()
     "preferredLanguageEnglish": click()

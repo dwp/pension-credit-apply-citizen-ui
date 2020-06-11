@@ -14,58 +14,6 @@
   </h1>
 
   {{ casaGovukInput({
-    name: "fullName",
-    classes: "govuk-input--width-20",
-    label: {
-      text: t("claimant-details:field.fullName.label"),
-      classes: "govuk-label--m"
-    },
-    hint: {
-      text: t("claimant-details:field.fullName.hint")
-    },
-    value: formData.fullName,
-    casaErrors: formErrors
-  }) }}
-
-  {% set previousNames %}
-    {{ casaGovukTextarea({
-      name: "previousNames",
-      label: {
-        text: t("claimant-details:field.previousNames.label"),
-        classes: "govuk-label--m"
-      },
-      value: formData.previousNames,
-      casaErrors: formErrors
-    }) }}
-  {% endset %}
-
-  {{ casaGovukRadios({
-    name: "hasPreviousNames",
-    fieldset: {
-      legend: {
-        text: t("claimant-details:field.hasPreviousNames.legend"),
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
-    hint: {
-      text: t("claimant-details:field.hasPreviousNames.hint")
-    },
-    items: [{
-      value: "yes",
-      text: t("claimant-details:field.hasPreviousNames.options.yes"),
-      conditional: {
-        html: previousNames
-      }
-    }, {
-      value: "no",
-      text: t("claimant-details:field.hasPreviousNames.options.no")
-    }],
-    casaWithAnalytics: true,
-    casaValue: formData.hasPreviousNames,
-    casaErrors: formErrors
-  }) }}
-
-  {{ casaGovukInput({
     name: "contactTelephone",
     classes: "govuk-input--width-10",
     label: {

@@ -1,6 +1,7 @@
 const { waypoints } = require('../../lib/constants.js');
 const checkboxesModifier = require('../field-gather-modifiers/checkboxes.js');
 const nationalInsuranceValidation = require('../field-validators/about-claimant/national-insurance.js');
+const yourNameValidation = require('../field-validators/about-claimant/your-name.js');
 const claimantDetailsValidation = require('../field-validators/about-claimant/claimant-details.js');
 const contactFormatsValidation = require('../field-validators/about-claimant/contact-formats.js');
 const partnerDetailsValidation = require('../field-validators/about-claimant/partner-details.js');
@@ -15,6 +16,11 @@ module.exports = () => {
   pages[waypoints.NATIONAL_INSURANCE] = {
     view: 'pages/about-citizen/national-insurance.njk',
     fieldValidators: nationalInsuranceValidation,
+  };
+
+  pages[waypoints.YOUR_NAME] = {
+    view: 'pages/about-citizen/your-name.njk',
+    fieldValidators: yourNameValidation,
   };
 
   pages[waypoints.CLAIMANT_DETAILS] = {

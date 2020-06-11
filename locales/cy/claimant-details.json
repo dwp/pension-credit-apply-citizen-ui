@@ -1,29 +1,6 @@
 {
   "pageTitle": "Eich manylion",
   "field": {
-    "fullName": {
-      "label": "Beth yw eich enw llawn?",
-      "hint": "Dylech gynnwys unrhyw enwau canol.",
-      "required": "Rhowch eich enw llawn.",
-      "length": "Mae'n rhaid i enw llawn fod yn 500 nod neu lai.",
-      "change": "Newid <span class=\"govuk-visually-hidden\">eich enw llawn</span>"
-    },
-    "hasPreviousNames": {
-      "legend": "Ydych chi wedi cael eich adnabod gan unrhyw enwau blaenorol?",
-      "hint": "Er enghraifft, enwau cyn priodi neu enwau priod blaenorol.",
-      "required": "Dewiswch ydw os ydych wedi cael eich adnabod gan unrhyw enwau blaenorol.",
-      "options": {
-        "yes": "Ydw",
-        "no": "Na"
-      },
-      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi cael eich adnabod gan unrhyw enwau blaenorol</span>"
-    },
-    "previousNames": {
-      "label": "Beth oedd eich enwau blaenorol?",
-      "required": "Rhowch eich enwau blaenorol.",
-      "length": "Mae'n rhaid i enwau blaenorol fod yn 500 nod neu lai.",
-      "change": "Newid <span class=\"govuk-visually-hidden\">eich enwau blaenorol</span>"
-    },
     "contactTelephone": {
       "label": "Beth yw eich rhif ffôn cyswllt?",
       "length": "Rhowch eich rhif ffôn cyswllt gan ddefnyddio 20 nod neu lai.",

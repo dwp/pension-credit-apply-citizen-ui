@@ -1,29 +1,6 @@
 {
   "pageTitle": "Your details",
   "field": {
-    "fullName": {
-      "label": "What is your full name?",
-      "hint": "Include any middle names.",
-      "required": "Enter your full name.",
-      "length": "Full name must be 500 characters or less.",
-      "change": "Change <span class=\"govuk-visually-hidden\">your full name</span>"
-    },
-    "hasPreviousNames": {
-      "legend": "Have you been known by any previous names?",
-      "hint": "For example, maiden names or previous married names.",
-      "required": "Select yes if you have been known by any previous names.",
-      "options": {
-        "yes": "Yes",
-        "no": "No"
-      },
-      "change": "Change <span class=\"govuk-visually-hidden\">whether you have been known by any previous names</span>"
-    },
-    "previousNames": {
-      "label": "What were your previous names?",
-      "required": "Enter your previous names.",
-      "length": "Previous names must be 500 characters or less.",
-      "change": "Change <span class=\"govuk-visually-hidden\">your previous names</span>"
-    },
     "contactTelephone": {
       "label": "What is your contact telephone number?",
       "length": "Enter your contact telephone number using 20 characters or less.",
