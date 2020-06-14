@@ -1,0 +1,30 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("help-letters-calls:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukRadios({
+    name: "helpWithLettersPhone",
+    fieldset: {
+      legend: {
+        text: t("help-letters-calls:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("help-letters-calls:field.helpWithLettersPhone.options.yes")
+    }, {
+      value: "no",
+      text: t("help-letters-calls:field.helpWithLettersPhone.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.helpWithLettersPhone,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

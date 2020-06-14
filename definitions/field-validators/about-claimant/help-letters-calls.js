@@ -3,11 +3,11 @@ const { validationRules: r, simpleFieldValidation: sf } = require('@dwp/govuk-ca
 const fieldValidators = Object.assign(Object.create(null), {
   helpWithLettersPhone: sf([
     r.required.bind({
-      errorMsg: 'claimant-details:field.helpWithLettersPhone.required',
+      errorMsg: 'help-letters-calls:field.helpWithLettersPhone.required',
     }),
     r.inArray.bind({
       source: ['yes', 'no'],
-      errorMsg: 'claimant-details:field.helpWithLettersPhone.required',
+      errorMsg: 'help-letters-calls:field.helpWithLettersPhone.required',
     }),
   ]),
 });

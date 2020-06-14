@@ -1,11 +1,11 @@
 const { expectValidatorToFail, expectValidatorToPass } = require('../../../helpers/validator-assertions.js');
-const validators = require('../../../../definitions/field-validators/about-claimant/claimant-details.js');
+const validators = require('../../../../definitions/field-validators/about-claimant/help-letters-calls.js');
 
-describe('Validators: claimant-details', () => {
+describe('Validators: help-letters-calls', () => {
   describe('field: helpWithLettersPhone', () => {
     it('should fail "required" validator if no value is provided', async () => {
       await expectValidatorToFail(validators, 'helpWithLettersPhone', 'required', null, {
-        summary: 'claimant-details:field.helpWithLettersPhone.required',
+        summary: 'help-letters-calls:field.helpWithLettersPhone.required',
       });
     });
 
@@ -15,7 +15,7 @@ describe('Validators: claimant-details', () => {
 
     it('should fail "inArray" validator if value is not one of the valid options', async () => {
       await expectValidatorToFail(validators, 'helpWithLettersPhone', 'inArray', { helpWithLettersPhone: 'bad-value' }, {
-        summary: 'claimant-details:field.helpWithLettersPhone.required',
+        summary: 'help-letters-calls:field.helpWithLettersPhone.required',
       });
     });
 

@@ -1,8 +1,7 @@
 {
-  "pageTitle": "Eich manylion",
+  "pageTitle": "Ydych chi angen help gyda llythyrau neu alwadau ffôn?",
   "field": {
     "helpWithLettersPhone": {
-      "legend": "Ydych chi angen help gyda llythyrau neu alwadau ffôn?",
       "required": "Dewiswch ydw os ydych angen help gyda llythyrau neu alwadau ffôn.",
       "options": {
         "yes": "Ydw",

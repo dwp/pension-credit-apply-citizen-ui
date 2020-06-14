@@ -18,8 +18,8 @@ journey:
   registered-blind:
     "no": click()
 
-  claimant-details:
-    "helpWithLettersPhoneYes": click()
+  help-letters-calls:
+    "yes": click()
 
   contact-formats:
 

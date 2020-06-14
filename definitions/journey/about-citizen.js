@@ -27,14 +27,14 @@ module.exports = (plan) => {
   // language has been set, we need to ensure the user remains on the
   // CLAIMANT_LANGUAGE page until they have answered.
   plan.setRoute(WP.CLAIMANT_LANGUAGE, WP.REGISTERED_BLIND, langOk);
-  plan.addSequence(WP.REGISTERED_BLIND, WP.CLAIMANT_DETAILS);
+  plan.addSequence(WP.REGISTERED_BLIND, WP.HELP_LETTERS_CALLS);
 
-  // Claimant details either goes to contact formats if they need them,
+  // HELP_LETTERS_CALLS either goes to contact formats if they need them,
   // partner details if they have a partner but don't need other formats or
   // straight to care home if they have neither.
-  plan.setRoute(WP.CLAIMANT_DETAILS, WP.CONTACT_FORMATS, isYes('helpWithLettersPhone'));
-  plan.setRoute(WP.CLAIMANT_DETAILS, WP.PARTNER_DETAILS, (r, c) => isNo('helpWithLettersPhone')(r, c) && hasPartner(r, c));
-  plan.setRoute(WP.CLAIMANT_DETAILS, WP.CARE_HOME, (r, c) => isNo('helpWithLettersPhone')(r, c) && noPartner(r, c));
+  plan.setRoute(WP.HELP_LETTERS_CALLS, WP.CONTACT_FORMATS, isYes('helpWithLettersPhone'));
+  plan.setRoute(WP.HELP_LETTERS_CALLS, WP.PARTNER_DETAILS, (r, c) => isNo('helpWithLettersPhone')(r, c) && hasPartner(r, c));
+  plan.setRoute(WP.HELP_LETTERS_CALLS, WP.CARE_HOME, (r, c) => isNo('helpWithLettersPhone')(r, c) && noPartner(r, c));
 
   // Contact formats will go to partner details if they live with a partner or
   // skip straight to home

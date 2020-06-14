@@ -1,8 +1,7 @@
 {
-  "pageTitle": "Your details",
+  "pageTitle": "Do you need help with letters or phone calls?",
   "field": {
     "helpWithLettersPhone": {
-      "legend": "Do you need help with letters or phone calls?",
       "required": "Select yes if you need help with letters or phone calls.",
       "options": {
         "yes": "Yes",

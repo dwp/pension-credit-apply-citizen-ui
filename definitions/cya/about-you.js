@@ -153,13 +153,13 @@ module.exports = (t, context, claim, cyaUrl) => {
         value: rov('registered-blind.registeredBlind', 'registered-blind:field.registeredBlind.options'),
       }),
 
-      /* --------------------------------------------------- claimant-details */
+      /* ------------------------------------------------- help-letters-calls */
       // Do you need help with letters or phone calls?
       row({
-        changeHref: `${WP.CLAIMANT_DETAILS}#f-helpWithLettersPhone`,
-        changeHtml: t('claimant-details:field.helpWithLettersPhone.change'),
-        key: t('claimant-details:field.helpWithLettersPhone.legend'),
-        value: rov('claimant-details.helpWithLettersPhone', 'claimant-details:field.helpWithLettersPhone.options'),
+        changeHref: `${WP.HELP_LETTERS_CALLS}#f-helpWithLettersPhone`,
+        changeHtml: t('help-letters-calls:field.helpWithLettersPhone.change'),
+        key: t('help-letters-calls:pageTitle'),
+        value: rov('help-letters-calls.helpWithLettersPhone', 'help-letters-calls:field.helpWithLettersPhone.options'),
       }),
 
       /* ---------------------------------------------------- contact-formats */

@@ -18,8 +18,8 @@ journey:
   registered-blind:
     "no": click()
 
-  claimant-details:
-    "helpWithLettersPhoneNo": click()
+  help-letters-calls:
+    "no": click()
 
   partner-details:
     partnerFullName: "Alyx Smith"

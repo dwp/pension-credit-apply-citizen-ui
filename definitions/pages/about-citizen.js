@@ -5,7 +5,7 @@ const yourNameValidation = require('../field-validators/about-claimant/your-name
 const phoneNumberValidation = require('../field-validators/about-claimant/phone-number.js');
 const claimantLanguageValidation = require('../field-validators/about-claimant/claimant-language.js');
 const registeredBlindValidation = require('../field-validators/about-claimant/registered-blind.js');
-const claimantDetailsValidation = require('../field-validators/about-claimant/claimant-details.js');
+const helpLettersCallsValidation = require('../field-validators/about-claimant/help-letters-calls.js');
 const contactFormatsValidation = require('../field-validators/about-claimant/contact-formats.js');
 const partnerDetailsValidation = require('../field-validators/about-claimant/partner-details.js');
 const partnerNationalityValidation = require('../field-validators/about-claimant/partner-nationality.js');
@@ -46,9 +46,9 @@ module.exports = () => {
     fieldValidators: registeredBlindValidation,
   };
 
-  pages[waypoints.CLAIMANT_DETAILS] = {
-    view: 'pages/about-citizen/claimant-details.njk',
-    fieldValidators: claimantDetailsValidation,
+  pages[waypoints.HELP_LETTERS_CALLS] = {
+    view: 'pages/about-citizen/help-letters-calls.njk',
+    fieldValidators: helpLettersCallsValidation,
   };
 
   pages[waypoints.CONTACT_FORMATS] = {
