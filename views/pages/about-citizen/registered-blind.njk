@@ -1,0 +1,30 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("registered-blind:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukRadios({
+    name: "registeredBlind",
+    fieldset: {
+      legend: {
+        text: t("registered-blind:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("registered-blind:field.registeredBlind.options.yes")
+    }, {
+      value: "no",
+      text: t("registered-blind:field.registeredBlind.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.registeredBlind,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

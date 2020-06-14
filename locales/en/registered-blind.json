@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Are you registered blind or severely sight impaired?",
+  "field": {
+    "registeredBlind": {
+      "required": "Select yes if you are registered blind or severely sight impaired.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you are registered blind or severely sight impaired</span>"
+    }
+  }
+}

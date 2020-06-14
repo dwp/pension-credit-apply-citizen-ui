@@ -14,7 +14,7 @@ module.exports = (t, context, claim, cyaUrl) => {
   const row = rowFactory(cyaUrl);
   const rov = radioOptionValue(t, context);
   const cbv = checkboxOptionValues(t, context);
-  const preferredLanguageChoice = context.getDataForPage(WP.CLAIMANT_DETAILS).preferredLanguage;
+  const preferredLanguageChoice = context.getDataForPage(WP.CLAIMANT_LANGUAGE).preferredLanguage;
 
   // Common options for `formatDateObject()` calls
   const dateOpts = { locale: context.nav.language };
@@ -144,15 +144,16 @@ module.exports = (t, context, claim, cyaUrl) => {
         value: context.data['claimant-language'].preferredLanguageOther,
       }),
 
-      /* --------------------------------------------------- claimant-details */
+      /* --------------------------------------------------- registered-blind */
       // Are you registered blind or severely sight impaired?
       row({
-        changeHref: `${WP.CLAIMANT_DETAILS}#f-registeredBlind`,
-        changeHtml: t('claimant-details:field.registeredBlind.change'),
-        key: t('claimant-details:field.registeredBlind.legend'),
-        value: rov('claimant-details.registeredBlind', 'claimant-details:field.registeredBlind.options'),
+        changeHref: `${WP.REGISTERED_BLIND}#f-registeredBlind`,
+        changeHtml: t('registered-blind:field.registeredBlind.change'),
+        key: t('registered-blind:pageTitle'),
+        value: rov('registered-blind.registeredBlind', 'registered-blind:field.registeredBlind.options'),
       }),
 
+      /* --------------------------------------------------- claimant-details */
       // Do you need help with letters or phone calls?
       row({
         changeHref: `${WP.CLAIMANT_DETAILS}#f-helpWithLettersPhone`,

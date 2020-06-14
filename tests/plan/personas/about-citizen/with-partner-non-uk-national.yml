@@ -15,8 +15,10 @@ journey:
   claimant-language:
     "english": click()
 
+  registered-blind:
+    "no": click()
+
   claimant-details:
-    "registeredBlindNo": click()
     "helpWithLettersPhoneNo": click()
 
   partner-details:

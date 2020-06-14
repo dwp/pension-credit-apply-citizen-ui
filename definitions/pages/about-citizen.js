@@ -4,6 +4,7 @@ const nationalInsuranceValidation = require('../field-validators/about-claimant/
 const yourNameValidation = require('../field-validators/about-claimant/your-name.js');
 const phoneNumberValidation = require('../field-validators/about-claimant/phone-number.js');
 const claimantLanguageValidation = require('../field-validators/about-claimant/claimant-language.js');
+const registeredBlindValidation = require('../field-validators/about-claimant/registered-blind.js');
 const claimantDetailsValidation = require('../field-validators/about-claimant/claimant-details.js');
 const contactFormatsValidation = require('../field-validators/about-claimant/contact-formats.js');
 const partnerDetailsValidation = require('../field-validators/about-claimant/partner-details.js');
@@ -38,6 +39,11 @@ module.exports = () => {
         [waypoints.COUNTRY_YOU_LIVE_IN]: ['countryOfResidence'],
       }),
     },
+  };
+
+  pages[waypoints.REGISTERED_BLIND] = {
+    view: 'pages/about-citizen/registered-blind.njk',
+    fieldValidators: registeredBlindValidation,
   };
 
   pages[waypoints.CLAIMANT_DETAILS] = {

@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Ydych chi wedi cofrestru'n ddall neu â nam difrifol ar eich golwg?",
+  "field": {
+    "registeredBlind": {
+      "required": "Dewiswch ydw os ydych wedi cofrestru'n ddall neu â nam difrifol ar eich golwg.",
+      "options": {
+        "yes": "Ydw",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi cofrestru'n ddall neu â nam difrifol ar eich golwg</span>"
+    }
+  }
+}

@@ -1,15 +1,6 @@
 {
   "pageTitle": "Eich manylion",
   "field": {
-    "registeredBlind": {
-      "legend": "Ydych chi wedi cofrestru'n ddall neu â nam difrifol ar eich golwg?",
-      "required": "Dewiswch ydw os ydych wedi cofrestru'n ddall neu â nam difrifol ar eich golwg.",
-      "options": {
-        "yes": "Ydw",
-        "no": "Na"
-      },
-      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi cofrestru'n ddall neu â nam difrifol ar eich golwg</span>"
-    },
     "helpWithLettersPhone": {
       "legend": "Ydych chi angen help gyda llythyrau neu alwadau ffôn?",
       "required": "Dewiswch ydw os ydych angen help gyda llythyrau neu alwadau ffôn.",

@@ -26,7 +26,8 @@ module.exports = (plan) => {
   // In cases where the country of residence has changed since perferred
   // language has been set, we need to ensure the user remains on the
   // CLAIMANT_LANGUAGE page until they have answered.
-  plan.setRoute(WP.CLAIMANT_LANGUAGE, WP.CLAIMANT_DETAILS, langOk);
+  plan.setRoute(WP.CLAIMANT_LANGUAGE, WP.REGISTERED_BLIND, langOk);
+  plan.addSequence(WP.REGISTERED_BLIND, WP.CLAIMANT_DETAILS);
 
   // Claimant details either goes to contact formats if they need them,
   // partner details if they have a partner but don't need other formats or

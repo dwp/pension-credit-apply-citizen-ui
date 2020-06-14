@@ -14,26 +14,6 @@
   </h1>
 
   {{ casaGovukRadios({
-    name: "registeredBlind",
-    fieldset: {
-      legend: {
-        text: t("claimant-details:field.registeredBlind.legend"),
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
-    items: [{
-      value: "yes",
-      text: t("claimant-details:field.registeredBlind.options.yes")
-    }, {
-      value: "no",
-      text: t("claimant-details:field.registeredBlind.options.no")
-    }],
-    casaWithAnalytics: true,
-    casaValue: formData.registeredBlind,
-    casaErrors: formErrors
-  }) }}
-
-  {{ casaGovukRadios({
     name: "helpWithLettersPhone",
     fieldset: {
       legend: {

@@ -1,15 +1,6 @@
 {
   "pageTitle": "Your details",
   "field": {
-    "registeredBlind": {
-      "legend": "Are you registered blind or severely sight impaired?",
-      "required": "Select yes if you are registered blind or severely sight impaired.",
-      "options": {
-        "yes": "Yes",
-        "no": "No"
-      },
-      "change": "Change <span class=\"govuk-visually-hidden\">whether you are registered blind or severely sight impaired</span>"
-    },
     "helpWithLettersPhone": {
       "legend": "Do you need help with letters or phone calls?",
       "required": "Select yes if you need help with letters or phone calls.",
