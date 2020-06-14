@@ -1,0 +1,11 @@
+{
+  "pageTitle": "Beth yw eich rhif ffôn cyswllt?",
+  "field": {
+    "contactTelephone": {
+      "label": "Beth yw eich rhif ffôn cyswllt? (dewisol)",
+      "length": "Rhowch eich rhif ffôn cyswllt gan ddefnyddio 20 nod neu lai.",
+      "format": "Rhowch eich rhif ffôn cyswllt gan ddefnyddio rhifau 0 i 9, gofodau, cysylltnodau, cromfachau a dash.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">eich rhif ffôn cyswllt</span>"
+    }
+  }
+}

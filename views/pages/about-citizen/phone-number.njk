@@ -1,0 +1,21 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+
+{% block casaPageTitle %}
+  {{ t("phone-number:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukInput({
+    name: "contactTelephone",
+    classes: "govuk-input--width-10",
+    label: {
+      text: t("phone-number:field.contactTelephone.label"),
+      isPageHeading: true,
+      classes: "govuk-label--xl"
+    },
+    value: formData.contactTelephone,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

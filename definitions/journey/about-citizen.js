@@ -19,6 +19,7 @@ module.exports = (plan) => {
   plan.addSequence(
     WP.NATIONAL_INSURANCE,
     WP.YOUR_NAME,
+    WP.PHONE_NUMBER,
     WP.CLAIMANT_DETAILS,
   );
 

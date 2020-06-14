@@ -118,15 +118,16 @@ module.exports = (t, context, claim, cyaUrl) => {
         valueHtml: safeNl2br(context.data['your-name'].previousNames),
       }),
 
-      /* --------------------------------------------------- claimant-details */
+      /* ------------------------------------------------------- phone-number */
       // What is your contact telephone number?
       row({
-        changeHref: `${WP.CLAIMANT_DETAILS}#f-contactTelephone`,
-        changeHtml: t('claimant-details:field.contactTelephone.change'),
-        key: t('claimant-details:field.contactTelephone.label'),
-        value: context.data['claimant-details'].contactTelephone,
+        changeHref: `${WP.PHONE_NUMBER}#f-contactTelephone`,
+        changeHtml: t('phone-number:field.contactTelephone.change'),
+        key: t('phone-number:pageTitle'),
+        value: context.data['phone-number'].contactTelephone,
       }),
 
+      /* --------------------------------------------------- claimant-details */
       // Are you registered blind or severely sight impaired?
       row({
         changeHref: `${WP.CLAIMANT_DETAILS}#f-registeredBlind`,

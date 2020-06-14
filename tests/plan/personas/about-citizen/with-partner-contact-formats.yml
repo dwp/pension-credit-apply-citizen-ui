@@ -9,8 +9,10 @@ journey:
     fullName: "Alex Smith"
     "hasPreviousNamesNo": click()
 
-  claimant-details:
+  phone-number:
     contactTelephone: 1234567890
+
+  claimant-details:
     "registeredBlindNo": click()
     "preferredLanguageEnglish": click()
     "helpWithLettersPhoneYes": click()

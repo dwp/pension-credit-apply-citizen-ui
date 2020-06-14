@@ -1,16 +1,6 @@
 const { validationRules: r, simpleFieldValidation: sf } = require('@dwp/govuk-casa');
-const isValidTelephoneNumber = require('../../../utils/is-valid-telephone-number.js');
 
 const fieldValidators = Object.assign(Object.create(null), {
-  contactTelephone: sf([
-    r.strlen.bind({
-      max: 20,
-      errorMsgMax: 'claimant-details:field.contactTelephone.length',
-    }),
-    isValidTelephoneNumber({
-      errorMsg: 'claimant-details:field.contactTelephone.format',
-    }),
-  ]),
   registeredBlind: sf([
     r.required.bind({
       errorMsg: 'claimant-details:field.registeredBlind.required',

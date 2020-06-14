@@ -13,17 +13,6 @@
     {{ t("claimant-details:pageTitle") }}
   </h1>
 
-  {{ casaGovukInput({
-    name: "contactTelephone",
-    classes: "govuk-input--width-10",
-    label: {
-      text: t("claimant-details:field.contactTelephone.label"),
-      classes: "govuk-label--m"
-    },
-    value: formData.contactTelephone,
-    casaErrors: formErrors
-  }) }}
-
   {{ casaGovukRadios({
     name: "registeredBlind",
     fieldset: {
