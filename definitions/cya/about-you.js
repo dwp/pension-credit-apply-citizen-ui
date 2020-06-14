@@ -127,6 +127,23 @@ module.exports = (t, context, claim, cyaUrl) => {
         value: context.data['phone-number'].contactTelephone,
       }),
 
+      /* -------------------------------------------------- claimant-language */
+      // What language do you want us to speak to you in?
+      row({
+        changeHref: `${WP.CLAIMANT_LANGUAGE}#f-preferredLanguage`,
+        changeHtml: t('claimant-language:field.preferredLanguage.change'),
+        key: t('claimant-language:pageTitle'),
+        value: rov('claimant-language.preferredLanguage', 'claimant-language:field.preferredLanguage.options'),
+      }),
+
+      // What language do you want us to use?
+      preferredLanguageChoice !== 'other' ? undefined : row({
+        changeHref: `${WP.CLAIMANT_LANGUAGE}#f-preferredLanguageOther`,
+        changeHtml: t('claimant-language:field.preferredLanguageOther.change'),
+        key: t('claimant-language:field.preferredLanguageOther.label'),
+        value: context.data['claimant-language'].preferredLanguageOther,
+      }),
+
       /* --------------------------------------------------- claimant-details */
       // Are you registered blind or severely sight impaired?
       row({
@@ -134,22 +151,6 @@ module.exports = (t, context, claim, cyaUrl) => {
         changeHtml: t('claimant-details:field.registeredBlind.change'),
         key: t('claimant-details:field.registeredBlind.legend'),
         value: rov('claimant-details.registeredBlind', 'claimant-details:field.registeredBlind.options'),
-      }),
-
-      // What language do you want us to speak to you in?
-      row({
-        changeHref: `${WP.CLAIMANT_DETAILS}#f-preferredLanguage`,
-        changeHtml: t('claimant-details:field.preferredLanguage.change'),
-        key: t('claimant-details:field.preferredLanguage.legend'),
-        value: rov('claimant-details.preferredLanguage', 'claimant-details:field.preferredLanguage.options'),
-      }),
-
-      // What language do you want us to use?
-      preferredLanguageChoice !== 'other' ? undefined : row({
-        changeHref: `${WP.CLAIMANT_DETAILS}#f-preferredLanguageOther`,
-        changeHtml: t('claimant-details:field.preferredLanguageOther.change'),
-        key: t('claimant-details:field.preferredLanguageOther.label'),
-        value: context.data['claimant-details'].preferredLanguageOther,
       }),
 
       // Do you need help with letters or phone calls?

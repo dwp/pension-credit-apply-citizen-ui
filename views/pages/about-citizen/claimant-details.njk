@@ -33,54 +33,6 @@
     casaErrors: formErrors
   }) }}
 
-  {% set preferredLanguageOther %}
-    {{ casaGovukInput({
-      name: "preferredLanguageOther",
-      classes: "govuk-input--width-20",
-      label: {
-        text: t("claimant-details:field.preferredLanguageOther.label"),
-        classes: "govuk-label--m"
-      },
-      value: formData.preferredLanguageOther,
-      casaErrors: formErrors
-    }) }}
-  {% endset %}
-
-
-  {# The "Welsh" option is only shown for people living in Wales #}
-  {% set languageOptions = [{
-    value: "english",
-    text: t("claimant-details:field.preferredLanguage.options.english")
-  }, {
-    value: "other",
-    text: t("claimant-details:field.preferredLanguage.options.other"),
-    conditional: {
-      html: preferredLanguageOther
-    }
-  }] %}
-
-  {% if countryOfResidence == 'WALES' %}
-    {% set languageOptions = ( languageOptions.splice(1, 0, {
-      value: "welsh",
-      text: t("claimant-details:field.preferredLanguage.options.welsh")
-    }), languageOptions ) %}
-  {% endif %}
-
-
-  {{ casaGovukRadios({
-    name: "preferredLanguage",
-    fieldset: {
-      legend: {
-        text: t("claimant-details:field.preferredLanguage.legend"),
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
-    items: languageOptions,
-    casaWithAnalytics: true,
-    casaValue: formData.preferredLanguage,
-    casaErrors: formErrors
-  }) }}
-
   {{ casaGovukRadios({
     name: "helpWithLettersPhone",
     fieldset: {

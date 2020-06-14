@@ -1,0 +1,20 @@
+{
+  "pageTitle": "Ym mha iaith ydych chi eisiau i ni siarad gyda chi?",
+  "field": {
+    "preferredLanguage": {
+      "required": "Dewiswch yr iaith rydych chi eisiau i ni siarad gyda chi.",
+      "options": {
+        "english": "Saesneg",
+        "welsh": "Cymraeg",
+        "other": "Arall"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">ym mha iaith ydych chi eisiau i ni siarad gyda chi</span>"
+    },
+    "preferredLanguageOther": {
+      "label": "Pa iaith ydych chi eisiau i ni ei ddefnyddio?",
+      "required": "Rhowch yr iaith rydych chi eisiau i ni ei ddefnyddio.",
+      "length": "Mae'n rhaid i'r iaith rydych eisiau i ni ei ddefnyddio fod yn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">pa iaith ydych chi eisiau i ni ei ddefnyddio</span>"
+    }
+  }
+}

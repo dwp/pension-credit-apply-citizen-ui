@@ -11,7 +11,7 @@ module.exports = (plan) => {
   // True if the user has chosen a valid residence + language preference combo
   const langOk = (r, c) => {
     const cor = c.getDataForPage(WP.COUNTRY_YOU_LIVE_IN).countryOfResidence;
-    const pl = c.getDataForPage(WP.CLAIMANT_DETAILS).preferredLanguage;
+    const pl = c.getDataForPage(WP.CLAIMANT_LANGUAGE).preferredLanguage;
 
     return cor === 'WALES' || pl !== 'welsh';
   };
@@ -20,18 +20,20 @@ module.exports = (plan) => {
     WP.NATIONAL_INSURANCE,
     WP.YOUR_NAME,
     WP.PHONE_NUMBER,
-    WP.CLAIMANT_DETAILS,
+    WP.CLAIMANT_LANGUAGE,
   );
+
+  // In cases where the country of residence has changed since perferred
+  // language has been set, we need to ensure the user remains on the
+  // CLAIMANT_LANGUAGE page until they have answered.
+  plan.setRoute(WP.CLAIMANT_LANGUAGE, WP.CLAIMANT_DETAILS, langOk);
 
   // Claimant details either goes to contact formats if they need them,
   // partner details if they have a partner but don't need other formats or
   // straight to care home if they have neither.
-  // In cases where the country of residence has changed since perferred
-  // language has been set, we need to ensure the user remains on the
-  // CLAIMANT_DETAILS page until they have answered.
-  plan.setRoute(WP.CLAIMANT_DETAILS, WP.CONTACT_FORMATS, (r, c) => langOk(r, c) && isYes('helpWithLettersPhone')(r, c));
-  plan.setRoute(WP.CLAIMANT_DETAILS, WP.PARTNER_DETAILS, (r, c) => langOk(r, c) && isNo('helpWithLettersPhone')(r, c) && hasPartner(r, c));
-  plan.setRoute(WP.CLAIMANT_DETAILS, WP.CARE_HOME, (r, c) => langOk(r, c) && isNo('helpWithLettersPhone')(r, c) && noPartner(r, c));
+  plan.setRoute(WP.CLAIMANT_DETAILS, WP.CONTACT_FORMATS, isYes('helpWithLettersPhone'));
+  plan.setRoute(WP.CLAIMANT_DETAILS, WP.PARTNER_DETAILS, (r, c) => isNo('helpWithLettersPhone')(r, c) && hasPartner(r, c));
+  plan.setRoute(WP.CLAIMANT_DETAILS, WP.CARE_HOME, (r, c) => isNo('helpWithLettersPhone')(r, c) && noPartner(r, c));
 
   // Contact formats will go to partner details if they live with a partner or
   // skip straight to home

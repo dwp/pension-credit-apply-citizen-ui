@@ -5,9 +5,6 @@ class ClaimantDetails extends BaseTestWaypoint {
     return {
       registeredBlindYes: '[name="registeredBlind"][value="yes"]',
       registeredBlindNo: '[name="registeredBlind"][value="no"]',
-      preferredLanguageEnglish: '[name="preferredLanguage"][value="english"]',
-      preferredLanguageWelsh: '[name="preferredLanguage"][value="welsh"]',
-      preferredLanguageOther: '[name="preferredLanguage"][value="other"]',
       helpWithLettersPhoneYes: '[name="helpWithLettersPhone"][value="yes"]',
       helpWithLettersPhoneNo: '[name="helpWithLettersPhone"][value="no"]',
     };

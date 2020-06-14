@@ -10,22 +10,6 @@
       },
       "change": "Change <span class=\"govuk-visually-hidden\">whether you are registered blind or severely sight impaired</span>"
     },
-    "preferredLanguage": {
-      "legend": "What language do you want us to speak to you in?",
-      "required": "Select the language that you want us to speak to you in.",
-      "options": {
-        "english": "English",
-        "welsh": "Welsh",
-        "other": "Other"
-      },
-      "change": "Change <span class=\"govuk-visually-hidden\">what language you want us to speak to you in</span>"
-    },
-    "preferredLanguageOther": {
-      "label": "What language do you want us to use?",
-      "required": "Enter the language that you want us to use.",
-      "length": "Enter the language that you want us to use in 500 characters or less.",
-      "change": "Change <span class=\"govuk-visually-hidden\">what language you want us to use</span>"
-    },
     "helpWithLettersPhone": {
       "legend": "Do you need help with letters or phone calls?",
       "required": "Select yes if you need help with letters or phone calls.",

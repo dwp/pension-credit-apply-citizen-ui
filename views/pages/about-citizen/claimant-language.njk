@@ -1,0 +1,57 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("claimant-language:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {% set preferredLanguageOther %}
+    {{ casaGovukInput({
+      name: "preferredLanguageOther",
+      classes: "govuk-input--width-20",
+      label: {
+        text: t("claimant-language:field.preferredLanguageOther.label"),
+        classes: "govuk-label--m"
+      },
+      value: formData.preferredLanguageOther,
+      casaErrors: formErrors
+    }) }}
+  {% endset %}
+
+  {# The "Welsh" option is only shown for people living in Wales #}
+  {% set languageOptions = [{
+    value: "english",
+    text: t("claimant-language:field.preferredLanguage.options.english")
+  }, {
+    value: "other",
+    text: t("claimant-language:field.preferredLanguage.options.other"),
+    conditional: {
+      html: preferredLanguageOther
+    }
+  }] %}
+
+  {% if countryOfResidence == 'WALES' %}
+    {% set languageOptions = ( languageOptions.splice(1, 0, {
+      value: "welsh",
+      text: t("claimant-language:field.preferredLanguage.options.welsh")
+    }), languageOptions ) %}
+  {% endif %}
+
+  {{ casaGovukRadios({
+    name: "preferredLanguage",
+    fieldset: {
+      legend: {
+        text: t("claimant-language:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: languageOptions,
+    casaWithAnalytics: true,
+    casaValue: formData.preferredLanguage,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

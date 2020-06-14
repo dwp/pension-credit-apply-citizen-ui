@@ -3,6 +3,7 @@ const checkboxesModifier = require('../field-gather-modifiers/checkboxes.js');
 const nationalInsuranceValidation = require('../field-validators/about-claimant/national-insurance.js');
 const yourNameValidation = require('../field-validators/about-claimant/your-name.js');
 const phoneNumberValidation = require('../field-validators/about-claimant/phone-number.js');
+const claimantLanguageValidation = require('../field-validators/about-claimant/claimant-language.js');
 const claimantDetailsValidation = require('../field-validators/about-claimant/claimant-details.js');
 const contactFormatsValidation = require('../field-validators/about-claimant/contact-formats.js');
 const partnerDetailsValidation = require('../field-validators/about-claimant/partner-details.js');
@@ -29,14 +30,19 @@ module.exports = () => {
     fieldValidators: phoneNumberValidation,
   };
 
-  pages[waypoints.CLAIMANT_DETAILS] = {
-    view: 'pages/about-citizen/claimant-details.njk',
-    fieldValidators: claimantDetailsValidation,
+  pages[waypoints.CLAIMANT_LANGUAGE] = {
+    view: 'pages/about-citizen/claimant-language.njk',
+    fieldValidators: claimantLanguageValidation,
     hooks: {
       prerender: withDataFromPage({
         [waypoints.COUNTRY_YOU_LIVE_IN]: ['countryOfResidence'],
       }),
     },
+  };
+
+  pages[waypoints.CLAIMANT_DETAILS] = {
+    view: 'pages/about-citizen/claimant-details.njk',
+    fieldValidators: claimantDetailsValidation,
   };
 
   pages[waypoints.CONTACT_FORMATS] = {

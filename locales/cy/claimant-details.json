@@ -10,22 +10,6 @@
       },
       "change": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi cofrestru'n ddall neu â nam difrifol ar eich golwg</span>"
     },
-    "preferredLanguage": {
-      "legend": "Ym mha iaith ydych chi eisiau i ni siarad gyda chi?",
-      "required": "Dewiswch yr iaith rydych chi eisiau i ni siarad gyda chi.",
-      "options": {
-        "english": "Saesneg",
-        "welsh": "Cymraeg",
-        "other": "Arall"
-      },
-      "change": "Newid <span class=\"govuk-visually-hidden\">ym mha iaith ydych chi eisiau i ni siarad gyda chi</span>"
-    },
-    "preferredLanguageOther": {
-      "label": "Pa iaith ydych chi eisiau i ni ei ddefnyddio?",
-      "required": "Rhowch yr iaith rydych chi eisiau i ni ei ddefnyddio.",
-      "length": "Mae'n rhaid i'r iaith rydych eisiau i ni ei ddefnyddio fod yn 500 nod neu lai.",
-      "change": "Newid <span class=\"govuk-visually-hidden\">pa iaith ydych chi eisiau i ni ei ddefnyddio</span>"
-    },
     "helpWithLettersPhone": {
       "legend": "Ydych chi angen help gyda llythyrau neu alwadau ffôn?",
       "required": "Dewiswch ydw os ydych angen help gyda llythyrau neu alwadau ffôn.",

@@ -12,9 +12,11 @@ journey:
   phone-number:
     contactTelephone: 1234567890
 
+  claimant-language:
+    "english": click()
+
   claimant-details:
     "registeredBlindNo": click()
-    "preferredLanguageEnglish": click()
     "helpWithLettersPhoneYes": click()
 
   contact-formats:
