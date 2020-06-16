@@ -45,6 +45,14 @@ module.exports = (t, context, claim, cyaUrl) => {
       }),
 
       /* ---------------------------------------------------- partner-details */
+      // What is your partner’s National Insurance number?
+      row({
+        changeHref: `${WP.PARTNER_NI_NUMBER}#f-partnerNino`,
+        changeHtml: t('partner-national-insurance:field.partnerNino.change'),
+        key: t('partner-national-insurance:field.partnerNino.label'),
+        value: context.data['partner-national-insurance'].partnerNino,
+      }),
+
       // What is your partner’s full name?
       row({
         changeHref: `${WP.PARTNER_NAME}#f-partnerFullName`,
@@ -67,14 +75,6 @@ module.exports = (t, context, claim, cyaUrl) => {
         changeHtml: t('partner-name:field.partnerPreviousNames.change'),
         key: t('partner-name:field.partnerPreviousNames.label'),
         valueHtml: safeNl2br(context.data['partner-name'].partnerPreviousNames),
-      }),
-
-      // What is your partner’s National Insurance number?
-      row({
-        changeHref: `${WP.PARTNER_NI_NUMBER}#f-partnerNino`,
-        changeHtml: t('partner-national-insurance:field.partnerNino.change'),
-        key: t('partner-national-insurance:field.partnerNino.label'),
-        value: context.data['partner-national-insurance'].partnerNino,
       }),
 
       // Is your partner registered blind or severely sight impaired?
