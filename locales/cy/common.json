@@ -25,7 +25,8 @@
   },
   "footer": {
     "accessibilityStatement": "Datganiad hygyrchedd",
-    "personalInformationCharter": "Siarter Gwybodaeth Bersonol (agor mewn ffenestr neu mewn tab newydd)",
+    "personalInformationCharter": "Siarter Gwybodaeth Bersonol (agor mewn ffenestr newydd)",
+    "personalInformationCharterHref": "https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter.cy",
     "cookies": "Cwcis"
   },
   "continue": "Parhau",
@@ -34,6 +35,10 @@
     "textphoneNumber": "0808 100 2198",
     "callTimes": "Dydd Llun i ddydd Gwener, 10:00am i 4:00pm (wedi cau ar wyliau banc).<br/><a href=\"https://www.nidirect.gov.uk/articles/contacting-08-and-03-numbers\" class=\"govuk-link\">Cysylltu â rhifau 08 a 03</a>.",
     "pensionCreditClaimLine": "Os ydych angen siarad â ni, ffoniwch y Llinell Gwneud Cais am Gredyd Pensiwn",
-    "applyForUniversalCreditLink": "<a href=\"https://www.nidirect.gov.uk/campaigns/universal-credit\" class=\"govuk-link\">Gwneud cais am Gredyd Cynhwysol ar-lein</a>"
+    "applyForUniversalCreditLink": "<a href=\"https://www.nidirect.gov.uk/campaigns/universal-credit\" class=\"govuk-link\">Gwneud cais am Gredyd Cynhwysol ar-lein</a>",
+    "footer": {
+      "personalInformationCharter": "Preifatrwydd Gogledd Iwerddon (agor mewn ffenestr newydd)",
+      "personalInformationCharterHref": "https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter.cy"
+    }
   }
 }

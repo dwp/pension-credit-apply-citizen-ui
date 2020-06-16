@@ -25,7 +25,8 @@
   },
   "footer": {
     "accessibilityStatement": "Accessibility statement",
-    "personalInformationCharter": "Personal Information Charter (opens in a new window or tab)",
+    "personalInformationCharter": "Personal Information Charter (opens in a new window)",
+    "personalInformationCharterHref": "https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter",
     "cookies": "Cookies"
   },
   "continue": "Continue",
@@ -34,6 +35,10 @@
     "textphoneNumber": "0808 100 2198",
     "callTimes": "Monday to Friday, 10:00am to 4:00pm (closed on bank holidays).<br/><a href=\"https://www.nidirect.gov.uk/articles/contacting-08-and-03-numbers\" class=\"govuk-link\">Contacting 08 and 03 numbers</a>.",
     "pensionCreditClaimLine": "If you need to speak to us, call the Pension Credit Application Line.",
-    "applyForUniversalCreditLink": "<a href=\"https://www.nidirect.gov.uk/campaigns/universal-credit\" class=\"govuk-link\">Apply online for Universal Credit</a>"
+    "applyForUniversalCreditLink": "<a href=\"https://www.nidirect.gov.uk/campaigns/universal-credit\" class=\"govuk-link\">Apply online for Universal Credit</a>",
+    "footer": {
+      "personalInformationCharter": "Northern Ireland Privacy (opens in a new window)",
+      "personalInformationCharterHref": "https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter"
+    }
   }
 }

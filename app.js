@@ -150,6 +150,13 @@ module.exports = (CONFIG, baseLogger) => {
   );
   const appUserJourney = journeyPlan(baseLogger);
 
+  // Personal Information Charter; the footer links change for NI customers so
+  // here we use the NI hook to make the `isNorthernIrelandClaim` flag
+  // available to the main layout template.
+  // Must be defined before CASA page handlers, otherwise it will never be run
+  // as those handlers finalise the response via res.render().
+  casaApp.router.use(northernIrelandPrerenderHook(waypoints));
+
   // Load CASA page and user journey definitions
   casaApp.loadDefinitions(appPageDefinitions, appUserJourney);
 

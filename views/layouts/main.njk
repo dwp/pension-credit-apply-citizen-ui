@@ -42,7 +42,14 @@
         href: cookiePolicyUrl,
         text: t("common:footer.cookies")
       }, {
-        href: "https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter",
+        href: "https://www.communities-ni.gov.uk/sites/default/files/publications/communities/dfc-gdpr-privacy-notice-wig.pdf",
+        text: t("common:northernIreland.footer.personalInformationCharter"),
+        attributes: {
+          target: "_blank",
+          rel: "noopener noreferrer"
+        }
+      } if isNorthernIrelandClaim else {
+        href: t("common:footer.personalInformationCharterHref"),
         text: t("common:footer.personalInformationCharter"),
         attributes: {
           target: "_blank",
