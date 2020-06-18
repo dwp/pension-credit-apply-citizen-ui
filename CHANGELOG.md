@@ -1,3 +1,49 @@
+# [0.5.0](https://github.com/dwp/pension-credit-citizen-apply/compare/0.4.3...0.5.0) (2020-06-18)
+
+
+### Features
+
+* [bc] add page about 21 year leases if renters pay ground rent ([9333473](https://github.com/dwp/pension-credit-citizen-apply/commit/9333473ad345a999afee904c598e72d977188804))
+* [bc] split 'are you registered blind' radios onto their own page ([4f73a3a](https://github.com/dwp/pension-credit-citizen-apply/commit/4f73a3a13b5491770c89d2d8c3b8f60123ca99a3))
+* [bc] split 'help with letters or phone' radios onto their own page ([40b5625](https://github.com/dwp/pension-credit-citizen-apply/commit/40b56250ca858b6f10cb8f999747dff052658d1f))
+* [bc] split contact telephone number field out onto its own page ([3883dd4](https://github.com/dwp/pension-credit-citizen-apply/commit/3883dd4509d557020817b5608c7c561fe6f7d02e))
+* [bc] split full name and previous names out onto their own page ([a490bb7](https://github.com/dwp/pension-credit-citizen-apply/commit/a490bb75ed07523734f651a8eec5cf1f1d8f334a))
+* [bc] split national insurance number field out onto its own page ([83f11c2](https://github.com/dwp/pension-credit-citizen-apply/commit/83f11c2f326fa1a802b197ef2046860f69623589))
+* [bc] split preferred language fields out onto their own page ([9222798](https://github.com/dwp/pension-credit-citizen-apply/commit/92227984e9fd0973fe3f6be73c3424e82d625f2c))
+* [bc] split service-charges into new pages, only route if relevant ([b159e60](https://github.com/dwp/pension-credit-citizen-apply/commit/b159e60bbad850a3042d39113e1e8e88dc6e9477))
+* add shared ownership as option on home ownership page ([e1d398a](https://github.com/dwp/pension-credit-citizen-apply/commit/e1d398a417e9cf00045643001532ff6d78e18b4e))
+* dynamically refer to relevant payment on share-rent-mortgage page ([cfff242](https://github.com/dwp/pension-credit-citizen-apply/commit/cfff2427d25c0375b7f07c46c63b18d3cd8fafa0))
+* remove service charges and ground rent amount fields ([3770bd6](https://github.com/dwp/pension-credit-citizen-apply/commit/3770bd60996e42752115b2035f1ff5ef4792d39f))
+
+
+### BREAKING CHANGES
+
+* Whilst the data captured has not changed, it is now
+captured on a separate page which will trigger an unexpected traversal
+failure for existing sessions.
+* Whilst the data captured has not changed, it is now
+captured on a separate page which will trigger an unexpected traversal
+failure for existing sessions.
+* Whilst the data captured has not changed, it is now
+captured on a separate page which will trigger an unexpected traversal
+failure for existing sessions.
+* Whilst the data captured has not changed, it is now
+captured on a separate page which will trigger an unexpected traversal
+failure for existing sessions.
+* Whilst the data captured has not changed, it is now
+captured on a separate page which will trigger an unexpected traversal
+failure for existing sessions.
+* Whilst the data captured has not changed, it is now
+captured on a separate page which will trigger an unexpected traversal
+failure for existing sessions.
+* service-charges split into 3 pages, session data has
+same keys but would belong to different page objects, would force users
+to recomplete.
+* requires users to complete a new page if they rent and
+pay ground rent.
+
+
+
 ## [0.4.3](https://github.com/dwp/pension-credit-citizen-apply/compare/0.4.2...0.4.3) (2020-06-10)
 
 
