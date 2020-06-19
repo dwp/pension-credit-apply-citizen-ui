@@ -124,6 +124,7 @@ module.exports = (CONFIG, baseLogger) => {
       locales: ['en', 'cy'],
     },
     allowPageEdit: true,
+    useStickyEdit: false,
     mountController: function casaMountController(mountCommonMiddleware) {
       mountCommonMiddleware();
       timeoutMiddleware(
@@ -187,10 +188,12 @@ module.exports = (CONFIG, baseLogger) => {
 
   // Prepare some CASA page handlers
   const casaMwPrepare = middleware.pagePrepareRequest(appUserJourney);
+  const casaMwEditMode = middleware.pageEditMode(casaApp.config.allowPageEdit);
   const casaMwRails = middleware.pageJourneyRails(CONFIG.CONTEXT_PATH, appUserJourney);
 
-  // Claim submission handlers
-  const submissionCommonMw = [casaMwPrepare, casaMwRails, middleware.pageCsrf];
+  // Claim submission handlers. Order is significant, and must match the order
+  // used within CASA itself (middleware/page/index.js)
+  const submissionCommonMw = [casaMwPrepare, middleware.pageCsrf, casaMwEditMode, casaMwRails];
 
   // Index route
   casaApp.router.get('/', (req, res) => {

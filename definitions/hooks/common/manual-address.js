@@ -6,7 +6,10 @@ const prerender = (mountUrl, urlOrigin, urlWaypoint, pageTitleKey) => (req, res,
     req.session.addressLookupFailed = undefined;
   }
 
-  // build the link to the select address based on where the user has come from
+  // Build the link to the select address based on where the user has come from.
+  // We purposefully do not attach the editSearchParams string here, because
+  // otherwise the user will always be sent back to the edit origin after
+  // performing a postcode lookup.
   res.locals.manualUrl = `${mountUrl}${urlOrigin}/${urlWaypoint}`.replace(/\/+/g, '/');
 
   res.locals.pageTitleKey = `manual-address:${pageTitleKey}`;

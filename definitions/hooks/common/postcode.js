@@ -80,7 +80,7 @@ const postvalidateFactory = (addressServiceFactory, manualEntryWaypoint) => (req
 
 const prerenderFactory = (manualWaypoint, pageTitleKey) => (req, res, next) => {
   // Make a hyperlink for visiting the manual address entry waypoint
-  res.locals.manualAddressUrl = `?skipto=${manualWaypoint}`;
+  res.locals.manualAddressUrl = `?skipto=${manualWaypoint}${req.editSearchParams || ''}`;
   res.locals.pageTitleKey = `postcode:${pageTitleKey}`;
   next();
 };

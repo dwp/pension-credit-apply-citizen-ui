@@ -1,5 +1,5 @@
 const prerender = (waypoint) => (req, res, next) => {
-  res.locals.skipTo = `?skipto=${waypoint}`;
+  res.locals.skipTo = `?skipto=${waypoint}${req.editSearchParams || ''}`;
   next();
 };
 

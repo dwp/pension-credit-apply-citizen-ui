@@ -32,7 +32,7 @@ const prerender = (postcodeWP, manualEntryWP, pageTitleKey) => (req, res, next) 
 
   // Links to change postcode, or go to manual addresses entry
   res.locals.changePostcodeUrl = `${postcodeWP}#f-postcode`;
-  res.locals.manualAddressUrl = `?skipto=${manualEntryWP}`;
+  res.locals.manualAddressUrl = `?skipto=${manualEntryWP}${req.editSearchParams || ''}`;
   res.locals.pageTitleKey = `select-address:${pageTitleKey}`;
 
   next();
