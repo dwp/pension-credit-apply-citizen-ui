@@ -1,6 +1,6 @@
 const setConsentCookie = require('../../utils/set-consent-cookie.js');
 
-module.exports = (consentCookieName) => (req, res) => {
+module.exports = (consentCookieName, useTLS) => (req, res) => {
   const { cookieConsent } = req.body;
 
   // Validation error, set messeage in session and redirect back to this page
@@ -11,7 +11,7 @@ module.exports = (consentCookieName) => (req, res) => {
 
   // Validation successful, set cookie and redirect back where they came from
   // via backto query string, if it exists
-  setConsentCookie(req, res, consentCookieName, cookieConsent);
+  setConsentCookie(req, res, consentCookieName, cookieConsent, useTLS);
 
   if (req.query.backto) {
     const { pathname, search } = new URL(String(req.query.backto), 'http://dummy.test/');

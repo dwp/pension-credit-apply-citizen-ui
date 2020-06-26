@@ -23,4 +23,20 @@ describe('Utils: set-cookie-consent', () => {
     setConsentCookie(req, res, 'name', 'value');
     expect(req.session).to.have.property('cookieChoiceMade').that.equals(true);
   });
+
+  it('should set secure flag to false by default', () => {
+    const req = new Request();
+    const res = new Response(req);
+    req.flash = sinon.stub();
+    setConsentCookie(req, res, 'name', 'value');
+    return expect(res.cookieOptions.name.secure).to.be.false;
+  });
+
+  it('should set secure flag to passed value', () => {
+    const req = new Request();
+    const res = new Response(req);
+    req.flash = sinon.stub();
+    setConsentCookie(req, res, 'name', 'value', true);
+    return expect(res.cookieOptions.name.secure).to.be.true;
+  });
 });

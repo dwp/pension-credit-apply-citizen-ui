@@ -122,6 +122,7 @@ module.exports = (CONFIG, baseLogger) => {
         CONFIG.CONTEXT_PATH_PROXY,
         CONSENT_COOKIE_NAME,
         waypoints,
+        CONFIG.USE_TLS,
       );
     },
   });
@@ -178,7 +179,7 @@ module.exports = (CONFIG, baseLogger) => {
     CONFIG.SESSION_TTL,
   ));
   casaApp.router.get(`/${waypoints.COOKIE_POLICY}`, submissionCommonMw, cookiePolicyGet(waypoints));
-  casaApp.router.post(`/${waypoints.COOKIE_POLICY}`, submissionCommonMw, cookiePolicyPost(CONSENT_COOKIE_NAME));
+  casaApp.router.post(`/${waypoints.COOKIE_POLICY}`, submissionCommonMw, cookiePolicyPost(CONSENT_COOKIE_NAME, CONFIG.USE_TLS));
 
   // Check your answers page
   casaApp.router.get(`/${waypoints.CHECK_YOUR_ANSWERS}`, submissionCommonMw, checkYourAnswersGet(

@@ -1,7 +1,7 @@
 const qs = require('querystring');
 const setConsentCookie = require('../utils/set-consent-cookie.js');
 
-module.exports = (app, mountUrl = '/', proxyMountUrl = mountUrl, consentCookieName, waypoints) => {
+module.exports = (app, mountUrl = '/', proxyMountUrl = mountUrl, consentCookieName, waypoints, useTLS) => {
   const reProxyMountUrl = new RegExp(`^${proxyMountUrl}`);
   const sanitiseUrl = (url) => url.replace(reProxyMountUrl, mountUrl).replace(/\/+/g, '/');
 
@@ -48,7 +48,7 @@ module.exports = (app, mountUrl = '/', proxyMountUrl = mountUrl, consentCookieNa
     const { cookieMethod } = req.params;
 
     if (cookieMethod === 'reject' || cookieMethod === 'accept') {
-      setConsentCookie(req, res, consentCookieName, cookieMethod);
+      setConsentCookie(req, res, consentCookieName, cookieMethod, useTLS);
     }
 
     req.session.save(() => {

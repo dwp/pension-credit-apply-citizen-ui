@@ -7,6 +7,7 @@ module.exports = class Response {
     this.statusCode = 200;
     this.headers = {};
     this.cookies = {};
+    this.cookieOptions = {};
     this.locals = {
       casa: {
         mountUrl: '/',
@@ -15,8 +16,9 @@ module.exports = class Response {
     };
   }
 
-  cookie(cookieName, cookieValue) {
+  cookie(cookieName, cookieValue, opts) {
     this.cookies[cookieName] = cookieValue;
+    this.cookieOptions[cookieName] = opts;
     return this;
   }
 
