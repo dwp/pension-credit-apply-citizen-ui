@@ -1,8 +1,10 @@
 {
   "pageTitleSingle": "Faint o arian sydd gennych?",
   "pageTitleJoint": "Faint o arian sydd gennych chi a'ch partner?",
+  "sharedMoneySingle": "Os oes gennych arian mewn cyfrifon sy'n cael eu rhannu gyda rhywun arall, dylech ond dweud wrthym am y swm o arian rydych chi'n berchen arno.",
+  "sharedMoneyJoint": "Os oes gennych arian mewn cyfrifon sy'n cael eu rhannu â rhywun heblaw eich partner, dylech ond dweud wrthym am faint o arian sy'n eiddo i chi a'ch partner.",
   "thisIncludes": "Mae hyn yn cynnwys:",
-  "moneyInAccounts": "arian mewn cyfrifon cyfredol, cynilo neu gadw gyda banc, cymdeithas adeiladu, undeb credyd neu'r Swyddfa Bost ",
+  "moneyInAccounts": "arian mewn cyfrifon cyfredol, cynilo neu gadw gyda banc, cymdeithas adeiladu, undeb credyd neu'r Swyddfa Bost",
   "ns&iBonds": "Cynhyrchion Cynilion a Buddsoddiadau Cenedlaethol fel Tystysgrifau Cynilo, Bondiau Premiwm, Bondiau Incwm a chyfrifon gweddilliol",
   "cashAtHome": "arian yn y cartref mewn arian parod",
   "investments": "buddsoddiadau fel ISA, PEP a TOISA",

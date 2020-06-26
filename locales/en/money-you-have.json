@@ -1,6 +1,8 @@
 {
   "pageTitleSingle": "How much money do you have?",
   "pageTitleJoint": "How much money do you and your partner have?",
+  "sharedMoneySingle": "If you have money in accounts that are shared with someone else, only tell us about the amount of money that belongs to you.",
+  "sharedMoneyJoint": "If you have money in accounts that are shared with someone other than your partner, only tell us about the amount of money that belongs to you and your partner.",
   "thisIncludes": "This includes:",
   "moneyInAccounts": "money in current, savings or deposit accounts with a bank, building society, credit union or the Post Office",
   "ns&iBonds": "National Savings and Investment products like Savings Certificates, Premium Bonds, Income Bonds and residual accounts",
