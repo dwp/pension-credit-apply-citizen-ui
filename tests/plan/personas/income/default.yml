@@ -2,9 +2,6 @@ name: income-default
 
 journey:
   # --------------------------------------------------------------------- Income
-  private-pensions:
-    "no": click()
-
   benefits:
     "waitingToHearAboutBenefitsNo": click()
     "anyoneGetCarersNo": click()

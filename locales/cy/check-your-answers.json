@@ -14,7 +14,6 @@
     "about-you": "Amdanoch chi",
     "about-your-partner": "Am eich partner",
     "about-where-you-live": "Am ble rydych yn byw",
-    "pensions": "Pensiynau",
     "benefits": "Budd-daliadau rydych wedi gwneud cais amdanynt",
     "earnings": "Cyflogaeth ac enillion",
     "money-you-have": "Arian sydd gennych",
@@ -32,9 +31,6 @@
   "lettersAddress": {
     "label": "Y cyfeiriad y dylem anfon llythyrau i",
     "change": "Newid <span class=\"govuk-visually-hidden\">y cyfeiriad y dylem anfon llythyrau i</span>"
-  },
-  "privatePensionDetails": {
-    "label": "Manylion eich pensiynau preifat neu weithle"
   },
   "employmentIncomeDetails": {
     "label": "Manylion eich incwm o gyflogaeth"

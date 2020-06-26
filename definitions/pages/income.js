@@ -1,5 +1,4 @@
 const { waypoints } = require('../../lib/constants.js');
-const privatePensionsValidation = require('../field-validators/income/private-pensions.js');
 const benefitsValidation = require('../field-validators/income/benefits.js');
 const earningsValidation = require('../field-validators/income/earnings.js');
 const otherIncomeValidation = require('../field-validators/income/other-income.js');
@@ -8,14 +7,6 @@ const withDataFromPage = require('../hooks/common/with-data-from-page.js');
 
 module.exports = () => {
   const pages = Object.create(null);
-
-  pages[waypoints.PRIVATE_PENSIONS] = {
-    view: 'pages/income/private-pensions.njk',
-    fieldValidators: privatePensionsValidation,
-    hooks: {
-      prerender: jointOrSingleClaim(waypoints),
-    },
-  };
 
   pages[waypoints.BENEFITS] = {
     view: 'pages/income/benefits.njk',

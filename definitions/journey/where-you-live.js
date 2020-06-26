@@ -53,9 +53,9 @@ module.exports = (plan) => {
   plan.setRoute(WP.LETTERS_HOME, WP.LETTERS_ADDRESS_POSTCODE_LOOKUP, isNo('sendLettersToHome'));
 
   // If yes continue where you live journey if not in care home otherwise skip
-  // to private pensions and begin income journey
+  // to benefit check and begin income journey
   plan.setRoute(WP.LETTERS_HOME, WP.LIVES_WITH_YOU, (r, c) => isYes('sendLettersToHome')(r, c) && notInCareHome(r, c));
-  plan.setRoute(WP.LETTERS_HOME, WP.PRIVATE_PENSIONS, (r, c) => isYes('sendLettersToHome')(r, c) && inCareHome(r, c));
+  plan.setRoute(WP.LETTERS_HOME, WP.BENEFITS, (r, c) => isYes('sendLettersToHome')(r, c) && inCareHome(r, c));
 
   // Correspondence postcode lookup
   // Go to address select if look up was attempted & returned array is not empty
@@ -95,8 +95,8 @@ module.exports = (plan) => {
     && notInCareHome(r, c)
   ));
 
-  // Otherwise skip to private pensions
-  plan.setRoute(WP.LETTERS_ADDRESS_SELECT, WP.PRIVATE_PENSIONS, (r, c) => (
+  // Otherwise skip to benefit check
+  plan.setRoute(WP.LETTERS_ADDRESS_SELECT, WP.BENEFITS, (r, c) => (
     isEqualTo('addressFrom', 'select', WP.LETTERS_ADDRESS_HIDDEN)(r, c)
     && !wasSkipped(WP.LETTERS_ADDRESS_SELECT)(r, c)
     && inCareHome(r, c)
@@ -109,8 +109,8 @@ module.exports = (plan) => {
     && notInCareHome(r, c)
   ));
 
-  // Otherwise skip to private pensions
-  plan.setRoute(WP.LETTERS_ADDRESS_MANUAL, WP.PRIVATE_PENSIONS, (r, c) => (
+  // Otherwise skip to benefit check
+  plan.setRoute(WP.LETTERS_ADDRESS_MANUAL, WP.BENEFITS, (r, c) => (
     isEqualTo('addressFrom', 'manual', WP.LETTERS_ADDRESS_HIDDEN)(r, c)
     && inCareHome(r, c)
   ));
@@ -178,5 +178,5 @@ module.exports = (plan) => {
   plan.setRoute(WP.HOUSING_BENEFIT, WP.SHARE_RENT_MORTGAGE, isEqualTo('homeOwnership', 'rent', WP.HOME_OWNERSHIP));
 
   // Continue to income journey
-  plan.addSequence(WP.SHARE_RENT_MORTGAGE, WP.PRIVATE_PENSIONS);
+  plan.addSequence(WP.SHARE_RENT_MORTGAGE, WP.BENEFITS);
 };

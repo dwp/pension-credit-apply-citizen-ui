@@ -12,7 +12,6 @@
 const aboutYou = require('./about-you.js');
 const aboutYourPartner = require('./about-your-partner.js');
 const aboutWhereYouLive = require('./about-where-you-live.js');
-const pensions = require('./pensions.js');
 const benefits = require('./benefits.js');
 const earnings = require('./earnings.js');
 const moneyYouHave = require('./money-you-have.js');
@@ -24,7 +23,6 @@ module.exports = (t, context, claim, cyaUrl) => ([
   aboutYou(t, context, claim, cyaUrl),
   aboutYourPartner(t, context, claim, cyaUrl),
   aboutWhereYouLive(t, context, claim, cyaUrl),
-  pensions(t, context, claim, cyaUrl),
   benefits(t, context, claim, cyaUrl),
   earnings(t, context, claim, cyaUrl),
   moneyYouHave(t, context, claim, cyaUrl),

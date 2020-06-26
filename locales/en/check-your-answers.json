@@ -14,7 +14,6 @@
     "about-you": "About you",
     "about-your-partner": "About your partner",
     "about-where-you-live": "About where you live",
-    "pensions": "Pensions",
     "benefits": "Benefits you have applied for",
     "earnings": "Employment and earnings",
     "money-you-have": "Money you have",
@@ -32,9 +31,6 @@
   "lettersAddress": {
     "label": "The address we should send letters to",
     "change": "Change <span class=\"govuk-visually-hidden\">the address we should send letters to</span>"
-  },
-  "privatePensionDetails": {
-    "label": "Details of your private and workplace pensions"
   },
   "employmentIncomeDetails": {
     "label": "Details of your income from employment"
