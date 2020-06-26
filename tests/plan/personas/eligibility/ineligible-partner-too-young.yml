@@ -12,10 +12,6 @@ journey:
   children-living-with-you:
     "no": click()
 
-  your-nationality:
-    "rightToResideYes": click()
-    "lived2YearsYes": click()
-
   date-of-birth:
     dateOfBirth[dd]: "01"
     dateOfBirth[mm]: "02"

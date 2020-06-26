@@ -49,23 +49,6 @@ module.exports = (t, context, claim, cyaUrl) => {
         value: rov('children-living-with-you.hasChildren', 'children-living-with-you:field.hasChildren.options'),
       }),
 
-      /* --------------------------------------------------- your-nationality */
-      // Have you lived permanently in the UK for the last 2 years?
-      row({
-        changeHref: `${WP.YOUR_NATIONALITY}#f-lived2Years`,
-        changeHtml: t('your-nationality:field.lived2Years.change'),
-        key: t('your-nationality:field.lived2Years.legend'),
-        value: rov('your-nationality.lived2Years', 'your-nationality:field.lived2Years.options'),
-      }),
-
-      // Do you have the right to live or work in the UK without any immigration restrictions?
-      row({
-        changeHref: `${WP.YOUR_NATIONALITY}#f-rightToReside`,
-        changeHtml: t('your-nationality:field.rightToReside.change'),
-        key: t('your-nationality:field.rightToReside.legend'),
-        value: rov('your-nationality.rightToReside', 'your-nationality:field.rightToReside.options'),
-      }),
-
       /* ------------------------------------------------------ date-of-claim */
       // What date do you want your Pension Credit claim to start?
       row({

@@ -1,0 +1,15 @@
+name: hrt-partner-minimal-reside-yes
+
+journey:
+  partner-nationality:
+    "partnerRightToResideYes": click()
+    "partnerLived2YearsNo": click()
+
+  partner-returned-to-uk:
+    "no": click()
+
+  partner-uk-sponsorship:
+    "no": click()
+
+  partner-asylum-seeker:
+    "no": click()

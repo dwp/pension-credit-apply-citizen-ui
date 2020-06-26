@@ -1,0 +1,8 @@
+name: hrt-citizen-no-hrt
+
+journey:
+  your-nationality:
+    "rightToResideYes": click()
+    "lived2YearsYes": click()
+
+  claim-help:

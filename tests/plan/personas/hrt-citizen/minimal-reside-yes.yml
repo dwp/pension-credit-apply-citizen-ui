@@ -1,6 +1,10 @@
-name: hrt-citizen-minimal
+name: hrt-citizen-minimal-reside-yes
 
 journey:
+  your-nationality:
+    "rightToResideYes": click()
+    "lived2YearsNo": click()
+
   returned-to-uk:
     "no": click()
 

@@ -1,0 +1,8 @@
+name: hrt-citizen-no-hrt-partner
+
+journey:
+  your-nationality:
+    "rightToResideYes": click()
+    "lived2YearsYes": click()
+
+  partner-nationality:

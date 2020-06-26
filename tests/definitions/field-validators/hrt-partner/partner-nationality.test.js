@@ -1,5 +1,5 @@
 const { expectValidatorToFail, expectValidatorToPass } = require('../../../helpers/validator-assertions.js');
-const validators = require('../../../../definitions/field-validators/about-claimant/partner-nationality.js');
+const validators = require('../../../../definitions/field-validators/hrt-partner/partner-nationality.js');
 
 describe('Validators: partner-nationality', () => {
   describe('field: partnerRightToReside', () => {

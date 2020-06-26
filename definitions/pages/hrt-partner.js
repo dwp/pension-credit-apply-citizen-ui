@@ -5,11 +5,13 @@ const { waypoints } = require('../../lib/constants.js');
 const postcodeHooks = require('../hooks/common/postcode.js');
 const manualAddressHooks = require('../hooks/common/manual-address.js');
 const selectAddressHooks = require('../hooks/common/select-address.js');
+const northernIrelandClaim = require('../hooks/common/northern-ireland-claim.js');
 
 const postcodeValidation = require('../field-validators/common/postcode.js');
 const selectAddressValidation = require('../field-validators/common/select-address.js');
 const manualAddressValidation = require('../field-validators/common/manual-address.js');
 
+const partnerNationalityValidation = require('../field-validators/hrt-partner/partner-nationality.js');
 const returnedToUk = require('../field-validators/hrt-partner/returned-to-uk.js');
 const nationalityDetails = require('../field-validators/hrt-partner/nationality-details.js');
 const ukSponsorship = require('../field-validators/hrt-partner/uk-sponsorship.js');
@@ -18,6 +20,14 @@ const asylumSeeker = require('../field-validators/hrt-partner/asylum-seeker.js')
 
 module.exports = (addressServiceFactory, mountUrl) => {
   const pages = Object.create(null);
+
+  pages[waypoints.PARTNER_NATIONALITY] = {
+    view: 'pages/about-citizen/partner-nationality.njk',
+    fieldValidators: partnerNationalityValidation,
+    hooks: {
+      prerender: northernIrelandClaim(waypoints),
+    },
+  };
 
   pages[waypoints.HRT_PARTNER_RETURNED_TO_UK] = {
     view: 'pages/hrt-partner/returned-to-uk.njk',

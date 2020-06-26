@@ -1,10 +1,30 @@
 const { waypoints: WP } = require('../../lib/constants.js');
-const { partnerNeedsHRT, onlyCitizenNeedsHRT } = require('../route-conditions/hrt.js');
 const {
   d, isEqualTo, isNo, isYes, wasSkipped,
 } = require('../../utils/journey-helpers.js');
 
 module.exports = (plan) => {
+  // If claimant has indicated they don't have the right to work in the UK or
+  // has been out of the country for 2 years we need to ask HRT questions
+  plan.setRoute(WP.YOUR_NATIONALITY, WP.HRT_CITIZEN_RETURNED_TO_UK, (r, c) => (
+    isNo('rightToReside')(r, c)
+    || isNo('lived2Years')(r, c)
+  ));
+
+  // Otherwise ask about partner nationality if they live with a partner
+  plan.setRoute(WP.YOUR_NATIONALITY, WP.PARTNER_NATIONALITY, (r, c) => (
+    isYes('rightToReside')(r, c)
+    && isYes('lived2Years')(r, c)
+    && isYes('liveWithPartner', WP.LIVE_WITH_PARTNER)(r, c)
+  ));
+
+  // Or skip this section and go to CLAIM_HELP page if no partner or HRT needed
+  plan.setRoute(WP.YOUR_NATIONALITY, WP.CLAIM_HELP, (r, c) => (
+    isYes('rightToReside')(r, c)
+    && isYes('lived2Years')(r, c)
+    && isNo('liveWithPartner', WP.LIVE_WITH_PARTNER)(r, c)
+  ));
+
   // returned-to-uk
   plan.setRoute(WP.HRT_CITIZEN_RETURNED_TO_UK, WP.HRT_CITIZEN_UK_SPONSORSHIP, isNo('cameToUk'));
   plan.setRoute(WP.HRT_CITIZEN_RETURNED_TO_UK, WP.HRT_CITIZEN_NATIONALITY_DETAILS, isYes('cameToUk'));
@@ -61,7 +81,9 @@ module.exports = (plan) => {
   // Manual entry can go to next page if hidden page contains manual data
   plan.setRoute(WP.HRT_CITIZEN_SPONSOR_ADDRESS_MANUAL, WP.HRT_CITIZEN_ASYLUM_SEEKER, isEqualTo('addressFrom', 'manual', WP.HRT_CITIZEN_SPONSOR_ADDRESS_HIDDEN));
 
-  // asylum-seeker
-  plan.setRoute(WP.HRT_CITIZEN_ASYLUM_SEEKER, WP.HRT_PARTNER_RETURNED_TO_UK, partnerNeedsHRT);
-  plan.setRoute(WP.HRT_CITIZEN_ASYLUM_SEEKER, WP.CLAIM_HELP, onlyCitizenNeedsHRT);
+  // If claimant lives with a partner, ask about their nationality
+  plan.setRoute(WP.HRT_CITIZEN_ASYLUM_SEEKER, WP.PARTNER_NATIONALITY, isYes('liveWithPartner', WP.LIVE_WITH_PARTNER));
+
+  // Or go to CLAIM_HELP page
+  plan.setRoute(WP.HRT_CITIZEN_ASYLUM_SEEKER, WP.CLAIM_HELP, isNo('liveWithPartner', WP.LIVE_WITH_PARTNER));
 };

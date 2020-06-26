@@ -8,7 +8,7 @@ describe('end-to-end', () => {
   const app = createApp();
 
   const personas = [
-    'eligibility/non-uk-national',
+    'eligibility/default',
     'about-citizen/default',
     'where-you-live/default',
     'income/default',

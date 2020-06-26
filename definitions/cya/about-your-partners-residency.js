@@ -4,9 +4,8 @@ const formatDateObject = require('../../utils/format-date-object.js');
 const { waypoints: WP } = require('../../lib/constants.js');
 
 module.exports = (t, context, claim, cyaUrl) => {
-  // Skip whole section if claimant's partner does not need to go through the
-  // HRT questions
-  if (!claim.partnerHRTRequired()) {
+  // Skip whole section if claimant does not have a partner
+  if (!claim.hasPartner()) {
     return undefined;
   }
 
@@ -20,8 +19,28 @@ module.exports = (t, context, claim, cyaUrl) => {
   // Common options for `formatDateObject()` calls
   const dateOpts = { locale: context.nav.language };
 
+  /* ---------------------------------------------------- partner-nationality */
+  const nationalityRows = [
+    // Does your partner have the right to live or work in the UK without any
+    // immigration restrictions?
+    row({
+      changeHref: `${WP.PARTNER_NATIONALITY}#f-partnerRightToReside`,
+      changeHtml: t('partner-nationality:field.partnerRightToReside.change'),
+      key: t('partner-nationality:field.partnerRightToReside.legend'),
+      value: rov('partner-nationality.partnerRightToReside', 'partner-nationality:field.partnerRightToReside.options'),
+    }),
+
+    // Has your partner lived permanently in the UK for the last 2 years?
+    row({
+      changeHref: `${WP.PARTNER_NATIONALITY}#f-partnerLived2Years`,
+      changeHtml: t('partner-nationality:field.partnerLived2Years.change'),
+      key: t('partner-nationality:field.partnerLived2Years.legend'),
+      value: rov('partner-nationality.partnerLived2Years', 'partner-nationality:field.partnerLived2Years.options'),
+    }),
+  ];
+
   /* ------------------------------------------------- partner-returned-to-uk */
-  const returnedToUkRows = [
+  const returnedToUkRows = !claim.partnerHRTRequired() ? [] : [
     // At any time, have you come to live in the UK or returned to the UK to
     // live from abroad?
     row({
@@ -101,7 +120,7 @@ module.exports = (t, context, claim, cyaUrl) => {
   ];
 
   /* ------------------------------------------------- partner-uk-sponsorship */
-  const ukSponsorshipRows = [
+  const ukSponsorshipRows = !claim.partnerHRTRequired() ? [] : [
     row({
       changeHref: `${WP.HRT_PARTNER_UK_SPONSORSHIP}#f-partnerSponsorshipUndertaking`,
       changeHtml: t('partner-uk-sponsorship:field.partnerSponsorshipUndertaking.change'),
@@ -151,7 +170,7 @@ module.exports = (t, context, claim, cyaUrl) => {
   }
 
   /* ---------------------------------------------------------- partner-asylum-seeker */
-  const asylumSeekerRows = [
+  const asylumSeekerRows = !claim.partnerHRTRequired() ? [] : [
     // Are you an asylum seeker?
     row({
       changeHref: `${WP.HRT_PARTNER_ASYLUM_SEEKER}#f-partnerAsylumSeeker`,
@@ -197,6 +216,7 @@ module.exports = (t, context, claim, cyaUrl) => {
   return {
     heading: t('check-your-answers:sectionHeading.hrt-partner'),
     rows: [
+      ...nationalityRows,
       ...returnedToUkRows,
       ...nationalityDetailsRows,
       ...ukSponsorshipRows,

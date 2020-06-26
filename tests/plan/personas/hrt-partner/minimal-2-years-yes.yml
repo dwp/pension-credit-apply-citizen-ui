@@ -1,6 +1,10 @@
-name: hrt-partner-minimal
+name: hrt-partner-minimal-2-years-yes
 
 journey:
+  partner-nationality:
+    "partnerRightToResideNo": click()
+    "partnerLived2YearsYes": click()
+
   partner-returned-to-uk:
     "no": click()
 

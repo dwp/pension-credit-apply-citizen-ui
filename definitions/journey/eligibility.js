@@ -30,8 +30,7 @@ module.exports = (plan) => {
 
   // Kick out if claimant has children
   plan.setRoute(WP.CHILDREN_LIVING_WITH_YOU, WP.CLAIM_INCLUDES_CHILDREN, isYes('hasChildren'));
-  plan.setRoute(WP.CHILDREN_LIVING_WITH_YOU, WP.YOUR_NATIONALITY, isNo('hasChildren'));
-  plan.addSequence(WP.YOUR_NATIONALITY, WP.DATE_OF_BIRTH);
+  plan.setRoute(WP.CHILDREN_LIVING_WITH_YOU, WP.DATE_OF_BIRTH, isNo('hasChildren'));
 
   // Kick out if claimant is under State Pension age
   plan.setRoute(WP.DATE_OF_BIRTH, WP.TOO_YOUNG_TO_CLAIM, claimantUnderSPA);

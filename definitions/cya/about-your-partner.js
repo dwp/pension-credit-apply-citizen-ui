@@ -84,24 +84,6 @@ module.exports = (t, context, claim, cyaUrl) => {
         key: t('partner-registered-blind:field.partnerRegisteredBlind.legend'),
         value: rov('partner-registered-blind.partnerRegisteredBlind', 'partner-registered-blind:field.partnerRegisteredBlind.options'),
       }),
-
-      /* ------------------------------------------------ partner-nationality */
-      // Does your partner have the right to live or work in the UK without any
-      // immigration restrictions?
-      row({
-        changeHref: `${WP.PARTNER_NATIONALITY}#f-partnerLived2Years`,
-        changeHtml: t('partner-nationality:field.partnerLived2Years.change'),
-        key: t('partner-nationality:field.partnerLived2Years.legend'),
-        value: rov('partner-nationality.partnerLived2Years', 'partner-nationality:field.partnerLived2Years.options'),
-      }),
-
-      // Has your partner lived permanently in the UK for the last 2 years?
-      row({
-        changeHref: `${WP.PARTNER_NATIONALITY}#f-partnerRightToReside`,
-        changeHtml: t('partner-nationality:field.partnerRightToReside.change'),
-        key: t('partner-nationality:field.partnerRightToReside.legend'),
-        value: rov('partner-nationality.partnerRightToReside', 'partner-nationality:field.partnerRightToReside.options'),
-      }),
     ],
   };
 };

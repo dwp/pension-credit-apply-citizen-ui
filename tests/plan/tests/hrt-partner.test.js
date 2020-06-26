@@ -7,43 +7,46 @@ const TIMEOUT = 5000;
 describe('hrt-partner', () => {
   const app = createApp();
 
-  it('should not reach partner HRT', () => {
-    const waypoints = mergePersonaJourneys([
-      'eligibility/non-uk-national-with-partner',
-      'about-citizen/with-partner',
-      'where-you-live/default',
-      'income/default',
-      'money/default',
-      'hrt-citizen/default',
-      'claim-help/default',
-      'submission/check-your-answers',
-    ]);
+  const defaultJourneys = [
+    'eligibility/has-partner',
+    'about-citizen/with-partner',
+    'where-you-live/default',
+    'income/default',
+    'money/default',
+    'hrt-citizen/no-hrt-partner',
+  ];
 
-    return testTraversal({ app, waypoints, waypointHandlerFactory });
-  }).timeout(TIMEOUT);
-
-  it('only partner HRT', () => {
+  it('default persona (HRT needed)', () => {
     const waypoints = mergePersonaJourneys([
-      'eligibility/has-partner',
-      'about-citizen/with-partner-non-uk-national',
-      'where-you-live/default',
-      'income/default',
-      'money/default',
+      ...defaultJourneys,
       'hrt-partner/default',
     ]);
 
     return testTraversal({ app, waypoints, waypointHandlerFactory });
   }).timeout(TIMEOUT);
 
-  it('mninimal waypoints across both citizen and partner', () => {
+  it('no HRT', () => {
     const waypoints = mergePersonaJourneys([
-      'eligibility/non-uk-national-with-partner',
-      'about-citizen/with-partner-non-uk-national',
-      'where-you-live/default',
-      'income/default',
-      'money/default',
-      'hrt-citizen/minimal',
-      'hrt-partner/minimal',
+      ...defaultJourneys,
+      'hrt-partner/no-hrt',
+    ]);
+
+    return testTraversal({ app, waypoints, waypointHandlerFactory });
+  }).timeout(TIMEOUT);
+
+  it('minimal HRT questions (rightToReside yes, lived2Years no)', () => {
+    const waypoints = mergePersonaJourneys([
+      ...defaultJourneys,
+      'hrt-partner/minimal-reside-yes',
+    ]);
+
+    return testTraversal({ app, waypoints, waypointHandlerFactory });
+  }).timeout(TIMEOUT);
+
+  it('minimal HRT questions (rightToReside no, lived2Years Yes)', () => {
+    const waypoints = mergePersonaJourneys([
+      ...defaultJourneys,
+      'hrt-partner/minimal-2-years-yes',
     ]);
 
     return testTraversal({ app, waypoints, waypointHandlerFactory });

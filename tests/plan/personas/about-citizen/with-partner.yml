@@ -31,9 +31,5 @@ journey:
   partner-registered-blind:
     "no": click()
 
-  partner-nationality:
-    "partnerRightToResideYes": click()
-    "partnerLived2YearsYes": click()
-
   care-home:
     "permanentlyInCareHomeNo": click()

@@ -1,0 +1,17 @@
+name: hrt-citizen-partner
+
+journey:
+  your-nationality:
+    "rightToResideNo": click()
+    "lived2YearsNo": click()
+
+  returned-to-uk:
+    "no": click()
+
+  uk-sponsorship:
+    "no": click()
+
+  asylum-seeker:
+    "no": click()
+
+  partner-nationality:

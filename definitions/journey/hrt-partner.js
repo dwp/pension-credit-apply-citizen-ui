@@ -4,6 +4,20 @@ const {
 } = require('../../utils/journey-helpers.js');
 
 module.exports = (plan) => {
+  // If claimant has indicated their parnter doesn't have the right to work in
+  // the UK or has been out of the country for 2 years we need to ask HRT
+  // questions
+  plan.setRoute(WP.PARTNER_NATIONALITY, WP.HRT_PARTNER_RETURNED_TO_UK, (r, c) => (
+    isNo('partnerRightToReside')(r, c)
+    || isNo('partnerLived2Years')(r, c)
+  ));
+
+  // Otherwise skip this section and go to CLAIM_HELP page if no HRT needed
+  plan.setRoute(WP.PARTNER_NATIONALITY, WP.CLAIM_HELP, (r, c) => (
+    isYes('partnerRightToReside')(r, c)
+    && isYes('partnerLived2Years')(r, c)
+  ));
+
   /* ----------------------------------------------------------------- Routes */
   // partner-returned-to-uk
   plan.setRoute(WP.HRT_PARTNER_RETURNED_TO_UK, WP.HRT_PARTNER_UK_SPONSORSHIP, isNo('partnerCameToUk'));

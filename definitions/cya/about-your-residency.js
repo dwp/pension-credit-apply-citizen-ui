@@ -4,11 +4,6 @@ const formatDateObject = require('../../utils/format-date-object.js');
 const { waypoints: WP } = require('../../lib/constants.js');
 
 module.exports = (t, context, claim, cyaUrl) => {
-  // Skip whole section if claimant does not need to go through the HRT questions
-  if (!claim.citizenHRTRequired()) {
-    return undefined;
-  }
-
   const row = rowFactory(cyaUrl);
   const rov = radioOptionValue(t, context);
   const sponsorAddress = context.getDataForPage(WP.HRT_CITIZEN_SPONSOR_ADDRESS_HIDDEN) || {};
@@ -19,8 +14,28 @@ module.exports = (t, context, claim, cyaUrl) => {
   // Common options for `formatDateObject()` calls
   const dateOpts = { locale: context.nav.language };
 
+  /* ------------------------------------------------------- your-nationality */
+  const nationalityRows = [
+    // Do you have the right to live or work in the UK without any immigration
+    // restrictions?
+    row({
+      changeHref: `${WP.YOUR_NATIONALITY}#f-rightToReside`,
+      changeHtml: t('your-nationality:field.rightToReside.change'),
+      key: t('your-nationality:field.rightToReside.legend'),
+      value: rov('your-nationality.rightToReside', 'your-nationality:field.rightToReside.options'),
+    }),
+
+    // Have you lived permanently in the UK for the last 2 years?
+    row({
+      changeHref: `${WP.YOUR_NATIONALITY}#f-lived2Years`,
+      changeHtml: t('your-nationality:field.lived2Years.change'),
+      key: t('your-nationality:field.lived2Years.legend'),
+      value: rov('your-nationality.lived2Years', 'your-nationality:field.lived2Years.options'),
+    }),
+  ];
+
   /* --------------------------------------------------------- returned-to-uk */
-  const returnedToUkRows = [
+  const returnedToUkRows = !claim.citizenHRTRequired() ? [] : [
     // At any time, have you come to live in the UK or returned to the UK to live from abroad?
     row({
       changeHref: `${WP.HRT_CITIZEN_RETURNED_TO_UK}#f-cameToUk`,
@@ -99,7 +114,7 @@ module.exports = (t, context, claim, cyaUrl) => {
   ];
 
   /* --------------------------------------------------------- uk-sponsorship */
-  const ukSponsorshipRows = [
+  const ukSponsorshipRows = !claim.citizenHRTRequired() ? [] : [
     row({
       changeHref: `${WP.HRT_CITIZEN_UK_SPONSORSHIP}#f-sponsorshipUndertaking`,
       changeHtml: t('uk-sponsorship:field.sponsorshipUndertaking.change'),
@@ -149,7 +164,7 @@ module.exports = (t, context, claim, cyaUrl) => {
   }
 
   /* ---------------------------------------------------------- asylum-seeker */
-  const asylumSeekerRows = [
+  const asylumSeekerRows = !claim.citizenHRTRequired() ? [] : [
     // Are you an asylum seeker?
     row({
       changeHref: `${WP.HRT_CITIZEN_ASYLUM_SEEKER}#f-asylumSeeker`,
@@ -195,6 +210,7 @@ module.exports = (t, context, claim, cyaUrl) => {
   return {
     heading: t('check-your-answers:sectionHeading.hrt-citizen'),
     rows: [
+      ...nationalityRows,
       ...returnedToUkRows,
       ...nationalityDetailsRows,
       ...ukSponsorshipRows,

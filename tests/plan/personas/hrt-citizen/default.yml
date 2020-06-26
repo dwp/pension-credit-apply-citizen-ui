@@ -2,6 +2,10 @@ name: hrt-citizen-default
 
 journey:
   # ------------------------------------------------------------- returned-to-uk
+  your-nationality:
+    "rightToResideNo": click()
+    "lived2YearsNo": click()
+
   returned-to-uk:
     "yes": click()
 
@@ -21,17 +25,17 @@ journey:
 
   uk-sponsorship:
     "yes": click()
-  
+
   sponsorship-details:
     sponsorName: "John Doe"
     homeOfficeReference: "HO REF 123"
     sponsorshipUndertakingSigned[dd]: "12"
     sponsorshipUndertakingSigned[mm]: "03"
     sponsorshipUndertakingSigned[yyyy]: "2003"
-  
+
   sponsor-address-postcode-lookup:
     enterManualLink: click()
-  
+
   sponsor-address-manual:
     addressLine1: "Address 1"
     addressLine2: "Address 1"
@@ -47,3 +51,5 @@ journey:
     successfulDecisionDate[mm]: "02"
     successfulDecisionDate[yyyy]: "2020"
     supportedByHomeOfficeYes: click()
+
+  claim-help:
