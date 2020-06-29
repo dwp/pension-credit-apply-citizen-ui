@@ -1,3 +1,26 @@
+# [1.0.0](https://github.com/dwp/pension-credit-citizen-apply/compare/0.5.0...1.0.0) (2020-06-29)
+
+
+### Code Refactoring
+
+* [bc] extract partner name to separate page ([a241464](https://github.com/dwp/pension-credit-citizen-apply/commit/a24146488288b5e39cba55d40ad8e3af4dbb052a))
+* [bc] extract partner NI question to separate page ([24db80b](https://github.com/dwp/pension-credit-citizen-apply/commit/24db80b1c849436d7b78e45da2a9ef973b7c03a9))
+* [bc] extract partner sight-impaired to separate page ([a01c34c](https://github.com/dwp/pension-credit-citizen-apply/commit/a01c34c7fa04105484a6228cf70a1932b1128136))
+
+
+### BREAKING CHANGES
+
+* Waypoint url has changed, and thus the key against
+which data to stored.
+* Whilst the data captured has not changed, it is now
+captured on a separate page which will trigger an unexpected traversal
+failure for existing sessions.
+* Whilst the data captured has not changed, it is now
+captured on a separate page which will trigger an unexpected traversal
+failure for existing sessions.
+
+
+
 # [0.5.0](https://github.com/dwp/pension-credit-citizen-apply/compare/0.4.3...0.5.0) (2020-06-18)
 
 
