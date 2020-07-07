@@ -16,7 +16,7 @@ describe('eligibility', () => {
   describe('partner routes', () => {
     const routes = [
       'has-partner',
-      'has-young-partner',
+      'has-young-partner-gets-pahb',
     ];
 
     routes.forEach((route) => {
@@ -34,7 +34,8 @@ describe('eligibility', () => {
       'ineligible-claim-includes-children',
       'ineligible-not-in-uk',
       'ineligible-too-young',
-      'ineligible-partner-too-young',
+      'ineligible-partner-too-young-cant-get-pahb',
+      'ineligible-partner-too-young-no-pahb',
     ];
 
     routes.forEach((route) => {

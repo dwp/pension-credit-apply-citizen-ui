@@ -1,13 +1,14 @@
 {
-  "pageTitle": "Does your partner get pension age Housing Benefit?",
+  "pageTitle": "Do you and your partner get pension age Housing Benefit?",
   "field": {
     "partnerGetsHousingBenefit": {
-      "required": "Select yes if your partner gets pension age Housing Benefit.",
+      "hint": "A Housing Benefit claim is likely to be pension age Housing Benefit if you made a claim as a couple before 15 May 2019.",
+      "required": "Select yes if you and your partner get pension age Housing Benefit.",
       "options": {
         "yes": "Yes",
         "no": "No"
       },
-      "change": "Change <span class=\"govuk-visually-hidden\">whether your partner gets pension age Housing Benefit</span>"
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you and your partner get pension age Housing Benefit</span>"
     }
   }
 }

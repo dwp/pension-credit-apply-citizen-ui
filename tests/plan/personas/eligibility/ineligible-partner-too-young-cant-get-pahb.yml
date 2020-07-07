@@ -1,4 +1,4 @@
-name: default
+name: ineligible-partner-too-young-cant-get-pahb
 
 journey:
   start:
@@ -13,9 +13,9 @@ journey:
     "no": click()
 
   date-of-birth:
-    dateOfBirth[dd]: "01"
+    dateOfBirth[dd]: "06"
     dateOfBirth[mm]: "02"
-    dateOfBirth[yyyy]: "1942"
+    dateOfBirth[yyyy]: "1954"
 
   live-with-partner:
     "yes": click()
@@ -23,10 +23,4 @@ journey:
     partnerDateOfBirth[mm]: "02"
     partnerDateOfBirth[yyyy]: "2020"
 
-  partner-housing-benefit:
-    "yes": click()
-
-  partner-agree:
-    "yes": click()
-
-  date-of-claim:
+  done-partner:

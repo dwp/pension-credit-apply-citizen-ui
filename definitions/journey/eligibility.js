@@ -2,6 +2,7 @@ const { waypoints: WP } = require('../../lib/constants.js');
 const {
   isYes, isNo, isEqualTo, isNotEqualTo,
 } = require('../../utils/journey-helpers.js');
+const checkPAHB = require('../route-conditions/check-pension-age-hb.js');
 const checkSPA = require('../route-conditions/check-state-pension-age.js');
 
 module.exports = (plan) => {
@@ -16,6 +17,12 @@ module.exports = (plan) => {
 
   // True if partner is under State Pension age
   const partnerUnderSPA = checkSPA(WP.LIVE_WITH_PARTNER, 'partnerDateOfBirth', false);
+
+  // True if claimant eligible for Pension Age Housing Benefit
+  const claimantEligibleForPAHB = checkPAHB(WP.DATE_OF_BIRTH, 'dateOfBirth', true);
+
+  // True if claimant is not eligible for Pension Age Housing Benefit
+  const claimantNotEligibleForPAHB = checkPAHB(WP.DATE_OF_BIRTH, 'dateOfBirth', false);
 
   // Start page
   plan.addSequence(WP.START, WP.COUNTRY_YOU_LIVE_IN);
@@ -40,9 +47,11 @@ module.exports = (plan) => {
   plan.setRoute(WP.LIVE_WITH_PARTNER, WP.DATE_OF_CLAIM, isNo('liveWithPartner'));
   plan.setRoute(WP.LIVE_WITH_PARTNER, WP.PARTNER_AGREE, (r, c) => isYes('liveWithPartner')(r, c) && partnerAtOrOverSPA(r, c));
 
-  // If partner is under State Pension age ask about Housing Benefit, if they
-  // don't get it then kick out
-  plan.setRoute(WP.LIVE_WITH_PARTNER, WP.PARTNER_HOUSING_BENEFIT, (r, c) => isYes('liveWithPartner')(r, c) && partnerUnderSPA(r, c));
+  // If partner is under State Pension age and claimant is eligible for
+  // Pension Age Housing Benefitask ask if they get it, if they aren't eligible
+  // kick them out
+  plan.setRoute(WP.LIVE_WITH_PARTNER, WP.PARTNER_HOUSING_BENEFIT, (r, c) => isYes('liveWithPartner')(r, c) && partnerUnderSPA(r, c) && claimantEligibleForPAHB(r, c));
+  plan.setRoute(WP.LIVE_WITH_PARTNER, WP.DONE_PARTNER, (r, c) => isYes('liveWithPartner')(r, c) && partnerUnderSPA(r, c) && claimantNotEligibleForPAHB(r, c));
   plan.setRoute(WP.PARTNER_HOUSING_BENEFIT, WP.DONE_PARTNER, isNo('partnerGetsHousingBenefit'));
 
   // If they get Housing Benefit ask if they agree to claim and continue

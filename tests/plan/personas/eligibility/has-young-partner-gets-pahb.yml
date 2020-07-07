@@ -1,4 +1,4 @@
-name: default
+name: has-young-partner-gets-pahb
 
 journey:
   start:
@@ -24,6 +24,9 @@ journey:
     partnerDateOfBirth[yyyy]: "2020"
 
   partner-housing-benefit:
-    "no": click()
+    "yes": click()
 
-  done-partner:
+  partner-agree:
+    "yes": click()
+
+  date-of-claim:

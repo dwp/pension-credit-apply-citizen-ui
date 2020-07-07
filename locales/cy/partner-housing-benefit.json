@@ -1,13 +1,14 @@
 {
-  "pageTitle": "Ydy eich partner yn cael Budd-dal Tai oedran pensiwn?",
+  "pageTitle": "Ydych chi a'ch partner yn cael Budd-dal Tai oedran pensiwn?",
   "field": {
     "partnerGetsHousingBenefit": {
-      "required": "Dewiswch ydy os yw eich partner yn cael Budd-dal Tai oedran pensiwn.",
+      "hint": "Mae cais am Fudd-dal Tai yn debygol o fod yn Fudd-dal Tai oedran pensiwn os ydych wedi gwneud cais fel cwpl cyn 15 Mai 2019.",
+      "required": "Dewiswch ydym os ydych chi a’ch partner yn cael Budd-dal Tai oedran pensiwn.",
       "options": {
-        "yes": "Ydy",
+        "yes": "Ydym",
         "no": "Na"
       },
-      "change": "Newid <span class=\"govuk-visually-hidden\">os yw eich partner yn cael Budd-dal Tai oedran pensiwn</span>"
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych chi a'ch partner yn cael Budd-dal Tai oedran pensiwn</span>"
     }
   }
 }
