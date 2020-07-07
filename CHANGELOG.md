@@ -1,3 +1,18 @@
+# [1.1.0](https://github.com/dwp/pension-credit-citizen-apply/compare/1.0.0...1.1.0) (2020-07-07)
+
+
+### Bug Fixes
+
+* set sameSite and secure flags on seen_cookie_message cookie ([d7af6a6](https://github.com/dwp/pension-credit-citizen-apply/commit/d7af6a6e91ef170d7b1cd45fada3d4071b1e259e))
+
+
+### Features
+
+* add content about shared accounts to money-you-have page ([2801bfd](https://github.com/dwp/pension-credit-citizen-apply/commit/2801bfd32b2408888e76a67ded8699a8edabc887))
+* move nationality questions to directly before HRT questions ([11410cd](https://github.com/dwp/pension-credit-citizen-apply/commit/11410cd852e645dcf5fef16aa5761f742ad35250))
+
+
+
 # [1.0.0](https://github.com/dwp/pension-credit-citizen-apply/compare/0.5.0...1.0.0) (2020-06-29)
 
 
