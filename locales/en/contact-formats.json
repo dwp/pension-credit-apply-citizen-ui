@@ -1,32 +1,58 @@
 {
-  "pageTitle": "Do you need us to contact you in any different formats?",
+  "pageTitleClaimant": "What formats do you need us to use when we contact you by letter or phone?",
+  "pageTitleDelegatedAuthority": "What formats do you need us to use when we contact you by letter or phone?",
+  "pageTitleHelper": "What formats does the applicant need us to use when we contact them by letter or phone?",
   "field": {
     "contactFormats": {
       "hint": "Select all that apply:",
+      "requiredClaimant": "Select the formats you need us to use when we contact you by letter or phone.",
+      "requiredDelegatedAuthority": "Select the formats you need us to use when we contact you by letter or phone.",
+      "requiredHelper": "Select the formats the applicant needs us to use when we contact them by letter or phone.",
       "options": {
         "audio": "Audio",
         "braille": "Braille",
         "largePrint": "Large print",
-        "signLanguage": "Sign language",
         "textPhone": "Textphone (Text Relay)",
         "typeTalk": "TypeTalk",
-        "other": "Other"
+        "other": "Something else"
       },
-      "noneSelected": "No",
-      "change": "Change <span class=\"govuk-visually-hidden\">whether you need us to contact you in any different formats</span>"
+      "changeClaimant": "Change <span class=\"govuk-visually-hidden\">what formats you need us to use when we contact you by letter or phone</span>",
+      "changeDelegatedAuthority": "Change <span class=\"govuk-visually-hidden\">what formats you need us to use when we contact you by letter or phone</span>",
+      "changeHelper": "Change <span class=\"govuk-visually-hidden\">what formats the applicant needs us to use when we contact them by letter or phone</span>"
     },
     "textPhoneNumber": {
-      "label": "What is your textphone (Text Relay) number?",
-      "required": "Enter your textphone (Text Relay) number.",
-      "length": "Enter your textphone (Text Relay) number using 20 characters or less.",
-      "format": "Enter your textphone (Text Relay) number using numbers 0 to 9, spaces, hyphens, brackets and dashes.",
-      "change": "Change <span class=\"govuk-visually-hidden\">your textphone (Text Relay) number</span>"
+      "labelClaimant": "What is your textphone (Text Relay) number?",
+      "labelDelegatedAuthority": "What is your textphone (Text Relay) number?",
+      "labelHelper": "What is the applicant’s textphone (Text Relay) number?",
+      "requiredClaimant": "Enter your textphone (Text Relay) number.",
+      "requiredDelegatedAuthority": "Enter your textphone (Text Relay) number.",
+      "requiredHelper": "Enter the applicant’s textphone (Text Relay) number.",
+      "lengthClaimant": "Enter your textphone (Text Relay) number using 20 characters or less.",
+      "lengthDelegatedAuthority": "Enter your textphone (Text Relay) number using 20 characters or less.",
+      "lengthHelper": "Enter the applicant’s textphone (Text Relay) number using 20 characters or less.",
+      "formatClaimant": "Enter your textphone (Text Relay) number using numbers 0 to 9, spaces, hyphens, brackets and dashes.",
+      "formatDelegatedAuthority": "Enter your textphone (Text Relay) number using numbers 0 to 9, spaces, hyphens, brackets and dashes.",
+      "formatHelper": "Enter the applicant’s textphone (Text Relay) number using numbers 0 to 9, spaces, hyphens, brackets and dashes.",
+      "changeClaimant": "Change <span class=\"govuk-visually-hidden\">your textphone (Text Relay) number</span>",
+      "changeDelegatedAuthority": "Change <span class=\"govuk-visually-hidden\">your textphone (Text Relay) number</span>",
+      "changeHelper": "Change <span class=\"govuk-visually-hidden\">the applicant’s textphone (Text Relay) number</span>"
     },
     "otherDetails": {
-      "label": "Tell us any other ways we can help you when we contact you",
-      "required": "Enter any other ways we can help you when we contact you.",
-      "length": "Other ways we can help you when we contact you must be 500 characters or less.",
-      "change": "Change <span class=\"govuk-visually-hidden\">whether there are any other ways we can help you when we contact you</span>"
+      "labelClaimant": "How can we help when we contact you?",
+      "labelDelegatedAuthority": "How can we help when we contact you?",
+      "labelHelper": "How can we help when we contact the applicant?",
+      "hintClaimant": "Tell us any other ways we can help you when we contact you.",
+      "hintDelegatedAuthority": "Tell us any other ways we can help you when we contact you.",
+      "hintHelper": "Tell us any other ways we can help the applicant when we contact them.",
+      "requiredClaimant": "Enter how we can help when we contact you.",
+      "requiredDelegatedAuthority": "Enter how we can help when we contact you.",
+      "requiredHelper": "Enter how we can help when we contact the applicant.",
+      "lengthClaimant": "Enter how we can help when we contact you using 500 characters or less.",
+      "lengthDelegatedAuthority": "Enter how we can help when we contact you using 500 characters or less.",
+      "lengthHelper": "Enter how we can help when we contact the applicant using 500 characters or less.",
+      "changeClaimant": "Change <span class=\"govuk-visually-hidden\">how we can help when we contact you</span>",
+      "changeDelegatedAuthority": "Change <span class=\"govuk-visually-hidden\">how we can help when we contact you</span>",
+      "changeHelper": "Change <span class=\"govuk-visually-hidden\">how we can help when we contact the applicant</span>"
     }
   }
 }

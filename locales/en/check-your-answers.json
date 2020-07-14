@@ -11,15 +11,15 @@
   },
   "buttonText": "Submit",
   "sectionHeading": {
-    "about-you": "About you",
-    "about-your-partner": "About your partner",
-    "about-where-you-live": "About where you live",
-    "benefits": "Benefits you have applied for",
-    "earnings": "Employment and earnings",
-    "money-you-have": "Money you have",
-    "hrt-citizen": "About your residency in the UK",
-    "hrt-partner": "About your partner’s residency in the UK",
-    "claim-help": "Help from other people"
+    "about-you": "Applicant details",
+    "about-your-partner": "Partner details",
+    "about-where-you-live": "Housing details",
+    "benefits": "Benefits",
+    "earnings": "Employment and income",
+    "money-you-have": "Money",
+    "hrt-citizen": "Applicant’s residency in the UK",
+    "hrt-partner": "Partner’s residency in the UK",
+    "contact-details": "Contact details"
   },
   "othersLiveWithYouDetails": {
     "label": "Details of anyone else that lives with you"
@@ -29,8 +29,12 @@
     "change": "Change <span class=\"govuk-visually-hidden\">your home address</span>"
   },
   "lettersAddress": {
-    "label": "The address we should send letters to",
-    "change": "Change <span class=\"govuk-visually-hidden\">the address we should send letters to</span>"
+    "labelClaimant": "The address we should send letters to",
+    "labelDelegatedAuthority": "What is your address?",
+    "labelHelper": "The address we should send letters to",
+    "changeClaimant": "Change <span class=\"govuk-visually-hidden\">the address we should send letters to</span>",
+    "changeDelegatedAuthority": "Change <span class=\"govuk-visually-hidden\">your address</span>",
+    "changeHelper": "Change <span class=\"govuk-visually-hidden\">the address we should send letters to</span>"
   },
   "selfEmploymentIncomeDetails": {
     "label": "Details of your income from self-employment"
@@ -71,6 +75,16 @@
   "sponsorAddress": {
     "label": "Your sponsor’s address",
     "change": "Change <span class=\"govuk-visually-hidden\">your sponsor’s address</span>"
+  },
+  "whoMadeClaim": {
+    "claimant": "You are claiming Pension Credit for yourself",
+    "powerOfAttorney": "You have power of attorney for the applicant",
+    "appointee": "You act as an appointee for the applicant",
+    "personalActingBody": "You are a Personal Acting Body for the applicant",
+    "corporateActingBody": "You are a Corporate Acting Body for the applicant",
+    "charity": "You work for a charity or organisation that is helping the applicant make their application",
+    "friendOrFamily": "You are a friend or family member who is helping the applicant make their application",
+    "someoneElse": "Someone else"
   },
   "partnerSponsorAddress": {
     "label": "Your partner’s sponsor’s address",

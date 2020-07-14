@@ -5,4 +5,4 @@ journey:
     "partnerRightToResideYes": click()
     "partnerLived2YearsYes": click()
 
-  claim-help:
+  who-made-claim:

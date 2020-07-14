@@ -1,11 +1,13 @@
+const { ValidationError } = require('@dwp/govuk-casa');
+
 const isTelephoneNumber = /^[0-9() -]{1,20}$/;
 
-const validator = (config = {}) => function isValidTelephoneNumber(fieldValue) {
+const validator = ({ errorMsg }) => function isValidTelephoneNumber(value, dataContext) {
   return new Promise((resolve, reject) => {
-    if (!fieldValue || isTelephoneNumber.test(fieldValue)) {
+    if (!value || isTelephoneNumber.test(value)) {
       resolve();
     } else {
-      reject(new Error(config.errorMsg));
+      reject(ValidationError.make({ errorMsg, dataContext }));
     }
   });
 };

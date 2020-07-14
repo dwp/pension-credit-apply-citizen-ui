@@ -1,0 +1,31 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("letter-address:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {% include "partials/user-type.njk" %}
+  {{ casaGovukRadios({
+    name: "letterAddress",
+    fieldset: {
+      legend: {
+        text: t("letter-address:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "homeAddress",
+      text: t("letter-address:field.letterAddress.options.homeAddress" + msgSuffix)
+    }, {
+      value: "differentAddress",
+      text: t("letter-address:field.letterAddress.options.differentAddress" + msgSuffix)
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.letterAddress,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

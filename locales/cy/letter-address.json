@@ -1,0 +1,16 @@
+{
+  "pageTitle": "I ba gyfeiriad ddylem ni anfon llythyrau iddo?",
+  "field": {
+    "letterAddress": {
+      "required": "Dewiswch i ba gyfeiriad ddylem ni anfon llythyrau iddo.",
+      "options": {
+        "homeAddressClaimant": "Cyfeiriad eich cartref",
+        "homeAddressHelper": "Cyfeiriad cartref yr hawlydd",
+        "differentAddressClaimant": "Cyfeiriad gwahanol",
+        "differentAddressHelper": "Cyfeiriad gwahanol"
+      },
+      "changeClaimant": "Newid <span class=\"govuk-visually-hidden\">os dylem anfon llythyrau i gyfeiriad cartref eich neu i gyfeiriad gwahanol</span>",
+      "changeHelper": "Newid <span class=\"govuk-visually-hidden\">os dylem anfon llythyrau i gyfeiriad cartref yr hawlydd neu i gyfeiriad gwahanol</span>"
+    }
+  }
+}

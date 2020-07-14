@@ -1,0 +1,24 @@
+{
+  "pageTitleClaimant": "Do you need us to use any different formats when we contact you by letter or phone?",
+  "pageTitleDelegatedAuthority": "Do you need us to use any different formats when we contact you by letter or phone?",
+  "pageTitleHelper": "Does the applicant need us to use any different formats when we contact them by letter or phone?",
+  "field": {
+    "needsDifferentFormats": {
+      "hint": "For example, braille, large print or textphone.",
+      "requiredClaimant": "Select yes if you need us to use any different formats when we contact you.",
+      "requiredDelegatedAuthority": "Select yes if you need us to use any different formats when we contact you.",
+      "requiredHelper": "Select yes if the applicant needs us to use any different formats when we contact them.",
+      "options": {
+        "yesClaimant": "Yes",
+        "yesDelegatedAuthority": "Yes",
+        "yesHelper": "Yes",
+        "noClaimant": "No",
+        "noDelegatedAuthority": "No",
+        "noHelper": "No"
+      },
+      "changeClaimant": "Change <span class=\"govuk-visually-hidden\">whether you need us to use any different formats when we contact you by letter or phone</span>",
+      "changeDelegatedAuthority": "Change <span class=\"govuk-visually-hidden\">whether you need us to use any different formats when we contact you by letter or phone</span>",
+      "changeHelper": "Change <span class=\"govuk-visually-hidden\">whether the applicant needs us to use any different formats when we contact them by letter or phone</span>"
+    }
+  }
+}

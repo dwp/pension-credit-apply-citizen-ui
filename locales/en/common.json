@@ -40,5 +40,15 @@
       "personalInformationCharter": "Northern Ireland Privacy (opens in a new window)",
       "personalInformationCharterHref": "https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter"
     }
+  },
+  "whoMadeClaim": {
+    "claimant": "Claimant",
+    "powerOfAttorney": "Power of attorney",
+    "appointee": "Appointee",
+    "personalActingBody": "Personal Acting Body",
+    "corporateActingBody": "Corporate Acting Body",
+    "charity": "Charity or organisation",
+    "friendOrFamily": "Friend or family member",
+    "someoneElse": "Someone else"
   }
 }

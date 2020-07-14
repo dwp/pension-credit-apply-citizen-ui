@@ -14,7 +14,7 @@ describe('end-to-end', () => {
     'income/default',
     'money/default',
     'hrt-citizen/default',
-    'claim-help/default',
+    'contact-details/default',
     'submission/check-your-answers',
   ];
 

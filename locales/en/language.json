@@ -1,0 +1,26 @@
+{
+  "pageTitleClaimant": "What language do you want us to speak to you in?",
+  "pageTitleDelegatedAuthority": "What language do you want us to speak to you in?",
+  "pageTitleHelper": "What language do you want us to speak to the applicant in?",
+  "field": {
+    "preferredLanguage": {
+      "requiredClaimant": "Select the language you want us to speak to you in.",
+      "requiredDelegatedAuthority": "Select the language you want us to speak to you in.",
+      "requiredHelper": "Select the language you want us to speak to the applicant in.",
+      "options": {
+        "english": "English",
+        "welsh": "Welsh",
+        "other": "Other"
+      },
+      "changeClaimant": "Change <span class=\"govuk-visually-hidden\">what language you want us to speak to you in</span>",
+      "changeDelegatedAuthority": "Change <span class=\"govuk-visually-hidden\">what language you want us to speak to you in</span>",
+      "changeHelper": "Change <span class=\"govuk-visually-hidden\">what language you want us to speak to the applicant in</span>"
+    },
+    "preferredLanguageOther": {
+      "label": "What language do you want us to use?",
+      "required": "Enter the language you want us to use.",
+      "length": "Enter the language you want us to use in 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">what language you want us to use</span>"
+    }
+  }
+}

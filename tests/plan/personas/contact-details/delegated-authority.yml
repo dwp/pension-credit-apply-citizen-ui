@@ -1,0 +1,31 @@
+name: contact-details-delegated-authority
+
+journey:
+  # ------------------------------------------------------------ Contact details
+  who-made-claim:
+    "appointee": click()
+
+  delegated-authority-details:
+    contactName: "Joe Bloggs"
+    contactNino: "RN003003B"
+
+  can-we-call:
+    "no": click()
+
+  language:
+    "english": click()
+
+  different-formats:
+    "no": click()
+
+  letter-postcode:
+    enterManualLink: click()
+
+  manual-letter-address:
+    addressLine1: "Address line 1"
+    addressLine2: "Address line 2"
+    town: "Town"
+    county: "County"
+    postcode: "AA1 1AA"
+
+  check-your-answers:

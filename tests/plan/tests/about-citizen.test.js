@@ -16,28 +16,10 @@ describe('about-citizen', () => {
     return testTraversal({ app, waypoints, waypointHandlerFactory });
   }).timeout(TIMEOUT);
 
-  it('contact formats', () => {
-    const waypoints = mergePersonaJourneys([
-      'eligibility/default',
-      'about-citizen/contact-formats',
-    ]);
-
-    return testTraversal({ app, waypoints, waypointHandlerFactory });
-  }).timeout(TIMEOUT);
-
   it('partner details', () => {
     const waypoints = mergePersonaJourneys([
       'eligibility/has-partner',
       'about-citizen/with-partner',
-    ]);
-
-    return testTraversal({ app, waypoints, waypointHandlerFactory });
-  }).timeout(TIMEOUT);
-
-  it('contact formats and partner details', () => {
-    const waypoints = mergePersonaJourneys([
-      'eligibility/has-partner',
-      'about-citizen/with-partner-contact-formats',
     ]);
 
     return testTraversal({ app, waypoints, waypointHandlerFactory });

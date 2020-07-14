@@ -1,0 +1,26 @@
+{
+  "pageTitleClaimant": "Ym mha iaith ydych chi eisiau i ni siarad gyda chi?",
+  "pageTitleDelegatedAuthority": "Ym mha iaith ydych chi eisiau i ni siarad gyda chi?",
+  "pageTitleHelper": "Ym mha iaith ydych chi eisiau i ni siarad gyda'r hawlydd?",
+  "field": {
+    "preferredLanguage": {
+      "requiredClaimant": "Dewiswch yr iaith rydych chi eisiau i ni siarad gyda chi.",
+      "requiredDelegatedAuthority": "Dewiswch yr iaith rydych chi eisiau i ni siarad gyda chi.",
+      "requiredHelper": "Dewiswch yr iaith rydych chi eisiau i ni siarad gyda'r hawlydd.",
+      "options": {
+        "english": "Saesneg",
+        "welsh": "Cymraeg",
+        "other": "Arall"
+      },
+      "changeClaimant": "Newid <span class=\"govuk-visually-hidden\">ym mha iaith ydych chi eisiau i ni siarad gyda chi</span>",
+      "changeDelegatedAuthority": "Newid <span class=\"govuk-visually-hidden\">ym mha iaith ydych chi eisiau i ni siarad gyda chi</span>",
+      "changeHelper": "Newid <span class=\"govuk-visually-hidden\">ym mha iaith ydych chi eisiau i ni siarad gyda'r hawlydd</span>"
+    },
+    "preferredLanguageOther": {
+      "label": "Pa iaith ydych chi eisiau i ni ei ddefnyddio?",
+      "required": "Rhowch yr iaith rydych eisiau i ni ei ddefnyddio.",
+      "length": "Rhowch yr iaith rydych eisiau i ni ei ddefnyddio mewn 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">pa iaith ydych chi eisiau i ni ei ddefnyddio</span>"
+    }
+  }
+}

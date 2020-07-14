@@ -22,8 +22,8 @@ module.exports = (plan) => {
     && livingWithPartner(r, c)
   ));
 
-  // Or skip this section and go to CLAIM_HELP page if no partner or HRT needed
-  plan.setRoute(WP.YOUR_NATIONALITY, WP.CLAIM_HELP, (r, c) => (
+  // Or skip this section and go to WHO_MADE_CLAIM page if no partner or HRT needed
+  plan.setRoute(WP.YOUR_NATIONALITY, WP.WHO_MADE_CLAIM, (r, c) => (
     isYes('rightToReside')(r, c)
     && isYes('lived2Years')(r, c)
     && notLivingWithPartner(r, c)
@@ -88,6 +88,6 @@ module.exports = (plan) => {
   // If claimant lives with a partner, ask about their nationality
   plan.setRoute(WP.HRT_CITIZEN_ASYLUM_SEEKER, WP.PARTNER_NATIONALITY, livingWithPartner);
 
-  // Or go to CLAIM_HELP page
-  plan.setRoute(WP.HRT_CITIZEN_ASYLUM_SEEKER, WP.CLAIM_HELP, notLivingWithPartner);
+  // Or go to WHO_MADE_CLAIM page
+  plan.setRoute(WP.HRT_CITIZEN_ASYLUM_SEEKER, WP.WHO_MADE_CLAIM, notLivingWithPartner);
 };

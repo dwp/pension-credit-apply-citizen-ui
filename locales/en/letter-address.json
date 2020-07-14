@@ -1,0 +1,16 @@
+{
+  "pageTitle": "What address should we send letters to?",
+  "field": {
+    "letterAddress": {
+      "required": "Select what address we should send letters to.",
+      "options": {
+        "homeAddressClaimant": "Your home address",
+        "homeAddressHelper": "The applicant’s home address",
+        "differentAddressClaimant": "A different address",
+        "differentAddressHelper": "A different address"
+      },
+      "changeClaimant": "Change <span class=\"govuk-visually-hidden\">whether we should send letters to your home address or a different address</span>",
+      "changeHelper": "Change <span class=\"govuk-visually-hidden\">whether we should send letters to the applicant’s home address or a different address</span>"
+    }
+  }
+}

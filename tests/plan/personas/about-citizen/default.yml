@@ -9,16 +9,7 @@ journey:
     fullName: "Alex Smith"
     "hasPreviousNamesNo": click()
 
-  phone-number:
-    contactTelephone: 1234567890
-
-  claimant-language:
-    "english": click()
-
   registered-blind:
-    "no": click()
-
-  help-letters-calls:
     "no": click()
 
   care-home:

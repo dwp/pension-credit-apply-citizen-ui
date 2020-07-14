@@ -1,0 +1,25 @@
+{
+  "pageTitle": "Eich manylion",
+  "field": {
+    "contactName": {
+      "label": "Beth yw eich enw llawn?",
+      "hint": "Dylech gynnwys unrhyw enwau canol.",
+      "required": "Rhowch eich enw llawn.",
+      "length": "Rhowch eich enw llawn gan ddefnyddio 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">enw llawn y person sy'n llenwi'r cais hwn</span>"
+    },
+    "contactNino": {
+      "label": "Beth yw eich rhif Yswiriant Gwladol?",
+      "hint": "Mae ar eich cerdyn Yswiriant Gwladol, llythyr budd-dal, slip cyflog neu P60. Er enghraifft, ‘QQ 12 34 56 C’.",
+      "required": "Rhowch eich rhif Yswiriant Gwladol.",
+      "format": "Rhowch eich rhif Yswiriant Gwladol yn y ffurf cywir.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">rhif Yswiriant Gwladol y person sy'n llenwi'r cais hwn</span>"
+    },
+    "contactID": {
+      "label": "Beth yw eich ID corfforaethol?",
+      "required": "Rhowch eich ID corfforaethol.",
+      "length": "Rhowch eich eich ID corfforaethol gan ddefnyddio 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">eich ID corfforaethol</span>"
+    }
+  }
+}

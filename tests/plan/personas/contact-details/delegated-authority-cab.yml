@@ -1,0 +1,31 @@
+name: contact-details-delegated-authority-cab
+
+journey:
+  # ------------------------------------------------------------ Contact details
+  who-made-claim:
+    "corporateActingBody": click()
+
+  delegated-authority-details:
+    contactName: "Joe Bloggs"
+    contactID: "1234567"
+
+  can-we-call:
+    "no": click()
+
+  language:
+    "english": click()
+
+  different-formats:
+    "no": click()
+
+  letter-postcode:
+    enterManualLink: click()
+
+  manual-letter-address:
+    addressLine1: "Address line 1"
+    addressLine2: "Address line 2"
+    town: "Town"
+    county: "County"
+    postcode: "AA1 1AA"
+
+  check-your-answers:

@@ -11,15 +11,15 @@
   },
   "buttonText": "Anfon",
   "sectionHeading": {
-    "about-you": "Amdanoch chi",
-    "about-your-partner": "Am eich partner",
-    "about-where-you-live": "Am ble rydych yn byw",
-    "benefits": "Budd-daliadau rydych wedi gwneud cais amdanynt",
-    "earnings": "Cyflogaeth ac enillion",
-    "money-you-have": "Arian sydd gennych",
-    "hrt-citizen": "Am eich preswyliad yn y DU",
-    "hrt-partner": "Am breswyliad eich partner yn y DU",
-    "claim-help": "Help gan bobl eraill"
+    "about-you": "Manylion hawlydd",
+    "about-your-partner": "Manylion partner",
+    "about-where-you-live": "Manylion tai",
+    "benefits": "Budd-daliadau",
+    "earnings": "Cyflogaeth ac incwm",
+    "money-you-have": "Arian",
+    "hrt-citizen": "Preswyliad hawlydd yn y DU",
+    "hrt-partner": "Preswyliad partner yn y DU",
+    "contact-details": "Manylion cyswllt"
   },
   "othersLiveWithYouDetails": {
     "label": "Manylion unrhyw un arall sy'n byw gyda chi"
@@ -29,8 +29,12 @@
     "change": "Newid <span class=\"govuk-visually-hidden\">cyfeiriad eich cartref</span>"
   },
   "lettersAddress": {
-    "label": "Y cyfeiriad y dylem anfon llythyrau i",
-    "change": "Newid <span class=\"govuk-visually-hidden\">y cyfeiriad y dylem anfon llythyrau i</span>"
+    "labelClaimant": "Y cyfeiriad ddylem ni anfon llythyrau iddo",
+    "labelDelegatedAuthority": "Beth yw eich cyfeiriad?",
+    "labelHelper": "Y cyfeiriad ddylem ni anfon llythyrau iddo",
+    "changeClaimant": "Newid <span class=\"govuk-visually-hidden\">y cyfeiriad ddylem ni anfon llythyrau iddo</span>",
+    "changeDelegatedAuthority": "Newid <span class=\"govuk-visually-hidden\">eich cyfeiriad</span>",
+    "changeHelper": "Newid <span class=\"govuk-visually-hidden\">y cyfeiriad ddylem ni anfon llythyrau iddo</span>"
   },
   "selfEmploymentIncomeDetails": {
     "label": "Manylion eich incwm o hunangyflogaeth"
@@ -71,6 +75,16 @@
   "sponsorAddress": {
     "label": "Cyfeiriad eich noddwr",
     "change": "Newid <span class=\"govuk-visually-hidden\">cyfeiriad eich noddwr</span>"
+  },
+  "whoMadeClaim": {
+    "claimant": "Rydych yn gwneud cais am Gredyd Pensiwn i chi eich hun",
+    "powerOfAttorney": "Mae gennych bwer atwrnai dros yr hawlydd",
+    "appointee": "Rydych yn gweithredu fel penodai dros yr hawlydd",
+    "personalActingBody": "Rydych yn Gorff Gweithredu Personol dros yr hawlydd",
+    "corporateActingBody": "Rydych yn Gorff Gweithredu Corfforaethol dros yr hawlydd",
+    "charity": "Rydych yn gweithio i elusen neu sefydliad sy'n helpu'r hawlydd i wneud eu cais",
+    "friendOrFamily": "Rydych yn ffrind neu aelod o'r teulu sy'n helpu'r hawlydd i wneud eu cais",
+    "someoneElse": "Rhywun arall"
   },
   "partnerSponsorAddress": {
     "label": "Cyfeiriad noddwr eich partner",

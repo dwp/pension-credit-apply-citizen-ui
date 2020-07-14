@@ -1,0 +1,25 @@
+{
+  "pageTitle": "Your details",
+  "field": {
+    "contactName": {
+      "label": "What is your full name?",
+      "hint": "Include any middle names.",
+      "required": "Enter your full name.",
+      "length": "Enter your full name using 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">the full name of the person filling in this application</span>"
+    },
+    "contactNino": {
+      "label": "What is your National Insurance number?",
+      "hint": "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.",
+      "required": "Enter your National Insurance number.",
+      "format": "Enter your National Insurance number in the correct format.",
+      "change": "Change <span class=\"govuk-visually-hidden\">the National Insurance number of the person filling in this application</span>"
+    },
+    "contactID": {
+      "label": "What is your corporate ID?",
+      "required": "Enter your corporate ID.",
+      "length": "Enter your corporate ID using 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">your corporate ID</span>"
+    }
+  }
+}

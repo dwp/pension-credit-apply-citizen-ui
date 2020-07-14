@@ -12,9 +12,6 @@ journey:
     county: "County"
     postcode: "AA1 1AA"
 
-  letters-home:
-    "yes": click()
-
   lives-with-you:
     "no": click()
 

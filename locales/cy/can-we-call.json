@@ -1,0 +1,37 @@
+{
+  "pageTitleClaimant": "Allwn ni eich ffonio am y cais hwn?",
+  "pageTitleDelegatedAuthority": "Allwn ni eich ffonio am y cais hwn?",
+  "pageTitleHelper": "Allwn ni ffonio'r hawlydd am y cais hwn?",
+  "field": {
+    "canWeCall": {
+      "hint": "Efallai y byddwn angen ffonio i ofyn am fwy o wybodaeth neu i drafod sut mae eich cais yn dod ymlaen.",
+      "requiredClaimant": "Dewiswch gallwch os gallwn ni eich ffonio am y cais hwn.",
+      "requiredDelegatedAuthority": "Dewiswch gallwch os gallwn ni eich ffonio am y cais hwn.",
+      "requiredHelper": "Dewiswch gallwch os gallwn ffonio'r hawlydd am y cais hwn.",
+      "options": {
+        "yes": "Gallwch",
+        "no": "Na"
+      },
+      "changeClaimant": "Newid <span class=\"govuk-visually-hidden\">os gallwn eich ffonio am y cais hwn</span>",
+      "changeDelegatedAuthority": "Newid <span class=\"govuk-visually-hidden\">os gallwn eich ffonio am y cais hwn</span>",
+      "changeHelper": "Newid <span class=\"govuk-visually-hidden\">os gallwn ffonio'r hawlydd am y cais hwn</span>"
+    },
+    "contactTelephone": {
+      "labelClaimant": "Beth yw eich rhif ffôn cyswllt?",
+      "labelDelegatedAuthority": "Beth yw eich rhif ffôn cyswllt?",
+      "labelHelper": "Beth yw rhif ffôn cyswllt yr hawlydd?",
+      "requiredClaimant": "Rhowch eich rhif ffôn cyswllt.",
+      "requiredDelegatedAuthority": "Rhowch eich rhif ffôn cyswllt.",
+      "requiredHelper": "Rhowch rif ffôn cyswllt yr hawlydd.",
+      "formatClaimant": "Rhowch eich rhif ffôn cyswllt gan ddefnyddio rhifau 0 i 9, gofodau, cysylltnodau, cromfachau a dash.",
+      "formatDelegatedAuthority": "Rhowch eich rhif ffôn cyswllt gan ddefnyddio rhifau 0 i 9, gofodau, cysylltnodau, cromfachau a dash.",
+      "formatHelper": "Rhowch rif ffôn cyswllt yr hawlydd gan ddefnyddio rhifau 0 i 9, gofodau, cysylltnodau, cromfachau a dash.",
+      "lengthClaimant": "Rhowch eich rhif ffôn cyswllt gan ddefnyddio 20 nod neu lai.",
+      "lengthDelegatedAuthority": "Rhowch eich rhif ffôn cyswllt gan ddefnyddio 20 nod neu lai.",
+      "lengthHelper": "Rhowch rif ffôn cyswllt yr hawlydd gan ddefnyddio 20 nod neu lai.",
+      "changeClaimant": "Newid <span class=\"govuk-visually-hidden\">eich rhif ffôn cyswllt</span>",
+      "changeDelegatedAuthority": "Newid <span class=\"govuk-visually-hidden\">eich rhif ffôn cyswllt</span>",
+      "changeHelper": "Newid <span class=\"govuk-visually-hidden\">rhif ffôn cyswllt yr hawlydd</span>"
+    }
+  }
+}

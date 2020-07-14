@@ -1,0 +1,37 @@
+{
+  "pageTitleClaimant": "Can we call you about this claim?",
+  "pageTitleDelegatedAuthority": "Can we call you about this claim?",
+  "pageTitleHelper": "Can we call the applicant about this claim?",
+  "field": {
+    "canWeCall": {
+      "hint": "We might need to call to ask for more information or to discuss the progress of the claim.",
+      "requiredClaimant": "Select yes if we can call you about this claim.",
+      "requiredDelegatedAuthority": "Select yes if we can call you about this claim.",
+      "requiredHelper": "Select yes if we can contact the applicant about this claim.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "changeClaimant": "Change <span class=\"govuk-visually-hidden\">whether we can call you about this claim</span>",
+      "changeDelegatedAuthority": "Change <span class=\"govuk-visually-hidden\">whether we can call you about this claim</span>",
+      "changeHelper": "Change <span class=\"govuk-visually-hidden\">whether we can call the applicant about this claim</span>"
+    },
+    "contactTelephone": {
+      "labelClaimant": "What is your contact telephone number?",
+      "labelDelegatedAuthority": "What is your contact telephone number?",
+      "labelHelper": "What is the applicant’s contact telephone number?",
+      "requiredClaimant": "Enter your contact telephone number.",
+      "requiredDelegatedAuthority": "Enter your contact telephone number.",
+      "requiredHelper": "Enter the applicant’s contact telephone number.",
+      "formatClaimant": "Enter your contact telephone number using numbers 0 to 9, spaces, hyphens, brackets and dashes.",
+      "formatDelegatedAuthority": "Enter your contact telephone number using numbers 0 to 9, spaces, hyphens, brackets and dashes.",
+      "formatHelper": "Enter the applicant’s contact telephone number using numbers 0 to 9, spaces, hyphens, brackets and dashes.",
+      "lengthClaimant": "Enter your contact telephone number using 20 characters or less.",
+      "lengthDelegatedAuthority": "Enter your contact telephone number using 20 characters or less.",
+      "lengthHelper": "Enter the applicant’s contact telephone number using 20 characters or less.",
+      "changeClaimant": "Change <span class=\"govuk-visually-hidden\">your contact telephone number</span>",
+      "changeDelegatedAuthority": "Change <span class=\"govuk-visually-hidden\">your contact telephone number</span>",
+      "changeHelper": "Change <span class=\"govuk-visually-hidden\">the applicant’s contact telephone number</span>"
+    }
+  }
+}

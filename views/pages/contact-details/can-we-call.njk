@@ -1,0 +1,51 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("can-we-call:pageTitle" + msgSuffix) }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {% set contactTelephone %}
+    {{ casaGovukInput({
+      name: "contactTelephone",
+      classes: "govuk-input--width-10",
+      label: {
+        text: t("can-we-call:field.contactTelephone.label" + msgSuffix),
+        classes: "govuk-label--s"
+      },
+      value: formData.contactTelephone,
+      casaErrors: formErrors
+    }) }}
+  {% endset %}
+
+  {% include "partials/user-type.njk" %}
+  {{ casaGovukRadios({
+    name: "canWeCall",
+    fieldset: {
+      legend: {
+        text: t("can-we-call:pageTitle" + msgSuffix),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    hint: {
+      text: t("can-we-call:field.canWeCall.hint")
+    },
+    items: [{
+      value: "yes",
+      text: t("can-we-call:field.canWeCall.options.yes"),
+      conditional: {
+        html: contactTelephone
+      }
+    }, {
+      value: "no",
+      text: t("can-we-call:field.canWeCall.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.canWeCall,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

@@ -1,13 +1,17 @@
 {
   "pageTitle": "Beth yw cod post eich cartref?",
-  "lettersPageTitle": "Beth yw cod post y cyfeiriad y dylem anfon llythyrau i?",
+  "lettersPageTitleClaimant": "Beth yw cod post y cyfeiriad y dylem anfon llythyrau iddo?",
+  "lettersPageTitleDelegatedAuthority": "Beth yw eich cod post?",
+  "lettersPageTitleHelper": "Beth yw cod post y cyfeiriad y dylem anfon llythyrau iddo?",
   "sponsorPageTitle": "Beth yw cod post cartref eich noddwr?",
   "partnerSponsorPageTitle": "Beth yw cod post cartref noddwr eich partner?",
   "field": {
     "postcode": {
       "label": "Cod post",
       "required": "Rhowch god post eich cartref.",
-      "requiredLetters": "Rhowch god post y cyfeiriad rydych eisiau i ni anfon llythyrau i.",
+      "requiredLettersClaimant": "Rhowch god post y cyfeiriad y dylem anfon llythyrau iddo.",
+      "requiredLettersDelegatedAuthority": "Rhowch eich cod post.",
+      "requiredLettersHelper": "Rhowch god post y cyfeiriad y dylem anfon llythyrau iddo.",
       "requiredSponsor": "Rhowch god post cyfeiriad eich noddwr.",
       "requiredPartnerSponsor": "Rhowch god post cyfeiriad noddwr eich partner.",
       "format": "Rhowch god post gwirioneddol.",

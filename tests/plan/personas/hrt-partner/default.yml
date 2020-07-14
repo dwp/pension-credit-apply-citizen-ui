@@ -51,4 +51,4 @@ journey:
     partnerSuccessfulDecisionDate[yyyy]: "2020"
     partnerSupportedByHomeOfficeYes: click()
 
-  claim-help:
+  who-made-claim:

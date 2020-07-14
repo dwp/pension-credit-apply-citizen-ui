@@ -19,7 +19,6 @@ module.exports = (t, context, claim, cyaUrl) => {
   const row = rowFactory(cyaUrl);
   const rov = radioOptionValue(t, context);
   const homeAddress = context.getDataForPage(WP.WHERE_YOU_LIVE_ADDRESS_HIDDEN) || {};
-  const lettersAddress = context.getDataForPage(WP.LETTERS_ADDRESS_HIDDEN) || {};
 
   // Rows for home and contact addresses
   const addressRows = [
@@ -49,26 +48,6 @@ module.exports = (t, context, claim, cyaUrl) => {
       changeHtml: t('check-your-answers:homeAddress.change'),
       key: t('check-your-answers:homeAddress.label'),
       valueHtml: formatAddress(homeAddress.address),
-    }),
-
-    /* ------------------------------------------------------- letters-home */
-    // Can we send letters to your home address?
-    row({
-      changeHref: `${WP.LETTERS_HOME}#f-sendLettersToHome`,
-      changeHtml: t('letters-home:field.sendLettersToHome.change'),
-      key: t('letters-home:pageTitle'),
-      value: rov('letters-home.sendLettersToHome', 'letters-home:field.sendLettersToHome.options'),
-    }),
-
-    /* ---------------------------------------------------- letters address */
-    // The address we should send letters to
-    !claim.whereClaimantLives.homeAddressForCorrespondence && row({
-      changeHref: lettersAddress.addressFrom === 'select'
-        ? `${WP.LETTERS_ADDRESS_SELECT}#f-uprn`
-        : `${WP.LETTERS_ADDRESS_MANUAL}#f-addressLine1`,
-      changeHtml: t('check-your-answers:lettersAddress.change'),
-      key: t('check-your-answers:lettersAddress.label'),
-      valueHtml: formatAddress(lettersAddress.address),
     }),
   ];
 

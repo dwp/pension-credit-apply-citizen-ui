@@ -3,13 +3,15 @@
 {% from "casa/components/input/macro.njk" import casaGovukInput with context %}
 {% from "components/button/macro.njk" import govukButton %}
 
+{% set msgSuffix = msgSuffix or '' %}
+
 {% block casaPageTitle %}
-  {{ t(pageTitleKey) }} - {{ t("common:serviceName") }}
+  {{ t(pageTitleKey + msgSuffix) }} - {{ t("common:serviceName") }}
 {% endblock %}
 
 {% block journey_form %}
   <h1 class="govuk-heading-xl">
-    {{ t(pageTitleKey) }}
+    {{ t(pageTitleKey + msgSuffix) }}
   </h1>
 
   {{ casaGovukInput({

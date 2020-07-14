@@ -1,7 +1,5 @@
 /* eslint-disable sonarjs/no-duplicate-string */
-const {
-  rowFactory, checkboxOptionValues, radioOptionValue, safeNl2br,
-} = require('./utils.js');
+const { rowFactory, radioOptionValue, safeNl2br } = require('./utils.js');
 const formatDateObject = require('../../utils/format-date-object.js');
 const { waypoints: WP } = require('../../lib/constants.js');
 
@@ -13,8 +11,6 @@ module.exports = (t, context, claim, cyaUrl) => {
 
   const row = rowFactory(cyaUrl);
   const rov = radioOptionValue(t, context);
-  const cbv = checkboxOptionValues(t, context);
-  const preferredLanguageChoice = context.getDataForPage(WP.CLAIMANT_LANGUAGE).preferredLanguage;
 
   // Common options for `formatDateObject()` calls
   const dateOpts = { locale: context.nav.language };
@@ -101,32 +97,6 @@ module.exports = (t, context, claim, cyaUrl) => {
         valueHtml: safeNl2br(context.data['your-name'].previousNames),
       }),
 
-      /* ------------------------------------------------------- phone-number */
-      // What is your contact telephone number?
-      row({
-        changeHref: `${WP.PHONE_NUMBER}#f-contactTelephone`,
-        changeHtml: t('phone-number:field.contactTelephone.change'),
-        key: t('phone-number:pageTitle'),
-        value: context.data['phone-number'].contactTelephone,
-      }),
-
-      /* -------------------------------------------------- claimant-language */
-      // What language do you want us to speak to you in?
-      row({
-        changeHref: `${WP.CLAIMANT_LANGUAGE}#f-preferredLanguage`,
-        changeHtml: t('claimant-language:field.preferredLanguage.change'),
-        key: t('claimant-language:pageTitle'),
-        value: rov('claimant-language.preferredLanguage', 'claimant-language:field.preferredLanguage.options'),
-      }),
-
-      // What language do you want us to use?
-      preferredLanguageChoice !== 'other' ? undefined : row({
-        changeHref: `${WP.CLAIMANT_LANGUAGE}#f-preferredLanguageOther`,
-        changeHtml: t('claimant-language:field.preferredLanguageOther.change'),
-        key: t('claimant-language:field.preferredLanguageOther.label'),
-        value: context.data['claimant-language'].preferredLanguageOther,
-      }),
-
       /* --------------------------------------------------- registered-blind */
       // Are you registered blind or severely sight impaired?
       row({
@@ -135,46 +105,6 @@ module.exports = (t, context, claim, cyaUrl) => {
         key: t('registered-blind:pageTitle'),
         value: rov('registered-blind.registeredBlind', 'registered-blind:field.registeredBlind.options'),
       }),
-
-      /* ------------------------------------------------- help-letters-calls */
-      // Do you need help with letters or phone calls?
-      row({
-        changeHref: `${WP.HELP_LETTERS_CALLS}#f-helpWithLettersPhone`,
-        changeHtml: t('help-letters-calls:field.helpWithLettersPhone.change'),
-        key: t('help-letters-calls:pageTitle'),
-        value: rov('help-letters-calls.helpWithLettersPhone', 'help-letters-calls:field.helpWithLettersPhone.options'),
-      }),
-
-      /* ---------------------------------------------------- contact-formats */
-      ...(!claim.claimant.phoneLetterHelpRequired ? [] : [
-        // Do you need us to contact you in any different formats?
-        row({
-          changeHref: `${WP.CONTACT_FORMATS}#f-contactFormats`,
-          changeHtml: t('contact-formats:field.contactFormats.change'),
-          key: t('contact-formats:pageTitle'),
-          valueHtml: cbv(
-            'contact-formats.contactFormats',
-            'contact-formats:field.contactFormats.options',
-            'contact-formats:field.contactFormats.noneSelected',
-          ),
-        }),
-
-        // What is your textphone number?
-        !claim.claimant.requestTextphone ? undefined : row({
-          changeHref: `${WP.CONTACT_FORMATS}#f-textPhoneNumber`,
-          changeHtml: t('contact-formats:field.textPhoneNumber.change'),
-          key: t('contact-formats:field.textPhoneNumber.label'),
-          value: context.data['contact-formats'].textPhoneNumber,
-        }),
-
-        // Tell us any other ways we can help you when we contact you
-        claim.claimant.otherContactHelp === undefined ? undefined : row({
-          changeHref: `${WP.CONTACT_FORMATS}#f-otherDetails`,
-          changeHtml: t('contact-formats:field.otherDetails.change'),
-          key: t('contact-formats:field.otherDetails.label'),
-          value: context.data['contact-formats'].otherDetails,
-        }),
-      ]),
 
       /* -------------------------------------------------- live-with-partner */
       // Do you have a partner?

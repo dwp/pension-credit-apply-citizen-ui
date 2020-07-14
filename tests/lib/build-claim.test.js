@@ -240,9 +240,97 @@ describe('build-claim', () => {
     expect(claim.whereClaimantLives).to.not.haveOwnProperty('county');
   });
 
-  it('should include contact address from manual sendLettersToHome is "no"', () => {
-    stubData[WP.LETTERS_HOME] = {
-      sendLettersToHome: 'no',
+  it('should include contact address from manual if letterAddress is "differentAddress" and user is not delegatedAuthority', () => {
+    stubData[WP.WHO_MADE_CLAIM] = {
+      whoMadeClaim: 'claimant',
+    };
+    stubData[WP.LETTERS_ADDRESS] = {
+      letterAddress: 'differentAddress',
+    };
+    stubData[WP.LETTERS_ADDRESS_HIDDEN] = {
+      addressFrom: 'manual',
+      address: {
+        addressLine1: '123 Test Street',
+        addressLine2: 'Testerton',
+        town: 'Testville',
+        county: 'Testershire',
+        postcode: 'TE573R',
+      },
+    };
+
+    const plan = {
+      traverse: sinon.stub().returns([WP.LETTERS_ADDRESS]),
+    };
+
+    const claim = buildClaim(plan, context);
+    expect(claim.whereClaimantLives).to.haveOwnProperty('correspondenceAddress').that.equals('CONTACT_ADDRESS');
+    expect(claim.whereClaimantLives).to.haveOwnProperty('contactBuildingAndStreet').that.equals('123 Test Street, Testerton');
+    expect(claim.whereClaimantLives).to.haveOwnProperty('contactTownOrCity').that.equals('Testville');
+    expect(claim.whereClaimantLives).to.haveOwnProperty('contactCounty').that.equals('Testershire');
+    expect(claim.whereClaimantLives).to.haveOwnProperty('contactPostcode').that.equals('TE5 73R');
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactUprn');
+  });
+
+  it('should include contact uprn from select if letterAddress is "differentAddress" and user is not delegatedAuthority', () => {
+    stubData[WP.WHO_MADE_CLAIM] = {
+      whoMadeClaim: 'claimant',
+    };
+    stubData[WP.LETTERS_ADDRESS] = {
+      letterAddress: 'differentAddress',
+    };
+    stubData[WP.LETTERS_ADDRESS_HIDDEN] = {
+      addressFrom: 'select',
+      completeAddressLine: '123 Test Street, Testerton',
+      address: {
+        postcode: 'TE573R',
+      },
+      uprn: '1234567',
+    };
+
+    const plan = {
+      traverse: sinon.stub().returns([WP.LETTERS_ADDRESS]),
+    };
+
+    const claim = buildClaim(plan, context);
+    expect(claim.whereClaimantLives).to.haveOwnProperty('correspondenceAddress').that.equals('CONTACT_ADDRESS');
+    expect(claim.whereClaimantLives).to.haveOwnProperty('contactUprn').that.equals('1234567');
+    expect(claim.whereClaimantLives).to.haveOwnProperty('contactBuildingAndStreet').that.equals('123 Test Street, Testerton');
+    expect(claim.whereClaimantLives).to.haveOwnProperty('contactPostcode').that.equals('TE5 73R');
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactTownOrCity');
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactCounty');
+  });
+
+  it('should not include contact address if letterAddress is "homeAddress" and user is not delegatedAuthority', () => {
+    stubData[WP.WHO_MADE_CLAIM] = {
+      whoMadeClaim: 'claimant',
+    };
+    stubData[WP.LETTERS_ADDRESS] = {
+      letterAddress: 'homeAddress',
+    };
+    stubData[WP.LETTERS_ADDRESS_HIDDEN] = {
+      addressFrom: 'select',
+      urpn: '1234567',
+      address: {
+        postcode: 'TE573R',
+      },
+    };
+
+    const plan = {
+      traverse: sinon.stub().returns([WP.LETTERS_ADDRESS]),
+    };
+
+    const claim = buildClaim(plan, context);
+    expect(claim.whereClaimantLives).to.haveOwnProperty('correspondenceAddress').that.equals('HOME_ADDRESS');
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('uprn');
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactBuildingAndStreet');
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactTownOrCity');
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactCounty');
+    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactPostcode');
+  });
+
+  it('should include delegated authority contact address from manual when user is delegatedAuthority', () => {
+    stubData[WP.WHO_MADE_CLAIM] = {
+      whoMadeClaim: 'corporateActingBody',
     };
     stubData[WP.LETTERS_ADDRESS_HIDDEN] = {
       addressFrom: 'manual',
@@ -260,17 +348,16 @@ describe('build-claim', () => {
     };
 
     const claim = buildClaim(plan, context);
-    expect(claim.whereClaimantLives).to.haveOwnProperty('homeAddressForCorrespondence').that.equals(false);
-    expect(claim.whereClaimantLives).to.haveOwnProperty('contactBuildingAndStreet').that.equals('123 Test Street, Testerton');
-    expect(claim.whereClaimantLives).to.haveOwnProperty('contactTownOrCity').that.equals('Testville');
-    expect(claim.whereClaimantLives).to.haveOwnProperty('contactCounty').that.equals('Testershire');
-    expect(claim.whereClaimantLives).to.haveOwnProperty('contactPostcode').that.equals('TE5 73R');
-    expect(claim.whereClaimantLives).to.not.haveOwnProperty('uprn');
+    expect(claim.delegatedAuthority).to.haveOwnProperty('buildingAndStreet').that.equals('123 Test Street, Testerton');
+    expect(claim.delegatedAuthority).to.haveOwnProperty('townOrCity').that.equals('Testville');
+    expect(claim.delegatedAuthority).to.haveOwnProperty('county').that.equals('Testershire');
+    expect(claim.delegatedAuthority).to.haveOwnProperty('postcode').that.equals('TE5 73R');
+    expect(claim.delegatedAuthority).to.not.haveOwnProperty('uprn');
   });
 
-  it('should include contact uprn from select if sendLettersToHome is "no"', () => {
-    stubData[WP.LETTERS_HOME] = {
-      sendLettersToHome: 'no',
+  it('should include delegated authority contact address from select when user is delegatedAuthority', () => {
+    stubData[WP.WHO_MADE_CLAIM] = {
+      whoMadeClaim: 'corporateActingBody',
     };
     stubData[WP.LETTERS_ADDRESS_HIDDEN] = {
       addressFrom: 'select',
@@ -286,37 +373,11 @@ describe('build-claim', () => {
     };
 
     const claim = buildClaim(plan, context);
-    expect(claim.whereClaimantLives).to.haveOwnProperty('homeAddressForCorrespondence').that.equals(false);
-    expect(claim.whereClaimantLives).to.haveOwnProperty('contactUprn').that.equals('1234567');
-    expect(claim.whereClaimantLives).to.haveOwnProperty('contactBuildingAndStreet').that.equals('123 Test Street, Testerton');
-    expect(claim.whereClaimantLives).to.haveOwnProperty('contactPostcode').that.equals('TE5 73R');
-    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactTownOrCity');
-    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactCounty');
-  });
-
-  it('should not include contact address if sendLettersToHome is "yes"', () => {
-    stubData[WP.LETTERS_HOME] = {
-      sendLettersToHome: 'yes',
-    };
-    stubData[WP.LETTERS_ADDRESS_HIDDEN] = {
-      addressFrom: 'select',
-      urpn: '1234567',
-      address: {
-        postcode: 'TE573R',
-      },
-    };
-
-    const plan = {
-      traverse: sinon.stub().returns([]),
-    };
-
-    const claim = buildClaim(plan, context);
-    expect(claim.whereClaimantLives).to.haveOwnProperty('homeAddressForCorrespondence').that.equals(true);
-    expect(claim.whereClaimantLives).to.not.haveOwnProperty('uprn');
-    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactBuildingAndStreet');
-    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactTownOrCity');
-    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactCounty');
-    expect(claim.whereClaimantLives).to.not.haveOwnProperty('contactPostcode');
+    expect(claim.delegatedAuthority).to.haveOwnProperty('uprn').that.equals('1234567');
+    expect(claim.delegatedAuthority).to.haveOwnProperty('buildingAndStreet').that.equals('123 Test Street, Testerton');
+    expect(claim.delegatedAuthority).to.haveOwnProperty('postcode').that.equals('TE5 73R');
+    expect(claim.delegatedAuthority).to.not.haveOwnProperty('townOrCity');
+    expect(claim.delegatedAuthority).to.not.haveOwnProperty('county');
   });
 
   it('should not have serviceCharges if page not traversed', () => {

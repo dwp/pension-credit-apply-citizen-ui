@@ -1,0 +1,23 @@
+name: contact-details-contact-formats
+
+journey:
+  # ------------------------------------------------------------ Contact details
+  who-made-claim:
+    "friendOrFamily": click()
+
+  can-we-call:
+    "no": click()
+
+  language:
+    "english": click()
+
+  different-formats:
+    "yes": click()
+
+  contact-formats:
+    "largePrint": click()
+
+  letter-address:
+    "homeAddress": click()
+
+  check-your-answers:

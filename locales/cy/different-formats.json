@@ -1,0 +1,24 @@
+{
+  "pageTitleClaimant": "Ydych chi angen i ni ddefnyddio unrhyw ffurfiau gwahanol pan fyddwn yn cysylltu â chi drwy lythyr neu dros y ffôn?",
+  "pageTitleDelegatedAuthority": "Ydych chi angen i ni ddefnyddio unrhyw ffurfiau gwahanol pan fyddwn yn cysylltu â chi drwy lythyr neu dros y ffôn?",
+  "pageTitleHelper": "Ydy'r hawlydd angen i ni ddefnyddio unrhyw ffurfiau gwahanol pan fyddwn yn cysylltu â hwy drwy lythyr neu dros y ffôn?",
+  "field": {
+    "needsDifferentFormats": {
+      "hint": "Er enghraifft, braille, print bras neu ffôn testun.",
+      "requiredClaimant": "Dewiswch ydw os ydych angen i ni ddefnyddio unrhyw ffurfiau gwahanol pan fyddwn yn cysylltu â chi.",
+      "requiredDelegatedAuthority": "Dewiswch ydw os ydych angen i ni ddefnyddio unrhyw ffurfiau gwahanol pan fyddwn yn cysylltu â chi.",
+      "requiredHelper": "Dewiswch ydy os yw'r hawlydd angen i ni ddefnyddio unrhyw ffurfiau gwahanol pan fyddwn yn cysylltu â hwy.",
+      "options": {
+        "yesClaimant": "Ydw",
+        "yesDelegatedAuthority": "Ydw",
+        "yesHelper": "Ydy",
+        "noClaimant": "Na",
+        "noDelegatedAuthority": "Na",
+        "noHelper": "Na"
+      },
+      "changeClaimant": "Newid <span class=\"govuk-visually-hidden\">os ydych angen i ni ddefnyddio unrhyw ffurfiau gwahanol pan fyddwn yn cysylltu â chi drwy lythyr neu dros y ffôn</span>",
+      "changeDelegatedAuthority": "Newid <span class=\"govuk-visually-hidden\">os ydych angen i ni ddefnyddio unrhyw ffurfiau gwahanol pan fyddwn yn cysylltu â chi drwy lythyr neu dros y ffôn</span>",
+      "changeHelper": "Newid <span class=\"govuk-visually-hidden\">os ydy'r hawlydd angen i ni ddefnyddio unrhyw ffurfiau gwahanol pan fyddwn yn cysylltu â hwy drwy lythyr neu dros y ffôn</span>"
+    }
+  }
+}

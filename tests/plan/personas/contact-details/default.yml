@@ -1,0 +1,20 @@
+name: contact-details-default
+
+journey:
+  # ------------------------------------------------------------ Contact details
+  who-made-claim:
+    "claimant": click()
+
+  can-we-call:
+    "no": click()
+
+  language:
+    "english": click()
+
+  different-formats:
+    "no": click()
+
+  letter-address:
+    "homeAddress": click()
+
+  check-your-answers:

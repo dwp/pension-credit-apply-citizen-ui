@@ -1,6 +1,8 @@
 {
   "pageTitle": "Beth yw cyfeiriad eich cartref?",
-  "lettersPageTitle": "Beth yw y cyfeiriad y dylem anfon llythyrau i?",
+  "lettersPageTitleClaimant": "Beth yw'r cyfeiriad y dylem anfon llythyrau iddo?",
+  "lettersPageTitleDelegatedAuthority": "Beth yw eich cyfeiriad?",
+  "lettersPageTitleHelper": "Beth yw'r cyfeiriad y dylem anfon llythyrau iddo?",
   "sponsorPageTitle": "Beth yw cyfeiriad eich noddwr?",
   "partnerSponsorPageTitle": "Beth yw cyfeiriad noddwr eich partner?",
   "addressLookupFailed": "Chwilio am gyfeiriad wedi methu, rhowch y cyfeiriad â llaw",

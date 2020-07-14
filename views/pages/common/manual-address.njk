@@ -3,14 +3,16 @@
 {% from "casa/components/input/macro.njk" import casaGovukInput with context %}
 {% from "components/fieldset/macro.njk" import govukFieldset %}
 
+{% set msgSuffix = msgSuffix or '' %}
+
 {% block casaPageTitle %}
-  {{ t(pageTitleKey) }} - {{ t('common:serviceName') }}
+  {{ t(pageTitleKey + msgSuffix) }} - {{ t('common:serviceName') }}
 {% endblock %}
 
 {% block journey_form %}
   {% call govukFieldset({
     legend: {
-      text: t(pageTitleKey),
+      text: t(pageTitleKey + msgSuffix),
       classes: "govuk-fieldset__legend--xl",
       isPageHeading: true
     }

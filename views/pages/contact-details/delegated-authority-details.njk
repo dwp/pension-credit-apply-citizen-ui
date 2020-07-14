@@ -1,0 +1,55 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+
+{% block casaPageTitle %}
+  {{ t("delegated-authority-details:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {% include "partials/user-type.njk" %}
+  <h1 class="govuk-heading-xl">
+    {{ t("delegated-authority-details:pageTitle") }}
+  </h1>
+
+  {{ casaGovukInput({
+    name: "contactName",
+    classes: "govuk-input--width-20",
+    label: {
+      text: t("delegated-authority-details:field.contactName.label"),
+      classes: "govuk-label--m"
+    },
+    hint: {
+      text: t("delegated-authority-details:field.contactName.hint")
+    },
+    value: formData.contactName,
+    casaErrors: formErrors
+  }) }}
+
+  {% if whoMadeClaim === 'corporateActingBody' %}
+    {{ casaGovukInput({
+      name: "contactID",
+      classes: "govuk-input--width-20",
+      label: {
+        text: t("delegated-authority-details:field.contactID.label"),
+        classes: "govuk-label--m"
+      },
+      value: formData.contactID,
+      casaErrors: formErrors
+    }) }}
+  {% else %}
+    {{ casaGovukInput({
+      name: "contactNino",
+      classes: "govuk-input--width-20",
+      label: {
+        text: t("delegated-authority-details:field.contactNino.label"),
+        classes: "govuk-label--m"
+      },
+      hint: {
+        text: t("delegated-authority-details:field.contactNino.hint")
+      },
+      value: formData.contactNino,
+      casaErrors: formErrors
+    }) }}
+  {% endif %}
+{% endblock %}

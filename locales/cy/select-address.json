@@ -1,15 +1,17 @@
 {
   "pageTitle": "Dewiswch gyfeiriad eich cartref",
-  "lettersPageTitle": "Dewiswch y cyfeiriad y dylem anfon llythyrau i",
+  "lettersPageTitleClaimant": "Dewiswch y cyfeiriad y dylem anfon llythyrau iddo",
+  "lettersPageTitleDelegatedAuthority": "Dewiswch eich cyfeiriad",
+  "lettersPageTitleHelper": "Dewiswch y cyfeiriad y dylem anfon llythyrau iddo",
   "sponsorPageTitle": "Dewiswch gyfeiriad eich noddwr",
   "partnerSponsorPageTitle": "Dewiswch gyfeiriad noddwr eich partner",
   "postcode": "Cod post",
-  "change": "Newid <span class=\"govuk-visually-hidden\">cod podt</span>",
+  "change": "Newid <span class=\"govuk-visually-hidden\">cod post</span>",
   "field": {
     "address": {
       "label": "Dewiswch gyfeiriad",
       "required": "Dewiswch gyfeiriad eich cartref neu rhowch i mewn â llaw.",
-      "requiredLetters": "Dewiswch y cyfeiriad rydych eisiau i ni anfon llythyrau i neu rhowch i mewn â llaw.",
+      "requiredLetters": "Dewiswch gyfeiriad.",
       "requiredSponsor": "Dewiswch gyfeiriad eich noddwr neu rhowch i mewn â llaw.",
       "requiredPartnerSponsor": "Dewiswch gyfeiriad noddwr eich partner neu rhowch i mewn â llaw.",
       "addressFound": "%s o gyfeiriadau wedi'u darganfod"

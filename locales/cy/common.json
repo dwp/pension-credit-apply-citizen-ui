@@ -40,5 +40,15 @@
       "personalInformationCharter": "Preifatrwydd Gogledd Iwerddon (agor mewn ffenestr newydd)",
       "personalInformationCharterHref": "https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter.cy"
     }
+  },
+  "whoMadeClaim": {
+    "claimant": "Hawlydd",
+    "powerOfAttorney": "Pwer atwrnai",
+    "appointee": "Penodai",
+    "personalActingBody": "Corff Gweithredu Personol",
+    "corporateActingBody": "Corff Gweithredu Corfforaethol",
+    "charity": "Elusen neu sefydliad",
+    "friendOrFamily": "Ffrind neu aelod o'r teulu",
+    "someoneElse": "Rhywun arall"
   }
 }

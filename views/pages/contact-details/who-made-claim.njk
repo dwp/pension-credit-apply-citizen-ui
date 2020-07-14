@@ -1,0 +1,64 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("who-made-claim:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {% set relationship %}
+    {{ casaGovukInput({
+      name: "relationship",
+      classes: "govuk-input--width-20",
+      label: {
+        text: t("who-made-claim:field.relationship.label")
+      },
+      value: formData.relationship,
+      casaErrors: formErrors
+    }) }}
+  {% endset %}
+
+  {{ casaGovukRadios({
+    name: "whoMadeClaim",
+    fieldset: {
+      legend: {
+        text: t("who-made-claim:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "claimant",
+      html: t("who-made-claim:field.whoMadeClaim.options.claimant")
+    }, {
+      value: "powerOfAttorney",
+      html: t("who-made-claim:field.whoMadeClaim.options.powerOfAttorney")
+    }, {
+      value: "appointee",
+      html: t("who-made-claim:field.whoMadeClaim.options.appointee")
+    }, {
+      value: "personalActingBody",
+      html: t("who-made-claim:field.whoMadeClaim.options.personalActingBody")
+    }, {
+      value: "corporateActingBody",
+      html: t("who-made-claim:field.whoMadeClaim.options.corporateActingBody")
+    }, {
+      value: "charity",
+      html: t("who-made-claim:field.whoMadeClaim.options.charity")
+    }, {
+      value: "friendOrFamily",
+      html: t("who-made-claim:field.whoMadeClaim.options.friendOrFamily")
+    }, {
+      value: "someoneElse",
+      text: t("who-made-claim:field.whoMadeClaim.options.someoneElse"),
+      conditional: {
+        html: relationship
+      }
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.whoMadeClaim,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

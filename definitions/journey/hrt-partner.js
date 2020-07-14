@@ -12,8 +12,8 @@ module.exports = (plan) => {
     || isNo('partnerLived2Years')(r, c)
   ));
 
-  // Otherwise skip this section and go to CLAIM_HELP page if no HRT needed
-  plan.setRoute(WP.PARTNER_NATIONALITY, WP.CLAIM_HELP, (r, c) => (
+  // Otherwise skip this section and go to WHO_MADE_CLAIM page if no HRT needed
+  plan.setRoute(WP.PARTNER_NATIONALITY, WP.WHO_MADE_CLAIM, (r, c) => (
     isYes('partnerRightToReside')(r, c)
     && isYes('partnerLived2Years')(r, c)
   ));
@@ -76,5 +76,5 @@ module.exports = (plan) => {
   plan.setRoute(WP.HRT_PARTNER_SPONSOR_ADDRESS_MANUAL, WP.HRT_PARTNER_ASYLUM_SEEKER, isEqualTo('addressFrom', 'manual', WP.HRT_PARTNER_SPONSOR_ADDRESS_HIDDEN));
 
   // partner-asylum-seeker
-  plan.addSequence(WP.HRT_PARTNER_ASYLUM_SEEKER, WP.CLAIM_HELP);
+  plan.addSequence(WP.HRT_PARTNER_ASYLUM_SEEKER, WP.WHO_MADE_CLAIM);
 };

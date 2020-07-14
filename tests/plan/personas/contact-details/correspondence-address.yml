@@ -1,0 +1,30 @@
+name: contact-details-correspondence-address
+
+journey:
+  # ------------------------------------------------------------ Contact details
+  who-made-claim:
+    "charity": click()
+
+  can-we-call:
+    "no": click()
+
+  language:
+    "english": click()
+
+  different-formats:
+    "no": click()
+
+  letter-address:
+    "differentAddress": click()
+
+  letter-postcode:
+    enterManualLink: click()
+
+  manual-letter-address:
+    addressLine1: "Address line 1"
+    addressLine2: "Address line 2"
+    town: "Town"
+    county: "County"
+    postcode: "AA1 1AA"
+
+  check-your-answers:

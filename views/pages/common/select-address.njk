@@ -2,13 +2,15 @@
 
 {% from "components/select/macro.njk" import govukSelect %}
 
+{% set msgSuffix = msgSuffix or '' %}
+
 {% block casaPageTitle %}
-  {{ t(pageTitleKey) }} - {{ t("common:serviceName") }}
+  {{ t(pageTitleKey + msgSuffix) }} - {{ t("common:serviceName") }}
 {% endblock %}
 
 {% block journey_form %}
   <h1 class="govuk-heading-xl">
-    {{ t(pageTitleKey) }}
+    {{ t(pageTitleKey + msgSuffix) }}
   </h1>
 
   <dl class="govuk-list contact-numbers govuk-!-margin-bottom-8">

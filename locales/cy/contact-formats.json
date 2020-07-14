@@ -1,32 +1,58 @@
 {
-  "pageTitle": "Ydych chi angen i ni gysylltu â chi mewn unrhyw ffurf gwahanol?",
+  "pageTitleClaimant": "Pa ffurfiau ydych angen i ni eu defnyddio pan fyddwn yn cysylltu â chi drwy lythyr neu dros y ffôn?",
+  "pageTitleDelegatedAuthority": "Pa ffurfiau ydych angen i ni eu defnyddio pan fyddwn yn cysylltu â chi drwy lythyr neu dros y ffôn?",
+  "pageTitleHelper": "Pa ffurfiau mae'r hawlydd angen i ni eu defnyddio pan fyddwn yn cysylltu â hwy drwy lythyr neu dros y ffôn?",
   "field": {
     "contactFormats": {
       "hint": "Dewiswch bob un sy'n berthnasol:",
+      "requiredClaimant": "Dewiswch y ffurfiau rydych angen i ni eu defnyddio pan fyddwn yn cysylltu â chi drwy lythyr neu dros y ffôn.",
+      "requiredDelegatedAuthority": "Dewiswch y ffurfiau rydych angen i ni eu defnyddio pan fyddwn yn cysylltu â chi drwy lythyr neu dros y ffôn.",
+      "requiredHelper": "Dewiswch y ffurfiau mae'r hawlydd angen i ni eu defnyddio pan fyddwn yn cysylltu â hwy drwy lythyr neu dros y ffôn.",
       "options": {
         "audio": "Sain",
         "braille": "Braille",
         "largePrint": "Print bras",
-        "signLanguage": "Iaith arwyddion",
         "textPhone": "Ffôn testun (Text Relay)",
         "typeTalk": "TypeTalk",
-        "other": "Arall"
+        "other": "Rhywbeth arall"
       },
-      "noneSelected": "Na",
-      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych angen i ni gysylltu â chi mewn unrhyw ffurf gwahanol</span>"
+      "changeClaimant": "Newid <span class=\"govuk-visually-hidden\">pa ffurfiau ydych angen i ni eu defnyddio pan fyddwn yn cysylltu â chi drwy lythyr neu dros y ffôn</span>",
+      "changeDelegatedAuthority": "Newid <span class=\"govuk-visually-hidden\">pa ffurfiau ydych angen i ni eu defnyddio pan fyddwn yn cysylltu â chi drwy lythyr neu dros y ffôn</span>",
+      "changeHelper": "Newid <span class=\"govuk-visually-hidden\">pa ffurfiau mae'r hawlydd angen i ni eu defnyddio pan fyddwn yn cysylltu â hwy drwy lythyr neu dros y ffôn</span>"
     },
     "textPhoneNumber": {
-      "label": "Beth yw eich rhif ffôn testun (Text Relay)?",
-      "required": "Rhowch eich rhif ffôn testun (Text Relay).",
-      "length": "Rhowch eich rhif ffôn testun (Text Relay) gan ddefnyddio 20 nod neu lai.",
-      "format": "Rhowch eich rhif ffôn testun (Text Relay) gan ddefnyddio rhifau 0 i 9, gofodau, cysylltnodau, cromfachau a dash.",
-      "change": "Newid <span class=\"govuk-visually-hidden\">eich rhif ffôn testun</span>"
+      "labelClaimant": "Beth yw eich rhif ffôn testun (Text Relay)?",
+      "labelDelegatedAuthority": "Beth yw eich rhif ffôn testun (Text Relay)?",
+      "labelHelper": "Beth yw rhif ffôn testun (Text Relay) yr hawlydd?",
+      "requiredClaimant": "Rhowch eich rhif ffôn testun (Text Relay).",
+      "requiredDelegatedAuthority": "Rhowch eich rhif ffôn testun (Text Relay).",
+      "requiredHelper": "Rhowch rif ffôn testun (Text Relay) yr hawlydd.",
+      "lengthClaimant": "Rhowch eich rhif ffôn testun (Text Relay) gan ddefnyddio 20 nod neu lai.",
+      "lengthDelegatedAuthority": "Rhowch eich rhif ffôn testun (Text Relay) gan ddefnyddio 20 nod neu lai.",
+      "lengthHelper": "Rhowch rif ffôn testun (Text Relay) yr hawlydd gan ddefnyddio 20 nod neu lai.",
+      "formatClaimant": "Rhowch eich rhif ffôn testun (Text Relay) gan ddefnyddio rhifau 0 i 9, gofodau, cysylltnodau, cromfachau a dash.",
+      "formatDelegatedAuthority": "Rhowch eich rhif ffôn testun (Text Relay) gan ddefnyddio rhifau 0 i 9, gofodau, cysylltnodau, cromfachau a dash.",
+      "formatHelper": "Rhowch rif ffôn testun (Text Relay) yr hawlydd gan ddefnyddio rhifau 0 i 9, gofodau, cysylltnodau, cromfachau a dash.",
+      "changeClaimant": "Newid <span class=\"govuk-visually-hidden\">eich rhif ffôn testun (Text Relay)</span>",
+      "changeDelegatedAuthority": "Newid <span class=\"govuk-visually-hidden\">eich rhif ffôn testun (Text Relay)</span>",
+      "changeHelper": "Newid <span class=\"govuk-visually-hidden\">rhif ffôn testun (Text Relay) yr hawlydd</span>"
     },
     "otherDetails": {
-      "label": "Dywedwch wrthym am unrhyw ffyrdd eraill y gallwn eich helpu pan fyddwn yn cysylltu â chi",
-      "required": "Rhowch unrhyw ffyrdd eraill y gallwn eich helpu pan fyddwn yn cysylltu â chi.",
-      "length": "Mae'n rhaid i unrhyw ffyrdd eraill y gallwn eich helpu pan fyddwn yn cysylltu â chi fod yn 500 nod neu lai.",
-      "change": "Newid <span class=\"govuk-visually-hidden\">os oes unrhyw ffyrdd eraill y gallwn eich helpu pan fyddwn yn cysylltu â chi</span>"
+      "labelClaimant": "Sut allwn ni helpu pan fyddwn yn cysylltu â chi?",
+      "labelDelegatedAuthority": "Sut allwn ni helpu pan fyddwn yn cysylltu â chi?",
+      "labelHelper": "Sut allwn ni helpu pan fyddwn yn cysylltu â'r hawlydd?",
+      "hintClaimant": "Dywedwch wrthym am unrhyw ffyrdd eraill y gallwn eich helpu pan fyddwn yn cysylltu â chi.",
+      "hintDelegatedAuthority": "Dywedwch wrthym am unrhyw ffyrdd eraill y gallwn eich helpu pan fyddwn yn cysylltu â chi.",
+      "hintHelper": "Dywedwch wrthym am unrhyw ffyrdd eraill y gallwn helpu pan fyddwn yn cysylltu â hwy.",
+      "requiredClaimant": "Rhowch sut allwn ni eich helpu pan fyddwn yn cysylltu â chi.",
+      "requiredDelegatedAuthority": "Rhowch sut allwn ni eich helpu pan fyddwn yn cysylltu â chi.",
+      "requiredHelper": "Rhowch sut allwn ni helpu pan fyddwn yn cysylltu â'r hawlydd.",
+      "lengthClaimant": "Rhowch sut allwn ni eich helpu pan fyddwn yn cysylltu â chi gan ddefnyddio 500 nod neu lai.",
+      "lengthDelegatedAuthority": "Rhowch sut allwn ni eich helpu pan fyddwn yn cysylltu â chi gan ddefnyddio 500 nod neu lai.",
+      "lengthHelper": "Rhowch sut allwn ni helpu pan fyddwn yn cysylltu â'r hawlydd gan ddefnyddio 500 nod neu lai.",
+      "changeClaimant": "Newid <span class=\"govuk-visually-hidden\">sut allwn ni helpu pan fyddwn yn cysylltu â chi</span>",
+      "changeDelegatedAuthority": "Newid <span class=\"govuk-visually-hidden\">sut allwn ni helpu pan fyddwn yn cysylltu â chi</span>",
+      "changeHelper": "Newid <span class=\"govuk-visually-hidden\">sut allwn ni helpu pan fyddwn yn cysylltu â'r hawlydd</span>"
     }
   }
 }

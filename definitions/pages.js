@@ -6,7 +6,7 @@ const income = require('./pages/income.js');
 const money = require('./pages/money.js');
 const hrtCitizen = require('./pages/hrt-citizen.js');
 const hrtPartner = require('./pages/hrt-partner.js');
-const claimHelp = require('./pages/claim-help.js');
+const contactDetails = require('./pages/contact-details.js');
 
 module.exports = (addressServiceFactory, mountUrl, sessionTtl) => ({
   ...eligibility(sessionTtl),
@@ -17,5 +17,5 @@ module.exports = (addressServiceFactory, mountUrl, sessionTtl) => ({
   ...money(),
   ...hrtCitizen(addressServiceFactory, mountUrl),
   ...hrtPartner(addressServiceFactory, mountUrl),
-  ...claimHelp(),
+  ...contactDetails(addressServiceFactory, mountUrl),
 });

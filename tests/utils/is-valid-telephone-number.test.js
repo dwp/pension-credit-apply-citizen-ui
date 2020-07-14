@@ -9,7 +9,7 @@ describe('Utils: is-valid-telephone-number', () => {
   });
 
   it('should return a function', () => {
-    expect(isValidTelephoneNumber()).to.be.a('function');
+    expect(isValidTelephoneNumber({})).to.be.a('function');
   });
 
   it('should return a function that returns a promise', () => {

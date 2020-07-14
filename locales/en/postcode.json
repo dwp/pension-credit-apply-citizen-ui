@@ -1,13 +1,17 @@
 {
   "pageTitle": "What is your home postcode?",
-  "lettersPageTitle": "What is the postcode of the address we should send letters to?",
+  "lettersPageTitleClaimant": "What is the postcode of the address we should send letters to?",
+  "lettersPageTitleDelegatedAuthority": "What is your postcode?",
+  "lettersPageTitleHelper": "What is the postcode of the address we should send letters to?",
   "sponsorPageTitle": "What is your sponsor’s home postcode?",
   "partnerSponsorPageTitle": "What is your partner’s sponsor’s home postcode?",
   "field": {
     "postcode": {
       "label": "Postcode",
       "required": "Enter your home postcode.",
-      "requiredLetters": "Enter the postcode of the address you want us to send letters to.",
+      "requiredLettersClaimant": "Enter the postcode of the address you want us to send letters to.",
+      "requiredLettersDelegatedAuthority": "Enter your postcode.",
+      "requiredLettersHelper": "Enter the postcode of the address you want us to send letters to.",
       "requiredSponsor": "Enter the postcode of your sponsor’s address.",
       "requiredPartnerSponsor": "Enter the postcode of your partner’s sponsor’s address.",
       "format": "Enter a real postcode.",

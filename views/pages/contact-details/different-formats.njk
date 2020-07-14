@@ -1,0 +1,34 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("different-formats:pageTitle" + msgSuffix) }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {% include "partials/user-type.njk" %}
+  {{ casaGovukRadios({
+    name: "needsDifferentFormats",
+    fieldset: {
+      legend: {
+        text: t("different-formats:pageTitle" + msgSuffix),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    hint: {
+      text: t('different-formats:field.needsDifferentFormats.hint')
+    },
+    items: [{
+      value: "yes",
+      text: t("different-formats:field.needsDifferentFormats.options.yes" + msgSuffix)
+    }, {
+      value: "no",
+      text: t("different-formats:field.needsDifferentFormats.options.no" + msgSuffix)
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.needsDifferentFormats,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

@@ -11,7 +11,7 @@ const income = require('./journey/income.js');
 const money = require('./journey/money.js');
 const hrtCitizen = require('./journey/hrt-citizen.js');
 const hrtPartner = require('./journey/hrt-partner.js');
-const claimHelp = require('./journey/claim-help.js');
+const contactDetails = require('./journey/contact-details.js');
 
 module.exports = () => {
   const plan = new Plan({
@@ -28,7 +28,7 @@ module.exports = () => {
   money(plan);
   hrtCitizen(plan);
   hrtPartner(plan);
-  claimHelp(plan);
+  contactDetails(plan);
 
   return plan;
 };

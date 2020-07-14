@@ -1,0 +1,25 @@
+{
+  "pageTitle": "Pa un o'r rhain sy'n eich disgrifio orau?",
+  "field": {
+    "whoMadeClaim": {
+      "required": "Dewiswch pa un o'r rhain sy'n eich disgrifio orau.",
+      "options": {
+        "claimant": "Rydych yn gwneud cais am Gredyd Pensiwn i chi eich hun",
+        "powerOfAttorney": "Mae gennych bwer atwrnai dros yr hawlydd",
+        "appointee": "Rydych yn gweithredu fel penodai dros yr hawlydd",
+        "personalActingBody": "Rydych yn Gorff Gweithredu Personol dros yr hawlydd",
+        "corporateActingBody": "Rydych yn Gorff Gweithredu Corfforaethol dros yr hawlydd",
+        "charity": "Rydych yn gweithio i elusen neu sefydliad sy'n helpu'r hawlydd i wneud eu cais",
+        "friendOrFamily": "Rydych yn ffrind neu aelod o'r teulu sy'n helpu'r hawlydd i wneud eu cais",
+        "someoneElse": "Rhywun arall"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">pa un o'r rhain sy'n eich disgrifio orau"
+    },
+    "relationship": {
+      "label": "Beth yw eich perthynas i'r hawlydd?",
+      "required": "Rhowch eich perthynas i'r hawlydd.",
+      "length": "Rhowch eich perthynas i'r hawlydd gan ddefnyddio 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">eich perthynas i'r hawlydd</span>"
+    }
+  }
+}
