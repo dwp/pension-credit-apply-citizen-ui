@@ -1,3 +1,17 @@
+# [2.0.0](https://github.com/dwp/pension-credit-citizen-apply/compare/1.1.0...2.0.0) (2020-07-17)
+
+
+### Features
+
+* [bc] don't ask about pension age housing benefit if not eligible ([fa63f94](https://github.com/dwp/pension-credit-citizen-apply/commit/fa63f94d3c5e1b735f5c4426b91cc1dc19e1220f))
+
+
+### BREAKING CHANGES
+
+* Could alter journey based on date of birth
+
+
+
 # [1.1.0](https://github.com/dwp/pension-credit-citizen-apply/compare/1.0.0...1.1.0) (2020-07-07)
 
 
