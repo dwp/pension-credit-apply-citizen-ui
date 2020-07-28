@@ -12,18 +12,6 @@
     {{ t("earnings:pageTitle") }}
   </h1>
 
-  {% set employmentIncomeDetails %}
-    {{ casaGovukTextarea({
-      name: "employmentIncomeDetails",
-      label: {
-        text: t("earnings:field.employmentIncomeDetails.label"),
-        classes: "govuk-label--s"
-      },
-      value: formData.employmentIncomeDetails,
-      casaErrors: formErrors
-    }) }}
-  {% endset %}
-
   {{ casaGovukRadios({
     name: "hasEmploymentIncome",
     fieldset: {
@@ -34,10 +22,7 @@
     },
     items: [{
       value: "yes",
-      text: t("earnings:field.hasEmploymentIncome.options.yes"),
-      conditional: {
-        html: employmentIncomeDetails
-      }
+      text: t("earnings:field.hasEmploymentIncome.options.yes")
     }, {
       value: "no",
       text: t("earnings:field.hasEmploymentIncome.options.no")

@@ -32,9 +32,6 @@
     "label": "The address we should send letters to",
     "change": "Change <span class=\"govuk-visually-hidden\">the address we should send letters to</span>"
   },
-  "employmentIncomeDetails": {
-    "label": "Details of your income from employment"
-  },
   "selfEmploymentIncomeDetails": {
     "label": "Details of your income from self-employment"
   },

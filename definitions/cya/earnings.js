@@ -30,14 +30,6 @@ module.exports = (t, context, claim, cyaUrl) => {
         value: rov('earnings.hasEmploymentIncome', 'earnings:field.hasEmploymentIncome.options'),
       }),
 
-      // Details of your income from employment
-      claim.income.employedPaidWork && row({
-        changeHref: `${WP.EARNINGS}#f-employmentIncomeDetails`,
-        changeHtml: t('earnings:field.employmentIncomeDetails.change'),
-        key: t('check-your-answers:employmentIncomeDetails.label'),
-        valueHtml: safeNl2br(claim.income.employedPaidWorkDescription),
-      }),
-
       // Do you have any income from self-employment now or in the 3 months
       // before ${dateOfClaim}?
       row({

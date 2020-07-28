@@ -32,9 +32,6 @@
     "label": "Y cyfeiriad y dylem anfon llythyrau i",
     "change": "Newid <span class=\"govuk-visually-hidden\">y cyfeiriad y dylem anfon llythyrau i</span>"
   },
-  "employmentIncomeDetails": {
-    "label": "Manylion eich incwm o gyflogaeth"
-  },
   "selfEmploymentIncomeDetails": {
     "label": "Manylion eich incwm o hunangyflogaeth"
   },

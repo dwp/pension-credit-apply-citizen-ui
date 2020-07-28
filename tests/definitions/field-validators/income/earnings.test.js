@@ -28,39 +28,6 @@ describe('Validators: earnings', () => {
     });
   });
 
-  describe('field: employmentIncomeDetails', () => {
-    it('should pass "required" validator if no value is provided and hasEmploymentIncome is "no"', async () => {
-      await expectValidatorToPass(validators, 'employmentIncomeDetails', 'required', { hasEmploymentIncome: 'no' });
-    });
-
-    it('should fail "required" validator if no value is provided and hasEmploymentIncome is "yes"', async () => {
-      await expectValidatorToFail(validators, 'employmentIncomeDetails', 'required', { hasEmploymentIncome: 'yes' }, {
-        summary: 'earnings:field.employmentIncomeDetails.required',
-      });
-    });
-
-    it('should pass "required" validator if a non-empty value is provided and hasEmploymentIncome is "yes"', async () => {
-      await expectValidatorToPass(validators, 'employmentIncomeDetails', 'required', { hasEmploymentIncome: 'yes', employmentIncomeDetails: 'Job 1' });
-    });
-
-    it('should pass "strlen" validator if string length > 500 and hasEmploymentIncome is "no"', async () => {
-      const longString = Array(502).join('x');
-      await expectValidatorToPass(validators, 'employmentIncomeDetails', 'required', { hasEmploymentIncome: 'no', employmentIncomeDetails: longString });
-    });
-
-    it('should fail "strlen" validator if string length > 500 and hasEmploymentIncome is "yes"', async () => {
-      const longString = Array(502).join('x');
-      await expectValidatorToFail(validators, 'employmentIncomeDetails', 'strlen', { hasEmploymentIncome: 'yes', employmentIncomeDetails: longString }, {
-        summary: 'earnings:field.employmentIncomeDetails.length',
-      });
-    });
-
-    it('should pass "strlen" validator if string length <= 500 and hasEmploymentIncome is "yes"', async () => {
-      const longString = Array(501).join('x');
-      await expectValidatorToPass(validators, 'employmentIncomeDetails', 'strlen', { hasEmploymentIncome: 'yes', employmentIncomeDetails: longString });
-    });
-  });
-
   describe('field: hasSelfEmploymentIncome', () => {
     it('should fail "required" validator if no value is provided', async () => {
       await expectValidatorToFail(validators, 'hasSelfEmploymentIncome', 'required', null, {

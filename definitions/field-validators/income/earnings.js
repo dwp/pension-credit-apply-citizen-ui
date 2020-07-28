@@ -10,17 +10,6 @@ const fieldValidators = Object.assign(Object.create(null), {
       errorMsg: 'earnings:field.hasEmploymentIncome.required',
     }),
   ]),
-  employmentIncomeDetails: sf([
-    r.required.bind({
-      errorMsg: 'earnings:field.employmentIncomeDetails.required',
-    }),
-    r.strlen.bind({
-      max: 500,
-      errorMsgMax: 'earnings:field.employmentIncomeDetails.length',
-    }),
-  ], ({ journeyContext: c, waypointId: w }) => (
-    (c.getDataForPage(w) || {}).hasEmploymentIncome === 'yes'
-  )),
   hasSelfEmploymentIncome: sf([
     r.required.bind({
       errorMsg: 'earnings:field.hasSelfEmploymentIncome.required',
