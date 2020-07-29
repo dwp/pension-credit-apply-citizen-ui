@@ -15,13 +15,13 @@ describe('Validators: phone-number', () => {
       await expectValidatorToPass(validators, 'contactTelephone', 'strlen', { contactTelephone: longString });
     });
 
-    it('should fail "isValidTelephoneNumber" validator if value contains characters other than 0-9, spaces and -', async () => {
-      await expectValidatorToFail(validators, 'contactTelephone', 'isValidTelephoneNumber', { contactTelephone: '!1234567 A 68' }, {
+    it('should fail "isValidTelephoneNumber" validator if value contains characters other than (, ), 0-9, spaces and -', async () => {
+      await expectValidatorToFail(validators, 'contactTelephone', 'isValidTelephoneNumber', { contactTelephone: '!(1)234567 A 68' }, {
         summary: 'phone-number:field.contactTelephone.format',
       });
     });
 
-    it('should pass "isValidTelephoneNumber" validator if value contains only the characters 0-9, spaces, and -', async () => {
+    it('should pass "isValidTelephoneNumber" validator if value contains only the characters (, ), 0-9, spaces, and -', async () => {
       await expectValidatorToPass(validators, 'contactTelephone', 'isValidTelephoneNumber', { contactTelephone: '(1289) 100 - 100' });
     });
   });

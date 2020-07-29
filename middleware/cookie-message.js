@@ -10,7 +10,7 @@ module.exports = (app, consentCookieName, waypoints, mountUrl = '/', proxyMountU
 
   // Set template options for cookie consent banner
   app.use((req, res, next) => {
-    // Get cookie banner flash messages (did you accpet / reject)
+    // Get cookie banner flash messages (did you accept / reject)
     if (req.session) {
       res.locals.cookieChoiceMade = req.session.cookieChoiceMade;
       req.session.cookieChoiceMade = undefined;
