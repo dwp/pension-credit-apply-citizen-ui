@@ -48,7 +48,7 @@ module.exports = (app, consentCookieName, waypoints, mountUrl = '/', proxyMountU
     const { cookieMethod } = req.params;
 
     if (cookieMethod === 'reject' || cookieMethod === 'accept') {
-      setConsentCookie(req, res, consentCookieName, cookieMethod, useTLS);
+      setConsentCookie(req, res, consentCookieName, cookieMethod, mountUrl, useTLS);
     }
 
     req.session.save(() => {

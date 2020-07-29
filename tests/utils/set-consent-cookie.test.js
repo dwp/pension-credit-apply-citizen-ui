@@ -32,11 +32,22 @@ describe('Utils: set-cookie-consent', () => {
     return expect(res.cookieOptions.name.secure).to.be.false;
   });
 
+  it('should set path to passed value', () => {
+    const req = new Request();
+    const res = new Response(req);
+    req.flash = sinon.stub();
+    res.cookie = sinon.stub();
+    setConsentCookie(req, res, 'name', 'value', '/test-path/');
+    expect(res.cookie).to.be.calledWithMatch('name', 'value', sinon.match({
+      path: '/test-path/',
+    }));
+  });
+
   it('should set secure flag to passed value', () => {
     const req = new Request();
     const res = new Response(req);
     req.flash = sinon.stub();
-    setConsentCookie(req, res, 'name', 'value', true);
+    setConsentCookie(req, res, 'name', 'value', '/', true);
     return expect(res.cookieOptions.name.secure).to.be.true;
   });
 });
