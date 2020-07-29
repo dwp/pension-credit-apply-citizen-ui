@@ -118,10 +118,10 @@ module.exports = (CONFIG, baseLogger) => {
       nonceMiddleware(this.expressApp, CONFIG.ENABLE_CSP);
       cookieMiddleware(
         this.expressApp,
-        CONFIG.CONTEXT_PATH,
-        CONFIG.CONTEXT_PATH_PROXY,
         CONSENT_COOKIE_NAME,
         waypoints,
+        CONFIG.CONTEXT_PATH,
+        CONFIG.CONTEXT_PATH_PROXY,
         CONFIG.USE_TLS,
       );
     },
