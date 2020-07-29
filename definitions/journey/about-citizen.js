@@ -1,12 +1,14 @@
 const { waypoints: WP } = require('../../lib/constants.js');
-const { isYes, isNo } = require('../../utils/journey-helpers.js');
+const {
+  isEqualTo, isNotEqualTo, isYes, isNo,
+} = require('../../utils/journey-helpers.js');
 
 module.exports = (plan) => {
-  // True if claimant lives with partner
-  const hasPartner = isYes('liveWithPartner', WP.LIVE_WITH_PARTNER);
+  // True if claimant has a partner, and lives with them
+  const hasPartner = isEqualTo('havePartner', 'yesLiveTogether', WP.LIVE_WITH_PARTNER);
 
   // True if claimant does not live with a partner
-  const noPartner = isNo('liveWithPartner', WP.LIVE_WITH_PARTNER);
+  const noPartner = isNotEqualTo('havePartner', 'yesLiveTogether', WP.LIVE_WITH_PARTNER);
 
   // True if the user has chosen a valid residence + language preference combo
   const langOk = (r, c) => {

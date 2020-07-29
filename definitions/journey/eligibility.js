@@ -24,6 +24,10 @@ module.exports = (plan) => {
   // True if claimant is not eligible for Pension Age Housing Benefit
   const claimantNotEligibleForPAHB = checkPAHB(WP.DATE_OF_BIRTH, 'dateOfBirth', false);
 
+  // Has a partner, and living with them
+  const livingWithPartner = isEqualTo('havePartner', 'yesLiveTogether', WP.LIVE_WITH_PARTNER);
+  const notLivingWithPartner = isNotEqualTo('havePartner', 'yesLiveTogether', WP.LIVE_WITH_PARTNER);
+
   // Start page
   plan.addSequence(WP.START, WP.COUNTRY_YOU_LIVE_IN);
 
@@ -44,14 +48,26 @@ module.exports = (plan) => {
   plan.setRoute(WP.DATE_OF_BIRTH, WP.LIVE_WITH_PARTNER, claimantAtOrOverSPA);
 
   // If claimant has a partner over State Pension age ask if they agree to claim
-  plan.setRoute(WP.LIVE_WITH_PARTNER, WP.DATE_OF_CLAIM, isNo('liveWithPartner'));
-  plan.setRoute(WP.LIVE_WITH_PARTNER, WP.PARTNER_AGREE, (r, c) => isYes('liveWithPartner')(r, c) && partnerAtOrOverSPA(r, c));
+  plan.setRoute(WP.LIVE_WITH_PARTNER, WP.DATE_OF_CLAIM, notLivingWithPartner);
+  plan.setRoute(
+    WP.LIVE_WITH_PARTNER,
+    WP.PARTNER_AGREE,
+    (r, c) => livingWithPartner(r, c) && partnerAtOrOverSPA(r, c),
+  );
 
   // If partner is under State Pension age and claimant is eligible for
   // Pension Age Housing Benefitask ask if they get it, if they aren't eligible
   // kick them out
-  plan.setRoute(WP.LIVE_WITH_PARTNER, WP.PARTNER_HOUSING_BENEFIT, (r, c) => isYes('liveWithPartner')(r, c) && partnerUnderSPA(r, c) && claimantEligibleForPAHB(r, c));
-  plan.setRoute(WP.LIVE_WITH_PARTNER, WP.DONE_PARTNER, (r, c) => isYes('liveWithPartner')(r, c) && partnerUnderSPA(r, c) && claimantNotEligibleForPAHB(r, c));
+  plan.setRoute(
+    WP.LIVE_WITH_PARTNER,
+    WP.PARTNER_HOUSING_BENEFIT,
+    (r, c) => livingWithPartner(r, c) && partnerUnderSPA(r, c) && claimantEligibleForPAHB(r, c),
+  );
+  plan.setRoute(
+    WP.LIVE_WITH_PARTNER,
+    WP.DONE_PARTNER,
+    (r, c) => livingWithPartner(r, c) && partnerUnderSPA(r, c) && claimantNotEligibleForPAHB(r, c),
+  );
   plan.setRoute(WP.PARTNER_HOUSING_BENEFIT, WP.DONE_PARTNER, isNo('partnerGetsHousingBenefit'));
 
   // If they get Housing Benefit ask if they agree to claim and continue

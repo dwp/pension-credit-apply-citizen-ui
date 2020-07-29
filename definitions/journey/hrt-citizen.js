@@ -1,9 +1,13 @@
 const { waypoints: WP } = require('../../lib/constants.js');
 const {
-  d, isEqualTo, isNo, isYes, wasSkipped,
+  d, isEqualTo, isNotEqualTo, isNo, isYes, wasSkipped,
 } = require('../../utils/journey-helpers.js');
 
 module.exports = (plan) => {
+  // Has a partner, and living with them
+  const livingWithPartner = isEqualTo('havePartner', 'yesLiveTogether', WP.LIVE_WITH_PARTNER);
+  const notLivingWithPartner = isNotEqualTo('havePartner', 'yesLiveTogether', WP.LIVE_WITH_PARTNER);
+
   // If claimant has indicated they don't have the right to work in the UK or
   // has been out of the country for 2 years we need to ask HRT questions
   plan.setRoute(WP.YOUR_NATIONALITY, WP.HRT_CITIZEN_RETURNED_TO_UK, (r, c) => (
@@ -15,14 +19,14 @@ module.exports = (plan) => {
   plan.setRoute(WP.YOUR_NATIONALITY, WP.PARTNER_NATIONALITY, (r, c) => (
     isYes('rightToReside')(r, c)
     && isYes('lived2Years')(r, c)
-    && isYes('liveWithPartner', WP.LIVE_WITH_PARTNER)(r, c)
+    && livingWithPartner(r, c)
   ));
 
   // Or skip this section and go to CLAIM_HELP page if no partner or HRT needed
   plan.setRoute(WP.YOUR_NATIONALITY, WP.CLAIM_HELP, (r, c) => (
     isYes('rightToReside')(r, c)
     && isYes('lived2Years')(r, c)
-    && isNo('liveWithPartner', WP.LIVE_WITH_PARTNER)(r, c)
+    && notLivingWithPartner(r, c)
   ));
 
   // returned-to-uk
@@ -82,8 +86,8 @@ module.exports = (plan) => {
   plan.setRoute(WP.HRT_CITIZEN_SPONSOR_ADDRESS_MANUAL, WP.HRT_CITIZEN_ASYLUM_SEEKER, isEqualTo('addressFrom', 'manual', WP.HRT_CITIZEN_SPONSOR_ADDRESS_HIDDEN));
 
   // If claimant lives with a partner, ask about their nationality
-  plan.setRoute(WP.HRT_CITIZEN_ASYLUM_SEEKER, WP.PARTNER_NATIONALITY, isYes('liveWithPartner', WP.LIVE_WITH_PARTNER));
+  plan.setRoute(WP.HRT_CITIZEN_ASYLUM_SEEKER, WP.PARTNER_NATIONALITY, livingWithPartner);
 
   // Or go to CLAIM_HELP page
-  plan.setRoute(WP.HRT_CITIZEN_ASYLUM_SEEKER, WP.CLAIM_HELP, isNo('liveWithPartner', WP.LIVE_WITH_PARTNER));
+  plan.setRoute(WP.HRT_CITIZEN_ASYLUM_SEEKER, WP.CLAIM_HELP, notLivingWithPartner);
 };

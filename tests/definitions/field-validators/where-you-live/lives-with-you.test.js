@@ -6,7 +6,7 @@ const validators = require('../../../../definitions/field-validators/where-you-l
 const waypoint = WP.LIVES_WITH_YOU;
 const liveWithPartner = {
   [WP.LIVE_WITH_PARTNER]: {
-    liveWithPartner: 'yes',
+    havePartner: 'yesLiveTogether',
   },
 };
 
@@ -18,7 +18,7 @@ describe('Validators: lives-with-you', () => {
       });
     });
 
-    it('should fail "required" validator if no value is provided with joint message if liveWithPartner is "yes"', async () => {
+    it('should fail "required" validator if no value is provided with joint message if havePartner is "yesLiveTogether"', async () => {
       const context = new JourneyContext(liveWithPartner);
       await assert.expectValidatorToFailWithJourney(validators, waypoint, 'othersLiveWithYou', 'required', context, {
         summary: 'lives-with-you:field.othersLiveWithYou.requiredJoint',
@@ -35,7 +35,7 @@ describe('Validators: lives-with-you', () => {
       });
     });
 
-    it('should fail "inArray" validator if value is not one of the valid options with joint message if liveWithPartner is "yes"', async () => {
+    it('should fail "inArray" validator if value is not one of the valid options with joint message if havePartner is "yesLiveTogether"', async () => {
       const context = new JourneyContext({
         ...liveWithPartner,
         [waypoint]: { othersLiveWithYou: 'bad-value' },

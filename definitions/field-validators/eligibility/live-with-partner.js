@@ -2,13 +2,13 @@ const { validationRules: r, simpleFieldValidation: sf } = require('@dwp/govuk-ca
 const moment = require('moment');
 
 const fieldValidators = Object.assign(Object.create(null), {
-  liveWithPartner: sf([
+  havePartner: sf([
     r.required.bind({
-      errorMsg: 'live-with-partner:field.liveWithPartner.required',
+      errorMsg: 'live-with-partner:field.havePartner.required',
     }),
     r.inArray.bind({
-      source: ['yes', 'no'],
-      errorMsg: 'live-with-partner:field.liveWithPartner.required',
+      source: ['yesLiveTogether', 'yesLiveApart', 'no'],
+      errorMsg: 'live-with-partner:field.havePartner.required',
     }),
   ]),
   partnerDateOfBirth: sf([
@@ -32,7 +32,7 @@ const fieldValidators = Object.assign(Object.create(null), {
       },
     }),
   ], ({ journeyContext: c, waypointId: w }) => (
-    (c.getDataForPage(w) || {}).liveWithPartner === 'yes'
+    (c.getDataForPage(w) || {}).havePartner === 'yesLiveTogether'
   )),
 });
 

@@ -177,12 +177,12 @@ module.exports = (t, context, claim, cyaUrl) => {
       ]),
 
       /* -------------------------------------------------- live-with-partner */
-      // Do you live with a partner?
+      // Do you have a partner?
       row({
-        changeHref: `${WP.LIVE_WITH_PARTNER}#f-liveWithPartner`,
-        changeHtml: t('live-with-partner:field.liveWithPartner.change'),
+        changeHref: `${WP.LIVE_WITH_PARTNER}#f-havePartner`,
+        changeHtml: t('live-with-partner:field.havePartner.change'),
         key: t('live-with-partner:pageTitle'),
-        value: rov('live-with-partner.liveWithPartner', 'live-with-partner:field.liveWithPartner.options'),
+        value: rov('live-with-partner.havePartner', 'live-with-partner:field.havePartner.options'),
       }),
     ],
   };

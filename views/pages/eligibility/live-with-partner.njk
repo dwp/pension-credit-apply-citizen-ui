@@ -26,7 +26,7 @@
   {% endset %}
 
   {{ casaGovukRadios({
-    name: "liveWithPartner",
+    name: "havePartner",
     fieldset: {
       legend: {
         text: t("live-with-partner:pageTitle"),
@@ -35,20 +35,26 @@
       }
     },
     hint: {
-      text: t("live-with-partner:field.liveWithPartner.hint")
+      text: t("live-with-partner:field.havePartner.hint")
     },
     items: [{
-      value: "yes",
-      text: t("live-with-partner:field.liveWithPartner.options.yes"),
+      value: "yesLiveTogether",
+      text: t("live-with-partner:field.havePartner.options.yesLiveTogether"),
       conditional: {
         html: partnerDateOfBirth
       }
     }, {
+      value: "yesLiveApart",
+      text: t("live-with-partner:field.havePartner.options.yesLiveApart"),
+      hint: {
+        "text": t("live-with-partner:field.havePartner.optionHints.yesLiveApart")
+      }
+    }, {
       value: "no",
-      text: t("live-with-partner:field.liveWithPartner.options.no")
+      text: t("live-with-partner:field.havePartner.options.no")
     }],
     casaWithAnalytics: true,
-    casaValue: formData.liveWithPartner,
+    casaValue: formData.havePartner,
     casaErrors: formErrors
   }) }}
 {% endblock %}

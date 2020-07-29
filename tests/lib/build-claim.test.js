@@ -97,9 +97,9 @@ describe('build-claim', () => {
     expect(claim).to.haveOwnProperty('nino').that.equals('RN001001A');
   });
 
-  it('should only include "partner" section if the user has a partner', () => {
+  it('should only include "partner" section if the user is living with a partner', () => {
     stubData[WP.LIVE_WITH_PARTNER] = {
-      liveWithPartner: 'yes',
+      havePartner: 'yesLiveTogether',
       partnerDateOfBirth: stubDate,
     };
     stubData[WP.PARTNER_NI_NUMBER] = {
@@ -114,15 +114,20 @@ describe('build-claim', () => {
     expect(claim).to.haveOwnProperty('partner');
     expect(claim.hasPartner()).to.be.true;
 
-    stubData[WP.LIVE_WITH_PARTNER].liveWithPartner = 'no';
+    stubData[WP.LIVE_WITH_PARTNER].havePartner = 'no';
     claim = buildClaim(plan, context);
     expect(claim).to.not.haveOwnProperty('partner');
     expect(claim.hasPartner()).to.be.false;
+
+    stubData[WP.LIVE_WITH_PARTNER].havePartner = 'yesLiveApart';
+    claim = buildClaim(plan, context);
+    expect(claim).to.not.haveOwnProperty('partner');
+    expect(claim.hasPartner()).to.be.true;
   });
 
   it('should sanitise partner nino', () => {
     stubData[WP.LIVE_WITH_PARTNER] = {
-      liveWithPartner: 'yes',
+      havePartner: 'yesLiveTogether',
       partnerDateOfBirth: stubDate,
     };
     stubData[WP.PARTNER_NI_NUMBER] = {

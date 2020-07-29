@@ -8,8 +8,8 @@ module.exports = (t, context, claim, cyaUrl) => {
     return undefined;
   }
 
-  const { hasPartner } = claim.eligibility || {};
-  const jointSingle = hasPartner ? 'Joint' : 'Single';
+  const { liveWithPartner } = claim.eligibility || {};
+  const jointSingle = liveWithPartner ? 'Joint' : 'Single';
   const { dateOfClaim } = context.getDataForPage(WP.DATE_OF_CLAIM) || {};
   const formattedDateOfClaim = dateOfClaim && formatDateObject(dateOfClaim, {
     locale: context.nav.language,

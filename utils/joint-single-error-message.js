@@ -2,10 +2,10 @@ const { waypoints } = require('../lib/constants.js');
 
 // withNIContext = include "northernIreland."" prefix in key if applicable
 const jointSingleErrorMsg = (msgKey, withNIContext = false) => ({ journeyContext: c }) => {
-  const { liveWithPartner } = c.getDataForPage(waypoints.LIVE_WITH_PARTNER)
+  const { havePartner } = c.getDataForPage(waypoints.LIVE_WITH_PARTNER)
     || Object.create(null);
 
-  let key = liveWithPartner === 'yes' ? `${msgKey}Joint` : `${msgKey}Single`;
+  let key = havePartner === 'yesLiveTogether' ? `${msgKey}Joint` : `${msgKey}Single`;
 
   if (withNIContext) {
     const { countryOfResidence } = c.getDataForPage(waypoints.COUNTRY_YOU_LIVE_IN)

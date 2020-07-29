@@ -5,7 +5,7 @@ const { waypoints: WP } = require('../../lib/constants.js');
 
 module.exports = (t, context, claim, cyaUrl) => {
   // Skip whole section if claimant does not have a partner
-  if (!claim.hasPartner()) {
+  if (!claim.liveWithPartner()) {
     return undefined;
   }
 

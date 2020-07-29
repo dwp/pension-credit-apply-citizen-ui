@@ -13,10 +13,24 @@ describe('Hooks: common/joint-or-single-claim', () => {
     expect(jointOrSingleClaim(waypoints)).to.be.a('function');
   });
 
-  it('should add claimType template var of "Single" if not claiming with a partner', () => {
+  it('should add claimType template var of "Single" if does not have a partner', () => {
     const req = new Request({
       [waypoints.LIVE_WITH_PARTNER]: {
-        liveWithPartner: 'no',
+        havePartner: 'no',
+      },
+    });
+    const res = new Response(req);
+    const hook = jointOrSingleClaim(waypoints);
+
+    hook(req, res, () => {});
+
+    expect(res.locals).to.have.property('claimType').that.equals('Single');
+  });
+
+  it('should add claimType template var of "Single" if not living partner', () => {
+    const req = new Request({
+      [waypoints.LIVE_WITH_PARTNER]: {
+        havePartner: 'yesLiveApart',
       },
     });
     const res = new Response(req);
@@ -30,7 +44,7 @@ describe('Hooks: common/joint-or-single-claim', () => {
   it('should add claimType template var of "Joint" if claiming with a partner', () => {
     const req = new Request({
       [waypoints.LIVE_WITH_PARTNER]: {
-        liveWithPartner: 'yes',
+        havePartner: 'yesLiveTogether',
       },
     });
     const res = new Response(req);
@@ -44,7 +58,7 @@ describe('Hooks: common/joint-or-single-claim', () => {
   it('should default claimType template var to "Single"', () => {
     const req = new Request({
       [waypoints.LIVE_WITH_PARTNER]: {
-        liveWithPartner: '',
+        havePartner: '',
       },
     });
     const res = new Response(req);

@@ -11,8 +11,8 @@ module.exports = (t, context, claim, cyaUrl) => {
     return undefined;
   }
 
-  const { hasPartner } = claim.eligibility || {};
-  const jointSingle = hasPartner ? 'Joint' : 'Single';
+  const { liveWithPartner } = claim.eligibility || {};
+  const jointSingle = liveWithPartner ? 'Joint' : 'Single';
   const paymentType = rentOrMortgage(context);
   const northernIreland = claim.isNorthernIrelandClaim() ? 'northernIreland.' : '';
 

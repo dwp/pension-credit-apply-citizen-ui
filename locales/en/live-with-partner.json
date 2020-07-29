@@ -1,14 +1,18 @@
 {
-  "pageTitle": "Do you live with a partner?",
+  "pageTitle": "Do you have a partner?",
   "field": {
-    "liveWithPartner": {
-      "hint": "A partner is a husband, wife, civil partner or someone that you live with as a couple.",
-      "required": "Select yes if you live with a partner.",
+    "havePartner": {
+      "hint": "A partner is a husband, wife, civil partner or someone that you are in a relationship with.",
+      "required": "Select yes if you have a partner.",
       "options": {
-        "yes": "Yes",
-        "no": "No"
+        "yesLiveTogether": "Yes, we live together",
+        "yesLiveApart": "Yes, but we do not live together",
+        "no": "No, I do not have a partner"
       },
-      "change": "Change <span class=\"govuk-visually-hidden\">whether you live with a partner</span>"
+      "optionHints": {
+        "yesLiveApart": "If you do not live together, we will not need to ask you about them."
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you have a partner</span>"
     },
     "partnerDateOfBirth": {
       "legend": "What is your partner’s date of birth?",

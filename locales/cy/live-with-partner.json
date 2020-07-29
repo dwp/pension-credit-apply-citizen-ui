@@ -1,14 +1,18 @@
 {
-  "pageTitle": "Ydych chi'n byw gyda phartner?",
+  "pageTitle": "Oes gennych chi bartner?",
   "field": {
-    "liveWithPartner": {
-      "hint": "Partner yw gwr, gwraig, partner sifil neu rywun rydych yn byw gyda fel cwpwl.",
-      "required": "Dewiswch ydw os ydych yn byw gyda phartner.",
+    "havePartner": {
+      "hint": "Partner yw gwr, gwraig, partner sifil neu rywun rydych mewn perthynas â hwy.",
+      "required": "Dewiswch oes os oes gennych bartner.",
       "options": {
-        "yes": "Ydw",
-        "no": "Na"
+        "yesLiveTogether": "Oes, rydym yn byw gyda’n gilydd",
+        "yesLiveApart": "Oes, ond nid ydym yn byw gyda’n gilydd",
+        "no": "Na, nid oes gennyf bartner"
       },
-      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych yn byw gyda phartner</span>"
+      "optionHints": {
+        "yesLiveApart": "Os nad ydych yn byw gyda’ch gilydd, ni fydd angen i ni ofyn i chi amdanynt."
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os oes gennych chi bartner</span>"
     },
     "partnerDateOfBirth": {
       "legend": "Beth yw dyddiad geni eich partner?",

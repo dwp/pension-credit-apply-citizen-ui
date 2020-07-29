@@ -12,14 +12,20 @@ describe('Utils: joint-single-error-message', () => {
     expect(jointSingleErrorMsg('')).to.instanceOf(Function);
   });
 
-  it('should return a function that appends Joint to the input string if liveWithPartner is "yes"', () => {
-    const journeyContext = new JourneyContext({ [WP.LIVE_WITH_PARTNER]: { liveWithPartner: 'yes' } });
+  it('should return a function that appends Joint to the input string if havePartner is "yesLiveTogether"', () => {
+    const journeyContext = new JourneyContext({ [WP.LIVE_WITH_PARTNER]: { havePartner: 'yesLiveTogether' } });
     const test = jointSingleErrorMsg('errorMsg');
     expect(test({ journeyContext })).to.equal('errorMsgJoint');
   });
 
-  it('should return a function that appends Single to the input string if liveWithPartner is not "yes"', () => {
-    const journeyContext = new JourneyContext({ [WP.LIVE_WITH_PARTNER]: { liveWithPartner: 'no' } });
+  it('should return a function that appends Single to the input string if havePartner is not "yesLiveApart"', () => {
+    const journeyContext = new JourneyContext({ [WP.LIVE_WITH_PARTNER]: { havePartner: 'yesLiveApart' } });
+    const test = jointSingleErrorMsg('errorMsg');
+    expect(test({ journeyContext })).to.equal('errorMsgSingle');
+  });
+
+  it('should return a function that appends Single to the input string if havePartner is not "no"', () => {
+    const journeyContext = new JourneyContext({ [WP.LIVE_WITH_PARTNER]: { havePartner: 'no' } });
     const test = jointSingleErrorMsg('errorMsg');
     expect(test({ journeyContext })).to.equal('errorMsgSingle');
   });
