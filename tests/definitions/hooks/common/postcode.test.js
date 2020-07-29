@@ -1,5 +1,6 @@
 const sinon = require('sinon');
 const chai = require('chai');
+const { ValidationError } = require('@dwp/govuk-casa');
 const Request = require('../../../helpers/fake-request.js');
 const Response = require('../../../helpers/fake-response.js');
 const postcodeHooks = require('../../../../definitions/hooks/common/postcode.js');
@@ -90,13 +91,9 @@ describe('Hooks: postcode', () => {
 
       await hooks.postvalidate(req, res, next);
       expect(next).to.be.calledOnceWithExactly({
-        postcode: [{
-          field: 'postcode',
-          fieldHref: '#f-postcode',
-          focusSuffix: [],
-          inline: 'postcode:field.postcode.noAddresses',
-          summary: 'postcode:field.postcode.noAddresses',
-        }],
+        postcode: [
+          sinon.match.instanceOf(ValidationError),
+        ],
       });
     });
 

@@ -1,3 +1,4 @@
+const { ValidationError } = require('@dwp/govuk-casa');
 const formatPostcode = require('../../../utils/format-postcode.js');
 
 const postvalidateFactory = (addressServiceFactory, manualEntryWaypoint) => (req, res, next) => {
@@ -21,17 +22,15 @@ const postvalidateFactory = (addressServiceFactory, manualEntryWaypoint) => (req
     // validation error and redirect back to POSTCODE page
     if (addresses.length === 0) {
       req.log.info('Successfully looked up addresses. Got 0 results, remaining on %s', req.casa.journeyWaypointId);
-      const errorMsg = 'postcode:field.postcode.noAddresses';
-      // TODO: It would be nice if, in CASA, we had a proper error class for
-      // validation errors
+
       next({
-        postcode: [{
-          inline: errorMsg,
-          summary: errorMsg,
-          focusSuffix: [],
-          field: 'postcode',
-          fieldHref: '#f-postcode',
-        }],
+        postcode: [ValidationError.make({
+          errorMsg: {
+            summary: 'postcode:field.postcode.noAddresses',
+            field: 'postcode',
+            fieldHref: '#f-postcode',
+          },
+        })],
       });
     } else {
       // Extract only the parts of addresses we need to avoid storing large
