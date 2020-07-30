@@ -187,7 +187,40 @@ describe('ConfigIngestor', () => {
         CLAIMSERVICE_API_ENDPOINT: 'dummy',
         LOG_LEVEL: 'invalid-test',
       });
-    }).to.throw(ReferenceError, /^LOG_LEVEL must be one of: fatal, error, warn, info, debug, trace, silent. Given invalid-test$/);
+    }).to.throw(Error, /^LOG_LEVEL must be one of: fatal, error, warn, info, debug, trace, silent. Given invalid-test$/);
+  });
+
+  it('ConfigIngestor should throw if invalid LOG_HEADERS given', () => {
+    expect(() => {
+      ConfigIngestor({
+        ...requiredVars,
+        CLAIMSERVICE_API_ENDPOINT: 'dummy',
+        LOG_HEADERS: [],
+      });
+    }).to.throw(Error, /^LOG_HEADERS must be a comma-separated string$/);
+  });
+
+  it('LOG_HEADERS should be split into an array', () => {
+    let c;
+
+    c = ConfigIngestor({ ...requiredVars, CLAIMSERVICE_API_ENDPOINT: 'dummy' });
+    expect(c).to.have.property('LOG_HEADERS').that.is.an.instanceof(Array);
+
+    c = ConfigIngestor({ ...requiredVars, CLAIMSERVICE_API_ENDPOINT: 'dummy', LOG_HEADERS: '' });
+    expect(c).to.have.property('LOG_HEADERS').that.is.an.instanceof(Array).and.deep.equals([]);
+
+    c = ConfigIngestor({ ...requiredVars, CLAIMSERVICE_API_ENDPOINT: 'dummy', LOG_HEADERS: 'safe-header,header-2' });
+    expect(c).to.have.property('LOG_HEADERS').that.is.an.instanceof(Array).and.deep.equals(['safe-header', 'header-2']);
+  });
+
+  it('LOG_HEADERS should lowercase values', () => {
+    const c = ConfigIngestor({ ...requiredVars, CLAIMSERVICE_API_ENDPOINT: 'dummy', LOG_HEADERS: 'Test-1, tEsT-2' });
+    expect(c).to.have.property('LOG_HEADERS').that.is.an.instanceof(Array).and.deep.equals(['test-1', 'test-2']);
+  });
+
+  it('LOG_HEADERS should sanitise values so they are valid http header format', () => {
+    const c = ConfigIngestor({ ...requiredVars, CLAIMSERVICE_API_ENDPOINT: 'dummy', LOG_HEADERS: '^u!n£s/a\\f*e.$' });
+    expect(c).to.have.property('LOG_HEADERS').that.is.an.instanceof(Array).and.deep.equals(['unsafe']);
   });
 
   it('TRACE_REQUEST_HEADER_NAME should be lowercased', () => {

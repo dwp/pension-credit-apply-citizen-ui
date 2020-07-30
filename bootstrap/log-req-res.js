@@ -1,11 +1,11 @@
 const filterLogHeaders = require('../utils/filter-log-headers.js');
 
-module.exports = (req, res, next) => {
+module.exports = (logHeaders) => (req, res, next) => {
   const ns = 'http';
   let filteredHeaders;
 
   try {
-    filteredHeaders = filterLogHeaders(req.headers);
+    filteredHeaders = filterLogHeaders(req.headers, logHeaders);
   } catch (e) {
     filteredHeaders = {};
     req.log.error(e);

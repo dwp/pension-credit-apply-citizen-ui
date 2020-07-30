@@ -1,84 +1,44 @@
 const { expect } = require('chai');
 
-const Request = require('../helpers/fake-request.js');
 const filterLogHeaders = require('../../utils/filter-log-headers.js');
 
 describe('Utils: filter-log-headers', () => {
-  const req = new Request({});
-
   it('should return an object', () => {
-    req.headers = {
-      host: 'test-host',
-    };
+    const headers = {};
 
-    const filteredHeaders = filterLogHeaders(req.headers);
+    const filteredHeaders = filterLogHeaders(headers);
     expect(filteredHeaders).to.be.an('object');
   });
 
-  it('should include all of the keys from the whitelist', () => {
-    req.headers = {
-      'x-forwarded-for': 'a',
-      'x-forwarded-proto': 'a',
-      'x-forwarded-port': 'a',
-      'x-amzn-trace-id': 'a',
-      'x-forwarded-host': 'a',
-      'x-real-ip': 'a',
-      'upgrade-insecure-requests': 'a',
-      'sec-fetch-user': 'a',
-      host: 'a',
-      connection: 'a',
-      'sec-fetch-mode': 'a',
-      'if-none-match': 'a',
-      'if-modified-since': 'a',
-      'sec-fetch-site': 'a',
-      referer: 'a',
-      authorization: 'a',
-      tokenpayload: 'a',
+  it('should include only the headers from the allowlist', () => {
+    const allowlist = ['test-1', 'test-2'];
+
+    const headers = {
+      'test-1': 'a',
+      'test-2': 'a',
+      'test-3': 'a',
     };
 
-    const filteredHeaders = filterLogHeaders(req.headers);
+    const filteredHeaders = filterLogHeaders(headers, allowlist);
 
     expect(filteredHeaders).to.have.all.keys(
-      'x-forwarded-proto',
-      'x-forwarded-port',
-      'x-amzn-trace-id',
-      'x-forwarded-host',
-      'upgrade-insecure-requests',
-      'sec-fetch-user',
-      'host',
-      'connection',
-      'sec-fetch-mode',
-      'if-none-match',
-      'if-modified-since',
-      'sec-fetch-site',
-      'referer',
+      'test-1',
+      'test-2',
     );
   });
 
-  it('should not include any key that is no from the whitelist', () => {
-    req.headers = {
-      'x-forwarded-for': 'a',
-      'x-forwarded-proto': 'a',
-      'x-forwarded-port': 'a',
-      'x-amzn-trace-id': 'a',
-      'x-forwarded-host': 'a',
-      'x-real-ip': 'a',
-      'upgrade-insecure-requests': 'a',
-      'sec-fetch-user': 'a',
-      host: 'a',
-      connection: 'a',
-      'sec-fetch-mode': 'a',
-      'if-none-match': 'a',
-      'if-modified-since': 'a',
-      'sec-fetch-site': 'a',
-      referer: 'a',
-      authorization: 'a',
-      tokenpayload: 'a',
+  it('should not include any headers that are not in the allowlist', () => {
+    const allowlist = ['test-1', 'test-2'];
+
+    const headers = {
+      'test-1': 'a',
+      'test-2': 'a',
+      'test-3': 'a',
     };
 
-    const filteredHeaders = filterLogHeaders(req.headers);
+    const filteredHeaders = filterLogHeaders(headers, allowlist);
 
-    expect(filteredHeaders).not.to.have.property('not-a-valid-key');
+    expect(filteredHeaders).not.to.have.property('test-3');
   });
 
   it('should throw a TypeError for a null entry type for req.headers', () => {
@@ -101,23 +61,32 @@ describe('Utils: filter-log-headers', () => {
     expect(() => filterLogHeaders(12345)).to.throw(TypeError, 'headers must be of type [object Object]');
   });
 
+  it('should throw a TypeError if allowlist is not an array', () => {
+    expect(() => filterLogHeaders({}, false)).to.throw(TypeError, 'allowlist must be an array');
+    expect(() => filterLogHeaders({}, () => {})).to.throw(TypeError, 'allowlist must be an array');
+    expect(() => filterLogHeaders({}, '')).to.throw(TypeError, 'allowlist must be an array');
+    expect(() => filterLogHeaders({}, new Set())).to.throw(TypeError, 'allowlist must be an array');
+    expect(() => filterLogHeaders({}, 123)).to.throw(TypeError, 'allowlist must be an array');
+    expect(() => filterLogHeaders({}, [])).to.not.throw();
+  });
+
   it('should sanitise invalid characters from each header', () => {
-    req.headers = {
-      'x-amzn-trace-id': '<>\\{}!@£$&*^',
+    const headers = {
+      'test-1': '<>\\{}!@£$&*^',
     };
 
-    const filteredHeaders = filterLogHeaders(req.headers);
+    const filteredHeaders = filterLogHeaders(headers, ['test-1']);
 
-    expect(filteredHeaders).to.have.property('x-amzn-trace-id').that.equals('............');
+    expect(filteredHeaders).to.have.property('test-1').that.equals('');
   });
 
   it('should clip length of each header', () => {
-    req.headers = {
-      'x-amzn-trace-id': 'A'.repeat(500),
+    const headers = {
+      'test-header': 'A'.repeat(500),
     };
 
-    const filteredHeaders = filterLogHeaders(req.headers);
+    const filteredHeaders = filterLogHeaders(headers, ['test-header']);
 
-    expect(filteredHeaders).to.have.property('x-amzn-trace-id').that.has.length(256);
+    expect(filteredHeaders).to.have.property('test-header').that.has.length(256);
   });
 });

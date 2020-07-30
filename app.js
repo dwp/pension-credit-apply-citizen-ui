@@ -37,6 +37,7 @@ module.exports = (CONFIG, baseLogger) => {
     baseLogger,
     CONFIG.TRACE_REQUEST_HEADER_NAME,
     CONFIG.SESSION_COOKIE_NAME,
+    CONFIG.LOG_HEADERS,
   );
 
   // Setup Redis cluster listener in order to handler the session store lifecycle

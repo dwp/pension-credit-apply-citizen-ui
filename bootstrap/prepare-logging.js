@@ -4,7 +4,13 @@ const prepareRequestLogs = require('./log-init.js');
 const generateReqResLogs = require('./log-req-res.js');
 
 
-module.exports = (expressApp, baseLogger, traceRequestheaderName, sessionCookieName) => {
+module.exports = (
+  expressApp,
+  baseLogger,
+  traceRequestheaderName,
+  sessionCookieName,
+  logHeaders = [],
+) => {
   // Start timing meta
   expressApp.use(startTime);
 
@@ -16,5 +22,5 @@ module.exports = (expressApp, baseLogger, traceRequestheaderName, sessionCookieN
   expressApp.use(prepareRequestLogs(baseLogger, traceRequestheaderName, sessionCookieName));
 
   // Log request and response details
-  expressApp.use(generateReqResLogs);
+  expressApp.use(generateReqResLogs(logHeaders));
 };
