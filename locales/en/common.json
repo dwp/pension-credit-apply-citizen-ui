@@ -1,6 +1,6 @@
 {
   "serviceName": "Apply for Pension Credit",
-  "phaseBanner": "This is a new service – your <a class=\"govuk-link\" href=\"${url}\" target=\"_blank\" rel=\"noopener noreferrer\">feedback</a> will help us to improve it.",
+  "phaseBanner": "This is a new service – help us improve it by sending your <a class=\"govuk-link\" href=\"${url}\" target=\"_blank\" rel=\"noopener noreferrer\">feedback (opens in a new tab)</a>.",
   "callTimes": "Monday to Friday, 9:30am to 6pm (closed on bank holidays).<br/>Calls to 0800 numbers are free from landlines and mobiles.",
   "telephone": "Telephone",
   "telephoneNumber": "0800 99 1234",

@@ -1,6 +1,6 @@
 {
   "serviceName": "Gwneud cais am Gredyd Pensiwn",
-  "phaseBanner": "Mae hwn yn wasanaeth newydd – bydd eich <a class=\"govuk-link\" href=\"${url}\" target=\"_blank\" rel=\"noopener noreferrer\">adborth</a> yn ein helpu i'w wella.",
+  "phaseBanner": "Mae hwn yn wasanaeth newydd – helpwch ni i'w wella trwy anfon eich <a class=\"govuk-link\" href=\"${url}\" target=\"_blank\" rel=\"noopener noreferrer\">adborth (agor mewn tab newydd)</a>.",
   "callTimes": "Dydd Llun i ddydd Gwener, 9:30am i 6pm (wedi cau ar wyliau banc).<br/>Mae galwadau i rifau 0800 am ddim o linellau daear a ffonau symudol.",
   "telephone": "Ffôn",
   "telephoneNumber": "0800 99 1234",
