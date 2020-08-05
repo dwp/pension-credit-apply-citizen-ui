@@ -5,6 +5,13 @@
     "bullets_html": "<li>the information is correct and complete as far as you know</li><li>you’ll pay back any money you’re overpaid if you’re asked to</li>",
     "information": "You could be prosecuted or have to pay a financial penalty if you deliberately give the wrong or incomplete information or do not report changes."
   },
+  "print": {
+    "heading": "Print a copy of your answers",
+    "body": "This is a copy of the answers shown on this page. If you change anything, you will need to print a new copy.",
+    "buttonLabel": "Print a copy of your answers",
+    "warningOnlyCopy": "This is only a copy of your answers. It is not proof that you have applied for or been awarded Pension Credit.",
+    "warningNotSubmitted": "Printing this document does not submit your application. You must submit your application from the check your answers page."
+  },
   "error": {
     "submission-locked": "Your claim is still being submitted. Please wait before continuing.",
     "claim-service-failure": "Your claim has not been submitted. Please try again."

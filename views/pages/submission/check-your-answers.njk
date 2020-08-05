@@ -2,6 +2,7 @@
 
 {% from "components/error-summary/macro.njk" import govukErrorSummary %}
 {% from "components/summary-list/macro.njk" import govukSummaryList %}
+{% from "components/button/macro.njk" import govukButton %}
 
 {% block casaPageTitle %}
   {{ t("check-your-answers:pageTitle") }} - {{ t("common:serviceName") }}
@@ -17,6 +18,15 @@
 
   <h1 class="govuk-heading-xl">{{ t("check-your-answers:pageTitle") }}</h1>
 
+  <div class="print-only" id="cya-print-warning">
+    <p class="govuk-body govuk-!-font-weight-bold">
+      {{ t("check-your-answers:print.warningOnlyCopy") }}
+    </p>
+    <p class="govuk-body govuk-!-font-weight-bold">
+      {{ t("check-your-answers:print.warningNotSubmitted") }}
+    </p>
+  </div>
+
   {% for section in sections %}
     <h2 class="govuk-heading-l">{{ section.heading }}</h2>
     {{ govukSummaryList({
@@ -27,13 +37,30 @@
 
   <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
-  <h2 class="govuk-heading-l">{{ t("check-your-answers:declaration.heading") }}</h2>
-  <ul class="govuk-body">
-    {{ t("check-your-answers:declaration.bullets_html") | safe }}
-  </ul>
-  <p class="govuk-body govuk-!-font-weight-bold">
-    {{ t("check-your-answers:declaration.information") }}
-  </p>
+  <div class="print-hidden">
+    <h2 class="govuk-heading-m">{{ t("check-your-answers:print.heading") }}</h2>
+    <p class="govuk-body">
+      {{ t("check-your-answers:print.body") }}
+    </p>
+    <p class="govuk-body">
+      {{ govukButton({
+        classes: "govuk-button--secondary",
+        element: "button",
+        text: t("check-your-answers:print.buttonLabel"),
+        attributes: {
+          id: "print-button"
+        }
+      }) }}
+    </p>
+
+    <h2 class="govuk-heading-l">{{ t("check-your-answers:declaration.heading") }}</h2>
+    <ul class="govuk-body">
+      {{ t("check-your-answers:declaration.bullets_html") | safe }}
+    </ul>
+    <p class="govuk-body govuk-!-font-weight-bold">
+      {{ t("check-your-answers:declaration.information") }}
+    </p>
+  </div>
 {% endblock %}
 
 {% block journey_button %}
@@ -63,5 +90,10 @@
 
     $submit.removeEventListener('click', GOVUKFrontend.Button.prototype.debounce)
     $submit.addEventListener('click', debounceHTTP)
+
+    document.getElementById('print-button').addEventListener('click', function (event) {
+      window.print();
+      event.preventDefault ? event.preventDefault() : (event.returnValue = false);
+    });
   </script>
 {% endblock %}

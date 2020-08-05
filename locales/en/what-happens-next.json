@@ -37,5 +37,8 @@
         "paraHtml": "You might be able to claim <a href=\"https://www.nidirect.gov.uk/articles/carers-allowance\"class=\"govuk-link\">Carer’s Allowance</a> if you care for someone for 35 hours or more a week."
       }
     }
+  },
+  "print": {
+    "buttonLabel": "Print a copy of this page"
   }
 }

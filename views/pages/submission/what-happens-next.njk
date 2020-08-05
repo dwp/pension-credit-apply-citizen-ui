@@ -2,6 +2,7 @@
 
 {% from "components/panel/macro.njk" import govukPanel %}
 {% from "components/error-summary/macro.njk" import govukErrorSummary %}
+{% from "components/button/macro.njk" import govukButton %}
 
 {% block casaPageTitle %}
   {{ t("what-happens-next:pageTitle") }} - {{ t("common:serviceName") }}
@@ -25,6 +26,17 @@
           {{ t("what-happens-next:section.whatHappensNext.leadParaDefaultHtml", contactDate) | safe }}
         {% endif %}
       </p>
+      <p class="govuk-body">
+        {{ govukButton({
+          classes: "govuk-button--secondary",
+          element: "button",
+          text: t("what-happens-next:print.buttonLabel"),
+          attributes: {
+            id: "print-button"
+          }
+        }) }}
+      </p>
+
 
       <h3 class="govuk-heading-m">{{ t('what-happens-next:section.whatHappensNext.subHeadingSuccess') }}</h3>
       <p class="govuk-body">
@@ -65,4 +77,14 @@
       </p>
     </div>
   </div>
+{% endblock %}
+
+{% block bodyEnd %}
+  {{ super() }}
+  <script{%- if nonce %} nonce="{{ nonce }}"{% endif -%}>
+    document.getElementById('print-button').addEventListener('click', function (event) {
+      window.print();
+      event.preventDefault ? event.preventDefault() : (event.returnValue = false);
+    });
+  </script>
 {% endblock %}

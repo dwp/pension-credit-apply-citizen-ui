@@ -46,6 +46,10 @@
   }
 }
 
+.print-only {
+  display: none;
+}
+
 @media print {
   @page {
     size: A4;
@@ -56,8 +60,12 @@
     margin: 0;
   }
 
-  .govuk-phase-banner, .govuk-back-link, .govuk-footer, .govuk-button, .govuk-summary-list__actions, .govuk-panel, .print-hidden {
+  .casa-cookie-banner, .govuk-phase-banner, .govuk-back-link, .govuk-footer, .govuk-button, .govuk-summary-list__actions, .govuk-panel, .print-hidden {
     display: none;
+  }
+
+  .print-only {
+    display: block;
   }
 
   .govuk-grid-column-two-thirds {

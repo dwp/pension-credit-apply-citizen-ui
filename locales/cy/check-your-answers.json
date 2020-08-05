@@ -5,6 +5,13 @@
     "bullets_html": "<li>bod y wybodaeth yn gywir a chyflawn cyn belled ag rydych yn gwybod</li><li>y byddwch yn talu'n ôl unrhyw arian a or-dalwyd i chi os gofynnir i chi wneud hynny</li>",
     "information": "Gallech gael eich erlyn neu orfod talu cosb ariannol os byddwch yn rhoi’r wybodaeth anghywir neu anghyflawn yn fwriadol neu os nad ydych yn rhoi gwybod am newidiadau."
   },
+  "print": {
+    "heading": "Argraffu copi o’ch atebion",
+    "body": "Mae hwn yn gopi o’r atebion sydd i’w gweld ar y dudalen hon. Os byddwch yn newid unrhyw beth, bydd angen i chi argraffu copi newydd.",
+    "buttonLabel": "Argraffu copi o’ch atebion",
+    "warningOnlyCopy": "Dim ond copi o’ch atebion yw hwn. Nid yw’n brawf eich bod wedi gwneud cais am na chael dyfarniad o Gredyd Pensiwn.",
+    "warningNotSubmitted": "Nid yw argraffu’r ddogfen yma yn anfon eich cais. Mae’n rhaid i chi anfon eich cais o’r dudalen edrych dros eich atebion."
+  },
   "error": {
     "submission-locked": "Mae eich cais yn dal i gael ei hanfon. Arhoswch cyn parhau.",
     "claim-service-failure": "Nid yw eich cais wedi cael ei hanfon. Rhowch gynnig arall."

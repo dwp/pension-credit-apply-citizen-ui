@@ -41,5 +41,8 @@
         "paraHtml": "Efallai y gallwch wneud cais am <a href=\"https://www.nidirect.gov.uk/articles/carers-allowance\" class=\"govuk-link\">Lwfans Gofalwr</a> os ydych yn gofalu am rywun am 35 awr neu fwy yr wythnos."
       }
     }
+  },
+  "print": {
+    "buttonLabel": "Argraffu copi o’r dudalen hon"
   }
 }
