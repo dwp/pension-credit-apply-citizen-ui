@@ -9,7 +9,7 @@
       "subHeadingSuccess": "Os yw eich cais yn llwyddiannus byddwn yn talu eich Credyd Pensiwn i'r un cyfrif rydych yn cael eich Pensiwn y Wladwriaeth iddo.",
       "paraSuccess": "Byddwch yn gallu newid hyn i gyfrif gwahanol unwaith mae eich Credyd Pensiwn yn cael ei dalu.",
       "subHeadingChanges": "Os oes unrhyw beth yn newid",
-      "paraChangesHtml": "Tra rydych yn cael Credyd Pensiwn, mae'n rhaid i chi ddweud wrthym yn syth am unrhyw <a href=\"https://www.gov.uk/credyd-pensiwn/rhoi-gwybod-am-newid-mewn-amgylchiadau\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"govuk-link\">newidiadau a allai effeithio'r swm o Gredyd Pensiwn a gewch (agor mewn ffenestr neu mewn tab newydd).</a>"
+      "paraChangesHtml": "Tra rydych yn cael Credyd Pensiwn, mae'n rhaid i chi ddweud wrthym yn syth am unrhyw <a href=\"https://www.gov.uk/credyd-pensiwn/rhoi-gwybod-am-newid-mewn-amgylchiadau\" class=\"govuk-link\">newidiadau a allai effeithio'r swm o Gredyd Pensiwn a gewch.</a>"
     },
     "housingBenefit": {
       "heading": "Budd-dal Tai",
@@ -21,7 +21,7 @@
     },
     "carersAllowance": {
       "heading": "Lwfans Gofalwr",
-      "paraHtml": "Efallai y gallwch wneud cais am <a href=\"https://www.gov.uk/lwfans-gofalwr\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"govuk-link\">Lwfans Gofalwr (agor mewn ffenestr neu mewn tab newydd)</a> os ydych yn gofalu am rywun am 35 awr neu fwy yr wythnos."
+      "paraHtml": "Efallai y gallwch wneud cais am <a href=\"https://www.gov.uk/lwfans-gofalwr\" class=\"govuk-link\">Lwfans Gofalwr</a> os ydych yn gofalu am rywun am 35 awr neu fwy yr wythnos."
     },
     "survey": {
       "heading": "Helpwch ni i wella Credyd Pensiwn",
@@ -31,14 +31,14 @@
   "northernIreland": {
     "section": {
       "whatHappensNext": {
-        "paraChangesHtml": "Tra rydych yn cael Credyd Pensiwn, mae'n rhaid i chi ddweud wrthym yn syth am unrhyw <a href=\"https://www.nidirect.gov.uk/articles/pensions-report-change-your-circumstances\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"govuk-link\">newidiadau a allai effeithio'r swm o Gredyd Pensiwn a gewch (agor mewn ffenestr neu mewn tab newydd).</a>"
+        "paraChangesHtml": "Tra rydych yn cael Credyd Pensiwn, mae'n rhaid i chi ddweud wrthym yn syth am unrhyw <a href=\"https://www.nidirect.gov.uk/articles/pensions-report-change-your-circumstances\" class=\"govuk-link\">newidiadau a allai effeithio'r swm o Gredyd Pensiwn a gewch.</a>"
       },
       "councilTaxReduction": {
         "heading": "Rhyddhad Ardrethi",
         "para": "Os yw eich cais yn llwyddiannus, efallai y byddwch yn gallu gwneud cais am Ryddhad Ardrethi. Dylech gysylltu â'ch awdurdod lleol i wneud cais."
       },
       "carersAllowance": {
-        "paraHtml": "Efallai y gallwch wneud cais am <a href=\"https://www.nidirect.gov.uk/articles/carers-allowance\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"govuk-link\">Lwfans Gofalwr (agor mewn ffenestr neu mewn tab newydd)</a> os ydych yn gofalu am rywun am 35 awr neu fwy yr wythnos."
+        "paraHtml": "Efallai y gallwch wneud cais am <a href=\"https://www.nidirect.gov.uk/articles/carers-allowance\" class=\"govuk-link\">Lwfans Gofalwr</a> os ydych yn gofalu am rywun am 35 awr neu fwy yr wythnos."
       }
     }
   }

@@ -25,7 +25,7 @@
   },
   "footer": {
     "accessibilityStatement": "Datganiad hygyrchedd",
-    "personalInformationCharter": "Siarter Gwybodaeth Bersonol (agor mewn ffenestr newydd)",
+    "personalInformationCharter": "Siarter Gwybodaeth Bersonol (agor mewn tab newydd)",
     "personalInformationCharterHref": "https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter.cy",
     "cookies": "Cwcis"
   },
@@ -37,8 +37,8 @@
     "pensionCreditClaimLine": "Os ydych angen siarad â ni, ffoniwch y Llinell Gwneud Cais am Gredyd Pensiwn",
     "applyForUniversalCreditLink": "<a href=\"https://www.nidirect.gov.uk/campaigns/universal-credit\" class=\"govuk-link\">Gwneud cais am Gredyd Cynhwysol ar-lein</a>",
     "footer": {
-      "personalInformationCharter": "Preifatrwydd Gogledd Iwerddon (agor mewn ffenestr newydd)",
-      "personalInformationCharterHref": "https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter.cy"
+      "personalInformationCharter": "Preifatrwydd Gogledd Iwerddon (agor mewn tab newydd)",
+      "personalInformationCharterHref": "https://www.communities-ni.gov.uk/sites/default/files/publications/communities/dfc-gdpr-privacy-notice-wig.pdf"
     }
   },
   "whoMadeClaim": {

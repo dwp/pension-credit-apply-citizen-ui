@@ -12,7 +12,7 @@
   "ucCallTimes": "Monday to Friday, 8am to 6pm (closed on bank holidays).<br/>Calls to 0800 numbers are free from landlines and mobiles.",
   "pensionCreditClaimLine": "If you need to speak to us, call the Pension Credit claim line.",
   "helpUsImprove": "Help us improve Pension Credit",
-  "takeSurvey": "Take a short survey (opens in a new window or tab)",
+  "takeSurvey": "Take a short survey",
   "cookies": {
     "canWeUseCookies": "Can we use cookies in our services?",
     "useAnalytics": "We’d like to use analytics cookies to collect information about how you use our services. This helps us to make them better.",
@@ -25,7 +25,7 @@
   },
   "footer": {
     "accessibilityStatement": "Accessibility statement",
-    "personalInformationCharter": "Personal Information Charter (opens in a new window)",
+    "personalInformationCharter": "Personal Information Charter (opens in a new tab)",
     "personalInformationCharterHref": "https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter",
     "cookies": "Cookies"
   },
@@ -37,8 +37,8 @@
     "pensionCreditClaimLine": "If you need to speak to us, call the Pension Credit Application Line.",
     "applyForUniversalCreditLink": "<a href=\"https://www.nidirect.gov.uk/campaigns/universal-credit\" class=\"govuk-link\">Apply online for Universal Credit</a>",
     "footer": {
-      "personalInformationCharter": "Northern Ireland Privacy (opens in a new window)",
-      "personalInformationCharterHref": "https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter"
+      "personalInformationCharter": "Northern Ireland Privacy (opens in a new tab)",
+      "personalInformationCharterHref": "https://www.communities-ni.gov.uk/sites/default/files/publications/communities/dfc-gdpr-privacy-notice-wig.pdf"
     }
   },
   "whoMadeClaim": {

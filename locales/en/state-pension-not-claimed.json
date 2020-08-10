@@ -3,7 +3,7 @@
   "youShouldClaimYourStatePension": "You should <a class=\"govuk-link\" href=\"https://www.gov.uk/new-state-pension/how-to-claim\">claim your State Pension</a> first if you are entitled to one.",
   "notEntitledToStatePension": "If you are not entitled to a State Pension call the Pension Credit claim line.",
   "northernIreland": {
-    "youShouldClaimYourStatePension": "You should <a class=\"govuk-link\" target=\"_blank\" href=\"https://www.nidirect.gov.uk/articles/ways-claim-state-pension\">claim your State Pension (opens in a new window or tab)</a> first if you are entitled to one.",
+    "youShouldClaimYourStatePension": "You should <a class=\"govuk-link\" href=\"https://www.nidirect.gov.uk/articles/ways-claim-state-pension\">claim your State Pension</a> first if you are entitled to one.",
     "notEntitledToStatePension": "If you are not entitled to a State Pension call the Pension Credit Application Line."
   }
 }
