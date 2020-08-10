@@ -1,4 +1,5 @@
 const { trimWhitespace } = require('@dwp/govuk-casa').gatherModifiers;
+const deepTrimWhitespace = require('../field-gather-modifiers/deep-trim-white-space.js');
 
 const { waypoints } = require('../../lib/constants.js');
 
@@ -37,6 +38,10 @@ module.exports = (addressServiceFactory, mountUrl) => {
   pages[waypoints.HRT_CITIZEN_NATIONALITY_DETAILS] = {
     view: 'pages/hrt-citizen/nationality-details.njk',
     fieldValidators: nationalityDetails,
+    fieldGatherModifiers: {
+      lastCameToUk: deepTrimWhitespace,
+      lastLeftUk: deepTrimWhitespace,
+    },
   };
 
   pages[waypoints.HRT_CITIZEN_UK_SPONSORSHIP] = {
@@ -47,6 +52,9 @@ module.exports = (addressServiceFactory, mountUrl) => {
   pages[waypoints.HRT_CITIZEN_SPONSORSHIP_DETAILS] = {
     view: 'pages/hrt-citizen/sponsorship-details.njk',
     fieldValidators: sponsorshipDetails,
+    fieldGatherModifiers: {
+      sponsorshipUndertakingSigned: deepTrimWhitespace,
+    },
   };
 
   pages[waypoints.HRT_CITIZEN_SPONSOR_ADDRESS_POSTCODE_LOOKUP] = {
@@ -86,6 +94,9 @@ module.exports = (addressServiceFactory, mountUrl) => {
   pages[waypoints.HRT_CITIZEN_ASYLUM_SEEKER] = {
     view: 'pages/hrt-citizen/asylum-seeker.njk',
     fieldValidators: asylumSeeker,
+    fieldGatherModifiers: {
+      successfulDecisionDate: deepTrimWhitespace,
+    },
   };
 
   return pages;

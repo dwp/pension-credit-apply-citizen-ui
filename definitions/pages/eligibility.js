@@ -1,4 +1,5 @@
 const { waypoints } = require('../../lib/constants.js');
+const deepTrimWhitespace = require('../field-gather-modifiers/deep-trim-white-space.js');
 const countryYouLiveInValidation = require('../field-validators/eligibility/country-you-live-in.js');
 const claimedStatePensionValidation = require('../field-validators/eligibility/claimed-state-pension.js');
 const childrenLivingWithYouValidation = require('../field-validators/eligibility/children-living-with-you.js');
@@ -59,6 +60,9 @@ module.exports = (sessionTtl) => {
   pages[waypoints.DATE_OF_BIRTH] = {
     view: 'pages/eligibility/date-of-birth.njk',
     fieldValidators: dateOfBirthValidation,
+    fieldGatherModifiers: {
+      dateOfBirth: deepTrimWhitespace,
+    },
   };
 
   pages[waypoints.TOO_YOUNG_TO_CLAIM] = {
@@ -71,6 +75,9 @@ module.exports = (sessionTtl) => {
   pages[waypoints.LIVE_WITH_PARTNER] = {
     view: 'pages/eligibility/live-with-partner.njk',
     fieldValidators: liveWithPartnerValidation,
+    fieldGatherModifiers: {
+      partnerDateOfBirth: deepTrimWhitespace,
+    },
   };
 
   pages[waypoints.PARTNER_AGREE] = {

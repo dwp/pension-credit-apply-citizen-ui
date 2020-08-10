@@ -1,3 +1,4 @@
+const { trimWhitespace } = require('@dwp/govuk-casa').gatherModifiers;
 const { waypoints } = require('../../lib/constants.js');
 const checkboxesModifier = require('../field-gather-modifiers/checkboxes.js');
 const moneyYouHaveValidation = require('../field-validators/money/money-you-have.js');
@@ -14,6 +15,10 @@ module.exports = () => {
   pages[waypoints.MONEY_YOU_HAVE] = {
     view: 'pages/money/money-you-have.njk',
     fieldValidators: moneyYouHaveValidation,
+    fieldGatherModifiers: {
+      moneyBackdated: trimWhitespace,
+      moneyToday: trimWhitespace,
+    },
     hooks: {
       prerender: [
         jointOrSingleClaim(waypoints),
