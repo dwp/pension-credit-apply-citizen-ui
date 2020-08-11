@@ -1,4 +1,5 @@
-const { expect } = require('chai');
+const sinon = require('sinon');
+const { expect } = require('chai').use(require('sinon-chai'));
 const { waypoints } = require('../../lib/constants.js');
 const Request = require('../helpers/fake-request.js');
 const Response = require('../helpers/fake-response.js');
@@ -124,9 +125,22 @@ describe('Middleware: cookie-message', () => {
       const req = new Request();
       const res = new Response(req);
       cookieMessage(app, cookieName, waypoints, mount, proxyMount);
-      req.params.cookieMethod = 'accept';
+      req.params.cookieMethod = 'reject';
       app.all(req, res, () => {});
-      expect(res.cookies).to.have.property(cookieName).that.equals('accept');
+      expect(res.cookies).to.have.property(cookieName).that.equals('reject');
+    });
+
+    it('should remove ga cookies if reject', () => {
+      const req = new Request();
+      const res = new Response(req);
+      cookieMessage(app, cookieName, waypoints, mount, proxyMount);
+      req.params.cookieMethod = 'reject';
+      req.headers.cookie = '_gat';
+      res.clearCookie = sinon.stub();
+      app.all(req, res, () => {});
+      expect(res.clearCookie).to.be.calledWith('_ga');
+      expect(res.clearCookie).to.be.calledWith('_gat');
+      expect(res.clearCookie).to.be.calledWith('_gid');
     });
 
     it('should not set consent cookie if not accept or reject', () => {

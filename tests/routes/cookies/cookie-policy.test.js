@@ -106,6 +106,19 @@ describe('cookies/cookie-policy', () => {
       expect(res.cookies).to.have.property(CONSENT_COOKIE_NAME).that.equals('accept');
     });
 
+    it('should remove ga cookies if req.body.cookieConsent is reject', () => {
+      const route = cookiePolicyPost(CONSENT_COOKIE_NAME);
+      const req = new Request();
+      const res = new Response(req);
+      req.body.cookieConsent = 'reject';
+      req.headers.cookie = '_gat';
+      res.clearCookie = sinon.stub();
+      route(req, res);
+      expect(res.clearCookie).to.be.calledWith('_ga');
+      expect(res.clearCookie).to.be.calledWith('_gat');
+      expect(res.clearCookie).to.be.calledWith('_gid');
+    });
+
     it('should redirect back to backto query URL if present', () => {
       const route = cookiePolicyPost(CONSENT_COOKIE_NAME);
       const req = new Request();

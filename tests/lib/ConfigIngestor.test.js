@@ -259,6 +259,24 @@ describe('ConfigIngestor', () => {
     }).to.throw(TypeError, /^GOOGLE_TAG_MANAGER_ID must be valid format$/);
   });
 
+  it('GOOGLE_TAG_MANAGER_DOMAIN should be parsed', () => {
+    const ci = ConfigIngestor({
+      ...requiredVars,
+      GOOGLE_TAG_MANAGER_DOMAIN: '.test.gov.uk',
+    });
+    expect(ci.GOOGLE_TAG_MANAGER_DOMAIN).to.be.a('string');
+    expect(ci.GOOGLE_TAG_MANAGER_DOMAIN).to.equal('.test.gov.uk');
+  });
+
+  it('GOOGLE_TAG_MANAGER_DOMAIN must be valid format', () => {
+    expect(() => {
+      ConfigIngestor({
+        ...requiredVars,
+        GOOGLE_TAG_MANAGER_DOMAIN: 'bad domain',
+      });
+    }).to.throw(TypeError, /^GOOGLE_TAG_MANAGER_DOMAIN must be valid format$/);
+  });
+
   it('ENABLE_CSP should be false if false', () => {
     const ci = ConfigIngestor({
       ...requiredVars,

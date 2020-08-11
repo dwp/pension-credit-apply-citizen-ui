@@ -1,7 +1,8 @@
 const qs = require('querystring');
 const setConsentCookie = require('../utils/set-consent-cookie.js');
+const removeGTMCookies = require('../utils/remove-gtm-cookies.js');
 
-module.exports = (app, consentCookieName, waypoints, mountUrl = '/', proxyMountUrl = mountUrl, useTLS = false) => {
+module.exports = (app, consentCookieName, waypoints, mountUrl = '/', proxyMountUrl = mountUrl, gtmDomain, useTLS = false) => {
   const reProxyMountUrl = new RegExp(`^${proxyMountUrl}`);
   const sanitiseUrl = (url) => url.replace(reProxyMountUrl, mountUrl).replace(/\/+/g, '/');
 
@@ -49,6 +50,11 @@ module.exports = (app, consentCookieName, waypoints, mountUrl = '/', proxyMountU
 
     if (cookieMethod === 'reject' || cookieMethod === 'accept') {
       setConsentCookie(req, res, consentCookieName, cookieMethod, mountUrl, useTLS);
+    }
+
+    // If rejected, remove any GA cookies
+    if (cookieMethod === 'reject') {
+      removeGTMCookies(req, res, gtmDomain);
     }
 
     req.session.save(() => {

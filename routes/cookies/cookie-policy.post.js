@@ -1,6 +1,7 @@
 const setConsentCookie = require('../../utils/set-consent-cookie.js');
+const removeGTMCookies = require('../../utils/remove-gtm-cookies.js');
 
-module.exports = (consentCookieName, mountUrl, useTLS) => (req, res) => {
+module.exports = (consentCookieName, mountUrl, gtmDomain, useTLS) => (req, res) => {
   const { cookieConsent } = req.body;
 
   // Validation error, set messeage in session and redirect back to this page
@@ -12,6 +13,11 @@ module.exports = (consentCookieName, mountUrl, useTLS) => (req, res) => {
   // Validation successful, set cookie and redirect back where they came from
   // via backto query string, if it exists
   setConsentCookie(req, res, consentCookieName, cookieConsent, mountUrl, useTLS);
+
+  // If rejected, remove any GA cookies
+  if (cookieConsent === 'reject') {
+    removeGTMCookies(req, res, gtmDomain);
+  }
 
   if (req.query.backto) {
     const { pathname, search } = new URL(String(req.query.backto), 'http://dummy.test/');
