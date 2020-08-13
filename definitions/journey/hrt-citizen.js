@@ -85,9 +85,26 @@ module.exports = (plan) => {
   // Manual entry can go to next page if hidden page contains manual data
   plan.setRoute(WP.HRT_CITIZEN_SPONSOR_ADDRESS_MANUAL, WP.HRT_CITIZEN_ASYLUM_SEEKER, isEqualTo('addressFrom', 'manual', WP.HRT_CITIZEN_SPONSOR_ADDRESS_HIDDEN));
 
-  // If claimant lives with a partner, ask about their nationality
-  plan.setRoute(WP.HRT_CITIZEN_ASYLUM_SEEKER, WP.PARTNER_NATIONALITY, livingWithPartner);
+  // If claimant is an asylum seeker, ask about their application for asylum
+  plan.setRoute(WP.HRT_CITIZEN_ASYLUM_SEEKER, WP.HRT_CITIZEN_ASYLUM_APPLICATION, isYes('asylumSeeker'));
 
-  // Or go to WHO_MADE_CLAIM page
-  plan.setRoute(WP.HRT_CITIZEN_ASYLUM_SEEKER, WP.WHO_MADE_CLAIM, notLivingWithPartner);
+  // If claimant lives with a partner, ask about their partner's nationality
+  plan.setRoute(WP.HRT_CITIZEN_ASYLUM_APPLICATION, WP.PARTNER_NATIONALITY, livingWithPartner);
+
+  // If claimant does not live with a partner, go to who made claim
+  plan.setRoute(WP.HRT_CITIZEN_ASYLUM_APPLICATION, WP.WHO_MADE_CLAIM, notLivingWithPartner);
+
+  // If claimant is not an asylum seeker but lives with a partner, ask about
+  // their partner's nationality
+  plan.setRoute(WP.HRT_CITIZEN_ASYLUM_SEEKER, WP.PARTNER_NATIONALITY, (r, c) => (
+    isNo('asylumSeeker')(r, c)
+    && livingWithPartner(r, c)
+  ));
+
+  // If claimant is not an asylum seeker and does not live with a partner, go to
+  // who made claim
+  plan.setRoute(WP.HRT_CITIZEN_ASYLUM_SEEKER, WP.WHO_MADE_CLAIM, (r, c) => (
+    isNo('asylumSeeker')(r, c)
+    && notLivingWithPartner(r, c)
+  ));
 };

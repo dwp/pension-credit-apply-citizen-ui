@@ -18,6 +18,7 @@ const nationalityDetails = require('../field-validators/hrt-citizen/nationality-
 const ukSponsorship = require('../field-validators/hrt-citizen/uk-sponsorship.js');
 const sponsorshipDetails = require('../field-validators/hrt-citizen/sponsorship-details.js');
 const asylumSeeker = require('../field-validators/hrt-citizen/asylum-seeker.js');
+const asylumApplication = require('../field-validators/hrt-citizen/asylum-application.js');
 
 module.exports = (addressServiceFactory, mountUrl) => {
   const pages = Object.create(null);
@@ -97,6 +98,11 @@ module.exports = (addressServiceFactory, mountUrl) => {
     fieldGatherModifiers: {
       successfulDecisionDate: deepTrimWhitespace,
     },
+  };
+
+  pages[waypoints.HRT_CITIZEN_ASYLUM_APPLICATION] = {
+    view: 'pages/hrt-citizen/asylum-application.njk',
+    fieldValidators: asylumApplication,
   };
 
   return pages;

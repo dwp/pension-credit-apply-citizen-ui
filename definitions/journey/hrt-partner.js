@@ -75,6 +75,9 @@ module.exports = (plan) => {
   // Manual entry can go to next page if hidden page contains manual data
   plan.setRoute(WP.HRT_PARTNER_SPONSOR_ADDRESS_MANUAL, WP.HRT_PARTNER_ASYLUM_SEEKER, isEqualTo('addressFrom', 'manual', WP.HRT_PARTNER_SPONSOR_ADDRESS_HIDDEN));
 
-  // partner-asylum-seeker
-  plan.addSequence(WP.HRT_PARTNER_ASYLUM_SEEKER, WP.WHO_MADE_CLAIM);
+  // If partner is an asylum seeker ask about their application, otherwise go to
+  // who made claim
+  plan.setRoute(WP.HRT_PARTNER_ASYLUM_SEEKER, WP.HRT_PARTNER_ASYLUM_APPLICATION, isYes('partnerAsylumSeeker'));
+  plan.setRoute(WP.HRT_PARTNER_ASYLUM_SEEKER, WP.WHO_MADE_CLAIM, isNo('partnerAsylumSeeker'));
+  plan.addSequence(WP.HRT_PARTNER_ASYLUM_APPLICATION, WP.WHO_MADE_CLAIM);
 };

@@ -1,0 +1,38 @@
+{
+  "pageTitle": "Your partner’s asylum application",
+  "field": {
+    "partnerAsylumBefore3April2000": {
+      "legend": "Did your partner first apply for asylum before 3 April 2000?",
+      "required": "Select yes if your partner first applied for asylum before 3 April 2000.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether your partner first applied for asylum before 3 April 2000</span>"
+    },
+    "partnerSuccessfulDecision": {
+      "legend": "Has your partner recently had a successful decision on their asylum application?",
+      "required": "Select yes if your partner has recently had a decision on their asylum application.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether your partner has recently had a successful decision on their asylum application</span>"
+    },
+    "partnerSuccessfulDecisionDate": {
+      "legend": "What date did your partner get a successful decision on their application?",
+      "required": "Enter the date your partner got a successful decision on your asylum application.",
+      "format": "Enter a real date.",
+      "change": "Change <span class=\"govuk-visually-hidden\">the date your partner got a successful decision on their application</span>"
+    },
+    "partnerSupportedByHomeOffice": {
+      "legend": "Has your partner been supported by the Home Office while waiting for a decision on their application?",
+      "required": "Select yes if your partner has been supported by the Home Office while waiting for a decision on their application.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether your partner has been supported by the Home Office while waiting for a decision on their application</span>"
+    }
+  }
+}

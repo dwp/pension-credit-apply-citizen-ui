@@ -1,0 +1,38 @@
+{
+  "pageTitle": "Eich cais am loches",
+  "field": {
+    "asylumBefore3April2000": {
+      "legend": "A wnaethoch chi gais am loches yn gyntaf cyn 3 Ebrill 2000?",
+      "required": "Dewiswch do os wnaethoch chi gais am loches yn gyntaf cyn 3 Ebrill 2000.",
+      "options": {
+        "yes": "Do",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os wnaethoch chi gais am loches yn gyntaf cyn 3 Ebrill 2000</span>"
+    },
+    "successfulDecision": {
+      "legend": "Ydych chi wedi cael penderfyniad llwyddiannus yn ddiweddar ar eich cais am loches?",
+      "required": "Dewiswch ydw os ydych wedi cael penderfyniad llwyddiannus yn ddiweddar ar eich cais am loches.",
+      "options": {
+        "yes": "Ydw",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi cael penderfyniad llwyddiannus yn ddiweddar ar eich cais am loches</span>"
+    },
+    "successfulDecisionDate": {
+      "legend": "Pa ddyddiad gawsoch chi benderfyniad llwyddiannus ar eich cais?",
+      "required": "Rhowch y dyddiad gawsoch chi benderfyniad llwyddiannus ar eich cais am loches.",
+      "format": "Rhowch ddyddiad gwirioneddol.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">y dyddiad gawsoch chi benderfyniad llwyddiannus ar eich cais am loches</span>"
+    },
+    "supportedByHomeOffice": {
+      "legend": "Ydych chi wedi cael cefnogaeth gan y Swyddfa Gartref tra'ch bod yn aros am benderfyniad ar eich cais?",
+      "required": "Dewiswch ydw os ydych wedi cael cefnogaeth gan y Swyddfa Gartref tra'ch bod yn aros am benderfyniad ar eich cais.",
+      "options": {
+        "yes": "Ydw",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi cael cefnogaeth gan y Swyddfa Gartref tra'ch bod yn aros am benderfyniad ar eich cais</span>"
+    }
+  }
+}

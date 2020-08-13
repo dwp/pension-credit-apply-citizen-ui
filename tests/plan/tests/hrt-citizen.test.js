@@ -59,6 +59,15 @@ describe('hrt-citizen', () => {
     return testTraversal({ app, waypoints, waypointHandlerFactory });
   }).timeout(TIMEOUT);
 
+  it('asylum seeker', () => {
+    const waypoints = mergePersonaJourneys([
+      ...defaultJourneys,
+      'hrt-citizen/asylum-seeker',
+    ]);
+
+    return testTraversal({ app, waypoints, waypointHandlerFactory });
+  }).timeout(TIMEOUT);
+
   it('partner', () => {
     const waypoints = mergePersonaJourneys([
       ...partnerJourneys,
@@ -72,6 +81,15 @@ describe('hrt-citizen', () => {
     const waypoints = mergePersonaJourneys([
       ...partnerJourneys,
       'hrt-citizen/no-hrt-partner',
+    ]);
+
+    return testTraversal({ app, waypoints, waypointHandlerFactory });
+  }).timeout(TIMEOUT);
+
+  it('partner, asylum seeker', () => {
+    const waypoints = mergePersonaJourneys([
+      ...partnerJourneys,
+      'hrt-citizen/asylum-seeker-partner',
     ]);
 
     return testTraversal({ app, waypoints, waypointHandlerFactory });

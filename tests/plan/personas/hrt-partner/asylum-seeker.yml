@@ -1,4 +1,4 @@
-name: hrt-partner-default
+name: hrt-partner-asylum-seeker
 
 journey:
   partner-nationality:
@@ -43,6 +43,14 @@ journey:
     postcode: "AA1 1AA"
 
   partner-asylum-seeker:
-    "no": click()
+    "yes": click()
+
+  partner-asylum-application:
+    partnerAsylumBefore3April2000Yes: click()
+    partnerSuccessfulDecisionYes: click()
+    partnerSuccessfulDecisionDate[dd]: "01"
+    partnerSuccessfulDecisionDate[mm]: "02"
+    partnerSuccessfulDecisionDate[yyyy]: "2020"
+    partnerSupportedByHomeOfficeYes: click()
 
   who-made-claim:

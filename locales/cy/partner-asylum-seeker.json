@@ -8,39 +8,6 @@
         "no": "Na"
       },
       "change": "Newid <span class=\"govuk-visually-hidden\">os yw eich partner yn geisiwr lloches</span>"
-    },
-    "partnerAsylumBefore3April2000": {
-      "legend": "A wnaeth eich partner wneud cais am loches yn gyntaf cyn 3 Ebrill 2000?",
-      "required": "Dewiswch do os gwnaeth eich partner wneud cais am loches yn gyntaf cyn 3 Ebrill 2000.",
-      "options": {
-        "yes": "Do",
-        "no": "Na"
-      },
-      "change": "Newid <span class=\"govuk-visually-hidden\">os gwnaeth eich partner wneud cais am loches yn gyntaf cyn 3 Ebrill 2000</span>"
-    },
-    "partnerSuccessfulDecision": {
-      "legend": "Ydy eich partner wedi cael penderfyniad llwyddiannus yn ddiweddar ar eu cais am loches?",
-      "required": "Dewiswch ydy os yw eich partner wedi cael penderfyniad llwyddiannus yn ddiweddar ar eu cais am loches.",
-      "options": {
-        "yes": "Ydy",
-        "no": "Na"
-      },
-      "change": "Newid <span class=\"govuk-visually-hidden\">os yw eich partner wedi cael penderfyniad llwyddiannus yn ddiweddar ar eu cais am loches</span>"
-    },
-    "partnerSuccessfulDecisionDate": {
-      "legend": "Pa ddyddiad y cafodd eich partner benderfyniad llwyddiannus ar eu cais?",
-      "required": "Rhowch y dyddiad y cafodd eich partner benderfyniad llwyddiannus ar eu cais am loches.",
-      "format": "Rhowch ddyddiad gwirioneddol y cafodd eich partner benderfyniad llwyddiannus ar eu cais am loches.",
-      "change": "Newid <span class=\"govuk-visually-hidden\">y dyddiad y cafodd eich partner benderfyniad llwyddiannus ar eu cais am loches</span>"
-    },
-    "partnerSupportedByHomeOffice": {
-      "legend": "Ydy eich partner wedi cael cefnogaeth gan y Swyddfa Gartref tra'n aros am benderfyniad ar eu cais?",
-      "required": "Dewiswch ydy os yw eich partner wedi cael cefnogaeth gan y Swyddfa Gartref tra'n aros am benderfyniad ar eu cais.",
-      "options": {
-        "yes": "Ydy",
-        "no": "Na"
-      },
-      "change": "Newid <span class=\"govuk-visually-hidden\">os yw eich partner wedi cael cefnogaeth gan y Swyddfa Gartref tra'n aros am benderfyniad ar eu cais</span>"
     }
   }
 }

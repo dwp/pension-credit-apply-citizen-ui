@@ -1,4 +1,4 @@
-name: hrt-citizen-default
+name: hrt-citizen-asylum-seeker-partner
 
 journey:
   # ------------------------------------------------------------- returned-to-uk
@@ -44,6 +44,14 @@ journey:
     postcode: "AA1 1AA"
 
   asylum-seeker:
-    "no": click()
+    "yes": click()
 
-  who-made-claim:
+  asylum-application:
+    asylumBefore3April2000Yes: click()
+    successfulDecisionYes: click()
+    successfulDecisionDate[dd]: "01"
+    successfulDecisionDate[mm]: "02"
+    successfulDecisionDate[yyyy]: "2020"
+    supportedByHomeOfficeYes: click()
+
+  partner-nationality:

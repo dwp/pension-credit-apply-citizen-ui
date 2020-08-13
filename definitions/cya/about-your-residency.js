@@ -7,9 +7,9 @@ module.exports = (t, context, claim, cyaUrl) => {
   const row = rowFactory(cyaUrl);
   const rov = radioOptionValue(t, context);
   const sponsorAddress = context.getDataForPage(WP.HRT_CITIZEN_SPONSOR_ADDRESS_HIDDEN) || {};
-  const nationalityDetails = context.data['nationality-details'] || {};
-  const sponsorshipDetails = context.data['sponsorship-details'] || {};
-  const asylumSeeker = context.data['asylum-seeker'] || {};
+  const nationalityDetails = context.data[WP.HRT_CITIZEN_NATIONALITY_DETAILS] || {};
+  const sponsorshipDetails = context.data[WP.HRT_CITIZEN_SPONSORSHIP_DETAILS] || {};
+  const asylumApplication = context.data[WP.HRT_CITIZEN_ASYLUM_APPLICATION] || {};
 
   // Common options for `formatDateObject()` calls
   const dateOpts = { locale: context.nav.language };
@@ -175,34 +175,34 @@ module.exports = (t, context, claim, cyaUrl) => {
 
     // Did you first apply for asylum before 3 April 2000?
     !claim.citizenIsAsylumSeeker() ? undefined : row({
-      changeHref: `${WP.HRT_CITIZEN_ASYLUM_SEEKER}#f-asylumBefore3April2000`,
-      changeHtml: t('asylum-seeker:field.asylumBefore3April2000.change'),
-      key: t('asylum-seeker:field.asylumBefore3April2000.legend'),
-      value: rov('asylum-seeker.asylumBefore3April2000', 'asylum-seeker:field.asylumBefore3April2000.options'),
+      changeHref: `${WP.HRT_CITIZEN_ASYLUM_APPLICATION}#f-asylumBefore3April2000`,
+      changeHtml: t('asylum-application:field.asylumBefore3April2000.change'),
+      key: t('asylum-application:field.asylumBefore3April2000.legend'),
+      value: rov('asylum-application.asylumBefore3April2000', 'asylum-application:field.asylumBefore3April2000.options'),
     }),
 
     // Have you recently had a successful decision on your asylum application?
     !claim.citizenIsAsylumSeeker() ? undefined : row({
-      changeHref: `${WP.HRT_CITIZEN_ASYLUM_SEEKER}#f-successfulDecision`,
-      changeHtml: t('asylum-seeker:field.successfulDecision.change'),
-      key: t('asylum-seeker:field.successfulDecision.legend'),
-      value: rov('asylum-seeker.successfulDecision', 'asylum-seeker:field.successfulDecision.options'),
+      changeHref: `${WP.HRT_CITIZEN_ASYLUM_APPLICATION}#f-successfulDecision`,
+      changeHtml: t('asylum-application:field.successfulDecision.change'),
+      key: t('asylum-application:field.successfulDecision.legend'),
+      value: rov('asylum-application.successfulDecision', 'asylum-application:field.successfulDecision.options'),
     }),
 
     // What date did you get a successful decision on your application?
     !claim.citizenIsAsylumSeeker() || !claim.habitualResidencyTest.successfulDecision ? undefined : row({
-      changeHref: `${WP.HRT_CITIZEN_ASYLUM_SEEKER}#f-successfulDecisionDate[dd]`,
-      changeHtml: t('asylum-seeker:field.successfulDecisionDate.change'),
-      key: t('asylum-seeker:field.successfulDecisionDate.legend'),
-      value: formatDateObject(asylumSeeker.successfulDecisionDate, dateOpts),
+      changeHref: `${WP.HRT_CITIZEN_ASYLUM_APPLICATION}#f-successfulDecisionDate[dd]`,
+      changeHtml: t('asylum-application:field.successfulDecisionDate.change'),
+      key: t('asylum-application:field.successfulDecisionDate.legend'),
+      value: formatDateObject(asylumApplication.successfulDecisionDate, dateOpts),
     }),
 
     // Have you been supported by the Home Office while waiting for a decision on your application?
     !claim.citizenIsAsylumSeeker() ? undefined : row({
-      changeHref: `${WP.HRT_CITIZEN_ASYLUM_SEEKER}#f-supportedByHomeOffice`,
-      changeHtml: t('asylum-seeker:field.supportedByHomeOffice.change'),
-      key: t('asylum-seeker:field.supportedByHomeOffice.legend'),
-      value: rov('asylum-seeker.supportedByHomeOffice', 'asylum-seeker:field.supportedByHomeOffice.options'),
+      changeHref: `${WP.HRT_CITIZEN_ASYLUM_APPLICATION}#f-supportedByHomeOffice`,
+      changeHtml: t('asylum-application:field.supportedByHomeOffice.change'),
+      key: t('asylum-application:field.supportedByHomeOffice.legend'),
+      value: rov('asylum-application.supportedByHomeOffice', 'asylum-application:field.supportedByHomeOffice.options'),
     }),
   ];
 

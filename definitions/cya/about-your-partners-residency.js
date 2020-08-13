@@ -12,9 +12,9 @@ module.exports = (t, context, claim, cyaUrl) => {
   const row = rowFactory(cyaUrl);
   const rov = radioOptionValue(t, context);
   const sponsorAddress = context.getDataForPage(WP.HRT_PARTNER_SPONSOR_ADDRESS_HIDDEN) || {};
-  const nationalityDetails = context.data['partner-nationality-details'] || {};
-  const sponsorshipDetails = context.data['partner-sponsorship-details'] || {};
-  const asylumSeeker = context.data['partner-asylum-seeker'] || {};
+  const nationalityDetails = context.data[WP.HRT_PARTNER_NATIONALITY_DETAILS] || {};
+  const sponsorshipDetails = context.data[WP.HRT_PARTNER_SPONSORSHIP_DETAILS] || {};
+  const asylumApplication = context.data[WP.HRT_PARTNER_ASYLUM_APPLICATION] || {};
 
   // Common options for `formatDateObject()` calls
   const dateOpts = { locale: context.nav.language };
@@ -181,34 +181,34 @@ module.exports = (t, context, claim, cyaUrl) => {
 
     // Did you first apply for asylum before 3 April 2000?
     !claim.partnerIsAsylumSeeker() ? undefined : row({
-      changeHref: `${WP.HRT_PARTNER_ASYLUM_SEEKER}#f-partnerAsylumBefore3April2000`,
-      changeHtml: t('partner-asylum-seeker:field.partnerAsylumBefore3April2000.change'),
-      key: t('partner-asylum-seeker:field.partnerAsylumBefore3April2000.legend'),
-      value: rov('partner-asylum-seeker.partnerAsylumBefore3April2000', 'partner-asylum-seeker:field.partnerAsylumBefore3April2000.options'),
+      changeHref: `${WP.HRT_PARTNER_ASYLUM_APPLICATION}#f-partnerAsylumBefore3April2000`,
+      changeHtml: t('partner-asylum-application:field.partnerAsylumBefore3April2000.change'),
+      key: t('partner-asylum-application:field.partnerAsylumBefore3April2000.legend'),
+      value: rov('partner-asylum-application.partnerAsylumBefore3April2000', 'partner-asylum-application:field.partnerAsylumBefore3April2000.options'),
     }),
 
     // Have you recently had a successful decision on your asylum application?
     !claim.partnerIsAsylumSeeker() ? undefined : row({
-      changeHref: `${WP.HRT_PARTNER_ASYLUM_SEEKER}#f-partnerSuccessfulDecision`,
-      changeHtml: t('partner-asylum-seeker:field.partnerSuccessfulDecision.change'),
-      key: t('partner-asylum-seeker:field.partnerSuccessfulDecision.legend'),
-      value: rov('partner-asylum-seeker.partnerSuccessfulDecision', 'partner-asylum-seeker:field.partnerSuccessfulDecision.options'),
+      changeHref: `${WP.HRT_PARTNER_ASYLUM_APPLICATION}#f-partnerSuccessfulDecision`,
+      changeHtml: t('partner-asylum-application:field.partnerSuccessfulDecision.change'),
+      key: t('partner-asylum-application:field.partnerSuccessfulDecision.legend'),
+      value: rov('partner-asylum-application.partnerSuccessfulDecision', 'partner-asylum-application:field.partnerSuccessfulDecision.options'),
     }),
 
     // What date did you get a successful decision on your application?
     !claim.partnerIsAsylumSeeker() || !claim.habitualResidencyTest.partnerSuccessfulDecision ? undefined : row({
-      changeHref: `${WP.HRT_PARTNER_ASYLUM_SEEKER}#f-partnerSuccessfulDecisionDate[dd]`,
-      changeHtml: t('partner-asylum-seeker:field.partnerSuccessfulDecisionDate.change'),
-      key: t('partner-asylum-seeker:field.partnerSuccessfulDecisionDate.legend'),
-      value: formatDateObject(asylumSeeker.partnerSuccessfulDecisionDate, dateOpts),
+      changeHref: `${WP.HRT_PARTNER_ASYLUM_APPLICATION}#f-partnerSuccessfulDecisionDate[dd]`,
+      changeHtml: t('partner-asylum-application:field.partnerSuccessfulDecisionDate.change'),
+      key: t('partner-asylum-application:field.partnerSuccessfulDecisionDate.legend'),
+      value: formatDateObject(asylumApplication.partnerSuccessfulDecisionDate, dateOpts),
     }),
 
     // Have you been supported by the Home Office while waiting for a decision on your application?
     !claim.partnerIsAsylumSeeker() ? undefined : row({
-      changeHref: `${WP.HRT_PARTNER_ASYLUM_SEEKER}#f-partnerSupportedByHomeOffice`,
-      changeHtml: t('partner-asylum-seeker:field.partnerSupportedByHomeOffice.change'),
-      key: t('partner-asylum-seeker:field.partnerSupportedByHomeOffice.legend'),
-      value: rov('partner-asylum-seeker.partnerSupportedByHomeOffice', 'partner-asylum-seeker:field.partnerSupportedByHomeOffice.options'),
+      changeHref: `${WP.HRT_PARTNER_ASYLUM_APPLICATION}#f-partnerSupportedByHomeOffice`,
+      changeHtml: t('partner-asylum-application:field.partnerSupportedByHomeOffice.change'),
+      key: t('partner-asylum-application:field.partnerSupportedByHomeOffice.legend'),
+      value: rov('partner-asylum-application.partnerSupportedByHomeOffice', 'partner-asylum-application:field.partnerSupportedByHomeOffice.options'),
     }),
   ];
 
