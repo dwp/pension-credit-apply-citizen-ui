@@ -170,6 +170,43 @@ describe('ConfigIngestor', () => {
     }).to.throw(RangeError, 'REDIS_ENCRYPTION_CACHE_REUSE_LIMIT must be between 0 and 10000');
   });
 
+  it('ConfigIngestor should throw if REDIS_ENCRYPTION_SUITE is not an integer', () => {
+    expect(() => {
+      ConfigIngestor({
+        ...requiredVars,
+        REDIS_ENCRYPTION_SUITE: 'not a string',
+      });
+    }).to.throw(TypeError, 'REDIS_ENCRYPTION_SUITE must be an integer');
+  });
+
+  it('ConfigIngestor should throw if REDIS_ENCRYPTION_SUITE is not a valid AWS SDK suite ID', () => {
+    // ref: https://github.com/aws/aws-encryption-sdk-javascript/blob/master/modules/material-management/src/algorithm_suites.ts#L24-L33
+    expect(() => {
+      ConfigIngestor({
+        ...requiredVars,
+        REDIS_ENCRYPTION_SUITE: 1234,
+      });
+    }).to.throw(ReferenceError, 'REDIS_ENCRYPTION_SUITE must be a valid suite ID');
+  });
+
+  it('ConfigIngestor should set REDIS_ENCRYPTION_SUITE to undefined by default', () => {
+    const config = ConfigIngestor(requiredVars);
+    return expect(config.REDIS_ENCRYPTION_SUITE).to.be.undefined;
+  });
+
+  it('ConfigIngestor should set REDIS_ENCRYPTION_CONTEXT_TAG to undefined by default', () => {
+    const config = ConfigIngestor(requiredVars);
+    return expect(config.REDIS_ENCRYPTION_CONTEXT_TAG).to.be.undefined;
+  });
+
+  it('ConfigIngestor should set REDIS_ENCRYPTION_CONTEXT_TAG to specified value', () => {
+    const config = ConfigIngestor({
+      ...requiredVars,
+      REDIS_ENCRYPTION_CONTEXT_TAG: 'test',
+    });
+    expect(config.REDIS_ENCRYPTION_CONTEXT_TAG).to.equal('test');
+  });
+
   it('ConfigIngestor should throw if AWS_KMS_ENDPOINT is defined in a non-development environment', () => {
     expect(() => {
       ConfigIngestor({

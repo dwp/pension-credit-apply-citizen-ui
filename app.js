@@ -105,6 +105,8 @@ module.exports = (CONFIG, baseLogger) => {
       redisClusterListener,
       baseLogger,
       cryptoService,
+      CONFIG.REDIS_ENCRYPTION_SUITE,
+      CONFIG.REDIS_ENCRYPTION_CONTEXT_TAG,
     ),
     i18n: {
       dirs: [path.resolve(__dirname, 'locales')],

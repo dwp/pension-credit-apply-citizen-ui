@@ -65,6 +65,22 @@ describe('RedisEncrypter', () => {
       expect(() => new RedisEncrypter(redisHost, redisOpts)).to.not.throw();
     });
 
+    it('should throw a TypeError if an invalid encryption context is provided', () => {
+      const message = 'encryptionContext must be an Object';
+      expect(() => new RedisEncrypter(redisHost, redisOpts, testKeyring, 'x')).to.throw(TypeError, message);
+    });
+
+    it('should throw a ReferenceError if an invalid cipher suite id is provided', () => {
+      const message = 'cipherSuite must be a valid AWS SDK suite identifier';
+      expect(() => new RedisEncrypter(
+        redisHost,
+        redisOpts,
+        testKeyring,
+        {},
+        1234,
+      )).to.throw(ReferenceError, message);
+    });
+
     describe('set()', () => {
       it('should call super.set() with plaintext payload when no cryptoservice is present', (done) => {
         const stub = sinon.stub(ioredis.prototype, 'set').callsFake((commands, cb) => cb());
@@ -98,7 +114,7 @@ describe('RedisEncrypter', () => {
       it('should call super.set() with the base64-encoded, encrypted payload', (done) => {
         const stub = sinon.stub(ioredis.prototype, 'set').callsFake((commands, cb) => cb());
 
-        const r = new RedisEncrypter(redisHost, redisOpts, testKeyring);
+        const r = new RedisEncrypter(redisHost, redisOpts, testKeyring, { test: 'test-enc-context' });
         r.set(['a', 'b', 'c', 'd'], () => {
           try {
             const payload = stub.getCall(0).args[0][1];
@@ -106,6 +122,7 @@ describe('RedisEncrypter', () => {
             // The 'apply-citizen-ui-session-key' is part of the expected
             // encryption context
             expect(Buffer.from(payload, 'base64').toString('utf8')).to.match(/apply-citizen-ui-session-key/);
+            expect(Buffer.from(payload, 'base64').toString('utf8')).to.match(/test-enc-context/);
             expect(stub).to.be.calledOnceWith(['a', payload, 'c', 'd']);
             done();
           } catch (ex) {

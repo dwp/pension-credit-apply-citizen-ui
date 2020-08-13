@@ -27,18 +27,16 @@ function makeLocalKeyRing(logger, masterKey) {
 function makeKmsKeyRing(
   logger,
   cmkId,
-  cacheTtl = 30,
-  cacheCapacity = 100,
-  cacheReuse = 100,
+  cacheTtl,
+  cacheCapacity,
+  cacheReuse,
   endpoint,
 ) {
-  // Setup a KMS client provider if using a ciustom endpoint (i.e. localstack)
+  // Setup a KMS client provider if using a custom endpoint (i.e. localstack)
   logger.info(`Setting up KMS client with endpoint: ${endpoint || 'default'}`);
   const clientProvider = endpoint ? getClient(KMS, { endpoint }) : undefined;
 
-  // Default encryption algortihm: AES-256-GCM + HKDF + ECDSA
-  // ref: https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/concepts.html#crypto-algorithm
-  // ref: https://github.com/aws/aws-encryption-sdk-javascript/blob/master/modules/client-node/Readme.md
+  // Prepare keyring
   const kmsKeyring = new KmsKeyringNode({
     generatorKeyId: cmkId, // Could use alias here only if same key's full ARN is in keyIds too
     keyIds: [cmkId], // Cannot be an alias. Ideally should be different key
@@ -65,13 +63,7 @@ function makeKmsKeyRing(
     // This only makes a difference is multiple in-memory caches are created.
     partition: 'pencred-apply-citizen-ui',
 
-    // Max no. bytes encrypted with the same key
-    // maxBytesEncrypted,
-
-    // Max. no. messages that are encrypted using the same key.
-    // In our case, each message written to the session is encrypted anew, so
-    // counts as a new message each time. To figure out a value, estimate how
-    // many write requests may happen during the TTL period.
+    // Max. no. messages that are encrypted using the same key
     maxMessagesEncrypted: cacheReuse,
   });
 }
