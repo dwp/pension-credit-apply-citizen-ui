@@ -3,6 +3,7 @@
   "pageTitleJoint": "Oes gennych chi neu'ch partner unrhyw arian arall yn dod i mewn?",
   "field": {
     "hasOtherIncome": {
+      "hint": "Nid oes angen i chi ddweud wrthym am unrhyw Bensiwn y Wladwriaeth, Lwfans Gweini, Taliad Annibyniaeth Personol neu Lwfans Gofalwr rydych yn ei gael.",
       "required": "Dewiswch oes os oes gennych unrhyw arian arall yn dod i mewn.",
       "options": {
         "yes": "Oes",

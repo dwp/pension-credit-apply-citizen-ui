@@ -3,6 +3,7 @@
   "pageTitleJoint": "Do you or your partner have any other money coming in?",
   "field": {
     "hasOtherIncome": {
+      "hint": "You do not need to tell us about any State Pension, Attendance Allowance, Personal Independence Payment, or Carer’s Allowance that you get.",
       "required": "Select yes if you have any other money coming in.",
       "options": {
         "yes": "Yes",
