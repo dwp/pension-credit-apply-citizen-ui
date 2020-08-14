@@ -48,4 +48,19 @@ describe('ClaimService', () => {
 
     return expect(spyLog).to.be.called;
   });
+
+  it('submitClaim() should reject when given a non-object', () => {
+    const claimService = new ClaimService({
+      logger: fakeLogger,
+      api: sinon.stub(),
+    });
+
+    const all = [];
+    const types = [[], true, false, '', new Set(), () => {}];
+    for (let i = 0, l = types.length; i < l; i++) {
+      all.push(expect(claimService.submitClaim(types[i])).to.be.rejectedWith(TypeError, 'Claim must be an object'));
+    }
+
+    return Promise.all(all);
+  });
 });
