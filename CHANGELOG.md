@@ -1,3 +1,26 @@
+# [3.0.0](https://github.com/dwp/pension-credit-citizen-apply/compare/2.0.2...3.0.0) (2020-08-17)
+
+
+### Features
+
+* [bc] add new contact details section with delegated authorities ([d1491af](https://github.com/dwp/pension-credit-citizen-apply/commit/d1491af8ea145a199876259630c69968dcc8b5b2))
+* [bc] capture having partner, and living with partner separately ([cffc247](https://github.com/dwp/pension-credit-citizen-apply/commit/cffc247e1e6d1c5f594c1e49c1ad48622a3adfe7))
+* deeply trim white space from all field date objects ([f22a663](https://github.com/dwp/pension-credit-citizen-apply/commit/f22a6635b0404fda1d88cd399248eb52f8b28a7c))
+
+
+### BREAKING CHANGES
+
+* Adds new pages capturing new data, removes old pages,
+moves some around. Contact formats no longer optional, would force user
+back to section if they'd skipped checking a box. Correspondence
+address URLs have changed.
+* The liveWithPartner field now has a slightly different
+context, and we have added a new required field, havePartner.
+
+Resolves AFPC-494 AFPC-584
+
+
+
 ## [2.0.2](https://github.com/dwp/pension-credit-citizen-apply/compare/2.0.1...2.0.2) (2020-08-10)
 
 
