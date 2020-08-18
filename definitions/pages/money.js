@@ -9,6 +9,7 @@ const jointOrSingleClaim = require('../hooks/common/joint-or-single-claim.js');
 const withDataFromPage = require('../hooks/common/with-data-from-page.js');
 const needToBackdate = require('../hooks/common/need-to-backdate.js');
 const northernIrelandClaim = require('../hooks/common/northern-ireland-claim.js');
+const moneyYouHaveHooks = require('../hooks/money/money-you-have.js');
 
 module.exports = () => {
   const pages = Object.create(null);
@@ -22,6 +23,7 @@ module.exports = () => {
     },
     hooks: {
       prerender: [
+        moneyYouHaveHooks(waypoints.MONEY_YOU_HAVE),
         jointOrSingleClaim(waypoints),
         needToBackdate,
         withDataFromPage({
