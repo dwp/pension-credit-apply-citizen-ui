@@ -10,13 +10,18 @@
   {% include "partials/styles.njk" %}
 {% endblock %}
 
-{% block bodyStart %}
+{# Clearing bodyStart block so default cookie message does not show #}
+{% block bodyStart %}{% endblock %}
+
+{% block header %}
   {%- if cookieMessage === "accept" -%}
     {% include "partials/gtm-noscript.njk" %}
   {%- endif %}
   {% if cookieMessage === "unset" or cookieChoiceMade %}
     {% include "partials/cookie-message.njk" %}
   {% endif %}
+
+  {{ super() }}
 {% endblock %}
 
 {% block beforeContent %}
