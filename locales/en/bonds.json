@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Is any of your money invested in income or capital bonds?",
+  "field": {
+    "hasIncomeOrCapitalBonds": {
+      "required": "Select yes if any of your money is invested in income or capital bonds.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether any of your money is invested in income or capital bonds</span>"
+    }
+  }
+}

@@ -16,9 +16,9 @@ module.exports = (plan) => {
     return true;
   });
 
-  // Ask about disregarded money if claimant has over £10,000 or second property
-  plan.setRoute(WP.SECOND_PROPERTY, WP.DISREGARDED_MONEY, over10k);
-  plan.setRoute(WP.DISREGARDED_MONEY, WP.YOUR_NATIONALITY);
+  // If claimant has over £10,000 or a second property go down disregard journey
+  plan.setRoute(WP.SECOND_PROPERTY, WP.BONDS, over10k);
+  plan.addSequence(WP.BONDS, WP.DISREGARDED_MONEY, WP.YOUR_NATIONALITY);
 
   // Otherwise go straight to nationality questions
   plan.setRoute(WP.SECOND_PROPERTY, WP.YOUR_NATIONALITY, underOrAt10k);

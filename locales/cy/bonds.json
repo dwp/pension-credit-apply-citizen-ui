@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Oes unrhyw ran o'ch arian wedi'i fuddsoddi mewn bondiau incwm neu gyfalaf?",
+  "field": {
+    "hasIncomeOrCapitalBonds": {
+      "required": "Dewiswch oes os oes unrhyw ran o'ch arian wedi'i fuddsoddi mewn bondiau incwm neu gyfalaf.",
+      "options": {
+        "yes": "Oes",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os oes unrhyw ran o'ch arian wedi'i fuddsoddi mewn bondiau incwm neu gyfalaf</span>"
+    }
+  }
+}

@@ -503,6 +503,7 @@ describe('build-claim', () => {
     expect(claim.moneySavingsInvestments).to.haveOwnProperty('incidentEmergency');
     expect(claim.moneySavingsInvestments).to.haveOwnProperty('windrush');
     expect(claim.moneySavingsInvestments).to.haveOwnProperty('bloodInfection');
+    expect(claim.moneySavingsInvestments).to.haveOwnProperty('incomeOrCapitalBonds');
     expect(claim.askedAboutDisregards()).to.be.true;
 
     traversed = [];

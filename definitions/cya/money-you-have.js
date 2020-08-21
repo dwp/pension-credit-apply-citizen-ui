@@ -53,6 +53,15 @@ module.exports = (t, context, claim, cyaUrl) => {
   ];
 
   const disregardsRows = !claim.askedAboutDisregards() ? [] : [
+    /* -------------------------------------------------------------- bonds */
+    // Is any of your money invested in income or capital bonds?
+    row({
+      changeHref: `${WP.BONDS}#f-hasIncomeOrCapitalBonds`,
+      changeHtml: t('bonds:field.hasIncomeOrCapitalBonds.change'),
+      key: t('bonds:pageTitle'),
+      value: rov('bonds.hasIncomeOrCapitalBonds', 'bonds:field.hasIncomeOrCapitalBonds.options'),
+    }),
+
     /* -------------------------------------------------- disregarded-money */
     // Payments to correct or compensate for an official error or for arrears
     // of benefits

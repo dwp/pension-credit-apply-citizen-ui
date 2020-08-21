@@ -1,0 +1,30 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("bonds:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukRadios({
+    name: "hasIncomeOrCapitalBonds",
+    fieldset: {
+      legend: {
+        text: t("bonds:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("bonds:field.hasIncomeOrCapitalBonds.options.yes")
+    }, {
+      value: "no",
+      text: t("bonds:field.hasIncomeOrCapitalBonds.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.hasIncomeOrCapitalBonds,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

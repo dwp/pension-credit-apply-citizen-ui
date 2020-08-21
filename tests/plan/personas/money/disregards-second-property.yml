@@ -9,6 +9,9 @@ journey:
   second-property:
     "yes": click()
 
+  bonds:
+    "yes": click()
+
   disregarded-money:
 
   your-nationality:

@@ -3,6 +3,7 @@ const { waypoints } = require('../../lib/constants.js');
 const checkboxesModifier = require('../field-gather-modifiers/checkboxes.js');
 const moneyYouHaveValidation = require('../field-validators/money/money-you-have.js');
 const secondPropertyValidation = require('../field-validators/money/second-property.js');
+const bondsValidation = require('../field-validators/money/bonds.js');
 const disregardedMoneyValidation = require('../field-validators/money/disregarded-money.js');
 const jointOrSingleClaim = require('../hooks/common/joint-or-single-claim.js');
 const withDataFromPage = require('../hooks/common/with-data-from-page.js');
@@ -33,6 +34,11 @@ module.exports = () => {
   pages[waypoints.SECOND_PROPERTY] = {
     view: 'pages/money/second-property.njk',
     fieldValidators: secondPropertyValidation,
+  };
+
+  pages[waypoints.BONDS] = {
+    view: 'pages/money/bonds.njk',
+    fieldValidators: bondsValidation,
   };
 
   pages[waypoints.DISREGARDED_MONEY] = {
