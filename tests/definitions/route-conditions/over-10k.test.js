@@ -10,28 +10,39 @@ describe('route-conditions/check-state-pension-age', () => {
     expect(over10k).to.be.a('function');
   });
 
-  it('should return true if moneyBackdated is over 10000', () => {
+  it('should return false if moneyBackdated and moneyToday are 0.00 and hasSecondPropety is no', () => {
     const context = new JourneyContext({
       [WP.MONEY_YOU_HAVE]: {
-        moneyBackdated: 10000.01,
+        moneyBackdated: 0.00,
+        moneyToday: 0.00,
+      },
+      [WP.SECOND_PROPERTY]: {
+        hasSecondProperty: 'no',
       },
     });
 
-    return expect(over10k(stubRoute, context)).to.be.true;
+    return expect(over10k(stubRoute, context)).to.be.false;
   });
 
-  it('should return true if moneyToday is over 10000', () => {
+  it('should return false if moneyBackdated and moneyToday are 0.00 and hasSecondPropety is yes', () => {
     const context = new JourneyContext({
       [WP.MONEY_YOU_HAVE]: {
-        moneyToday: 10000.01,
+        moneyBackdated: 0.00,
+        moneyToday: 0.00,
+      },
+      [WP.SECOND_PROPERTY]: {
+        hasSecondProperty: 'yes',
       },
     });
 
-    return expect(over10k(stubRoute, context)).to.be.true;
+    return expect(over10k(stubRoute, context)).to.be.false;
   });
 
-  it('should return true if hasSecondProperty is over yes', () => {
+  it('should return true if moneyToday is over 0.00 and hasSecondProperty is yes', () => {
     const context = new JourneyContext({
+      [WP.MONEY_YOU_HAVE]: {
+        moneyToday: 0.01,
+      },
       [WP.SECOND_PROPERTY]: {
         hasSecondProperty: 'yes',
       },
@@ -40,7 +51,72 @@ describe('route-conditions/check-state-pension-age', () => {
     return expect(over10k(stubRoute, context)).to.be.true;
   });
 
-  it('should return false if both moneyBackdated and moneyToday are no over 10000 and hasSecondPropety is not yes', () => {
+  it('should return true if moneyBackdated is over 0.00 and hasSecondProperty is yes', () => {
+    const context = new JourneyContext({
+      [WP.MONEY_YOU_HAVE]: {
+        moneyBackdated: 0.01,
+      },
+      [WP.SECOND_PROPERTY]: {
+        hasSecondProperty: 'yes',
+      },
+    });
+
+    return expect(over10k(stubRoute, context)).to.be.true;
+  });
+
+  it('should return true if moneyBackdated is over 10000 and second property is no', () => {
+    const context = new JourneyContext({
+      [WP.MONEY_YOU_HAVE]: {
+        moneyBackdated: 10000.01,
+      },
+      [WP.SECOND_PROPERTY]: {
+        hasSecondProperty: 'no',
+      },
+    });
+
+    return expect(over10k(stubRoute, context)).to.be.true;
+  });
+
+  it('should return true if moneyToday is over 10000 and second property is no', () => {
+    const context = new JourneyContext({
+      [WP.MONEY_YOU_HAVE]: {
+        moneyToday: 10000.01,
+      },
+      [WP.SECOND_PROPERTY]: {
+        hasSecondProperty: 'no',
+      },
+    });
+
+    return expect(over10k(stubRoute, context)).to.be.true;
+  });
+
+  it('should return true if moneyBackdated is over 10000 and second property is yes', () => {
+    const context = new JourneyContext({
+      [WP.MONEY_YOU_HAVE]: {
+        moneyBackdated: 10000.01,
+      },
+      [WP.SECOND_PROPERTY]: {
+        hasSecondProperty: 'yes',
+      },
+    });
+
+    return expect(over10k(stubRoute, context)).to.be.true;
+  });
+
+  it('should return true if moneyToday is over 10000 and second property is yes', () => {
+    const context = new JourneyContext({
+      [WP.MONEY_YOU_HAVE]: {
+        moneyToday: 10000.01,
+      },
+      [WP.SECOND_PROPERTY]: {
+        hasSecondProperty: 'yes',
+      },
+    });
+
+    return expect(over10k(stubRoute, context)).to.be.true;
+  });
+
+  it('should return false if moneyBackdated or moneyToday are at the limit (10000) and hasSecondPropety is no', () => {
     const context = new JourneyContext({
       [WP.MONEY_YOU_HAVE]: {
         moneyBackdated: 10000.00,

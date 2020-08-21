@@ -28,6 +28,8 @@ describe('money', () => {
       'disregards-over-10k-backdated',
       'disregards-over-10k-today',
       'disregards-second-property',
+      'no-disregards',
+      'no-disregards-second-property',
     ];
 
     routes.forEach((route) => {

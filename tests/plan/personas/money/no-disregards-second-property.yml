@@ -1,0 +1,12 @@
+name: money-no-disregards
+
+journey:
+  # ---------------------------------------------------------------------- Money
+  money-you-have:
+    "moneyBackdated": "0.00"
+    "moneyToday": "0.00"
+
+  second-property:
+    "yes": click()
+
+  your-nationality:

@@ -10,7 +10,8 @@ const over10k = (r, c) => {
 
   if (parseFloat(moneyBackdated) > disgregardsLimit
     || parseFloat(moneyToday) > disgregardsLimit
-    || hasSecondProperty === 'yes'
+    || (parseFloat(moneyBackdated) > 0 && hasSecondProperty === 'yes')
+    || (parseFloat(moneyToday) > 0 && hasSecondProperty === 'yes')
   ) {
     return true;
   }
