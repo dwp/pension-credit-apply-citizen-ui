@@ -1,3 +1,18 @@
+# [3.1.0](https://github.com/dwp/pension-credit-citizen-apply/compare/3.0.0...3.1.0) (2020-08-26)
+
+
+### Bug Fixes
+
+* move cookie banner to after skip link to suppress AXE warning ([8415b34](https://github.com/dwp/pension-credit-citizen-apply/commit/8415b34beaf57a603ce8b55f9fd00be639b00f03))
+
+
+### Features
+
+* add print buttons ([f83ab5a](https://github.com/dwp/pension-credit-citizen-apply/commit/f83ab5accbe6a0bd4221b2f29964866e8d4ddd2b))
+* add print media stylesheet ([e957407](https://github.com/dwp/pension-credit-citizen-apply/commit/e957407c12154d138d1199066649be0be6549641))
+
+
+
 # [3.0.0](https://github.com/dwp/pension-credit-citizen-apply/compare/2.0.2...3.0.0) (2020-08-17)
 
 
