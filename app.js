@@ -134,6 +134,9 @@ module.exports = (CONFIG, baseLogger) => {
   app.get('nunjucksEnv').addFilter('formatMoney', viewFilterFormatMoney);
   app.get('nunjucksEnv').addFilter('formatNino', viewFilterFormatNino);
 
+  // Add relase version number to views
+  app.get('nunjucksEnv').addGlobal('version', packageMeta.version);
+
   // Add Google Tag Manger ID to view
   app.get('nunjucksEnv').addGlobal('googleTagManagerId', CONFIG.GOOGLE_TAG_MANAGER_ID);
 
