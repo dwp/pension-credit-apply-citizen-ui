@@ -1,3 +1,33 @@
+# [4.0.0](https://github.com/dwp/pension-credit-citizen-apply/compare/3.1.0...4.0.0) (2020-09-01)
+
+
+### Bug Fixes
+
+* cache-bust service CSS file using query string of version number ([3cc86be](https://github.com/dwp/pension-credit-citizen-apply/commit/3cc86be849d360b517a82c8d84cb713cb94f3187))
+
+
+### Features
+
+* [bc] add page asking if the user has any income or capital bonds ([b779793](https://github.com/dwp/pension-credit-citizen-apply/commit/b779793139315739d2721625fb6e28a1b68e7275))
+* [bc] split asylum seeker application questions onto separate pages ([9198877](https://github.com/dwp/pension-credit-citizen-apply/commit/9198877325c8c7fd101bb9c138de5a3c680b66e2))
+* log values that fail validation on the money-you-have page ([88dbd5a](https://github.com/dwp/pension-credit-citizen-apply/commit/88dbd5ae5b2f01400fad568396a9155a3e3a399e))
+
+
+### BREAKING CHANGES
+
+* Added a new page in the journey, if the user had
+progressed passed this point and then the service was updated, they'd be
+kicked back again to answer it.
+
+Resolves AFPC-647
+* Questions moved from aslyum-seeker pages to
+aslyum-application pages would cause the user to answer the same
+questions again on a new URL if deployed against active sessions.
+
+Resolves AFPC-603
+
+
+
 # [3.1.0](https://github.com/dwp/pension-credit-citizen-apply/compare/3.0.0...3.1.0) (2020-08-26)
 
 
