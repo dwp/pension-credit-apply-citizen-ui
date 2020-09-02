@@ -13,7 +13,7 @@ const rowFactory = (cyaUrl = '/') => ({
   },
   actions: !changeHref ? {} : {
     items: [{
-      href: changeHref.replace('#', `?edit&editorigin=${cyaUrl}#`),
+      href: encodeURI(changeHref.replace('#', `?edit&editorigin=${cyaUrl}#`)),
       html: changeHtml,
       classes: 'govuk-link--no-visited-state',
     }],
