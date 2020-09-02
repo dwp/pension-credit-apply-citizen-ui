@@ -29,7 +29,7 @@ module.exports = (t, context, claim, cyaUrl) => {
 
       // Your partner's date of birth
       row({
-        changeHref: `${WP.LIVE_WITH_PARTNER}#f-partnerDateOfBirth`,
+        changeHref: `${WP.LIVE_WITH_PARTNER}#f-partnerDateOfBirth[dd]`,
         changeHtml: t('live-with-partner:field.partnerDateOfBirth.change'),
         key: t('live-with-partner:field.partnerDateOfBirth.legend'),
         value: formatDateObject(context.data['live-with-partner'].partnerDateOfBirth, dateOpts),

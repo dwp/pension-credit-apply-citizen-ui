@@ -48,7 +48,7 @@ module.exports = (t, context, claim, cyaUrl) => {
       /* ------------------------------------------------------ date-of-claim */
       // What date do you want your Pension Credit claim to start?
       row({
-        changeHref: `${WP.DATE_OF_CLAIM}#f-dateOfClaim`,
+        changeHref: `${WP.DATE_OF_CLAIM}#f-dateOfClaim[dd]`,
         changeHtml: t('date-of-claim:field.dateOfClaim.change'),
         key: t('date-of-claim:pageTitle'),
         value: formatDateObject(context.data['date-of-claim'].dateOfClaim, dateOpts),
@@ -57,7 +57,7 @@ module.exports = (t, context, claim, cyaUrl) => {
       /* ------------------------------------------------------ date-of-birth */
       // What is your date of birth?
       row({
-        changeHref: `${WP.DATE_OF_BIRTH}#f-dateOfBirth`,
+        changeHref: `${WP.DATE_OF_BIRTH}#f-dateOfBirth[dd]`,
         changeHtml: t('date-of-birth:field.dateOfBirth.change'),
         key: t('date-of-birth:pageTitle'),
         value: formatDateObject(context.data['date-of-birth'].dateOfBirth, dateOpts),
