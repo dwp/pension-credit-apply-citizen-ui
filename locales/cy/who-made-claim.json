@@ -13,7 +13,7 @@
         "friendOrFamily": "Rydych yn ffrind neu aelod o'r teulu sy'n helpu'r hawlydd i wneud eu cais",
         "someoneElse": "Rhywun arall"
       },
-      "change": "Newid <span class=\"govuk-visually-hidden\">pa un o'r rhain sy'n eich disgrifio orau"
+      "change": "Newid <span class=\"govuk-visually-hidden\">pa un o'r rhain sy'n eich disgrifio orau</span>"
     },
     "relationship": {
       "label": "Beth yw eich perthynas i'r hawlydd?",

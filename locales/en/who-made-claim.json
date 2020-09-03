@@ -13,7 +13,7 @@
         "friendOrFamily": "You are a <strong>friend</strong> or <strong>family member</strong> who is helping the applicant make their application",
         "someoneElse": "Someone else "
       },
-      "change": "Change <span class=\"govuk-visually-hidden\">which of these best describes you"
+      "change": "Change <span class=\"govuk-visually-hidden\">which of these best describes you</span>"
     },
     "relationship": {
       "label": "What is your relationship to the applicant?",
