@@ -9,7 +9,6 @@ import Header from 'govuk-frontend-src/src/govuk/components/header/header';
 import Radios from 'govuk-frontend-src/src/govuk/components/radios/radios';
 import PrintButton from './js/print-button';
 import TimeoutButton from './js/timeout-button';
-import ready from './js/ready';
 
 function initAll(opts) {
   // Set the options to an empty object by default if no options are passed.
@@ -54,7 +53,6 @@ function initAll(opts) {
 }
 
 export {
-  ready,
   initAll,
   Button,
   PrintButton,
