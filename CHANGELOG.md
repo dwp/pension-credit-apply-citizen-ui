@@ -1,3 +1,13 @@
+## [4.0.1](https://github.com/dwp/pension-credit-citizen-apply/compare/4.0.0...4.0.1) (2020-09-04)
+
+
+### Bug Fixes
+
+* call encodeURI on change link hrefs to escape invalid characters ([a3b5622](https://github.com/dwp/pension-credit-citizen-apply/commit/a3b562208691c65f00bf0e1ccce54359a2f4a885))
+* unclosed span in who-made-claim change link content ([2d1e01e](https://github.com/dwp/pension-credit-citizen-apply/commit/2d1e01ead85693e271a8d58fddd07fd8e467a926))
+
+
+
 # [4.0.0](https://github.com/dwp/pension-credit-citizen-apply/compare/3.1.0...4.0.0) (2020-09-01)
 
 
