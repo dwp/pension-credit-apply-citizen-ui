@@ -11,6 +11,7 @@ const ClaimServiceFactory = require('./lib/ClaimServiceFactory.js');
 const getSessionConfig = require('./lib/get-session-config.js');
 const mediaMiddleware = require('./middleware/media.js');
 const nonceMiddleware = require('./middleware/nonce.js');
+const timeoutMiddleware = require('./middleware/session-timeout.js');
 const actuator = require('./routes/actuator/index.js');
 const viewFilterPush = require('./view-filters/push.js');
 const viewFilterSetAtrtribute = require('./view-filters/set-attribute.js');
@@ -89,6 +90,7 @@ module.exports = (CONFIG, baseLogger) => {
       dirs: [
         path.resolve(__dirname, 'views'),
         path.resolve(__dirname, 'dist/views'),
+        path.resolve(__dirname, 'node_modules/hmrc-frontend'),
       ],
     },
     compiledAssetsDir: path.resolve(__dirname, 'static'),
@@ -123,6 +125,13 @@ module.exports = (CONFIG, baseLogger) => {
         CONFIG.AGGRESSIVE_ASSET_CACHING,
       );
       mountCommonMiddleware();
+      timeoutMiddleware(
+        this.expressApp,
+        CONFIG.CONTEXT_PATH_PROXY,
+        waypoints,
+        CONFIG.SESSION_TTL,
+        CONFIG.TIMEOUT_DIALOG_COUNTDOWN,
+      );
       nonceMiddleware(this.expressApp, CONFIG.ENABLE_CSP);
       cookieMiddleware(
         this.expressApp,
@@ -147,6 +156,9 @@ module.exports = (CONFIG, baseLogger) => {
 
   // Add Google Tag Manger ID to view
   app.get('nunjucksEnv').addGlobal('googleTagManagerId', CONFIG.GOOGLE_TAG_MANAGER_ID);
+
+  // Start page URL
+  app.get('nunjucksEnv').addGlobal('startUrl', waypoints.START);
 
   // Set accessibility statment footer URL
   app.get('nunjucksEnv').addGlobal('accessibilityStatementUrl', waypoints.ACCESSIBILITY_STATEMENT);
@@ -188,6 +200,27 @@ module.exports = (CONFIG, baseLogger) => {
   // Accessibility statement
   casaApp.router.get(`/${waypoints.ACCESSIBILITY_STATEMENT}`, (req, res) => {
     res.render('pages/accessibility-statement.njk');
+  });
+
+  // Session keep alive, timeout dialog hits this end point to extend session
+  casaApp.router.get(`/${waypoints.SESSION_KEEP_ALIVE}`, (req, res) => {
+    res.status(200).end();
+  });
+
+  // User ended session
+  casaApp.router.get(`/${waypoints.SESSION_ENDED}`, (req, res, next) => {
+    const lang = req.casa.journeyContext.nav.language;
+
+    req.session.regenerate((error) => {
+      // Persist language choice after session regneration
+      req.session.language = lang;
+
+      if (error) {
+        return next(error);
+      }
+
+      return req.session.save(() => res.status(200).render('casa/session-ended.njk'));
+    });
   });
 
   // Cookie policy pages

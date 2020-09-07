@@ -2,6 +2,7 @@ $govuk-assets-path: "govuk-frontend-src/src/govuk/assets/";
 
 @import "govuk-frontend-src/src/govuk/all";
 @import "@dwp/govuk-casa/src/scss/casaElements";
+@import "hmrc-frontend-src/src/components/timeout-dialog/timeout-dialog";
 @import "./sass/cookie-banner.scss";
 @import "./sass/common.scss";
 @import "./sass/print.scss";

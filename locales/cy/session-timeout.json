@@ -1,6 +1,5 @@
 {
-  "pageTitle": "Amseru allan o sesiwn",
-  "heading": "Mae'n ddrwg gennym, bydd yn rhaid i chi ddechrau eto",
-  "body": "Nid ydych wedi rhoi unrhyw fanylion am ${sessionTtl} munud, felly rydym wedi clirio eich gwybodaeth i'w gadw'n ddiogel.",
+  "pageTitle": "Er mwyn eich diogelwch, rydym wedi dileu eich atebion",
+  "body": "Nid ydych wedi rhoi unrhyw wybodaeth am ${sessionTtl} munud, felly rydym wedi dileu eich atebion i’w cadw’n ddiogel.",
   "startAgain": "Dechrau eto"
 }

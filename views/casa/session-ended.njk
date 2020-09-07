@@ -3,22 +3,18 @@
 {% from "components/button/macro.njk" import govukButton %}
 
 {% block casaPageTitle %}
-  {{ t('session-timeout:pageTitle') }} - {{ t('common:serviceName') }}
+  {{ t('session-ended:pageTitle') }} - {{ t('common:serviceName') }}
 {% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
-        {{ t('session-timeout:pageTitle') }}
+        {{ t('session-ended:pageTitle') }}
       </h1>
 
-      <p class="govuk-body">
-        {{ t('session-timeout:body', {sessionTtl: sessionTtl}) }}
-      </p>
-
       {{ govukButton({
-        text: t('session-timeout:startAgain'),
+        text: t('session-ended:startAgain'),
         href: casa.mountUrl + startUrl
       }) }}
     </div>

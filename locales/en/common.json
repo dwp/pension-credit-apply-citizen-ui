@@ -50,5 +50,10 @@
     "charity": "Charity or organisation",
     "friendOrFamily": "Friend or family member",
     "someoneElse": "Someone else"
+  },
+  "timeout": {
+    "message": "For your security, we will delete your answers in",
+    "keepAliveButton": "Continue applying for Pension Credit",
+    "deleteYourAnswers": "Delete your answers"
   }
 }

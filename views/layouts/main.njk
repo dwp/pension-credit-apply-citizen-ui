@@ -2,12 +2,26 @@
 
 {% from "components/footer/macro.njk" import govukFooter %}
 {% from "components/phase-banner/macro.njk" import govukPhaseBanner %}
+{% from "hmrc/components/timeout-dialog/macro.njk" import hmrcTimeoutDialog %}
 
 {% block head %}
   {%- if cookieMessage === "accept" -%}
     {% include "partials/gtm-script.njk" %}
   {%- endif %}
   {% include "partials/styles.njk" %}
+
+  {# Session timeout dialog #}
+  {{ hmrcTimeoutDialog ({
+    timeout: timeoutDialog.timeout,
+    countdown: timeoutDialog.countdown,
+    keepAliveUrl: timeoutDialog.keepAliveUrl,
+    signOutUrl: timeoutDialog.signOutUrl,
+    timeoutUrl: timeoutDialog.timeoutUrl,
+    message: t("common:timeout.message"),
+    keepAliveButtonText: t("common:timeout.keepAliveButton"),
+    signOutButtonText: t("common:timeout.deleteYourAnswers"),
+    language: locale
+  }) }}
 {% endblock %}
 
 {# Clearing bodyStart block so default cookie message does not show #}

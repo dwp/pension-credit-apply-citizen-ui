@@ -369,10 +369,10 @@ describe('ConfigIngestor', () => {
   it('SESSION_TTL should be an integer', () => {
     const ci = ConfigIngestor({
       ...requiredVars,
-      SESSION_TTL: '60',
+      SESSION_TTL: '3600',
     });
 
-    expect(ci.SESSION_TTL).to.equal(60);
+    expect(ci.SESSION_TTL).to.equal(3600);
   });
 
   it('SESSION_TTL restrictions ignored if DISABLE_SESSION_TTL_RESTRICTIONS is true', () => {
@@ -380,6 +380,7 @@ describe('ConfigIngestor', () => {
       ...requiredVars,
       DISABLE_SESSION_TTL_RESTRICTIONS: 'true',
       SESSION_TTL: '3',
+      TIMEOUT_DIALOG_COUNTDOWN: '2',
     });
 
     expect(ci.SESSION_TTL).to.equal(3);
@@ -391,6 +392,76 @@ describe('ConfigIngestor', () => {
     });
 
     expect(ci2.SESSION_TTL).to.equal(5000);
+  });
+
+  it('TIMEOUT_DIALOG_COUNTDOWN should throw a RangeError if < 60 seconds or > 1 hour', () => {
+    expect(() => ConfigIngestor({
+      ...requiredVars,
+      TIMEOUT_DIALOG_COUNTDOWN: 59,
+    })).to.throw(RangeError, 'TIMEOUT_DIALOG_COUNTDOWN must be within the range 60 to 3600 seconds');
+
+    expect(() => ConfigIngestor({
+      ...requiredVars,
+      TIMEOUT_DIALOG_COUNTDOWN: 3601,
+    })).to.throw(RangeError, 'TIMEOUT_DIALOG_COUNTDOWN must be within the range 60 to 3600 seconds');
+  });
+
+  it('TIMEOUT_DIALOG_COUNTDOWN should throw an Error if not a factor of 60', () => {
+    expect(() => ConfigIngestor({
+      ...requiredVars,
+      TIMEOUT_DIALOG_COUNTDOWN: 61,
+    })).to.throw(Error, 'TIMEOUT_DIALOG_COUNTDOWN must be a factor of 60');
+  });
+
+  it('TIMEOUT_DIALOG_COUNTDOWN should throw an Error if not less than SESSION_TTL', () => {
+    expect(() => ConfigIngestor({
+      ...requiredVars,
+      SESSION_TTL: 300,
+      TIMEOUT_DIALOG_COUNTDOWN: 300,
+    })).to.throw(Error, 'TIMEOUT_DIALOG_COUNTDOWN must be less than SESSION_TTL');
+
+    expect(() => ConfigIngestor({
+      ...requiredVars,
+      SESSION_TTL: 300,
+      TIMEOUT_DIALOG_COUNTDOWN: 360,
+    })).to.throw(Error, 'TIMEOUT_DIALOG_COUNTDOWN must be less than SESSION_TTL');
+  });
+
+  it('TIMEOUT_DIALOG_COUNTDOWN should default to 5 minutes less than SESSION_TTL', () => {
+    const ci = ConfigIngestor({
+      ...requiredVars,
+      SESSION_TTL: 1800,
+    });
+
+    expect(ci.TIMEOUT_DIALOG_COUNTDOWN).to.equal(1500);
+  });
+
+  it('TIMEOUT_DIALOG_COUNTDOWN should be an integer', () => {
+    const ci = ConfigIngestor({
+      ...requiredVars,
+      TIMEOUT_DIALOG_COUNTDOWN: '60',
+    });
+
+    expect(ci.TIMEOUT_DIALOG_COUNTDOWN).to.equal(60);
+  });
+
+  it('TIMEOUT_DIALOG_COUNTDOWN restrictions ignored if DISABLE_SESSION_TTL_RESTRICTIONS is true', () => {
+    const ci = ConfigIngestor({
+      ...requiredVars,
+      DISABLE_SESSION_TTL_RESTRICTIONS: 'true',
+      TIMEOUT_DIALOG_COUNTDOWN: '3',
+    });
+
+    expect(ci.TIMEOUT_DIALOG_COUNTDOWN).to.equal(3);
+
+    const ci2 = ConfigIngestor({
+      ...requiredVars,
+      DISABLE_SESSION_TTL_RESTRICTIONS: 'true',
+      SESSION_TTL: '5001',
+      TIMEOUT_DIALOG_COUNTDOWN: '5000',
+    });
+
+    expect(ci2.TIMEOUT_DIALOG_COUNTDOWN).to.equal(5000);
   });
 
   it('CONTEXT_PATH should throw a SyntaxError if it does not have leading/trailing slashes', () => {

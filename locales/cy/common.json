@@ -50,5 +50,10 @@
     "charity": "Elusen neu sefydliad",
     "friendOrFamily": "Ffrind neu aelod o'r teulu",
     "someoneElse": "Rhywun arall"
+  },
+  "timeout": {
+    "message": "Er mwyn eich diogelwch, byddwn yn dileu eich atebion mewn",
+    "keepAliveButton": "Parhau i wneud cais am Gredyd Pensiwn",
+    "deleteYourAnswers": "Dileu eich atebion"
   }
 }

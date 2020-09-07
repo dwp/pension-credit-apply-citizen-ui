@@ -1,6 +1,5 @@
 {
-  "pageTitle": "Session timeout",
-  "heading": "Sorry, you’ll have to start again",
-  "body": "You haven’t entered any details for ${sessionTtl} minutes, so we’ve cleared your information to keep it secure.",
+  "pageTitle": "For your security, we deleted your answers",
+  "body": "You have not entered any information for ${sessionTtl} minutes, so we have deleted your answers to keep them secure.",
   "startAgain": "Start again"
 }

@@ -21,6 +21,7 @@ services:
       SESSION_COOKIE_NAME: integration-session-id
       DISABLE_SESSION_TTL_RESTRICTIONS: "true"
       SESSION_TTL: 10
+      TIMEOUT_DIALOG_COUNTDOWN: 5
       ADDRESSSERVICE_API_ENDPOINT: http://location-service-stub:5000/location-service/api
       CLAIMSERVICE_API_ENDPOINT: http://apply-claim-service:8110/claim-service/v1
       HTTP_TIMEOUT: 10

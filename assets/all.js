@@ -7,6 +7,7 @@ import Checkboxes from 'govuk-frontend-src/src/govuk/components/checkboxes/check
 import ErrorSummary from 'govuk-frontend-src/src/govuk/components/error-summary/error-summary';
 import Header from 'govuk-frontend-src/src/govuk/components/header/header';
 import Radios from 'govuk-frontend-src/src/govuk/components/radios/radios';
+import TimeoutDialog from 'hmrc-frontend-src/src/components/timeout-dialog/timeout-dialog';
 import PrintButton from './js/print-button';
 import TimeoutButton from './js/timeout-button';
 
@@ -50,6 +51,12 @@ function initAll(opts) {
   nodeListForEach($radios, function ($radio) {
     new Radios($radio).init();
   });
+
+  // HMRC Session Timeout Dialog
+  var $TimeoutDialog = scope.querySelector('meta[name="hmrc-timeout-dialog"]');
+  if ($TimeoutDialog) {
+    new TimeoutDialog($TimeoutDialog).init();
+  }
 }
 
 export {
@@ -61,4 +68,5 @@ export {
   ErrorSummary,
   Header,
   Radios,
+  TimeoutDialog,
 };
