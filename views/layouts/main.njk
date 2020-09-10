@@ -21,7 +21,7 @@
     {% include "partials/cookie-message.njk" %}
   {% endif %}
 
-  {{ super() }}
+  {% include "partials/header.njk" %}
 {% endblock %}
 
 {% block beforeContent %}
