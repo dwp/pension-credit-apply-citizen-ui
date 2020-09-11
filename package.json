@@ -1,6 +1,6 @@
 {
   "name": "apply-citizen-ui",
-  "version": "4.0.2",
+  "version": "4.1.0",
   "description": "Citizen UI to apply for Pension Credit",
   "main": "server.js",
   "engines": {

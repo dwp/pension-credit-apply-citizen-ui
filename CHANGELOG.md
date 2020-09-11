@@ -1,3 +1,12 @@
+# [4.1.0](https://github.com/dwp/pension-credit-citizen-apply/compare/4.0.2...4.1.0) (2020-09-11)
+
+
+### Features
+
+* remove any GA cookies if policy is rejected after it was accepted ([2e4cff0](https://github.com/dwp/pension-credit-citizen-apply/commit/2e4cff0d0c62aee345f1a5b80a8d2614f0e5eca3))
+
+
+
 ## [4.0.2](https://github.com/dwp/pension-credit-citizen-apply/compare/4.0.1...4.0.2) (2020-09-09)
 
 
