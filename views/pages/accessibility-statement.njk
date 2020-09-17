@@ -7,7 +7,7 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">
+      <h1 class="govuk-heading-xl">
         {{ t('accessibility-statement:pageTitle') }}
       </h1>
       <p class="govuk-body">
@@ -16,7 +16,7 @@
       <p class="govuk-body">
         {{ t('accessibility-statement:onlyInformationAboutPC') | safe }}
       </p>
-      <h2 class="govuk-heading-m">
+      <h2 class="govuk-heading-l">
         {{ t('accessibility-statement:usingThisService') }}
       </h2>
       <p class="govuk-body">
@@ -35,34 +35,84 @@
       <p class="govuk-body">
         {{ t('accessibility-statement:abilityNet') | safe }}
       </p>
-      <h2 class="govuk-heading-m">
+      <h2 class="govuk-heading-l">
         {{ t('accessibility-statement:howAccessible') }}
       </h2>
       <p class="govuk-body">
         {{ t('accessibility-statement:commonStyles') }}
       </p>
-      <h2 class="govuk-heading-m">
+      <p class="govuk-body">
+        {{ t('accessibility-statement:manuallyTested') }}
+      </p>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:notFullyAccessible') }}
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('accessibility-statement:usersOfJAWS1819') }}</li>
+        <li>{{ t('accessibility-statement:whenMovingTheFocus') }}</li>
+        <li>{{ t('accessibility-statement:whenUsingSpeakItTool') }}</li>
+      </ul>
+      <h2 class="govuk-heading-l">
         {{ t('accessibility-statement:whatToDoIfDifficult') }}
       </h2>
       <p class="govuk-body">
-        {{ t('accessibility-statement:ifYouHaveDifficulty') | safe }}
+        {{ t('accessibility-statement:ifYouHaveDifficulty') }}
+      </p>
+      <h3 class="govuk-heading-m">
+        {{ t('accessibility-statement:ifYouLiveinEnglandScotlandWales') }}
+      </h3>
+      <dl class="govuk-body contact-numbers">
+        <div>
+          <dt>{{ t('accessibility-statement:telephone') }}</dt>
+          <dd>{{ t('accessibility-statement:telephoneNumber') }}</dd>
+        </div>
+        <div>
+          <dt>{{ t('accessibility-statement:textphone') }}</dt>
+          <dd>{{ t('accessibility-statement:textphoneNumber') }}</dd>
+        </div>
+      </dl>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:cannotHearOrSpeak') | safe }}
+      </p>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:findOutMoreAboutCallCharges') | safe }}
+      </p>
+      <h3 class="govuk-heading-m">
+        {{ t('accessibility-statement:ifYouLiveInNorthernIreland') }}
+      </h3>
+      <dl class="govuk-body contact-numbers">
+        <div>
+          <dt>{{ t('accessibility-statement:telephone') }}</dt>
+          <dd>{{ t('accessibility-statement:telephoneNumberNI') }}</dd>
+        </div>
+        <div>
+          <dt>{{ t('accessibility-statement:textphone') }}</dt>
+          <dd>{{ t('accessibility-statement:textphoneNumberNI') }}</dd>
+        </div>
+      </dl>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:contacting08&03Numbers') | safe }}
       </p>
       <p class="govuk-body">
         {{ t('accessibility-statement:weMayNeedToSendYouLetters') }}
       </p>
-      <h2 class="govuk-heading-m">
+      <h2 class="govuk-heading-l">
         {{ t('accessibility-statement:reportingProblems') }}
       </h2>
       <p class="govuk-body">
         {{ t('accessibility-statement:alwaysLookingToImprove') | safe }}
       </p>
-      <h2 class="govuk-heading-m">
+      <h2 class="govuk-heading-l">
         {{ t('accessibility-statement:enformentProcedure') }}
       </h2>
       <p class="govuk-body">
-        {{ t('accessibility-statement:theEHRC') | safe }}
+        {{ t('accessibility-statement:theEHRC') }}
       </p>
-      <h2 class="govuk-heading-m">
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('accessibility-statement:EASS') | safe }}</li>
+        <li>{{ t('accessibility-statement:ECNI') | safe }}</li>
+      </ul>
+      <h2 class="govuk-heading-l">
         {{ t('accessibility-statement:contactingUs') }}
       </h2>
       <p class="govuk-body">
@@ -74,16 +124,19 @@
       <p class="govuk-body">
         {{ t('accessibility-statement:howToContactUs') | safe }}
       </p>
-      <h2 class="govuk-heading-m">
+      <h2 class="govuk-heading-l">
         {{ t('accessibility-statement:techincalInformation') }}
       </h2>
       <p class="govuk-body">
         {{ t('accessibility-statement:theDWPisCommitted') }}
       </p>
+      <h3 class="govuk-heading-m">
+        {{ t('accessibility-statement:complianceStatus') }}
+      </h3>
       <p class="govuk-body">
-        {{ t('accessibility-statement:WCAGCompliant') }}
+        {{ t('accessibility-statement:WCAGCompliant') | safe }}
       </p>
-      <h2 class="govuk-heading-m">
+      <h2 class="govuk-heading-l">
         {{ t('accessibility-statement:howWeTested') }}
       </h2>
       <p class="govuk-body">
@@ -92,17 +145,23 @@
       <p class="govuk-body">
         {{ t('accessibility-statement:testedManualAutomated') }}
       </p>
-      <h2 class="govuk-heading-m">
+      <h2 class="govuk-heading-l">
         {{ t('accessibility-statement:whatWereDoingToImprove') }}
       </h2>
       <p class="govuk-body">
-        {{ t('accessibility-statement:conductingMoreTesting') }}
-      </p>
-      <p class="govuk-body">
         {{ t('accessibility-statement:continueToIterate') }}
       </p>
+      <h2 class="govuk-heading-l">
+        {{ t('accessibility-statement:preparationOfThisStatement') }}
+      </h2>
       <p class="govuk-body">
         {{ t('accessibility-statement:thisPagePreparedOn') }}
+      </p>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:thisWebsiteLastTest') }}
+      </p>
+      <p class="govuk-body">
+        {{ t('accessibility-statement:weTestedASample') }}
       </p>
     </div>
   </div>
