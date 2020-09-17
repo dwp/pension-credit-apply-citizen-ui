@@ -1,6 +1,7 @@
 const { trimWhitespace } = require('@dwp/govuk-casa').gatherModifiers;
 const { waypoints } = require('../../lib/constants.js');
 const checkboxesModifier = require('../field-gather-modifiers/checkboxes.js');
+const removeTrailingStop = require('../field-gather-modifiers/remove-trailing-stop.js');
 const moneyYouHaveValidation = require('../field-validators/money/money-you-have.js');
 const secondPropertyValidation = require('../field-validators/money/second-property.js');
 const bondsValidation = require('../field-validators/money/bonds.js');
@@ -13,13 +14,14 @@ const moneyYouHaveHooks = require('../hooks/money/money-you-have.js');
 
 module.exports = () => {
   const pages = Object.create(null);
+  const moneyModifiers = [trimWhitespace, removeTrailingStop];
 
   pages[waypoints.MONEY_YOU_HAVE] = {
     view: 'pages/money/money-you-have.njk',
     fieldValidators: moneyYouHaveValidation,
     fieldGatherModifiers: {
-      moneyBackdated: trimWhitespace,
-      moneyToday: trimWhitespace,
+      moneyBackdated: moneyModifiers,
+      moneyToday: moneyModifiers,
     },
     hooks: {
       prerender: [

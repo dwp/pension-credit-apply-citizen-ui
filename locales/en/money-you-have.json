@@ -1,6 +1,6 @@
 {
-  "pageTitleSingle": "How much money do you have?",
-  "pageTitleJoint": "How much money do you and your partner have?",
+  "pageTitleSingle": "About the money, savings and investments you have",
+  "pageTitleJoint": "About the money, savings and investments you and your partner have",
   "sharedMoneySingle": "If you have money in accounts that are shared with someone else, only tell us about the amount of money that belongs to you.",
   "sharedMoneyJoint": "If you have money in accounts that are shared with someone other than your partner, only tell us about the amount of money that belongs to you and your partner.",
   "thisIncludes": "This includes:",
@@ -14,16 +14,18 @@
   "moneyOverseas": "any other money in this country or overseas",
   "field": {
     "moneyBackdated": {
-      "label": "How much money did you have on ${dateOfClaim}?",
-      "required": "Enter how much money you had on ${dateOfClaim}",
-      "format": "Enter how much money you had on ${dateOfClaim} using only a £ symbol, numbers, commas and a decimal point. For example £1000 or £1,000.00.",
-      "change": "Change <span class=\"govuk-visually-hidden\">how much money you had on your claim start date</span>"
+      "label": "What is the total amount of money you had on ${dateOfClaim}?",
+      "hint": "Enter an amount in pounds and pence, for example, 100.00",
+      "required": "Enter the total amount of money you had on ${dateOfClaim}.",
+      "format": "Enter the total amount of money you had on ${dateOfClaim} using numbers and a decimal point. For example 100 or 1000.00",
+      "change": "Change <span class=\"govuk-visually-hidden\">the total amount of money you had on ${dateOfClaim}</span>"
     },
     "moneyToday": {
-      "label": "How much money do you have today?",
-      "required": "Enter how much money you have today.",
-      "format": "Enter how much money you have today using only a £ symbol, numbers, commas and a decimal point. For example £1000 or £1,000.00.",
-      "change": "Change <span class=\"govuk-visually-hidden\">how much money you have today</span>"
+      "label": "What is the total amount of money you have today?",
+      "hint": "Enter an amount in pounds and pence, for example, 100.00",
+      "required": "Enter the total amount of money you have today.",
+      "format": "Enter the total amount of money you have today using numbers and a decimal point. For example 100 or 1000.00",
+      "change": "Change <span class=\"govuk-visually-hidden\">the total amount of money you have today</span>"
     }
   }
 }

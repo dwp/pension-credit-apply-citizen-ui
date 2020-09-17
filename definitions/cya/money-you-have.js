@@ -26,15 +26,15 @@ module.exports = (t, context, claim, cyaUrl) => {
 
   const moneyRows = [
     /* ----------------------------------------------------- money-you-have */
-    // How much money you had on ${dateOfClaim}
+    // What is the total amount of money you had on ${dateOfClaim}?
     !needToBackdate(context) ? undefined : row({
       changeHref: `${WP.MONEY_YOU_HAVE}#f-moneyBackdated`,
-      changeHtml: t('money-you-have:field.moneyBackdated.change'),
+      changeHtml: t('money-you-have:field.moneyBackdated.change', { dateOfClaim: formattedDateOfClaim }),
       key: t('money-you-have:field.moneyBackdated.label', { dateOfClaim: formattedDateOfClaim }),
       value: formatMoney(claim.moneySavingsInvestments.moneyBackdatedAmount),
     }),
 
-    // How much money you have today
+    // What is the total amount of money you have today?
     row({
       changeHref: `${WP.MONEY_YOU_HAVE}#f-moneyToday`,
       changeHtml: t('money-you-have:field.moneyToday.change'),
@@ -43,7 +43,7 @@ module.exports = (t, context, claim, cyaUrl) => {
     }),
 
     /* ---------------------------------------------------- second-property */
-    // How much money you have today
+    // Do you own any property or land other than your home?
     row({
       changeHref: `${WP.SECOND_PROPERTY}#f-hasSecondProperty`,
       changeHtml: t('second-property:field.hasSecondProperty.change'),
