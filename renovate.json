@@ -1,0 +1,5 @@
+{
+  "groupName": "All dependencies",
+  "rebaseWhen": "behind-base-branch",
+  "separateMajorMinor": false
+}
