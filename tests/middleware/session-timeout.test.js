@@ -34,18 +34,20 @@ describe('Middleware: session-timeout', () => {
     const req = new Request();
     const res = new Response(req);
     sessionTimeout(app, '/', { SESSION_KEEP_ALIVE: 'keep-alive' });
+    res.locals.casa.mountUrl = '/test/';
 
     app.mw(req, res, () => {});
-    expect(res.locals.timeoutDialog).to.have.property('keepAliveUrl').that.equals('/keep-alive');
+    expect(res.locals.timeoutDialog).to.have.property('keepAliveUrl').that.equals('/test/keep-alive');
   });
 
   it('should add signOutUrl to timeoutDialog', () => {
     const req = new Request();
     const res = new Response(req);
     sessionTimeout(app, '/', { SESSION_ENDED: 'session-ended' });
+    res.locals.casa.mountUrl = '/test/';
 
     app.mw(req, res, () => {});
-    expect(res.locals.timeoutDialog).to.have.property('signOutUrl').that.equals('/session-ended');
+    expect(res.locals.timeoutDialog).to.have.property('signOutUrl').that.equals('/test/session-ended');
   });
 
   it('should add timeoutUrl of current path to timeoutDialog', () => {
