@@ -1,3 +1,27 @@
+# [5.0.0](https://github.com/dwp/pension-credit-citizen-apply/compare/4.1.1...5.0.0) (2020-09-18)
+
+
+### Code Refactoring
+
+* [bc] add configurable cryto context and suite ([f91d88e](https://github.com/dwp/pension-credit-citizen-apply/commit/f91d88eb6ecaeee54a28134b90674921ae057558))
+
+
+### Features
+
+* add modal to warn users of session expiry & opportunity to extend ([f1bf898](https://github.com/dwp/pension-credit-citizen-apply/commit/f1bf898c85dbf6cd552e08d84411481c045a8ea4))
+* build all frontend assets from source/sass, compile optimised file ([6f9f8a2](https://github.com/dwp/pension-credit-citizen-apply/commit/6f9f8a2e0bb27a7f0739a7c53a2cf2db69def7c1))
+* include custom CASA JS and CSS in built bundles ([091e20d](https://github.com/dwp/pension-credit-citizen-apply/commit/091e20df25dabc91d63683a37bc19c97863f3b9a))
+
+
+### BREAKING CHANGES
+
+* Introducing a configurable context per environment may
+render existing sessions unreadable, so they will need to timeout/purge.
+
+Resolves AFPC-574
+
+
+
 ## [4.1.1](https://github.com/dwp/pension-credit-citizen-apply/compare/4.1.0...4.1.1) (2020-09-11)
 
 
