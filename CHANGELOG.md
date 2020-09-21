@@ -1,3 +1,12 @@
+## [5.0.1](https://github.com/dwp/pension-credit-citizen-apply/compare/5.0.0...5.0.1) (2020-09-21)
+
+
+### Bug Fixes
+
+* passing proxy url to timeoutDialog meta tag, use CASA mountUrl ([b3c4f83](https://github.com/dwp/pension-credit-citizen-apply/commit/b3c4f83978d52ce3880fd01c9ea7dba9d80e2310))
+
+
+
 # [5.0.0](https://github.com/dwp/pension-credit-citizen-apply/compare/4.1.1...5.0.0) (2020-09-18)
 
 
