@@ -55,6 +55,7 @@ describe('Middleware: session-timeout', () => {
     const res = new Response(req);
     sessionTimeout(app, '/', {});
     req.originalUrl = 'http://domain.test/current-path';
+    req.url = '/current-path';
 
     app.mw(req, res, () => {});
     expect(res.locals.timeoutDialog).to.have.property('timeoutUrl').that.equals('/current-path');
@@ -66,6 +67,7 @@ describe('Middleware: session-timeout', () => {
     sessionTimeout(app, '/', {});
     req.casa.journeyContext.nav.language = 'cy';
     req.originalUrl = 'http://domain.test/current-path?query=string';
+    req.url = '/current-path?query=string';
 
     app.mw(req, res, () => {});
     expect(res.locals.timeoutDialog).to.have.property('timeoutUrl').that.equals('/current-path?query=string');

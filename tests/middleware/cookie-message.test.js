@@ -80,8 +80,9 @@ describe('Middleware: cookie-message', () => {
     it('should set cookie policy footer URL template variable', () => {
       const req = new Request();
       const res = new Response(req);
-      cookieMessage(app, cookieName, waypoints, mount, proxyMount);
-      req.originalUrl = '/start';
+      cookieMessage(app, cookieName, waypoints, mount, '/proxy/');
+      req.originalUrl = '/proxy/start';
+      req.url = '/start';
       app.use(req, res, () => {});
       expect(res.locals).to.have.property('cookiePolicyUrl').that.equals(`${mount}${waypoints.COOKIE_POLICY}?backto=%2Fstart`);
     });
@@ -89,10 +90,11 @@ describe('Middleware: cookie-message', () => {
     it('should not double up on backto queries', () => {
       const req = new Request();
       const res = new Response(req);
-      cookieMessage(app, cookieName, waypoints, mount, proxyMount);
-      req.originalUrl = `${mount}${waypoints.COOKIE_POLICY}?backto=%2Fstart`;
+      cookieMessage(app, cookieName, waypoints, mount, '/proxy/');
+      req.originalUrl = `/proxy${mount}${waypoints.COOKIE_POLICY}?backto=%2Fstart`;
+      req.url = `${mount}${waypoints.COOKIE_POLICY}?backto=%2Fstart`;
       app.use(req, res, () => {});
-      expect(res.locals).to.have.property('cookiePolicyUrl').that.equals(req.originalUrl);
+      expect(res.locals).to.have.property('cookiePolicyUrl').that.equals(req.url);
     });
 
     it('should set strict Referrer-Policy header', () => {

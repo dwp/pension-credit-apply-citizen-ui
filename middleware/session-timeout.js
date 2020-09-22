@@ -1,6 +1,6 @@
 module.exports = (app, proxyUrl, waypoints, sessionTtl, timeoutDialogCountdown) => {
   app.use(proxyUrl, (req, res, next) => {
-    const { pathname, search } = new URL(String(req.originalUrl), 'http://dummy.test/');
+    const { pathname, search } = new URL(String(req.url), 'http://dummy.test/');
     const { mountUrl } = res.locals.casa;
 
     res.locals.timeoutDialog = {

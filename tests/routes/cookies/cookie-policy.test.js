@@ -80,7 +80,7 @@ describe('cookies/cookie-policy', () => {
       const route = cookiePolicyPost(CONSENT_COOKIE_NAME);
       const req = new Request();
       const res = new Response(req);
-      req.originalUrl = 'test';
+      req.url = 'test';
       route(req, res);
       expect(req.session.cookieConsentError).to.equal('cookie-policy:field.cookieConsent.required');
       expect(res.redirectedTo).to.equal('test');
@@ -90,7 +90,7 @@ describe('cookies/cookie-policy', () => {
       const route = cookiePolicyPost(CONSENT_COOKIE_NAME);
       const req = new Request();
       const res = new Response(req);
-      req.originalUrl = 'test';
+      req.url = 'test';
       req.body.cookieConsent = 'wrong';
       route(req, res);
       expect(req.session.cookieConsentError).to.equal('cookie-policy:field.cookieConsent.required');
@@ -149,12 +149,13 @@ describe('cookies/cookie-policy', () => {
       expect(res.redirectedTo).to.equal('/claims/start');
     });
 
-    it('should redirect back to originalUrl if backto query is not present', () => {
+    it('should redirect back to req.url if backto query is not present', () => {
       const route = cookiePolicyPost(CONSENT_COOKIE_NAME);
       const req = new Request();
       const res = new Response(req);
       req.body.cookieConsent = 'accept';
-      req.originalUrl = 'test';
+      req.originalUrl = 'proxy/test';
+      req.url = 'test';
       route(req, res);
       expect(res.redirectedTo).to.equal('test');
     });

@@ -7,7 +7,7 @@ module.exports = (consentCookieName, mountUrl, gtmDomain, useTLS) => (req, res) 
   // Validation error, set messeage in session and redirect back to this page
   if (!cookieConsent || (cookieConsent !== 'reject' && cookieConsent !== 'accept')) {
     req.session.cookieConsentError = 'cookie-policy:field.cookieConsent.required';
-    return req.session.save(() => res.redirect(req.originalUrl));
+    return req.session.save(() => res.redirect(req.url));
   }
 
   // Validation successful, set cookie and redirect back where they came from
@@ -25,5 +25,5 @@ module.exports = (consentCookieName, mountUrl, gtmDomain, useTLS) => (req, res) 
     return req.session.save(() => res.redirect(redirectBackTo));
   }
 
-  return req.session.save(() => res.redirect(req.originalUrl));
+  return req.session.save(() => res.redirect(req.url));
 };

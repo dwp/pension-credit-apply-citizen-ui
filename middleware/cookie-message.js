@@ -28,7 +28,7 @@ module.exports = (app, consentCookieName, waypoints, mountUrl = '/', proxyMountU
     res.locals.cookieConsentSubmit = waypoints.COOKIE_CONSENT;
 
     // Set backto query
-    const { pathname, search } = new URL(String(req.originalUrl), 'http://dummy.test/');
+    const { pathname, search } = new URL(String(req.url), 'http://dummy.test/');
     const currentUrl = sanitiseUrl(pathname + search);
 
     // If already on cookie policy page, don't need set backto again
