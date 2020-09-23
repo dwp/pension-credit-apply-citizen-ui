@@ -1,5 +1,6 @@
 {
   "groupName": "All dependencies",
   "rebaseWhen": "behind-base-branch",
-  "separateMajorMinor": false
+  "separateMajorMinor": false,
+  "commitMessagePrefix": "chore(deps):"
 }
