@@ -1,3 +1,12 @@
+# [5.1.0](https://github.com/dwp/pension-credit-citizen-apply/compare/5.0.2...5.1.0) (2020-09-25)
+
+
+### Features
+
+* don't show disregards for users who have 2nd property but no money ([8eb5dcb](https://github.com/dwp/pension-credit-citizen-apply/commit/8eb5dcba72609ea786d1544cb5f8726018578f9b))
+
+
+
 ## [5.0.2](https://github.com/dwp/pension-credit-citizen-apply/compare/5.0.1...5.0.2) (2020-09-22)
 
 
