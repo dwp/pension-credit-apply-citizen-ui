@@ -5,7 +5,6 @@ const nonce = require('../../middleware/nonce.js');
 
 const { expect } = chai;
 const cspHeaderName = 'Content-Security-Policy';
-const uuidV4 = new RegExp(/[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}/i);
 
 const app = {
   use(mw) {
@@ -25,7 +24,7 @@ describe('Middleware: nonce', () => {
   });
 
   describe('Production middleware', () => {
-    it('should append uuid/v4 nonce to CSP header', () => {
+    it('should append nonce to CSP header', () => {
       const req = new Request();
       const res = new Response(req);
       nonce(app, true);
@@ -33,16 +32,49 @@ describe('Middleware: nonce', () => {
       res.setHeader(cspHeaderName, 'test');
 
       app.mw(req, res, () => {});
-      expect(res.headers[cspHeaderName]).to.match(new RegExp(`test 'nonce-${uuidV4.source}'`, 'i'));
+      expect(res.headers[cspHeaderName]).to.match(/^test 'nonce-[a-z0-9+/]{22}=='$/i);
     });
 
-    it('should add uuid/v4 nonce to res.locals', () => {
+    it('should add nonce to res.locals', () => {
       const req = new Request();
       const res = new Response(req);
       nonce(app, true);
 
       app.mw(req, res, () => {});
-      expect(res.locals.nonce).to.match(uuidV4);
+      expect(res.locals.nonce).to.match(/^[a-z0-9+/]{22}==$/i);
+    });
+
+    it('should add same nonce to res.locals and header', () => {
+      const req = new Request();
+      const res = new Response(req);
+      nonce(app, true);
+
+      res.setHeader(cspHeaderName, 'test');
+
+      app.mw(req, res, () => {});
+      const templateNonce = res.locals.nonce;
+      const headerNonce = res.headers[cspHeaderName].match(/^test 'nonce-([^']+)'$/i)[1];
+
+      expect(templateNonce).to.equal(headerNonce);
+    });
+
+    it('should add different nonce each time', () => {
+      const req = new Request();
+      const res = new Response(req);
+      nonce(app, true);
+
+      app.mw(req, res, () => {});
+      const nonce1 = res.locals.nonce;
+
+      app.mw(req, res, () => {});
+      const nonce2 = res.locals.nonce;
+
+      app.mw(req, res, () => {});
+      const nonce3 = res.locals.nonce;
+
+      expect(nonce1).to.not.equal(nonce2);
+      expect(nonce2).to.not.equal(nonce3);
+      expect(nonce1).to.not.equal(nonce3);
     });
 
     it('should call next', (done) => {
