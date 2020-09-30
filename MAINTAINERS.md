@@ -9,6 +9,7 @@ As a general guide, here are a few questions to ask when reviewing any contribut
 * Is the solution optimal; using appropriate data structures and controls? If you have alternative suggestions, work with the contributor to explore the potential advantages of those alternatives approaches.
 * Are tests included, and do they cover happy and unhappy paths appropriately?
 * If new dependencies are introduced, review those dependencies to get a sense of the community support behind it. Try to avoid including older, infrequently maintained modules, unless they are stable.
+* Where content has been changed, has it been provided in all supported languages (English and Welsh)?
 * Are commits squashed appropriately, where changes to the same scope are grouped into one commit?
 * Are any breaking changes introduced; if so does the commit log include a `BREAKING CHANGE` comment in the footer?
 * Is documentation included where appropriate?
@@ -50,7 +51,3 @@ git push -u origin sue-feature/thing
 6. Review the code locally using the guidelines above, ensuring it builds, passes linting and tests. Use the `npm run pipeline` and `npm run test:integration` scripts to cover these checks (check for changes to those scripts beforehand)
 
 7. If successful, merge into master, ensure CI build passes before finally pushing back up to Github.
-
-## Preparing for release
-
-When you're ready to release `master`, execute the `package-version-utility` job in the internal CI tooling to generate a new version. This will automatically trigger a mirror push of the `master` branch to Github.

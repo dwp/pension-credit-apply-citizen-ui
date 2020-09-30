@@ -1,4 +1,4 @@
-# Pension Citizen Claim UI
+# "Apply for Pension Credit" Citizen UI
 
 ## Support
 
@@ -6,13 +6,16 @@ This service is maintained by the [DWP Engineering Practice](mailto:open-source@
 
 ## Contributing
 
+This is an opensource project, and public contrbutions are welcomed through [Github](https://github.com/dwp/pension-credit-apply-citizen-ui).
+
 If you'd like to contribute any changes, enhancements or report issues, please take a look at our [contribution guide](CONTRIBUTING.md).
 
 ## Getting started
 
 > **IMPORTANT:**<br/>
 > <br/>
-> Some of the dependencies are ony available on the DWP's internal npm registry. Please consult the Engineering documentation to ensure your machine is configured to pull packages from that registry.
+> Some of the dependencies are ony available on the DWP's internal artifact registries. Please consult the Engineering documentation to ensure your machine is configured to pull packages from that registry.<br/><br/>
+> Whilst some instructions may refer to usage with Docker, the associated assets are not yet available on Github.
 
 Setup:
 
@@ -52,7 +55,7 @@ Start the service locally on your machine, using a pre-bundled configuration (in
 env $(cat .env.example | grep -v '#') npm start
 ```
 
-This will start the service using a pre-bundled configuration. Whilst you can use the service in this state, certain features such as postcode-lookup, and PDF generation will not be available. See the **`docker-local`** project to make these features available.
+This will start the service using a pre-bundled configuration. Whilst you can use the service in this state, certain features such as postcode-lookup will not be available. See the internal **`docker-local`** project to make these features available.
 
 As well as passing a configuration file, you can also pass configuration options as environment variables. For example:
 
@@ -136,10 +139,12 @@ Some sections of the service call `redirect()` within page hooks, which could me
 
 ## Service Information
 
+Some useful realtime service information can be derived from the following endpoints.
+
 ### `GET /actuator/health`
 
 ```bash
-# Request§
+# Request
 curl -G http://localhost:${port}/actuator/health
 
 # Response (200)
@@ -150,7 +155,7 @@ curl -G http://localhost:${port}/actuator/health
 ### `GET /actuator/info`
 
 ```bash
-# Request§
+# Request
 curl -G http://localhost:${port}/actuator/info
 
 # Response (200)
@@ -161,7 +166,7 @@ curl -G http://localhost:${port}/actuator/info
 ### `GET /actuator/metrics`
 
 ```bash
-# Request§
+# Request
 curl -G http://localhost:${port}/actuator/metrics
 
 # Response (200)
@@ -195,11 +200,3 @@ This will generate a `graphviz/graph.png` image.
 ## Translations
 
 All translations are held in `locales/<language-code>`; currently supporting `en` (English) and `cy` (Welsh).
-
-Primarily we will make changes to the English version first, and then pass on all changes to our translator colleagues. Once all English changes are made, use the `tools/locale-diff.js` script to generate a ZIP file that can be passed to translators. This contains a "before" and "after" snapshot of each dictionary file that has been modified between any two points in time. E.g
-
-```bash
-node ./tools/locale-diff.js --from 0.3.2 --to HEAD --output diff.zip
-```
-
-This will generate a `diff.zip` file containing info about all changes between the commits, `0.3.2` and `HEAD`. You can use any commit-ish reference.

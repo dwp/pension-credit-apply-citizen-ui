@@ -51,7 +51,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git@github.com:dwp/pension-credit-citizen-apply"
+    "url": "git@github.com:dwp/pension-credit-apply-citizen-ui"
   },
   "dependencies": {
     "@aws-crypto/client-node": "1.0.5",
