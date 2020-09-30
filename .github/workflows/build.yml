@@ -1,0 +1,45 @@
+name: build
+
+on: [push, pull_request]
+
+defaults:
+  run:
+    shell: bash
+
+strategy:
+  matrix:
+    node: [12, 13, 14]
+
+jobs:
+  unit-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [12, 13, 14]
+    name: Test on nodejs ${{ matrix.node }}
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm ci --no-optional
+      - run: npm test:unit
+
+  plan-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm ci --no-optional
+      - run: npm run test:plan
+
+  compliance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm ci --no-optional
+      - run: npm run compliance:lint
+      - run: npm run quality:coverage
+      - run: npm run security
