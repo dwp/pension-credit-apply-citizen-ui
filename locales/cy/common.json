@@ -31,6 +31,14 @@
   },
   "continue": "Parhau",
   "northernIreland": {
+    "assistedDigital": {
+      "getHelp": "Cael help gyda'ch cais",
+      "telephone": "Ffôn",
+      "textphone": "Ffôn testun",
+      "telephoneNumber": "0800 587 0892",
+      "textphoneNumber": "0808 100 2198",
+      "contacting0803Numbers": "Cysylltu â rhifau 08 a 03 (agor mewn tab newydd)"
+    },
     "telephoneNumber": "0808 100 6165",
     "textphoneNumber": "0808 100 2198",
     "callTimes": "Dydd Llun i ddydd Gwener, 10:00am i 4:00pm (wedi cau ar wyliau banc).<br/><a href=\"https://www.nidirect.gov.uk/articles/contacting-08-and-03-numbers\" class=\"govuk-link\">Cysylltu â rhifau 08 a 03</a>.",

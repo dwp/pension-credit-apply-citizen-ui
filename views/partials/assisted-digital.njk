@@ -1,0 +1,24 @@
+{% if isNorthernIrelandClaim %}
+  <div class="govuk-grid-row pc-assisted-digital">
+    <div class="govuk-grid-column-two-thirds">
+      <aside class="govuk-!-margin-bottom-5">
+        <h2 class="govuk-heading-m">{{ t('common:northernIreland.assistedDigital.getHelp') }}</h2>
+        <dl class="govuk-body contact-numbers">
+          <div>
+            <dt>{{ t('common:northernIreland.assistedDigital.telephone') }}</dt>
+            <dd>{{ t('common:northernIreland.assistedDigital.telephoneNumber') }}</dd>
+          </div>
+          <div>
+            <dt>{{ t('common:northernIreland.assistedDigital.textphone') }}</dt>
+            <dd>{{ t('common:northernIreland.assistedDigital.textphoneNumber') }}</dd>
+          </div>
+        </dl>
+        <p class="govuk-body">
+          <a class="govuk-link" href="https://www.nidirect.gov.uk/articles/contacting-08-and-03-numbers" target="_blank" rel="noopener noreferrer">
+            {{ t('common:northernIreland.assistedDigital.contacting0803Numbers') }}
+          </a>
+        </p>
+      </aside>
+    </div>
+  </div>
+{% endif %}

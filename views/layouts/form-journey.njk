@@ -58,9 +58,14 @@
             }) }}
           {% endblock %}
         {% endcall %}
+
+        {% block journey_form_footer %}{% endblock %}
       </div>
     </div>
   {% endblock %}
 
-  {% block journey_form_footer %}{% endblock %}
+  {# Assisted digital telelphone numbers #}
+  {% block assisted_digital %}
+    {% include "partials/assisted-digital.njk" %}
+  {% endblock %}
 {% endblock %}
