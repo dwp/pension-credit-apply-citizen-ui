@@ -1,5 +1,6 @@
 const { getStatePensionDate } = require('get-state-pension-date');
 const dateObjectToISOString = require('../../utils/date-object-to-iso-string.js');
+const toUTCDate = require('../../utils/to-utc-date.js');
 
 const spaIsInThePast = (route, context) => {
   const { partnerDateOfBirth } = context.getDataForPage(route.source) || Object.create(null);
@@ -17,9 +18,9 @@ const spaIsInThePast = (route, context) => {
   // Fetch the matching State Pension age for the applicants date of birth
   const spaDate = getStatePensionDate(dateOfBirthString, 'male');
 
-  // getStatePensionDate returns UTC date, we must use UTC date also if comparing
-  const today = new Date(Date.now());
-  const todayUTC = new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()));
+  // getStatePensionDate returns a UTC date, we must also use a UTC date when
+  // comparing otherwise our date may be one hour behind due to daylight savings
+  const todayUTC = toUTCDate(new Date(Date.now()));
 
   if (spaDate.getTime() <= todayUTC.getTime()) {
     return true;
