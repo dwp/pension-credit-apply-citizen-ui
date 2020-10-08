@@ -13,7 +13,7 @@ const differentClaimDateValidation = require('../field-validators/eligibility/di
 const liveWithPartnerValidation = require('../field-validators/eligibility/live-with-partner.js');
 const partnerAgreeValidation = require('../field-validators/eligibility/partner-agree.js');
 const partnerHousingBenefitValidation = require('../field-validators/eligibility/partner-housing-benefit.js');
-const startHook = require('../hooks/eligibility/start.js');
+const startHooks = require('../hooks/eligibility/start.js');
 const offeredClaimDateHook = require('../hooks/eligibility/offered-claim-date.js');
 const earliestEntitlementDate = require('../hooks/common/earliest-entitlement-date.js');
 const withSkipLink = require('../hooks/common/with-skip-link.js');
@@ -25,12 +25,8 @@ module.exports = (sessionTtl) => {
 
   pages[waypoints.START] = {
     view: 'pages/start.njk',
-    hooks: {
-      prerender: [
-        withSkipLink(waypoints.COUNTRY_YOU_LIVE_IN),
-        startHook(sessionTtl),
-      ],
-    },
+    fieldValidators: Object.create(null),
+    hooks: startHooks(sessionTtl, waypoints.START),
   };
 
   pages[waypoints.COUNTRY_YOU_LIVE_IN] = {

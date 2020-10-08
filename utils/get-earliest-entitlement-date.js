@@ -3,6 +3,7 @@ const { waypoints: WP } = require('../lib/constants.js');
 const dateObjectToDate = require('./date-object-to-date.js');
 
 const getEarliestEntitlementDate = (context) => {
+  const { applicationDate } = context.getDataForPage(WP.START) || Object.create(null);
   const { dateOfBirth } = context.getDataForPage(WP.DATE_OF_BIRTH) || Object.create(null);
   const dateOfBirthDate = dateObjectToDate(dateOfBirth);
 
@@ -10,7 +11,7 @@ const getEarliestEntitlementDate = (context) => {
   // offer a true date of claim until we have considered periods abroad.
   const { dateOfClaim } = getDateOfClaim({
     dateOfBirth: dateOfBirthDate,
-    applicationDate: new Date(Date.now()),
+    applicationDate: new Date(applicationDate || Date.now()),
   });
 
   // ISO format string: YYYY-MM-DD

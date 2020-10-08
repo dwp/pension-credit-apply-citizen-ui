@@ -4,13 +4,14 @@ const spaIsWithin4Months = require('../definitions/route-conditions/spa-is-withi
 const dateObjectToDate = require('./date-object-to-date.js');
 
 const getOfferedDateOfClaim = (context) => {
+  const { applicationDate } = context.getDataForPage(WP.START) || {};
   const { dateOfBirth } = context.getDataForPage(WP.DATE_OF_BIRTH) || {};
   const { abroadMoreThan4Weeks } = context.getDataForPage(WP.ABROAD) || {};
 
   // Set up options to use for date of claim calculation.
   const dateOfClaimParams = {
     dateOfBirth: dateObjectToDate(dateOfBirth),
-    applicationDate: new Date(Date.now()),
+    applicationDate: new Date(applicationDate || Date.now()),
   };
 
   // If claimant has been abroad for more than 4 weeks, add dates for the period

@@ -13,29 +13,16 @@ const getEarliestEntitlementDate = proxyquire('../../utils/get-earliest-entitlem
 });
 
 describe('Utils: get-earliest-entitlement-date', () => {
-  let _now;
-
-  beforeEach(() => {
-    const date = new Date(2020, 0, 10);
-    _now = Date.now;
-    Date.now = () => (date);
-  });
-
-  afterEach(() => {
-    Date.now = _now;
-  });
-
-  it('should export a function', () => {
-    expect(getEarliestEntitlementDate).to.be.a('function');
-  });
-
   it('should call getDateOfClaim with claimant date of birth and application date of today', () => {
     const dateOfBirth = { yyyy: '1920', mm: '01', dd: '01' };
-    const context = new JourneyContext({ [WP.DATE_OF_BIRTH]: { dateOfBirth } });
+    const context = new JourneyContext({
+      [WP.START]: { applicationDate: '2020-06-09' },
+      [WP.DATE_OF_BIRTH]: { dateOfBirth },
+    });
     getEarliestEntitlementDate(context);
     expect(dateOfClaimStub).to.be.calledWith({
       dateOfBirth: new Date(1920, 0, 1),
-      applicationDate: new Date(Date.now()),
+      applicationDate: new Date('2020-06-09'),
     });
   });
 

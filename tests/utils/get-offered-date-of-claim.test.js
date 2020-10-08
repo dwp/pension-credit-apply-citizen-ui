@@ -13,31 +13,20 @@ const getOfferedDateOfClaim = proxyquire('../../utils/get-offered-date-of-claim.
 });
 
 describe('Utils: get-offered-date-of-claim', () => {
-  let _now;
-
-  beforeEach(() => {
-    const date = new Date(2020, 5, 10);
-    _now = Date.now;
-    Date.now = () => (date);
-  });
-
-  afterEach(() => {
-    Date.now = _now;
-  });
-
   it('should export a function', () => {
     expect(getOfferedDateOfClaim).to.be.a('function');
   });
 
   describe('without periods abroad', () => {
-    it('should call getDateOfClaim with claimant date of birth and application date of today', () => {
+    it('should call getDateOfClaim with claimant date of birth and application date of applicationDate', () => {
       const context = new JourneyContext({
+        [WP.START]: { applicationDate: '2020-06-09' },
         [WP.DATE_OF_BIRTH]: { dateOfBirth: { yyyy: '1920', mm: '01', dd: '01' } },
       });
       getOfferedDateOfClaim(context);
       expect(dateOfClaimStub).to.be.calledWith({
         dateOfBirth: new Date(1920, 0, 1),
-        applicationDate: new Date(Date.now()),
+        applicationDate: new Date('2020-06-09'),
       });
     });
 
@@ -61,6 +50,7 @@ describe('Utils: get-offered-date-of-claim', () => {
 
     it('should call getDateOfClaim with dateOfBirth, applicationDate and abroadPeriod', () => {
       const context = new JourneyContext({
+        [WP.START]: { applicationDate: '2020-06-09' },
         [WP.DATE_OF_BIRTH]: { dateOfBirth: { yyyy: '1920', mm: '01', dd: '01' } },
         [WP.ABROAD]: { abroadMoreThan4Weeks: 'yes' },
         [WP.PERIODS_ABROAD]: { periodsAbroad: 'one' },
@@ -72,7 +62,7 @@ describe('Utils: get-offered-date-of-claim', () => {
       getOfferedDateOfClaim(context);
       expect(dateOfClaimStub).to.be.calledWith({
         dateOfBirth: new Date(1920, 0, 1),
-        applicationDate: new Date(Date.now()),
+        applicationDate: new Date('2020-06-09'),
         abroadPeriod: {
           medicalOrBereavement: false,
           from: new Date(2020, 1, 1),
