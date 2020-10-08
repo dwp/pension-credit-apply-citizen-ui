@@ -1,0 +1,19 @@
+{
+  "pageTitle": "Ydych chi eisiau i ni ystyried ôl-ddyddio eich cais i ${offeredDateOfClaim}?",
+  "field": {
+    "acceptClaimDate": {
+      "hint": {
+        "basedOnCircumstances": "Yn seiliedig ar eich amgylchiadau, dyma yw'r dyddiad cynharaf y gallwn ystyried ôl-ddyddio eich cais i.",
+        "ifYouCircumstancesChange": "Os yw eich amgylchiadau wedi newid ers ${offeredDateOfClaim}, efallai y byddwch eisiau i ni ystyried eich cais o'r dyddiad y digwyddodd y newid hwnnw. Er enghraifft, os ydych:",
+        "previousClaim": "wedi bod yn rhan o gais blaenorol am Gredyd Pensiwn",
+        "startedStoppedPartner": "wedi dechrau neu stopio byw gyda phartner"
+      },
+      "required": "Dewiswch ydw os ydych eisiau i ni ôl-ddyddio eich cais i ${offeredDateOfClaim}",
+      "options": {
+        "yes": "Ydw — ystyried fy nghais o ${offeredDateOfClaim}",
+        "no": "Na — ystyried fy nghais o ddyddiad gwahanol"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych eisiau i ni ystyried ôl-ddyddio eich cais i ${offeredDateOfClaim}</span>"
+    }
+  }
+}

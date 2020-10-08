@@ -1,0 +1,42 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("offered-claim-date:pageTitle", offeredDateOfClaim) }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {% set hint %}
+      <p class="govuk-body-l">{{ t("offered-claim-date:field.acceptClaimDate.hint.basedOnCircumstances") }}</p>
+      <p class="govuk-body">{{ t("offered-claim-date:field.acceptClaimDate.hint.ifYouCircumstancesChange", offeredDateOfClaim) }}</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t("offered-claim-date:field.acceptClaimDate.hint.previousClaim") }}</li>
+        <li>{{ t("offered-claim-date:field.acceptClaimDate.hint.startedStoppedPartner") }}</li>
+      </ul>
+  {% endset %}
+
+  {{ casaGovukRadios({
+    name: "acceptClaimDate",
+    fieldset: {
+      legend: {
+        text: t("offered-claim-date:pageTitle", offeredDateOfClaim),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    hint: {
+      html: hint
+    },
+    items: [{
+      value: "yes",
+      text: t("offered-claim-date:field.acceptClaimDate.options.yes", offeredDateOfClaim)
+    }, {
+      value: "no",
+      text: t("offered-claim-date:field.acceptClaimDate.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.acceptClaimDate,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

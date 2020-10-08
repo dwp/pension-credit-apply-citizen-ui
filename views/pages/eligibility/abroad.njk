@@ -1,0 +1,30 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("abroad:pageTitle", earliestEntitlementDate) }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukRadios({
+    name: "abroadMoreThan4Weeks",
+    fieldset: {
+      legend: {
+        text: t("abroad:pageTitle", earliestEntitlementDate),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("abroad:field.abroadMoreThan4Weeks.options.yes")
+    }, {
+      value: "no",
+      text: t("abroad:field.abroadMoreThan4Weeks.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.abroadMoreThan4Weeks,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

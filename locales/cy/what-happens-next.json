@@ -4,6 +4,8 @@
   "section": {
     "whatHappensNext": {
       "heading": "Beth sy'n digwydd nesaf",
+      "subHeadingBackdating": "Ôl-ddyddio eich cais",
+      "paraBackdating": "Byddwn yn cysylltu â chi i ofyn am yr amser wnaethoch dreulio y tu allan i'r DU. Efallai y byddwn yn gallu ôl-ddyddio eich cais am hyd at 3 mis, ond byddwn angen gofyn ychydig mwy o gwestiynau i chi.",
       "leadParaPropertyHtml": "Byddwn yn anfon ffurflen i chi erbyn <strong class=\"date-nowrap\">%s (4 wythnos)</strong> i ofyn i chi am fanylion yr eiddo neu dir rydych yn berchen arno.",
       "leadParaDefaultHtml": "Rydym yn gwneud rhai gwiriadau terfynol ar eich cais. Byddwn yn cysylltu â chi erbyn <strong class=\"date-nowrap\">%s (4 wythnos)</strong> naill ai i gadarnhau eich dyfarniad neu ofyn i chi am fwy o wybodaeth. Nid oes angen i chi gysylltu â ni cyn hynny oni bai bod unrhyw beth yn newid.",
       "subHeadingSuccess": "Os yw eich cais yn llwyddiannus byddwn yn talu eich Credyd Pensiwn i'r un cyfrif rydych yn cael eich Pensiwn y Wladwriaeth iddo.",
@@ -43,6 +45,6 @@
     }
   },
   "print": {
-    "buttonLabel": "Argraffu copi o’r dudalen hon"
+    "buttonLabel": "Argraffu copi o'r dudalen hon"
   }
 }

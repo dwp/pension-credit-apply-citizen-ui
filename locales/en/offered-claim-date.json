@@ -1,0 +1,19 @@
+{
+  "pageTitle": "Do you want us to consider backdating your application to ${offeredDateOfClaim}?",
+  "field": {
+    "acceptClaimDate": {
+      "hint": {
+        "basedOnCircumstances": "Based on your circumstances, this is the earliest date we can consider backdating your application to.",
+        "ifYouCircumstancesChange": "If your circumstances have changed since ${offeredDateOfClaim}, you might want us to consider your application from the date that change took place. For example, if you have:",
+        "previousClaim": "been part of a previous claim for Pension Credit",
+        "startedStoppedPartner": "started or stopped living with a partner"
+      },
+      "required": "Select yes if you want us to consider backdating your claim to ${offeredDateOfClaim}",
+      "options": {
+        "yes": "Yes — consider my application from ${offeredDateOfClaim}",
+        "no": "No — consider my application from a different date"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you want us to consider backdating your application to ${offeredDateOfClaim}</span>"
+    }
+  }
+}

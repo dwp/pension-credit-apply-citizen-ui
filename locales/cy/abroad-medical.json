@@ -1,0 +1,16 @@
+{
+  "pageTitle": "Oedd y cyfnod wnaethoch chi dreulio y tu allan i'r DU mewn perthynas â thriniaeth feddygol neu farwolaeth partner neu blentyn?",
+  "pageTitlePlural": "Oedd unrhyw un o'r cyfnodau wnaethoch chi dreulio y tu allan i'r DU mewn perthynas â thriniaeth feddygol neu farwolaeth partner neu blentyn?",
+  "field": {
+    "periodAbroadForMedical": {
+      "required": "Dewiswch oedd os oedd y cyfnod wnaethoch chi dreulio y tu allan i'r DU mewn perthynas â thriniaeth feddygol neu farwolaeth partner neu blentyn.",
+      "requiredPlural": "Dewiswch oedd os oedd unrhyw un o'r cyfnodau wnaethoch chi dreulio y tu allan i'r DU mewn perthynas â thriniaeth feddygol neu farwolaeth partner neu blentyn.",
+      "options": {
+        "yes": "Oedd",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os oedd y cyfnod wnaethoch chi dreulio y tu allan i'r DU mewn perthynas â thriniaeth feddygol neu farwolaeth partner neu blentyn</span>",
+      "changePlural": "Newid <span class=\"govuk-visually-hidden\">os oedd unrhyw un o'r cyfnodau wnaethoch chi dreulio y tu allan i'r DU mewn perthynas â thriniaeth feddygol neu farwolaeth partner neu blentyn</span>"
+    }
+  }
+}

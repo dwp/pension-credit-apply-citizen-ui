@@ -1,0 +1,30 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("periods-abroad:pageTitle", earliestEntitlementDate) }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukRadios({
+    name: "periodsAbroad",
+    fieldset: {
+      legend: {
+        text: t("periods-abroad:pageTitle", earliestEntitlementDate),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "one",
+      text: t("periods-abroad:field.periodsAbroad.options.one")
+    }, {
+      value: "moreThanOne",
+      text: t("periods-abroad:field.periodsAbroad.options.moreThanOne")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.periodsAbroad,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

@@ -26,13 +26,13 @@ const safeNl2br = (str) => str.split('\n').map(nunjucksLib.escape).join('<br/>')
 // eg. we have varying radio content for if a user is a DelgatedAuthority or not:
 // page:field.options.yesDelegatedAuthority,
 // page:field.options.yesHelper,
-const radioOptionValue = (t, context) => (dataKey, i18nOptionKey, suffix = '') => {
+const radioOptionValue = (t, context) => (dataKey, i18nOptionKey, suffix = '', variables) => {
   const [waypoint, field] = dataKey.split('.');
   const option = context.data[waypoint] && context.data[waypoint][field]
     ? context.data[waypoint][field].replace(/[^a-z0-9_-]/ig, '')
     : '';
 
-  return t(`${i18nOptionKey}.${option}${suffix}`);
+  return t(`${i18nOptionKey}.${option}${suffix}`, variables);
 };
 
 const checkboxOptionValues = (t, context) => (dataKey, i18nOptionKey, i18nNoneKey) => {

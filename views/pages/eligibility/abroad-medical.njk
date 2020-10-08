@@ -1,0 +1,32 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% set suffix = 'Plural' if periodsAbroad === 'moreThanOne' else '' %}
+
+{% block casaPageTitle %}
+  {{ t("abroad-medical:pageTitle" + suffix) }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukRadios({
+    name: "periodAbroadForMedical",
+    fieldset: {
+      legend: {
+        text: t("abroad-medical:pageTitle" + suffix),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("abroad-medical:field.periodAbroadForMedical.options.yes")
+    }, {
+      value: "no",
+      text: t("abroad-medical:field.periodAbroadForMedical.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.periodAbroadForMedical,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

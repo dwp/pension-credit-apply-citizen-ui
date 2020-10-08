@@ -33,7 +33,7 @@
       name: "moneyBackdated",
       classes: "govuk-input--width-10",
       label: {
-        text: t("money-you-have:field.moneyBackdated.label", { dateOfClaim: dateOfClaim | formatDateObject({ locale: locale }) }),
+        text: t("money-you-have:field.moneyBackdated.label", chosenDateOfClaim),
         classes: "govuk-label--s"
       },
       hint: {

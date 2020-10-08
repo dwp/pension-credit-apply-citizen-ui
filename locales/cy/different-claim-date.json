@@ -1,0 +1,12 @@
+{
+  "pageTitle": "O ba ddyddiad ydych chi eisiau i ni ystyried eich cais o?",
+  "field": {
+    "differentClaimDate": {
+      "hint": "Er enghraifft, 31 8 2020",
+      "required": "Rhowch y dyddiad rydych eisiau i ni ystyried eich cais o.",
+      "format": "Rhowch ddyddiad gwirioneddol.",
+      "future": "Mae'n rhaid i'r dyddiad rydych eisiau i ni ystyried eich cais o fod yn heddiw neu'n gynharach.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">y dyddiad ydych chi eisiau i ni ystyried eich cais o</span>"
+    }
+  }
+}

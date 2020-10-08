@@ -14,11 +14,11 @@
   "moneyOverseas": "unrhyw arian arall yn y wlad hon neu dramor",
   "field": {
     "moneyBackdated": {
-      "label": "Beth yw cyfanswm yr arian oedd gennych ar ${dateOfClaim}?",
+      "label": "Beth yw cyfanswm yr arian oedd gennych ar ${chosenDateOfClaim}?",
       "hint": "Rhowch y swm mewn punnoedd a cheiniogau, er enghraifft, 100.00",
-      "required": "Rhowch gyfanswm yr arian oedd gennych ar ${dateOfClaim}.",
-      "format": "Rhowch gyfanswm yr arian oedd gennych ar ${dateOfClaim} drwy ddefnyddio rhifau a phwynt degol. Er enghraifft 100 neu 1000.00",
-      "change": "Newid <span class=\"govuk-visually-hidden\">cyfanswm yr arian oedd gennych ar ${dateOfClaim}</span>"
+      "required": "Rhowch gyfanswm yr arian oedd gennych ar ${chosenDateOfClaim}.",
+      "format": "Rhowch gyfanswm yr arian oedd gennych ar ${chosenDateOfClaim} drwy ddefnyddio rhifau a phwynt degol. Er enghraifft 100 neu 1000.00",
+      "change": "Newid <span class=\"govuk-visually-hidden\">cyfanswm yr arian oedd gennych ar ${chosenDateOfClaim}</span>"
     },
     "moneyToday": {
       "label": "Beth yw cyfanswm yr arian sydd gennych heddiw?",

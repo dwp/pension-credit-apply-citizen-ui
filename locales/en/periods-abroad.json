@@ -1,0 +1,13 @@
+{
+  "pageTitle": "How many periods of more than 4 weeks have you spent outside the UK since ${earliestEntitlementDate}?",
+  "field": {
+    "periodsAbroad": {
+      "required": "Select how many periods of more than 4 weeks you have spent outside the UK since ${earliestEntitlementDate}.",
+      "options": {
+        "one": "One",
+        "moreThanOne": "More than one"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">how many periods of more than 4 weeks you have spent outside the UK since ${earliestEntitlementDate}</span>"
+    }
+  }
+}

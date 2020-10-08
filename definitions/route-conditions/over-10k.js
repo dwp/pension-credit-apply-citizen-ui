@@ -1,4 +1,4 @@
-const { waypoints: WP } = require('../../lib/constants');
+const { waypoints: WP } = require('../../lib/constants.js');
 
 const disgregardsLimit = 10000;
 

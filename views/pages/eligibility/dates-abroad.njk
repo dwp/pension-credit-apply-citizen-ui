@@ -1,0 +1,43 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
+
+{% block casaPageTitle %}
+  {{ t("dates-abroad:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  <h1 class="govuk-heading-xl">
+    {{ t("dates-abroad:pageTitle") }}
+  </h1>
+
+  {{ casaGovukDateInput({
+    namePrefix: "dateYouLeft",
+    fieldset: {
+      legend: {
+        text: t("dates-abroad:field.dateYouLeft.legend"),
+        classes: "govuk-fieldset__legend--s"
+      }
+    },
+    hint: {
+      text: t("dates-abroad:field.dateYouLeft.hint")
+    },
+    casaErrors: formErrors,
+    casaValue: formData.dateYouLeft
+  }) }}
+
+  {{ casaGovukDateInput({
+    namePrefix: "dateYouReturned",
+    fieldset: {
+      legend: {
+        text: t("dates-abroad:field.dateYouReturned.legend"),
+        classes: "govuk-fieldset__legend--s"
+      }
+    },
+    hint: {
+      text: t("dates-abroad:field.dateYouReturned.hint")
+    },
+    casaErrors: formErrors,
+    casaValue: formData.dateYouReturned
+  }) }}
+{% endblock %}

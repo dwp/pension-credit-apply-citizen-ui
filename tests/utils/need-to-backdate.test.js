@@ -1,17 +1,29 @@
-const { expect } = require('chai');
+const sinon = require('sinon');
+const proxyquire = require('proxyquire');
+const { expect } = require('chai').use(require('sinon-chai'));
 const { JourneyContext } = require('@dwp/govuk-casa');
-const { waypoints } = require('../../lib/constants.js');
-const needToBackdate = require('../../utils/need-to-backdate.js');
+const { waypoints: WP } = require('../../lib/constants.js');
+
+const getEarliestEntitlementDateStub = sinon.stub();
+const getOfferedDateOfClaimStub = sinon.stub();
+
+const needToBackdate = proxyquire('../../utils/need-to-backdate.js', {
+  './get-earliest-entitlement-date.js': getEarliestEntitlementDateStub,
+  './get-offered-date-of-claim.js': getOfferedDateOfClaimStub,
+});
 
 describe('Utils: need-to-backdate', () => {
   let _now;
 
-  before(() => {
+  beforeEach(() => {
+    const date = new Date(2020, 0, 10);
     _now = Date.now;
-    Date.now = () => (1580204913690); // 2020-01-28
+    Date.now = () => (date);
   });
 
-  after(() => {
+  afterEach(() => {
+    getEarliestEntitlementDateStub.reset();
+    getOfferedDateOfClaimStub.reset();
     Date.now = _now;
   });
 
@@ -19,60 +31,59 @@ describe('Utils: need-to-backdate', () => {
     expect(needToBackdate).to.be.a('function');
   });
 
-  it('should return an boolean', () => {
-    const context = new JourneyContext({});
-    const dates = needToBackdate(context);
-
-    expect(dates).to.be.an('boolean');
+  it('should return false if earliestEntitlementDate is not over a week ago', () => {
+    const context = new JourneyContext();
+    getEarliestEntitlementDateStub.returns('2020-01-09');
+    expect(needToBackdate(context)).to.equal(false);
   });
 
-  it('should return true if dateOfClaim is more than 7 days before today', () => {
-    const context = new JourneyContext({
-      [waypoints.DATE_OF_CLAIM]: {
-        dateOfClaim: { dd: '20', mm: '01', yyyy: '2020' },
-      },
-    });
+  it('should return false if getOfferedDateOfClaim cannot calculate a date of claim', () => {
+    const context = new JourneyContext();
+    getEarliestEntitlementDateStub.returns('2020-01-02');
+    getOfferedDateOfClaimStub.returns(null);
+    expect(needToBackdate(context)).to.equal(false);
+    expect(getEarliestEntitlementDateStub).to.be.calledWith(context);
+  });
 
+  it('should return false if offeredDateOfClaim was rejected and differentClaimDate is not over a week ago', () => {
+    const context = new JourneyContext({
+      [WP.OFFERED_CLAIM_DATE]: { acceptClaimDate: 'no' },
+      [WP.DIFFERENT_CLAIM_DATE]: { differentClaimDate: { yyyy: '2020', mm: '01', dd: '09' } },
+    });
+    getEarliestEntitlementDateStub.returns('2020-01-02');
+    getOfferedDateOfClaimStub.returns('2020-01-02');
+    expect(needToBackdate(context)).to.equal(false);
+    expect(getEarliestEntitlementDateStub).to.be.calledWith(context);
+    expect(getOfferedDateOfClaimStub).to.be.calledWith(context);
+  });
+
+  it('should return true if offeredDateOfClaim was rejected and differentClaimDate is over a week ago', () => {
+    const context = new JourneyContext({
+      [WP.OFFERED_CLAIM_DATE]: { acceptClaimDate: 'no' },
+      [WP.DIFFERENT_CLAIM_DATE]: { differentClaimDate: { yyyy: '2020', mm: '01', dd: '02' } },
+    });
+    getEarliestEntitlementDateStub.returns('2020-01-02');
+    getOfferedDateOfClaimStub.returns('2020-01-02');
     expect(needToBackdate(context)).to.equal(true);
+    expect(getEarliestEntitlementDateStub).to.be.calledWith(context);
+    expect(getOfferedDateOfClaimStub).to.be.calledWith(context);
   });
 
-  it('should return false if dateOfClaim is 7 days before today', () => {
-    const context = new JourneyContext({
-      [waypoints.ENTER_DATE_OF_CLAIM]: {
-        dateOfClaim: { dd: '21', mm: '01', yyyy: '2020' },
-      },
-    });
-
+  it('should return false if offeredDateOfClaim was accepted and is not over a week ago', () => {
+    const context = new JourneyContext({ [WP.OFFERED_CLAIM_DATE]: { acceptClaimDate: 'yes' } });
+    getEarliestEntitlementDateStub.returns('2020-01-02');
+    getOfferedDateOfClaimStub.returns('2020-01-09');
     expect(needToBackdate(context)).to.equal(false);
+    expect(getEarliestEntitlementDateStub).to.be.calledWith(context);
+    expect(getOfferedDateOfClaimStub).to.be.calledWith(context);
   });
 
-  it('should return false if dateOfClaim is less than 7 days before today', () => {
-    const context = new JourneyContext({
-      [waypoints.ENTER_DATE_OF_CLAIM]: {
-        dateOfClaim: { dd: '20', mm: '01', yyyy: '2020' },
-      },
-    });
-
-    expect(needToBackdate(context)).to.equal(false);
-  });
-
-  it('should return false if dateOfClaim is today', () => {
-    const context = new JourneyContext({
-      [waypoints.ENTER_DATE_OF_CLAIM]: {
-        dateOfClaim: { dd: '28', mm: '01', yyyy: '2020' },
-      },
-    });
-
-    expect(needToBackdate(context)).to.equal(false);
-  });
-
-  it('should return false if dateOfClaim is in the future', () => {
-    const context = new JourneyContext({
-      [waypoints.ENTER_DATE_OF_CLAIM]: {
-        dateOfClaim: { dd: '29', mm: '01', yyyy: '2020' },
-      },
-    });
-
-    expect(needToBackdate(context)).to.equal(false);
+  it('should return true if offeredDateOfClaim was accepted and is over a week ago', () => {
+    const context = new JourneyContext({ [WP.OFFERED_CLAIM_DATE]: { acceptClaimDate: 'yes' } });
+    getEarliestEntitlementDateStub.returns('2020-01-02');
+    getOfferedDateOfClaimStub.returns('2020-01-02');
+    expect(needToBackdate(context)).to.equal(true);
+    expect(getEarliestEntitlementDateStub).to.be.calledWith(context);
+    expect(getOfferedDateOfClaimStub).to.be.calledWith(context);
   });
 });

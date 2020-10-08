@@ -1,6 +1,7 @@
 module.exports = (req, res) => {
   // Grab data extracted from session prior to submission
   const {
+    abroadMoreThanOnceOrForMedical,
     ownsAdditionalProperty,
     contactDate,
     isNorthernIrelandClaim,
@@ -8,6 +9,7 @@ module.exports = (req, res) => {
 
   // Be mindful not to include any PII in this final render
   res.render('pages/submission/what-happens-next.njk', {
+    abroadMoreThanOnceOrForMedical,
     ownsAdditionalProperty,
     contactDate,
     isNorthernIrelandClaim,

@@ -17,6 +17,12 @@ journey:
     dateOfBirth[mm]: "02"
     dateOfBirth[yyyy]: "1942"
 
+  abroad:
+    "no": click()
+
+  offered-claim-date:
+    "yes": click()
+
   live-with-partner:
     "yesLiveTogether": click()
     partnerDateOfBirth[dd]: "01"
@@ -25,8 +31,3 @@ journey:
 
   partner-agree:
     "yes": click()
-
-  date-of-claim:
-    dateOfClaim[dd]: "01"
-    dateOfClaim[mm]: "04"
-    dateOfClaim[yyyy]: "2020"

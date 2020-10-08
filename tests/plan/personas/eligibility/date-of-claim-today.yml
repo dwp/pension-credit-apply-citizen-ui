@@ -1,0 +1,21 @@
+name: date-of-claim-today
+
+journey:
+  start:
+  # ---------------------------------------------------------------- eligibility
+  country-you-live-in:
+    "england": click()
+
+  claimed-state-pension:
+    "yes": click()
+
+  children-living-with-you:
+    "no": click()
+
+  # 1111-01-02 is stubbed to return a State Pension date of today
+  date-of-birth:
+    dateOfBirth[dd]: "02"
+    dateOfBirth[mm]: "01"
+    dateOfBirth[yyyy]: "1111"
+
+  live-with-partner:

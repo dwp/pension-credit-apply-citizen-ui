@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Sawl cyfnod o 4 wythnos neu fwy ydych chi wedi eu treulio y tu allan i'r DU ers ${earliestEntitlementDate}?",
+  "field": {
+    "periodsAbroad": {
+      "required": "Dewiswch sawl cyfnod o fwy na 4 wythnos ydych chi wedi eu treulio y tu allan i'r DU ers ${earliestEntitlementDate}.",
+      "options": {
+        "one": "Un",
+        "moreThanOne": "Mwy nag un"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">sawl cyfnod o 4 wythnos neu fwy ydych chi wedi eu treulio y tu allan i'r DU ers ${earliestEntitlementDate}</span>"
+    }
+  }
+}

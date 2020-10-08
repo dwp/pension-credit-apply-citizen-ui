@@ -1,0 +1,24 @@
+name: date-of-claim-advance
+
+journey:
+  start:
+  # ---------------------------------------------------------------- eligibility
+  country-you-live-in:
+    "england": click()
+
+  claimed-state-pension:
+    "yes": click()
+
+  children-living-with-you:
+    "no": click()
+
+  # 1111-01-01 is stubbed to return a State Pension date 2 months from today
+  date-of-birth:
+    dateOfBirth[dd]: "01"
+    dateOfBirth[mm]: "01"
+    dateOfBirth[yyyy]: "1111"
+
+  advance-claim-date:
+    "continue": click()
+
+  live-with-partner:

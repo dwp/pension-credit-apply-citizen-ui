@@ -7,9 +7,9 @@ const secondPropertyValidation = require('../field-validators/money/second-prope
 const bondsValidation = require('../field-validators/money/bonds.js');
 const disregardedMoneyValidation = require('../field-validators/money/disregarded-money.js');
 const jointOrSingleClaim = require('../hooks/common/joint-or-single-claim.js');
-const withDataFromPage = require('../hooks/common/with-data-from-page.js');
 const needToBackdate = require('../hooks/common/need-to-backdate.js');
 const northernIrelandClaim = require('../hooks/common/northern-ireland-claim.js');
+const chosenDateOfClaim = require('../hooks/common/chosen-date-of-claim.js');
 const moneyYouHaveHooks = require('../hooks/money/money-you-have.js');
 
 module.exports = () => {
@@ -28,9 +28,7 @@ module.exports = () => {
         moneyYouHaveHooks(waypoints.MONEY_YOU_HAVE),
         jointOrSingleClaim(waypoints),
         needToBackdate,
-        withDataFromPage({
-          [waypoints.DATE_OF_CLAIM]: ['dateOfClaim'],
-        }),
+        chosenDateOfClaim,
       ],
     },
   };

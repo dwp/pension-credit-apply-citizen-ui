@@ -1,0 +1,12 @@
+{
+  "pageTitle": "What date do you want us to consider your application from?",
+  "field": {
+    "differentClaimDate": {
+      "hint": "For example, 31 8 2020",
+      "required": "Enter the date you want us to consider your application from.",
+      "format": "Enter a real date.",
+      "future": "The date you want us to consider your claim from must be today or before.",
+      "change": "Change <span class=\"govuk-visually-hidden\">the date you want us to consider your application from</span>"
+    }
+  }
+}

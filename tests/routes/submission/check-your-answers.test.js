@@ -7,8 +7,10 @@ const Response = require('../../helpers/fake-response.js');
 
 const { expect } = chai;
 const stubBuildClaim = sinon.stub().returns({
+  moreThanOnePeriodAbroad: () => (false),
   ownsAdditionalProperty: () => (false),
   isNorthernIrelandClaim: () => (false),
+  abroadForMedical: () => (false),
 });
 const stubBuildCya = sinon.stub().returns([]);
 
@@ -159,6 +161,7 @@ describe('submission/check-your-answers', () => {
       submitClaim({}, claimServiceFactory)(req, res, next).then(() => {
         process.nextTick(() => {
           expect(req).to.have.property('claimCompleteData');
+          expect(req.claimCompleteData).to.have.property('abroadMoreThanOnceOrForMedical');
           expect(req.claimCompleteData).to.have.property('ownsAdditionalProperty');
           expect(req.claimCompleteData).to.have.property('contactDate').that.matches(/^[0-9]{2} [a-z]+? [0-9]{4}$/i);
           expect(req.claimCompleteData).to.have.property('isNorthernIrelandClaim').that.is.a('Boolean');

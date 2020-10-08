@@ -17,10 +17,11 @@ journey:
     dateOfBirth[mm]: "02"
     dateOfBirth[yyyy]: "1942"
 
-  live-with-partner:
+  abroad:
     "no": click()
 
-  date-of-claim:
-    dateOfClaim[dd]: "01"
-    dateOfClaim[mm]: "04"
-    dateOfClaim[yyyy]: "2020"
+  offered-claim-date:
+    "yes": click()
+
+  live-with-partner:
+    "no": click()

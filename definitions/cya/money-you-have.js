@@ -1,5 +1,6 @@
 const { rowFactory, radioOptionValue, safeNl2br } = require('./utils.js');
 const { waypoints: WP } = require('../../lib/constants.js');
+const isoStringToDateObject = require('../../utils/iso-string-to-date-object.js');
 const formatDateObject = require('../../utils/format-date-object.js');
 const needToBackdate = require('../../utils/need-to-backdate.js');
 const formatMoney = require('../../utils/format-money.js');
@@ -10,27 +11,32 @@ module.exports = (t, context, claim, cyaUrl) => {
     return undefined;
   }
 
-  const { dateOfClaim } = context.getDataForPage(WP.DATE_OF_CLAIM) || {};
-  const formattedDateOfClaim = dateOfClaim && formatDateObject(dateOfClaim, {
-    locale: context.nav.language,
-  });
   const northernIreland = claim.isNorthernIrelandClaim() ? 'northernIreland.' : '';
 
   const row = rowFactory(cyaUrl);
   const rov = radioOptionValue(t, context);
+  const backdating = needToBackdate(context);
   const isCheckedYesNo = (claimData, name) => (
     claimData
       ? t(`disregarded-money:field.disregardedMoney.options.${name}.cyaYes`)
       : t(`disregarded-money:field.disregardedMoney.options.${name}.cyaNo`)
   );
 
+  // If backdating format a date of claim from either the one offered to them or
+  // the one they chose instead.
+  const chosenDateOfClaimISO = claim.requestedDateOfClaim || claim.offeredDateOfClaim;
+  const chosenDateOfClaim = chosenDateOfClaimISO && formatDateObject(
+    isoStringToDateObject(chosenDateOfClaimISO),
+    { locale: context.nav.language },
+  );
+
   const moneyRows = [
     /* ----------------------------------------------------- money-you-have */
     // What is the total amount of money you had on ${dateOfClaim}?
-    !needToBackdate(context) ? undefined : row({
+    !backdating ? undefined : row({
       changeHref: `${WP.MONEY_YOU_HAVE}#f-moneyBackdated`,
-      changeHtml: t('money-you-have:field.moneyBackdated.change', { dateOfClaim: formattedDateOfClaim }),
-      key: t('money-you-have:field.moneyBackdated.label', { dateOfClaim: formattedDateOfClaim }),
+      changeHtml: t('money-you-have:field.moneyBackdated.change', { chosenDateOfClaim }),
+      key: t('money-you-have:field.moneyBackdated.label', { chosenDateOfClaim }),
       value: formatMoney(claim.moneySavingsInvestments.moneyBackdatedAmount),
     }),
 

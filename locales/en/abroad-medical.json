@@ -1,0 +1,16 @@
+{
+  "pageTitle": "Was the period you spent outside the UK connected to medical treatment or the death of a partner or child?",
+  "pageTitlePlural": "Were any of the periods you spent outside the UK connected to medical treatment or the death of a partner or child?",
+  "field": {
+    "periodAbroadForMedical": {
+      "required": "Select yes if the period you spent outside the UK was connected to medical treatment or the death of a partner or child.",
+      "requiredPlural": "Select yes if any of the periods you spent outside the UK were connected to medical treatment or the death of a partner or child.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether the period you spent outside the UK was connected to medical treatment or the death of a partner or child</span>",
+      "changePlural": "Change <span class=\"govuk-visually-hidden\">whether any of the periods you spent outside the UK were connected to medical treatment or the death of a partner or child</span>"
+    }
+  }
+}

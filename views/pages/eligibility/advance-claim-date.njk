@@ -1,0 +1,25 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "components/button/macro.njk" import govukButton %}
+
+{% block casaPageTitle %}
+  {{ t('advance-claim-date:pageTitle', earliestEntitlementDate) }} - {{ t('common:serviceName') }}
+{% endblock %}
+
+{% block journey_content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        {{ t('advance-claim-date:pageTitle', earliestEntitlementDate) }}
+      </h1>
+
+      {{ govukButton({
+        text: t('common:continue'),
+        href: skipTo,
+        attributes: {
+          id: 'continue-button'
+        }
+      }) }}
+    </div>
+  </div>
+{% endblock %}

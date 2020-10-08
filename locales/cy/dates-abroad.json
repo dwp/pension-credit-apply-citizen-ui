@@ -1,0 +1,19 @@
+{
+  "pageTitle": "Beth oedd dyddiadau'r cyfnod wnaethoch chi dreulio y tu allan i'r DU?",
+  "field": {
+    "dateYouLeft": {
+      "legend": "Dyddiad y gadawsoch y DU",
+      "hint": "Er enghraifft, 31 5 2020.",
+      "required": "Rhowch y dyddiad y gadawsoch y DU.",
+      "format": "Rhowch ddyddiad gwirioneddol y gwnaethoch adael y DU.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">y dyddiad y gadawsoch y DU</span>"
+    },
+    "dateYouReturned": {
+      "legend": "Dyddiad y dychweloch i'r DU",
+      "hint": "Er enghraifft, 31 8 2020.",
+      "required": "Rhowch y dyddiad y dychweloch i'r DU.",
+      "format": "Rhowch ddyddiad gwirioneddol rydych wedi dychwelyd i'r DU.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">y dyddiad y dychweloch i'r DU</span>"
+    }
+  }
+}

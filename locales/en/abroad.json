@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Have you been outside the UK for a period of more than four weeks since ${earliestEntitlementDate}?",
+  "field": {
+    "abroadMoreThan4Weeks": {
+      "required": "Select yes if you have been outside the UK for a period of more than four weeks since ${earliestEntitlementDate}.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you been outside the UK for a period of more than four weeks since ${earliestEntitlementDate}</span>"
+    }
+  }
+}

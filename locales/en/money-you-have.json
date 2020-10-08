@@ -14,11 +14,11 @@
   "moneyOverseas": "any other money in this country or overseas",
   "field": {
     "moneyBackdated": {
-      "label": "What is the total amount of money you had on ${dateOfClaim}?",
+      "label": "What is the total amount of money you had on ${chosenDateOfClaim}?",
       "hint": "Enter an amount in pounds and pence, for example, 100.00",
-      "required": "Enter the total amount of money you had on ${dateOfClaim}.",
-      "format": "Enter the total amount of money you had on ${dateOfClaim} using numbers and a decimal point. For example 100 or 1000.00",
-      "change": "Change <span class=\"govuk-visually-hidden\">the total amount of money you had on ${dateOfClaim}</span>"
+      "required": "Enter the total amount of money you had on ${chosenDateOfClaim}.",
+      "format": "Enter the total amount of money you had on ${chosenDateOfClaim} using numbers and a decimal point. For example 100 or 1000.00",
+      "change": "Change <span class=\"govuk-visually-hidden\">the total amount of money you had on ${chosenDateOfClaim}</span>"
     },
     "moneyToday": {
       "label": "What is the total amount of money you have today?",

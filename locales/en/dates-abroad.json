@@ -1,0 +1,19 @@
+{
+  "pageTitle": "What were the dates of the period you spent outside the UK?",
+  "field": {
+    "dateYouLeft": {
+      "legend": "Date you left the UK",
+      "hint": "For example, 31 5 2020.",
+      "required": "Enter the date you left the UK.",
+      "format": "Enter a real date that you left the UK.",
+      "change": "Change <span class=\"govuk-visually-hidden\">the date you left the UK</span>"
+    },
+    "dateYouReturned": {
+      "legend": "Date you returned to the UK",
+      "hint": "For example, 31 8 2020.",
+      "required": "Enter the date you returned to the UK.",
+      "format": "Enter a real date that you returned to the UK.",
+      "change": "Change <span class=\"govuk-visually-hidden\">the date you returned to the UK</span>"
+    }
+  }
+}

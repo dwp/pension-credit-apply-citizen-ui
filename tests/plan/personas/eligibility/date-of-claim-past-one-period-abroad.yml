@@ -1,0 +1,41 @@
+name: date-of-claim-past-one-period-abroad
+
+journey:
+  start:
+  # ---------------------------------------------------------------- eligibility
+  country-you-live-in:
+    "england": click()
+
+  claimed-state-pension:
+    "yes": click()
+
+  children-living-with-you:
+    "no": click()
+
+  date-of-birth:
+    dateOfBirth[dd]: "01"
+    dateOfBirth[mm]: "02"
+    dateOfBirth[yyyy]: "1942"
+
+  abroad:
+    "yes": click()
+
+  periods-abroad:
+    "one": click()
+
+  abroad-medical:
+    "no": click()
+
+  dates-abroad:
+    dateYouLeft[dd]: "01"
+    dateYouLeft[mm]: "02"
+    dateYouLeft[yyyy]: "2020"
+    dateYouReturned[dd]: "08"
+    dateYouReturned[mm]: "02"
+    dateYouReturned[yyyy]: "2020"
+
+  offered-claim-date:
+    "yes": click()
+
+  live-with-partner:
+    "no": click()

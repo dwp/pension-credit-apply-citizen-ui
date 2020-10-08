@@ -4,11 +4,20 @@ const countryYouLiveInValidation = require('../field-validators/eligibility/coun
 const claimedStatePensionValidation = require('../field-validators/eligibility/claimed-state-pension.js');
 const childrenLivingWithYouValidation = require('../field-validators/eligibility/children-living-with-you.js');
 const dateOfBirthValidation = require('../field-validators/eligibility/date-of-birth.js');
+const abroadValidation = require('../field-validators/eligibility/abroad.js');
+const periodsAbroadValidation = require('../field-validators/eligibility/periods-abroad.js');
+const abroadMedicalValidation = require('../field-validators/eligibility/abroad-medical.js');
+const datesAbroadValidation = require('../field-validators/eligibility/dates-abroad.js');
+const offeredClaimDateValidation = require('../field-validators/eligibility/offered-claim-date.js');
+const differentClaimDateValidation = require('../field-validators/eligibility/different-claim-date.js');
 const liveWithPartnerValidation = require('../field-validators/eligibility/live-with-partner.js');
 const partnerAgreeValidation = require('../field-validators/eligibility/partner-agree.js');
 const partnerHousingBenefitValidation = require('../field-validators/eligibility/partner-housing-benefit.js');
 const startHook = require('../hooks/eligibility/start.js');
+const offeredClaimDateHook = require('../hooks/eligibility/offered-claim-date.js');
+const earliestEntitlementDate = require('../hooks/common/earliest-entitlement-date.js');
 const withSkipLink = require('../hooks/common/with-skip-link.js');
+const withDataFromPage = require('../hooks/common/with-data-from-page.js');
 const northernIrelandClaim = require('../hooks/common/northern-ireland-claim.js');
 
 module.exports = (sessionTtl) => {
@@ -69,6 +78,63 @@ module.exports = (sessionTtl) => {
     view: 'pages/eligibility/too-young-to-claim.njk',
     hooks: {
       prerender: northernIrelandClaim(waypoints),
+    },
+  };
+
+  pages[waypoints.ABROAD] = {
+    view: 'pages/eligibility/abroad.njk',
+    fieldValidators: abroadValidation,
+    hooks: {
+      prerender: earliestEntitlementDate,
+    },
+  };
+
+  pages[waypoints.PERIODS_ABROAD] = {
+    view: 'pages/eligibility/periods-abroad.njk',
+    fieldValidators: periodsAbroadValidation,
+    hooks: {
+      prerender: earliestEntitlementDate,
+    },
+  };
+
+  pages[waypoints.DATES_ABROAD] = {
+    view: 'pages/eligibility/dates-abroad.njk',
+    fieldValidators: datesAbroadValidation,
+  };
+
+  pages[waypoints.ABROAD_MEDICAL] = {
+    view: 'pages/eligibility/abroad-medical.njk',
+    fieldValidators: abroadMedicalValidation,
+    hooks: {
+      prerender: withDataFromPage({
+        [waypoints.PERIODS_ABROAD]: ['periodsAbroad'],
+      }),
+    },
+  };
+
+  pages[waypoints.ADVANCE_CLAIM_DATE] = {
+    view: 'pages/eligibility/advance-claim-date.njk',
+    hooks: {
+      prerender: [
+        earliestEntitlementDate,
+        withSkipLink(waypoints.LIVE_WITH_PARTNER),
+      ],
+    },
+  };
+
+  pages[waypoints.OFFERED_CLAIM_DATE] = {
+    view: 'pages/eligibility/offered-claim-date.njk',
+    fieldValidators: offeredClaimDateValidation,
+    hooks: {
+      prerender: offeredClaimDateHook,
+    },
+  };
+
+  pages[waypoints.DIFFERENT_CLAIM_DATE] = {
+    view: 'pages/eligibility/different-claim-date.njk',
+    fieldValidators: differentClaimDateValidation,
+    fieldGatherModifiers: {
+      differentClaimDate: deepTrimWhitespace,
     },
   };
 

@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Ydych chi wedi bod y tu allan i'r DU am gyfnod o fwy na phedair wythnos ers ${earliestEntitlementDate}?",
+  "field": {
+    "abroadMoreThan4Weeks": {
+      "required": "Dewiswch ydw os ydych wedi bod y tu allan i'r DU am gyfnod o fwy na phedair wythnos ers ${earliestEntitlementDate}.",
+      "options": {
+        "yes": "Ydw",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os ydych chi wedi bod y tu allan i'r DU am gyfnod o fwy na phedair wythnos ers ${earliestEntitlementDate}</span>"
+    }
+  }
+}
