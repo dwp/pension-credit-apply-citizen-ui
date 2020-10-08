@@ -4,7 +4,8 @@
     "hasEmploymentIncome": {
       "legendSingle": "Oes gennych chi unrhyw incwm o gyflogaeth?",
       "legendJoint": "Oes gennych chi neu'ch partner unrhyw incwm o gyflogaeth?",
-      "required": "Dewiswch oes os oes gennych unrhyw incwm o gyflogaeth.",
+      "requiredSingle": "Dewiswch oes os oes gennych unrhyw incwm o gyflogaeth.",
+      "requiredJoint": "Dewiswch oes os oes gennych chi neu eich partner unrhyw incwm o gyflogaeth.",
       "options": {
         "yes": "Oes",
         "no": "Na"
@@ -12,20 +13,24 @@
       "change": "Newid <span class=\"govuk-visually-hidden\">os oes gennych unrhyw incwm o gyflogaeth</span>"
     },
     "hasSelfEmploymentIncome": {
-      "legendSingle": "A oedd gennych chi unrhyw incwm o hunangyflogaeth rhwng nawr a 3 mis cyn ${dateOfClaim}?",
-      "legendJoint": "A oedd gennych chi neu'ch partner unrhyw incwm o hunangyflogaeth rhwng nawr a 3 mis cyn ${dateOfClaim}?",
-      "required": "Dewiswch oedd os oeddech wedi cael unrhyw incwm o hunangyflogaeth.",
+      "legendSinglePast": "Ydych chi wedi cael unrhyw incwm o hunangyflogaeth ers ${selfEmployedEarningsDate}?",
+      "legendJointPast": "Ydych chi neu eich partner wedi cael unrhyw incwm o hunangyflogaeth ers ${selfEmployedEarningsDate}?",
+      "legendSinglePresent": "Oes gennych chi unrhyw incwm o hunangyflogaeth?",
+      "legendJointPresent": "Oes gennych chi neu eich partner unrhyw incwm o hunangyflogaeth",
+      "requiredSinglePast": "Dewiswch do os ydych wedi cael unrhyw incwm o hunangyflogaeth.",
+      "requiredJointPast": "Dewiswch do os ydych chi neu eich partner wedi cael unrhyw incwm o hunangyflogaeth.",
+      "requiredSinglePresent": "Dewiswch oes os oes gennych unrhyw incwm o hunangyflogaeth.",
+      "requiredJointPresent": "Dewiswch oes os oes gennych chi neu eich partner unrhyw incwm o hunangyflogaeth.",
       "options": {
-        "yes": "Oedd",
-        "no": "Na"
+        "yesPresent": "Oes",
+        "noPresent": "Na",
+        "yesPast": "Do",
+        "noPast": "Na"
       },
-      "change": "Newid <span class=\"govuk-visually-hidden\">os oes gennych unrhyw incwm o hunangyflogaeth nawr neu yn y 3 mis cyn dyddiad eich cais</span>"
-    },
-    "selfEmploymentIncomeDetails": {
-      "label": "Dywedwch wrthym beth yw'r incwm yma, faint rydych yn cael eich talu a pha mor aml rydych yn cael eich talu",
-      "required": "Rhowch fanylion o beth yw'r incwm o hunangyflogaeth yma, faint rydych yn cael eich talu a pha mor aml rydych yn cael eich talu.",
-      "length": "Mae'n rhaid i'r manylion o beth yw'r incwm o hunangyflogaeth yma, faint rydych yn cael eich talu a pha mor aml rydych yn cael eich talu fod yn 500 nod neu lai.",
-      "change": "Newid <span class=\"govuk-visually-hidden\">manylion eich incwm o hunangyflogaeth</span>"
+      "changeSinglePast": "Newid <span class=\"govuk-visually-hidden\">os ydych wedi cael unrhyw incwm o hunangyflogaeth</span>",
+      "changeJointPast": "Newid <span class=\"govuk-visually-hidden\">os ydych chi neu eich partner wedi cael unrhyw incwm o hunangyflogaeth</span>",
+      "changeSinglePresent": "Newid <span class=\"govuk-visually-hidden\">os oes gennych unrhyw incwm o hunangyflogaeth</span>",
+      "changeJointPresent": "Newid <span class=\"govuk-visually-hidden\">os oes gennych chi neu eich partner unrhyw incwm o hunangyflogaeth</span>"
     }
   }
 }

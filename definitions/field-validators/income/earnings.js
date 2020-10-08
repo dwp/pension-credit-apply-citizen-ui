@@ -1,35 +1,35 @@
 const { validationRules: r, simpleFieldValidation: sf } = require('@dwp/govuk-casa');
+const jointSingleErrorMsg = require('../../../utils/joint-single-error-message.js');
+const getSelfEmploymentVars = require('../../../utils/get-self-employment-vars.js');
+
+const hasEmploymentIncomeErrorMsg = jointSingleErrorMsg('earnings:field.hasEmploymentIncome.required');
+
+const hasSelfEmploymentIncomeErrorMsg = ({ journeyContext: c }) => {
+  const msgKey = 'earnings:field.hasSelfEmploymentIncome.required';
+  const keyPartner = jointSingleErrorMsg(msgKey)({ journeyContext: c });
+  const { selfEmployedSuffix } = getSelfEmploymentVars(c);
+  return `${keyPartner}${selfEmployedSuffix}`;
+};
 
 const fieldValidators = Object.assign(Object.create(null), {
   hasEmploymentIncome: sf([
     r.required.bind({
-      errorMsg: 'earnings:field.hasEmploymentIncome.required',
+      errorMsg: hasEmploymentIncomeErrorMsg,
     }),
     r.inArray.bind({
       source: ['yes', 'no'],
-      errorMsg: 'earnings:field.hasEmploymentIncome.required',
+      errorMsg: hasEmploymentIncomeErrorMsg,
     }),
   ]),
   hasSelfEmploymentIncome: sf([
     r.required.bind({
-      errorMsg: 'earnings:field.hasSelfEmploymentIncome.required',
+      errorMsg: hasSelfEmploymentIncomeErrorMsg,
     }),
     r.inArray.bind({
       source: ['yes', 'no'],
-      errorMsg: 'earnings:field.hasSelfEmploymentIncome.required',
+      errorMsg: hasSelfEmploymentIncomeErrorMsg,
     }),
   ]),
-  selfEmploymentIncomeDetails: sf([
-    r.required.bind({
-      errorMsg: 'earnings:field.selfEmploymentIncomeDetails.required',
-    }),
-    r.strlen.bind({
-      max: 500,
-      errorMsgMax: 'earnings:field.selfEmploymentIncomeDetails.length',
-    }),
-  ], ({ journeyContext: c, waypointId: w }) => (
-    (c.getDataForPage(w) || {}).hasSelfEmploymentIncome === 'yes'
-  )),
 });
 
 module.exports = fieldValidators;

@@ -1,89 +1,122 @@
-const { expectValidatorToFail, expectValidatorToPass } = require('../../../helpers/validator-assertions.js');
+const { JourneyContext } = require('@dwp/govuk-casa');
+const { waypoints: WP } = require('../../../../lib/constants.js');
+const assert = require('../../../helpers/validator-assertions.js');
 const validators = require('../../../../definitions/field-validators/income/earnings.js');
+
+const waypoint = WP.EARNINGS;
+
+const liveWithPartner = {
+  [WP.LIVE_WITH_PARTNER]: {
+    havePartner: 'yesLiveTogether',
+  },
+};
+
+const dateOfClaimPast = {
+  [WP.OFFERED_CLAIM_DATE]: {
+    acceptClaimDate: 'yes',
+  },
+  [WP.DATE_OF_BIRTH]: {
+    dateOfBirth: { dd: '01', mm: '01', yyyy: '1920' },
+  },
+};
+
+const dateOfClaimFuture = {
+  [WP.OFFERED_CLAIM_DATE]: {
+    acceptClaimDate: 'yes',
+  },
+  [WP.DATE_OF_BIRTH]: {
+    dateOfBirth: { dd: '01', mm: '01', yyyy: '2020' },
+  },
+};
 
 describe('Validators: earnings', () => {
   describe('field: hasEmploymentIncome', () => {
     it('should fail "required" validator if no value is provided', async () => {
-      await expectValidatorToFail(validators, 'hasEmploymentIncome', 'required', null, {
-        summary: 'earnings:field.hasEmploymentIncome.required',
+      const context = new JourneyContext(dateOfClaimPast);
+      await assert.expectValidatorToFailWithJourney(validators, waypoint, 'hasEmploymentIncome', 'required', context, {
+        summary: 'earnings:field.hasEmploymentIncome.requiredSingle',
       });
     });
 
     it('should pass "required" validator if a non-empty value is provided', async () => {
-      await expectValidatorToPass(validators, 'hasEmploymentIncome', 'required', { hasEmploymentIncome: 'test-value' });
+      const context = new JourneyContext({ ...dateOfClaimPast, [waypoint]: { hasEmploymentIncome: 'test-value' } });
+      await assert.expectValidatorToPassWithJourney(validators, waypoint, 'hasEmploymentIncome', 'required', context);
     });
 
     it('should fail "inArray" validator if value is not one of the valid options', async () => {
-      await expectValidatorToFail(validators, 'hasEmploymentIncome', 'inArray', { hasEmploymentIncome: 'bad-value' }, {
-        summary: 'earnings:field.hasEmploymentIncome.required',
+      const context = new JourneyContext({ ...dateOfClaimPast, [waypoint]: { hasEmploymentIncome: 'bad-value' } });
+      await assert.expectValidatorToFailWithJourney(validators, waypoint, 'hasEmploymentIncome', 'inArray', context, {
+        summary: 'earnings:field.hasEmploymentIncome.requiredSingle',
+      });
+    });
+
+    it('should fail "inArray" validator if value is not one of the valid options with Joint suffix', async () => {
+      const context = new JourneyContext({ ...liveWithPartner, ...dateOfClaimPast, [waypoint]: { hasEmploymentIncome: 'bad-value' } });
+      await assert.expectValidatorToFailWithJourney(validators, waypoint, 'hasEmploymentIncome', 'inArray', context, {
+        summary: 'earnings:field.hasEmploymentIncome.requiredJoint',
       });
     });
 
     it('should pass "inArray" validator if value is yes', async () => {
-      await expectValidatorToPass(validators, 'hasEmploymentIncome', 'inArray', { hasEmploymentIncome: 'yes' });
+      const context = new JourneyContext({ ...dateOfClaimPast, [waypoint]: { hasEmploymentIncome: 'yes' } });
+      await assert.expectValidatorToPassWithJourney(validators, waypoint, 'hasEmploymentIncome', 'inArray', context);
     });
 
     it('should pass "inArray" validator if value is no', async () => {
-      await expectValidatorToPass(validators, 'hasEmploymentIncome', 'inArray', { hasEmploymentIncome: 'no' });
+      const context = new JourneyContext({ ...dateOfClaimPast, [waypoint]: { hasEmploymentIncome: 'no' } });
+      await assert.expectValidatorToPassWithJourney(validators, waypoint, 'hasEmploymentIncome', 'inArray', context);
     });
   });
 
   describe('field: hasSelfEmploymentIncome', () => {
     it('should fail "required" validator if no value is provided', async () => {
-      await expectValidatorToFail(validators, 'hasSelfEmploymentIncome', 'required', null, {
-        summary: 'earnings:field.hasSelfEmploymentIncome.required',
+      const context = new JourneyContext(dateOfClaimPast);
+      await assert.expectValidatorToFailWithJourney(validators, waypoint, 'hasSelfEmploymentIncome', 'required', context, {
+        summary: 'earnings:field.hasSelfEmploymentIncome.requiredSinglePast',
       });
     });
 
     it('should pass "required" validator if a non-empty value is provided', async () => {
-      await expectValidatorToPass(validators, 'hasSelfEmploymentIncome', 'required', { hasSelfEmploymentIncome: 'test-value' });
+      const context = new JourneyContext({ ...dateOfClaimPast, [waypoint]: { hasSelfEmploymentIncome: 'test-value' } });
+      await assert.expectValidatorToPassWithJourney(validators, waypoint, 'hasSelfEmploymentIncome', 'required', context);
     });
 
     it('should fail "inArray" validator if value is not one of the valid options', async () => {
-      await expectValidatorToFail(validators, 'hasSelfEmploymentIncome', 'inArray', { hasSelfEmploymentIncome: 'bad-value' }, {
-        summary: 'earnings:field.hasSelfEmploymentIncome.required',
+      const context = new JourneyContext({ ...dateOfClaimPast, [waypoint]: { hasSelfEmploymentIncome: 'bad-value' } });
+      await assert.expectValidatorToFailWithJourney(validators, waypoint, 'hasSelfEmploymentIncome', 'inArray', context, {
+        summary: 'earnings:field.hasSelfEmploymentIncome.requiredSinglePast',
+      });
+    });
+
+    it('should fail "inArray" validator if value is not one of the valid options with Joint suffix', async () => {
+      const context = new JourneyContext({ ...liveWithPartner, ...dateOfClaimPast, [waypoint]: { hasSelfEmploymentIncome: 'bad-value' } });
+      await assert.expectValidatorToFailWithJourney(validators, waypoint, 'hasSelfEmploymentIncome', 'inArray', context, {
+        summary: 'earnings:field.hasSelfEmploymentIncome.requiredJointPast',
+      });
+    });
+
+    it('should fail "inArray" validator if value is not one of the valid options with Present suffix', async () => {
+      const context = new JourneyContext({ ...dateOfClaimFuture, [waypoint]: { hasSelfEmploymentIncome: 'bad-value' } });
+      await assert.expectValidatorToFailWithJourney(validators, waypoint, 'hasSelfEmploymentIncome', 'inArray', context, {
+        summary: 'earnings:field.hasSelfEmploymentIncome.requiredSinglePresent',
+      });
+    });
+
+    it('should fail "inArray" validator if value is not one of the valid options with Present and Joint suffix', async () => {
+      const context = new JourneyContext({ ...liveWithPartner, ...dateOfClaimFuture, [waypoint]: { hasSelfEmploymentIncome: 'bad-value' } });
+      await assert.expectValidatorToFailWithJourney(validators, waypoint, 'hasSelfEmploymentIncome', 'inArray', context, {
+        summary: 'earnings:field.hasSelfEmploymentIncome.requiredJointPresent',
       });
     });
 
     it('should pass "inArray" validator if value is yes', async () => {
-      await expectValidatorToPass(validators, 'hasSelfEmploymentIncome', 'inArray', { hasSelfEmploymentIncome: 'yes' });
+      const context = new JourneyContext({ ...dateOfClaimPast, [waypoint]: { hasSelfEmploymentIncome: 'yes' } });
+      await assert.expectValidatorToPassWithJourney(validators, waypoint, 'hasSelfEmploymentIncome', 'inArray', context);
     });
 
     it('should pass "inArray" validator if value is no', async () => {
-      await expectValidatorToPass(validators, 'hasSelfEmploymentIncome', 'inArray', { hasSelfEmploymentIncome: 'no' });
-    });
-  });
-
-  describe('field: selfEmploymentIncomeDetails', () => {
-    it('should pass "required" validator if no value is provided and hasSelfEmploymentIncome is "no"', async () => {
-      await expectValidatorToPass(validators, 'selfEmploymentIncomeDetails', 'required', { hasSelfEmploymentIncome: 'no' });
-    });
-
-    it('should fail "required" validator if no value is provided and hasSelfEmploymentIncome is "yes"', async () => {
-      await expectValidatorToFail(validators, 'selfEmploymentIncomeDetails', 'required', { hasSelfEmploymentIncome: 'yes' }, {
-        summary: 'earnings:field.selfEmploymentIncomeDetails.required',
-      });
-    });
-
-    it('should pass "required" validator if a non-empty value is provided and hasSelfEmploymentIncome is "yes"', async () => {
-      await expectValidatorToPass(validators, 'selfEmploymentIncomeDetails', 'required', { hasSelfEmploymentIncome: 'yes', selfEmploymentIncomeDetails: 'Job 1' });
-    });
-
-    it('should pass "strlen" validator if string length > 500 and hasSelfEmploymentIncome is "no"', async () => {
-      const longString = Array(502).join('x');
-      await expectValidatorToPass(validators, 'selfEmploymentIncomeDetails', 'required', { hasSelfEmploymentIncome: 'no', selfEmploymentIncomeDetails: longString });
-    });
-
-    it('should fail "strlen" validator if string length > 500 and hasSelfEmploymentIncome is "yes"', async () => {
-      const longString = Array(502).join('x');
-      await expectValidatorToFail(validators, 'selfEmploymentIncomeDetails', 'strlen', { hasSelfEmploymentIncome: 'yes', selfEmploymentIncomeDetails: longString }, {
-        summary: 'earnings:field.selfEmploymentIncomeDetails.length',
-      });
-    });
-
-    it('should pass "strlen" validator if string length <= 500 and hasSelfEmploymentIncome is "yes"', async () => {
-      const longString = Array(501).join('x');
-      await expectValidatorToPass(validators, 'selfEmploymentIncomeDetails', 'strlen', { hasSelfEmploymentIncome: 'yes', selfEmploymentIncomeDetails: longString });
+      const context = new JourneyContext({ ...dateOfClaimPast, [waypoint]: { hasSelfEmploymentIncome: 'no' } });
+      await assert.expectValidatorToPassWithJourney(validators, waypoint, 'hasSelfEmploymentIncome', 'inArray', context);
     });
   });
 });

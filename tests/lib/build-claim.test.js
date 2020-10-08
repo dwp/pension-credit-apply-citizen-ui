@@ -50,6 +50,7 @@ describe('build-claim', () => {
     stubData = JSON.parse(JSON.stringify(stubDataBase));
     context = {
       getDataForPage: sinon.stub().callsFake((wp) => stubData[wp]),
+      nav: { language: 'en' },
     };
   });
 

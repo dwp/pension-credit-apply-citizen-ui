@@ -32,35 +32,20 @@
     casaErrors: formErrors
   }) }}
 
-  {% set selfEmploymentIncomeDetails %}
-    {{ casaGovukTextarea({
-      name: "selfEmploymentIncomeDetails",
-      label: {
-        text: t("earnings:field.selfEmploymentIncomeDetails.label"),
-        classes: "govuk-label--s"
-      },
-      value: formData.selfEmploymentIncomeDetails,
-      casaErrors: formErrors
-    }) }}
-  {% endset %}
-
   {{ casaGovukRadios({
     name: "hasSelfEmploymentIncome",
     fieldset: {
       legend: {
-        text: t("earnings:field.hasSelfEmploymentIncome.legend" + claimType, { dateOfClaim: dateOfClaim | formatDateObject({ locale: locale }) }),
+        text: t("earnings:field.hasSelfEmploymentIncome.legend" + claimType + selfEmployedSuffix, selfEmployedEarningsDate),
         classes: "govuk-fieldset__legend--m"
       }
     },
     items: [{
       value: "yes",
-      text: t("earnings:field.hasSelfEmploymentIncome.options.yes"),
-      conditional: {
-        html: selfEmploymentIncomeDetails
-      }
+      text: t("earnings:field.hasSelfEmploymentIncome.options.yes" + selfEmployedSuffix)
     }, {
       value: "no",
-      text: t("earnings:field.hasSelfEmploymentIncome.options.no")
+      text: t("earnings:field.hasSelfEmploymentIncome.options.no" + selfEmployedSuffix)
     }],
     casaWithAnalytics: true,
     casaValue: formData.hasSelfEmploymentIncome,

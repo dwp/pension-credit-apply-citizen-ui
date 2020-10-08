@@ -3,7 +3,7 @@ const benefitsValidation = require('../field-validators/income/benefits.js');
 const earningsValidation = require('../field-validators/income/earnings.js');
 const otherIncomeValidation = require('../field-validators/income/other-income.js');
 const jointOrSingleClaim = require('../hooks/common/joint-or-single-claim.js');
-const withDataFromPage = require('../hooks/common/with-data-from-page.js');
+const earningsHooks = require('../hooks/income/earnings.js');
 
 module.exports = () => {
   const pages = Object.create(null);
@@ -22,9 +22,7 @@ module.exports = () => {
     hooks: {
       prerender: [
         jointOrSingleClaim(waypoints),
-        withDataFromPage({
-          [waypoints.DATE_OF_CLAIM]: ['dateOfClaim'],
-        }),
+        earningsHooks,
       ],
     },
   };

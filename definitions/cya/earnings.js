@@ -1,6 +1,6 @@
 const { rowFactory, radioOptionValue, safeNl2br } = require('./utils.js');
 const { waypoints: WP } = require('../../lib/constants.js');
-const formatDateObject = require('../../utils/format-date-object.js');
+const getSelfEmploymentVars = require('../../utils/get-self-employment-vars.js');
 
 module.exports = (t, context, claim, cyaUrl) => {
   // Skip whole section if it was not completed
@@ -10,11 +10,7 @@ module.exports = (t, context, claim, cyaUrl) => {
 
   const { liveWithPartner } = claim.eligibility || {};
   const jointSingle = liveWithPartner ? 'Joint' : 'Single';
-  const { dateOfClaim } = context.getDataForPage(WP.DATE_OF_CLAIM) || {};
-  const formattedDateOfClaim = dateOfClaim && formatDateObject(dateOfClaim, {
-    locale: context.nav.language,
-  });
-
+  const { selfEmployedSuffix, selfEmployedEarningsDate } = getSelfEmploymentVars(context);
   const row = rowFactory(cyaUrl);
   const rov = radioOptionValue(t, context);
 
@@ -30,21 +26,13 @@ module.exports = (t, context, claim, cyaUrl) => {
         value: rov('earnings.hasEmploymentIncome', 'earnings:field.hasEmploymentIncome.options'),
       }),
 
-      // Do you have any income from self-employment now or in the 3 months
-      // before ${dateOfClaim}?
+      // Have you had any income from self-employment since
+      // ${selfEmployedEarningsDate}?
       row({
         changeHref: `${WP.EARNINGS}#f-hasSelfEmploymentIncome`,
-        changeHtml: t('earnings:field.hasSelfEmploymentIncome.change'),
-        key: t(`earnings:field.hasSelfEmploymentIncome.legend${jointSingle}`, { dateOfClaim: formattedDateOfClaim }),
-        value: rov('earnings.hasSelfEmploymentIncome', 'earnings:field.hasSelfEmploymentIncome.options'),
-      }),
-
-      // Details of your income from self-employment
-      claim.income.selfEmployedPaidWork && row({
-        changeHref: `${WP.EARNINGS}#f-selfEmploymentIncomeDetails`,
-        changeHtml: t('earnings:field.selfEmploymentIncomeDetails.change'),
-        key: t('check-your-answers:selfEmploymentIncomeDetails.label'),
-        valueHtml: safeNl2br(claim.income.selfEmployedPaidWorkDescription),
+        changeHtml: t(`earnings:field.hasSelfEmploymentIncome.change${jointSingle}${selfEmployedSuffix}`),
+        key: t(`earnings:field.hasSelfEmploymentIncome.legend${jointSingle}${selfEmployedSuffix}`, { selfEmployedEarningsDate }),
+        value: rov('earnings.hasSelfEmploymentIncome', 'earnings:field.hasSelfEmploymentIncome.options', selfEmployedSuffix),
       }),
 
       /* ------------------------------------------------------- other-income */
