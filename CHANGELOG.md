@@ -1,3 +1,13 @@
+# [5.2.0](https://github.com/dwp/pension-credit-citizen-apply/compare/5.1.1...5.2.0) (2020-10-09)
+
+
+### Features
+
+* add phone numbers for Northern Ireland assisted digital support ([f0e0d24](https://github.com/dwp/pension-credit-citizen-apply/commit/f0e0d24cf6f99e4dcdc8800c8d98d78749fe5bfb))
+* update money page to include new content and money specific input ([92b0354](https://github.com/dwp/pension-credit-citizen-apply/commit/92b0354349930b26bd3a7266e4ca6d02847af7c7))
+
+
+
 ## [5.1.1](https://github.com/dwp/pension-credit-citizen-apply/compare/5.1.0...5.1.1) (2020-09-29)
 
 
