@@ -8,7 +8,7 @@
   {{ t("check-your-answers:pageTitle") }} - {{ t("common:serviceName") }}
 {% endblock %}
 
-{% block journey_form %}
+{% block journey_header %}
   {% if error %}
     {{ govukErrorSummary({
       titleText: t('error:summary.h1'),

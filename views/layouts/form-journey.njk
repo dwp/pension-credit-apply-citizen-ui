@@ -39,6 +39,8 @@
           }) }}
         {% endif %}
 
+        {% block journey_header %}{% endblock %}
+
         {% call casaJourneyForm({
           csrfToken: casa.csrfToken,
           inEditMode: inEditMode,
@@ -59,7 +61,7 @@
           {% endblock %}
         {% endcall %}
 
-        {% block journey_form_footer %}{% endblock %}
+        {% block journey_footer %}{% endblock %}
       </div>
     </div>
   {% endblock %}
