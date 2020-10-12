@@ -4,6 +4,14 @@
   display: none;
 }
 
+/* Hide print sections/buttons if js is disabled as they won't work */
+.pc-print-button-section {
+  display: none;
+}
+.js-enabled .pc-print-button-section {
+  display: block;
+}
+
 @media print {
   @page {
     size: A4;
@@ -21,6 +29,7 @@
   .govuk-button,
   .govuk-summary-list__actions,
   .govuk-panel,
+  .js-enabled .pc-print-button-section,
   .print-hidden {
     display: none;
   }

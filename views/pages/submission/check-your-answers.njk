@@ -35,9 +35,7 @@
     }) }}
   {% endfor %}
 
-  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-  <div class="print-hidden">
+  <div class="pc-print-button-section govuk-!-margin-top-9">
     <h2 class="govuk-heading-m">{{ t("check-your-answers:print.heading") }}</h2>
     <p class="govuk-body">
       {{ t("check-your-answers:print.body") }}
@@ -52,15 +50,15 @@
         }
       }) }}
     </p>
-
-    <h2 class="govuk-heading-l">{{ t("check-your-answers:declaration.heading") }}</h2>
-    <ul class="govuk-body">
-      {{ t("check-your-answers:declaration.bullets_html") | safe }}
-    </ul>
-    <p class="govuk-body govuk-!-font-weight-bold">
-      {{ t("check-your-answers:declaration.information") }}
-    </p>
   </div>
+
+  <h2 class="govuk-heading-l">{{ t("check-your-answers:declaration.heading") }}</h2>
+  <ul class="govuk-body">
+    {{ t("check-your-answers:declaration.bullets_html") | safe }}
+  </ul>
+  <p class="govuk-body govuk-!-font-weight-bold">
+    {{ t("check-your-answers:declaration.information") }}
+  </p>
 {% endblock %}
 
 {% block journey_button %}
