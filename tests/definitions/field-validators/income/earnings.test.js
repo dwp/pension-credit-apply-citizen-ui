@@ -20,15 +20,6 @@ const dateOfClaimPast = {
   },
 };
 
-const dateOfClaimFuture = {
-  [WP.OFFERED_CLAIM_DATE]: {
-    acceptClaimDate: 'yes',
-  },
-  [WP.DATE_OF_BIRTH]: {
-    dateOfBirth: { dd: '01', mm: '01', yyyy: '2020' },
-  },
-};
-
 describe('Validators: earnings', () => {
   describe('field: hasEmploymentIncome', () => {
     it('should fail "required" validator if no value is provided', async () => {
@@ -92,20 +83,6 @@ describe('Validators: earnings', () => {
       const context = new JourneyContext({ ...liveWithPartner, ...dateOfClaimPast, [waypoint]: { hasSelfEmploymentIncome: 'bad-value' } });
       await assert.expectValidatorToFailWithJourney(validators, waypoint, 'hasSelfEmploymentIncome', 'inArray', context, {
         summary: 'earnings:field.hasSelfEmploymentIncome.requiredJointPast',
-      });
-    });
-
-    it('should fail "inArray" validator if value is not one of the valid options with Present suffix', async () => {
-      const context = new JourneyContext({ ...dateOfClaimFuture, [waypoint]: { hasSelfEmploymentIncome: 'bad-value' } });
-      await assert.expectValidatorToFailWithJourney(validators, waypoint, 'hasSelfEmploymentIncome', 'inArray', context, {
-        summary: 'earnings:field.hasSelfEmploymentIncome.requiredSinglePresent',
-      });
-    });
-
-    it('should fail "inArray" validator if value is not one of the valid options with Present and Joint suffix', async () => {
-      const context = new JourneyContext({ ...liveWithPartner, ...dateOfClaimFuture, [waypoint]: { hasSelfEmploymentIncome: 'bad-value' } });
-      await assert.expectValidatorToFailWithJourney(validators, waypoint, 'hasSelfEmploymentIncome', 'inArray', context, {
-        summary: 'earnings:field.hasSelfEmploymentIncome.requiredJointPresent',
       });
     });
 
