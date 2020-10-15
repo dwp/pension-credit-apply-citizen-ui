@@ -20,6 +20,7 @@ describe('get-session-config', () => {
       secure: true,
       secret: 'secret',
       cachain: 'CA_CHAIN',
+      cookieSameSite: 'Lax',
     });
   });
 
