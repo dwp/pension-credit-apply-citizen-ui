@@ -6,36 +6,36 @@ defaults:
   run:
     shell: bash
 
-strategy:
-  matrix:
-    node: [12, 13, 14]
-
 jobs:
   unit-test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [12, 13, 14]
+        node: [12]
     name: Test on nodejs ${{ matrix.node }}
     steps:
+      - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
       - run: npm ci --no-optional
-      - run: npm test:unit
+      - run: npm run test:unit
 
   plan-test:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 12
       - run: npm ci --no-optional
+      - run: mkdir static/
       - run: npm run test:plan
 
   compliance:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 12
