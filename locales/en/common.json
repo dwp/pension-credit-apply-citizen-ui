@@ -30,11 +30,17 @@
     "cookies": "Cookies"
   },
   "continue": "Continue",
+  "assistedDigital": {
+    "getHelp": "Get help with your application",
+    "telephone": "Telephone",
+    "textphone": "Textphone",
+    "telephoneNumber": "0800 99 1234",
+    "textphoneNumber": "0800 169 0133",
+    "cannotHearOrSpeak": "If you cannot hear or speak on the phone, use<br/><a class=\"govuk-link\" href=\"https://www.relayuk.bt.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Relay UK (opens in a new tab)</a>: 18001 then 0800 99 1234",
+    "findOutMoreAboutCallCharges": "<a class=\"govuk-link\" href=\"https://www.gov.uk/call-charges\" target=\"_blank\" rel=\"noopener noreferrer\">Find out about call charges (opens in a new tab)</a>"
+  },
   "northernIreland": {
     "assistedDigital": {
-      "getHelp": "Get help with your application",
-      "telephone": "Telephone",
-      "textphone": "Textphone",
       "telephoneNumber": "0800 587 0892",
       "textphoneNumber": "0808 100 2198",
       "contacting0803Numbers": "Contacting 08 and 03 numbers (opens in a new tab)"

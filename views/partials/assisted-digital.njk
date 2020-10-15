@@ -1,15 +1,15 @@
-{% if isNorthernIrelandClaim %}
-  <div class="govuk-grid-row pc-assisted-digital">
-    <div class="govuk-grid-column-two-thirds">
-      <aside class="govuk-!-margin-bottom-5">
-        <h2 class="govuk-heading-m">{{ t('common:northernIreland.assistedDigital.getHelp') }}</h2>
+<div class="govuk-grid-row pc-assisted-digital">
+  <div class="govuk-grid-column-two-thirds">
+    <aside class="govuk-!-margin-bottom-5">
+      <h2 class="govuk-heading-m">{{ t('common:assistedDigital.getHelp') }}</h2>
+      {% if isNorthernIrelandClaim %}
         <dl class="govuk-body contact-numbers">
           <div>
-            <dt>{{ t('common:northernIreland.assistedDigital.telephone') }}</dt>
+            <dt>{{ t('common:assistedDigital.telephone') }}</dt>
             <dd>{{ t('common:northernIreland.assistedDigital.telephoneNumber') }}</dd>
           </div>
           <div>
-            <dt>{{ t('common:northernIreland.assistedDigital.textphone') }}</dt>
+            <dt>{{ t('common:assistedDigital.textphone') }}</dt>
             <dd>{{ t('common:northernIreland.assistedDigital.textphoneNumber') }}</dd>
           </div>
         </dl>
@@ -18,7 +18,24 @@
             {{ t('common:northernIreland.assistedDigital.contacting0803Numbers') }}
           </a>
         </p>
-      </aside>
-    </div>
+      {% else %}
+        <dl class="govuk-body contact-numbers">
+          <div>
+            <dt>{{ t('common:assistedDigital.telephone') }}</dt>
+            <dd>{{ t('common:assistedDigital.telephoneNumber') }}</dd>
+          </div>
+          <div>
+            <dt>{{ t('common:assistedDigital.textphone') }}</dt>
+            <dd>{{ t('common:assistedDigital.textphoneNumber') }}</dd>
+          </div>
+        </dl>
+        <p class="govuk-body">
+          {{ t('common:assistedDigital.cannotHearOrSpeak') | safe }}
+        </p>
+        <p class="govuk-body">
+          {{ t('common:assistedDigital.findOutMoreAboutCallCharges') | safe }}
+        </p>
+      {% endif %}
+    </aside>
   </div>
-{% endif %}
+</div>

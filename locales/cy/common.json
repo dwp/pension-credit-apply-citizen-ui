@@ -30,11 +30,17 @@
     "cookies": "Cwcis"
   },
   "continue": "Parhau",
+  "assistedDigital": {
+    "getHelp": "Cael help gyda'ch cais",
+    "telephone": "Ffôn",
+    "textphone": "Ffôn testun",
+    "telephoneNumber": "0800 99 1234",
+    "textphoneNumber": "0800 169 0133",
+    "cannotHearOrSpeak": "Os nad ydych yn gallu siarad neu glywed ar y ffôn, defnyddiwch <br/><a class=\"govuk-link\" href=\"https://www.relayuk.bt.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Relay UK (agor mewn tab newydd)</a>: 18001 yna 0800 99 1234",
+    "findOutMoreAboutCallCharges": "<a class=\"govuk-link\" href=\"https://www.gov.uk/costau-galwadau\" target=\"_blank\" rel=\"noopener noreferrer\">Darganfyddwch am gostau galwadau (agor mewn tab newydd)</a>"
+  },
   "northernIreland": {
     "assistedDigital": {
-      "getHelp": "Cael help gyda'ch cais",
-      "telephone": "Ffôn",
-      "textphone": "Ffôn testun",
       "telephoneNumber": "0800 587 0892",
       "textphoneNumber": "0808 100 2198",
       "contacting0803Numbers": "Cysylltu â rhifau 08 a 03 (agor mewn tab newydd)"
