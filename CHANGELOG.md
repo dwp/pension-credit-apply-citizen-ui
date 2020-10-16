@@ -1,3 +1,12 @@
+## [5.2.2](https://github.com/dwp/pension-credit-apply-citizen-ui/compare/5.2.1...5.2.2) (2020-10-16)
+
+
+### Bug Fixes
+
+* hard coded service header should use assetPath for crown image tag ([1c9630c](https://github.com/dwp/pension-credit-apply-citizen-ui/commit/1c9630c6b1cd70484f272528e4228458312d2d06))
+
+
+
 ## [5.2.1](https://github.com/dwp/pension-credit-apply-citizen-ui/compare/5.2.0...5.2.1) (2020-10-16)
 
 
