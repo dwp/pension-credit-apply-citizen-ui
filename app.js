@@ -41,6 +41,15 @@ module.exports = (CONFIG, baseLogger) => {
     CONFIG.LOG_HEADERS,
   );
 
+  // Add some custom media assets (CSS, JS) to be served from the CASA router.
+  // Serve this up before CASA middleware
+  mediaMiddleware(
+    app,
+    CONFIG.CONTEXT_PATH_PROXY,
+    './dist/',
+    CONFIG.AGGRESSIVE_ASSET_CACHING,
+  );
+
   // Setup Redis cluster listener in order to handler the session store lifecycle
   // properly. We'll present a 500 page to all users if Redis is not contactable.
   // ref: https://github.com/luin/ioredis#events
@@ -116,14 +125,6 @@ module.exports = (CONFIG, baseLogger) => {
     },
     allowPageEdit: true,
     mountController: function casaMountController(mountCommonMiddleware) {
-      // Add some custom media assets (CSS, JS) to be served from the CASA router.
-      // Serve this up before CASA middleware
-      mediaMiddleware(
-        this.expressApp,
-        CONFIG.CONTEXT_PATH_PROXY,
-        './dist/',
-        CONFIG.AGGRESSIVE_ASSET_CACHING,
-      );
       mountCommonMiddleware();
       timeoutMiddleware(
         this.expressApp,
