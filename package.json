@@ -55,7 +55,7 @@
   },
   "dependencies": {
     "@aws-crypto/client-node": "1.0.5",
-    "@dwp/govuk-casa": "6.7.1",
+    "@dwp/govuk-casa": "6.7.2",
     "connect-redis": "5.0.0",
     "cookie-parser": "1.4.5",
     "dotenv": "8.2.0",
