@@ -1,3 +1,17 @@
+## [5.2.3](https://github.com/dwp/pension-credit-apply-citizen-ui/compare/5.2.2...5.2.3) (2020-10-19)
+
+
+### Bug Fixes
+
+* send an empty SVG response for header crown to work around IE issue ([5d0eee1](https://github.com/dwp/pension-credit-apply-citizen-ui/commit/5d0eee19a0e2e778f583e7e6caaaaff2b3a6905a))
+
+
+### Reverts
+
+* Revert "refactor: alter samesite config" ([11a01c8](https://github.com/dwp/pension-credit-apply-citizen-ui/commit/11a01c85fec61743b4ff8a5a40e922da52bde542))
+
+
+
 ## [5.2.2](https://github.com/dwp/pension-credit-apply-citizen-ui/compare/5.2.1...5.2.2) (2020-10-16)
 
 
