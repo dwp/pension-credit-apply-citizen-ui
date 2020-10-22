@@ -7,7 +7,7 @@ const Response = require('../../../helpers/fake-response.js');
 
 const getSelfEmploymentVarsStub = sinon.stub();
 getSelfEmploymentVarsStub.returns({
-  selfEmployedEarningsDate: '1 January 2020',
+  selfEmployedEarningsDate: '2020-01-01',
   selfEmployedSuffix: 'Past',
 });
 const earningsHook = proxyquire('../../../../definitions/hooks/income/earnings.js', {
@@ -35,9 +35,7 @@ describe('Hooks: income/earnings', () => {
 
     earningsHook(req, res, () => {});
 
-    expect(res.locals).to.have.property('selfEmployedEarningsDate').that.deep.equals({
-      selfEmployedEarningsDate: '1 January 2020',
-    });
+    expect(res.locals).to.have.property('selfEmployedEarningsDate').that.deep.equals('1 January 2020');
   });
 
   it('should add selfEmployedSuffix to res.locals', () => {

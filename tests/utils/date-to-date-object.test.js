@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const dateToDateObject = require('../../utils/date-to-date-object.js');
 
-describe('Utils: date-object-to-iso-string', () => {
+describe('Utils: date-to-date-object', () => {
   it('should export a function', () => {
     expect(dateToDateObject).to.be.a('function');
   });

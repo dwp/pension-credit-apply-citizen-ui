@@ -22,15 +22,7 @@ describe('Utils: get-self-employment-vars', () => {
   it('should return selfEmployedSuffix of Past and selfEmployedEarningsDate of 6 months before today if chosenDateOfClaim is null', () => {
     const context = new JourneyContext({});
     expect(getSelfEmploymentVars(context)).to.deep.equal({
-      selfEmployedEarningsDate: '1 January 2020',
-      selfEmployedSuffix: 'Past',
-    });
-  });
-
-  it('should return selfEmployedEarningsDate in welsh if language is set to cy', () => {
-    const context = new JourneyContext({}, {}, { language: 'cy' });
-    expect(getSelfEmploymentVars(context)).to.deep.equal({
-      selfEmployedEarningsDate: '1 Ionawr 2020',
+      selfEmployedEarningsDate: '2020-01-01',
       selfEmployedSuffix: 'Past',
     });
   });

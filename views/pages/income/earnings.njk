@@ -36,7 +36,9 @@
     name: "hasSelfEmploymentIncome",
     fieldset: {
       legend: {
-        text: t("earnings:field.hasSelfEmploymentIncome.legend" + claimType + selfEmployedSuffix, selfEmployedEarningsDate),
+        text: t("earnings:field.hasSelfEmploymentIncome.legend" + claimType + selfEmployedSuffix, {
+          selfEmployedEarningsDate: selfEmployedEarningsDate
+        }),
         classes: "govuk-fieldset__legend--m"
       }
     },

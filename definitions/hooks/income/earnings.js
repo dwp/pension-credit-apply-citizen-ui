@@ -1,13 +1,16 @@
+const formatDateObject = require('../../../utils/format-date-object.js');
+const isoStringToDateObject = require('../../../utils/iso-string-to-date-object.js');
 const getSelfEmploymentVars = require('../../../utils/get-self-employment-vars.js');
 
 const prerender = (req, res, next) => {
-  const {
-    selfEmployedEarningsDate, selfEmployedSuffix,
-  } = getSelfEmploymentVars(req.casa.journeyContext);
+  const context = req.casa.journeyContext;
+  const { selfEmployedEarningsDate, selfEmployedSuffix } = getSelfEmploymentVars(context);
 
-  // Add to view in an object so can be passed straight to i18n function
-  res.locals.selfEmployedEarningsDate = { selfEmployedEarningsDate };
   res.locals.selfEmployedSuffix = selfEmployedSuffix;
+  res.locals.selfEmployedEarningsDate = formatDateObject(
+    isoStringToDateObject(selfEmployedEarningsDate),
+    { locale: context.nav.language },
+  );
 
   next();
 };

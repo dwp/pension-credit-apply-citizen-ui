@@ -1,6 +1,8 @@
 const { rowFactory, radioOptionValue, safeNl2br } = require('./utils.js');
 const { waypoints: WP } = require('../../lib/constants.js');
+const isoStringToDateObject = require('../../utils/iso-string-to-date-object.js');
 const getSelfEmploymentVars = require('../../utils/get-self-employment-vars.js');
+const formatDateObject = require('../../utils/format-date-object.js');
 
 module.exports = (t, context, claim, cyaUrl) => {
   // Skip whole section if it was not completed
@@ -31,7 +33,12 @@ module.exports = (t, context, claim, cyaUrl) => {
       row({
         changeHref: `${WP.EARNINGS}#f-hasSelfEmploymentIncome`,
         changeHtml: t(`earnings:field.hasSelfEmploymentIncome.change${jointSingle}${selfEmployedSuffix}`),
-        key: t(`earnings:field.hasSelfEmploymentIncome.legend${jointSingle}${selfEmployedSuffix}`, { selfEmployedEarningsDate }),
+        key: t(`earnings:field.hasSelfEmploymentIncome.legend${jointSingle}${selfEmployedSuffix}`, {
+          selfEmployedEarningsDate: formatDateObject(
+            isoStringToDateObject(selfEmployedEarningsDate),
+            { locale: context.nav.language },
+          ),
+        }),
         value: rov('earnings.hasSelfEmploymentIncome', 'earnings:field.hasSelfEmploymentIncome.options', selfEmployedSuffix),
       }),
 
