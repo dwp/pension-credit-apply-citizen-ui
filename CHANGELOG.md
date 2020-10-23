@@ -1,3 +1,13 @@
+# [5.3.0](https://github.com/dwp/pension-credit-apply-citizen-ui/compare/5.2.3...5.3.0) (2020-10-23)
+
+
+### Features
+
+* add assisted digital telephone numbers for the rest of UK ([8f4c32e](https://github.com/dwp/pension-credit-apply-citizen-ui/commit/8f4c32ed972ed45ad0c9bc1b1899f57735d3cfdf))
+* improve support for Internet Explorer 8 by including HTML5 Shiv ([810c8b7](https://github.com/dwp/pension-credit-apply-citizen-ui/commit/810c8b795ae92cd66a0fffd31c579f96de37ff2a))
+
+
+
 ## [5.2.3](https://github.com/dwp/pension-credit-apply-citizen-ui/compare/5.2.2...5.2.3) (2020-10-19)
 
 
