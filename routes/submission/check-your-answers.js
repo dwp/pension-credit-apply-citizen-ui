@@ -52,8 +52,10 @@ const submitClaim = (plan, claimServiceFactory) => (req, res, next) => {
 
   // Determine some data to pass onto final "what happens next" page
   req.claimCompleteData = {
-    abroadMoreThanOnceOrForMedical: claim.moreThanOnePeriodAbroad() || claim.abroadForMedical(),
+    hasBonds: claim.hasBonds(),
+    selfEmployed: claim.selfEmployed(),
     ownsAdditionalProperty: claim.ownsAdditionalProperty(),
+    abroadMoreThanOnceOrForMedical: claim.moreThanOnePeriodAbroad() || claim.abroadForMedical(),
     contactDate: moment().add(4, 'weeks').locale(req.casa.journeyContext.nav.language || 'en').format('DD MMMM YYYY'),
     isNorthernIrelandClaim: claim.isNorthernIrelandClaim(),
   };

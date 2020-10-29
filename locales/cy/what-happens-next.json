@@ -4,10 +4,14 @@
   "section": {
     "whatHappensNext": {
       "heading": "Beth sy'n digwydd nesaf",
-      "subHeadingBackdating": "Ôl-ddyddio eich cais",
-      "paraBackdating": "Byddwn yn cysylltu â chi i ofyn am yr amser wnaethoch dreulio y tu allan i'r DU. Efallai y byddwn yn gallu ôl-ddyddio eich cais am hyd at 3 mis, ond byddwn angen gofyn ychydig mwy o gwestiynau i chi.",
-      "leadParaPropertyHtml": "Byddwn yn anfon ffurflen i chi erbyn <strong class=\"date-nowrap\">%s (4 wythnos)</strong> i ofyn i chi am fanylion yr eiddo neu dir rydych yn berchen arno.",
-      "leadParaDefaultHtml": "Rydym yn gwneud rhai gwiriadau terfynol ar eich cais. Byddwn yn cysylltu â chi erbyn <strong class=\"date-nowrap\">%s (4 wythnos)</strong> naill ai i gadarnhau eich dyfarniad neu ofyn i chi am fwy o wybodaeth. Nid oes angen i chi gysylltu â ni cyn hynny oni bai bod unrhyw beth yn newid.",
+      "leadParaDefaultHtml": "Rydym yn gwneud ychydig o wiriadau terfynol ar eich cais. Byddwn yn cysylltu â chi erbyn <strong class=\"date-nowrap\">%s (4 wythnos)</strong>. Byddwn yn cysylltu â chi drwy lythyr os gallwn ddyfarnu Credyd Pensiwn i chi. Byddwn yn cysylltu â chi dros y ffôn neu drwy lythyr os ydym angen mwy o wybodaeth.",
+      "leadParaCallbacksHtml": "Rydym yn gwneud rhai gwiriadau olaf ar eich cais. Byddwn yn cysylltu â chi o 0800 023 2076 erbyn <strong class=\"date-nowrap\">%s (4 wythnos)</strong> i ofyn i chi am fwy o wybodaeth am:",
+      "callbackReasons": {
+        "abroad": "yr amser rydych wedi’i dreulio y tu allan i'r DU - efallai y byddwn yn gallu ôl-ddyddio'ch cais am hyd at 3 mis, ond byddwn angen gofyn ychydig mwy o gwestiynau i chi",
+        "property": "yr eiddo rydych yn berchen arno, pwy sy’n byw ynddo, pa gyfran o'r eiddo sy'n eiddo i chi a manylion unrhyw forgais",
+        "selfEmployment": "eich hunangyflogaeth - byddwn yn gofyn pryd wnaethoch chi weithio, manylion cyfrifon elw a cholled y llynedd ac unrhyw asedau busnes neu adeiladau rydych yn berchen arnynt",
+        "bonds": "eich bondiau incwm neu cyfalaf - byddwn yn gofyn i chi am wybodaeth o lythyr neu ddatganiad gan eich darparwr"
+      },
       "subHeadingSuccess": "Os yw eich cais yn llwyddiannus byddwn yn talu eich Credyd Pensiwn i'r un cyfrif rydych yn cael eich Pensiwn y Wladwriaeth iddo.",
       "paraSuccess": "Byddwch yn gallu newid hyn i gyfrif gwahanol unwaith mae eich Credyd Pensiwn yn cael ei dalu.",
       "subHeadingChanges": "Os oes unrhyw beth yn newid",

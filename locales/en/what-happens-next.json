@@ -4,10 +4,14 @@
   "section": {
     "whatHappensNext": {
       "heading": "What happens next",
-      "subHeadingBackdating": "Backdating your application",
-      "paraBackdating": "We will contact you to ask about the time you spent outside the UK. We might be able to backdate your application by up to 3 months, but we will need to ask you a few more questions.",
-      "leadParaPropertyHtml": "We will send you a form by <strong class=\"date-nowrap\">%s (4 weeks)</strong> to ask you for details of the property or land that you own.",
-      "leadParaDefaultHtml": "We are doing some final checks on your application. We will contact you by <strong class=\"date-nowrap\">%s (4 weeks)</strong> either to confirm your award or ask you for more information. You do not need to contact us before then unless anything changes.",
+      "leadParaDefaultHtml": "We are doing some final checks on your application. We will contact you by <strong class=\"date-nowrap\">%s (4 weeks)</strong>. We will contact you by letter If we can award your Pension Credit. We will contact you by phone or by letter if we need any more information.",
+      "leadParaCallbacksHtml": "We are doing some final checks on your application. We will contact you from 0800 023 2076 by <strong class=\"date-nowrap\">%s (4 weeks)</strong> to ask you for more information about:",
+      "callbackReasons": {
+        "abroad": "the time you spent outside the UK - we might be able to backdate your application by up to 3 months, but we will need to ask you a few more questions",
+        "property": "the property you own, who lives in it, what share of the property belongs to you and details of any mortgage",
+        "selfEmployment": "your self-employment - we will ask when you worked, details of last year's profit and loss accounts and any business assets or buildings you own",
+        "bonds": "your income or capital bonds - we will ask you for information from a letter or statement from your provider"
+      },
       "subHeadingSuccess": "If your application is successful we will pay your Pension Credit into the same account as your State Pension.",
       "paraSuccess": "You will be able to change this to a different account once your Pension Credit is in payment.",
       "subHeadingChanges": "If anything changes",

@@ -18,21 +18,29 @@
       <h2 class="govuk-heading-l govuk-!-margin-top-8">
         {{ t("what-happens-next:section.whatHappensNext.heading") }}
       </h2>
-      <p class="govuk-body">
-        {% if ownsAdditionalProperty %}
-          {{ t("what-happens-next:section.whatHappensNext.leadParaPropertyHtml", contactDate) | safe }}
-        {% else %}
-          {{ t("what-happens-next:section.whatHappensNext.leadParaDefaultHtml", contactDate) | safe }}
-        {% endif %}
-      </p>
 
-      {# Backdating callback #}
-      {% if abroadMoreThanOnceOrForMedical %}
-        <h3 class="govuk-heading-m">
-          {{ t("what-happens-next:section.whatHappensNext.subHeadingBackdating") }}
-        </h2>
+      {# Callback reasons #}
+      {% if abroadMoreThanOnceOrForMedical or ownsAdditionalProperty or selfEmployed or hasBonds %}
         <p class="govuk-body">
-          {{ t("what-happens-next:section.whatHappensNext.paraBackdating") }}
+          {{ t("what-happens-next:section.whatHappensNext.leadParaCallbacksHtml", contactDate) | safe }}
+        </p>
+        <ul class="govuk-list govuk-list--bullet">
+          {% if abroadMoreThanOnceOrForMedical %}
+            <li>{{ t("what-happens-next:section.whatHappensNext.callbackReasons.abroad") }}</li>
+          {% endif %}
+          {% if ownsAdditionalProperty %}
+            <li>{{ t("what-happens-next:section.whatHappensNext.callbackReasons.property") }}</li>
+          {% endif %}
+          {% if selfEmployed %}
+            <li>{{ t("what-happens-next:section.whatHappensNext.callbackReasons.selfEmployment") }}</li>
+          {% endif %}
+          {% if hasBonds %}
+            <li>{{ t("what-happens-next:section.whatHappensNext.callbackReasons.bonds") }}</li>
+          {% endif %}
+        </ul>
+      {% else %}
+        <p class="govuk-body">
+          {{ t("what-happens-next:section.whatHappensNext.leadParaDefaultHtml", contactDate) | safe }}
         </p>
       {% endif %}
 
