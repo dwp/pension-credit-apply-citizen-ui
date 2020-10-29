@@ -16,6 +16,15 @@ module.exports = (t, context, claim, cyaUrl) => {
   return {
     heading: t('check-your-answers:sectionHeading.benefits'),
     rows: [
+      /* --------------------------------------------------- universal-credit */
+      // Do you currently claim Universal Credit?
+      row({
+        changeHref: `${WP.UNIVERSAL_CREDIT}#f-claimsUniversalCredit`,
+        changeHtml: t(`universal-credit:field.claimsUniversalCredit.change${jointSingle}`),
+        key: t(`universal-credit:pageTitle${jointSingle}`),
+        value: rov('universal-credit.claimsUniversalCredit', 'universal-credit:field.claimsUniversalCredit.options'),
+      }),
+
       /* ----------------------------------------------------------- benefits */
       // Have you applied for any benefits that you are waiting to hear about?
       row({

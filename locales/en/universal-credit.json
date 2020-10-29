@@ -1,0 +1,15 @@
+{
+  "pageTitleSingle": "Do you currently claim Universal Credit?",
+  "pageTitleJoint": "Are you or your partner currently claiming Universal Credit?",
+  "field": {
+    "claimsUniversalCredit": {
+      "required": "Select yes if you currently claim Universal Credit.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "changeSingle": "Change <span class=\"govuk-visually-hidden\">whether you currently claim Universal Credit</span>",
+      "changeJoint": "Change <span class=\"govuk-visually-hidden\">whether you or your partner currently claim Universal Credit</span>"
+    }
+  }
+}

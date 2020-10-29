@@ -1,0 +1,30 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("universal-credit:pageTitle" + claimType) }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukRadios({
+    name: "claimsUniversalCredit",
+    fieldset: {
+      legend: {
+        text: t("universal-credit:pageTitle" + claimType),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("universal-credit:field.claimsUniversalCredit.options.yes")
+    }, {
+      value: "no",
+      text: t("universal-credit:field.claimsUniversalCredit.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.claimsUniversalCredit,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

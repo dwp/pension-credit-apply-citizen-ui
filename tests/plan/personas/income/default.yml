@@ -2,6 +2,9 @@ name: income-default
 
 journey:
   # --------------------------------------------------------------------- Income
+  universal-credit:
+    "no": click()
+
   benefits:
     "waitingToHearAboutBenefitsNo": click()
     "anyoneGetCarersNo": click()

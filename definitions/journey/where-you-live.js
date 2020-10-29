@@ -49,7 +49,7 @@ module.exports = (plan) => {
   ));
 
   // Otherwise skip to benefit check
-  plan.setRoute(WP.WHERE_YOU_LIVE_ADDRESS_SELECT, WP.BENEFITS, (r, c) => (
+  plan.setRoute(WP.WHERE_YOU_LIVE_ADDRESS_SELECT, WP.UNIVERSAL_CREDIT, (r, c) => (
     isEqualTo('addressFrom', 'select', WP.WHERE_YOU_LIVE_ADDRESS_HIDDEN)(r, c)
     && !wasSkipped(WP.WHERE_YOU_LIVE_ADDRESS_SELECT)(r, c)
     && inCareHome(r, c)
@@ -63,7 +63,7 @@ module.exports = (plan) => {
   ));
 
   // Otherwise skip to benefit check
-  plan.setRoute(WP.WHERE_YOU_LIVE_ADDRESS_MANUAL, WP.BENEFITS, (r, c) => (
+  plan.setRoute(WP.WHERE_YOU_LIVE_ADDRESS_MANUAL, WP.UNIVERSAL_CREDIT, (r, c) => (
     isEqualTo('addressFrom', 'manual', WP.WHERE_YOU_LIVE_ADDRESS_HIDDEN)(r, c)
     && inCareHome(r, c)
   ));
@@ -130,5 +130,5 @@ module.exports = (plan) => {
   plan.setRoute(WP.HOUSING_BENEFIT, WP.SHARE_RENT_MORTGAGE, isEqualTo('homeOwnership', 'rent', WP.HOME_OWNERSHIP));
 
   // Continue to income journey
-  plan.addSequence(WP.SHARE_RENT_MORTGAGE, WP.BENEFITS);
+  plan.addSequence(WP.SHARE_RENT_MORTGAGE, WP.UNIVERSAL_CREDIT);
 };

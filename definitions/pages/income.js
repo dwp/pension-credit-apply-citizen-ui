@@ -1,4 +1,5 @@
 const { waypoints } = require('../../lib/constants.js');
+const universalCreditValidation = require('../field-validators/income/universal-credit.js');
 const benefitsValidation = require('../field-validators/income/benefits.js');
 const earningsValidation = require('../field-validators/income/earnings.js');
 const otherIncomeValidation = require('../field-validators/income/other-income.js');
@@ -7,6 +8,14 @@ const earningsHooks = require('../hooks/income/earnings.js');
 
 module.exports = () => {
   const pages = Object.create(null);
+
+  pages[waypoints.UNIVERSAL_CREDIT] = {
+    view: 'pages/income/universal-credit.njk',
+    fieldValidators: universalCreditValidation,
+    hooks: {
+      prerender: jointOrSingleClaim(waypoints),
+    },
+  };
 
   pages[waypoints.BENEFITS] = {
     view: 'pages/income/benefits.njk',

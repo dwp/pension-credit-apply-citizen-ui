@@ -1,0 +1,16 @@
+{
+  "pageTitleSingle": "Ydych chi'n hawlio Credyd Cynhwysol ar hyn o bryd?",
+  "pageTitleJoint": "Ydych chi neu eich partner yn hawlio Credyd Cynhwysol ar hyn o bryd?",
+  "field": {
+    "claimsUniversalCredit": {
+      "required": "Dewiswch ydw os ydych yn hawlio Credyd Cynhwysol ar hyn o bryd.",
+      "options": {
+        "yes": "Ydw",
+        "no": "Na"
+      },
+      "changeSingle": "Newid <span class=\"govuk-visually-hidden\">os ydych yn hawlio Credyd Cynhwysol ar hyn o bryd</span>",
+      "changeJoint": "Newid <span class=\"govuk-visually-hidden\">os ydych chi neu eich partner yn hawlio Credyd Cynhwysol ar hyn o bryd</span>"
+
+    }
+  }
+}
