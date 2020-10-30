@@ -1,3 +1,31 @@
+# [6.0.0](https://github.com/dwp/pension-credit-apply-citizen-ui/compare/5.3.0...6.0.0) (2020-10-30)
+
+
+### Features
+
+* [bc] offer calculated claim date to user rather than take any date ([4641f55](https://github.com/dwp/pension-credit-apply-citizen-ui/commit/4641f5554e1a6dcba93215d50169cfab019fca54))
+* persist initial application date from start of journey to the end ([5dca292](https://github.com/dwp/pension-credit-apply-citizen-ui/commit/5dca292ef657efbe1ed2345afdcedba0b7490b28))
+* simplify self employment date logic to ease test effort (for now) ([b0643d7](https://github.com/dwp/pension-credit-apply-citizen-ui/commit/b0643d735385dfacf761bac6a1df8a5234ad414d))
+* update self-employed earnings section inline with date of claim ([d2c1704](https://github.com/dwp/pension-credit-apply-citizen-ui/commit/d2c17040c47196cfb9e4b5001099e96d8e43170e))
+
+
+### BREAKING CHANGES
+
+* New pages added, one page removed. Journey's changed
+in such a way that would required user to go back and answer unanswered
+questions.
+
+Claimants don't understand the guidance on the Date of Claim page and
+are entering invalid dates of claim, or potentially missing out on
+backdating entitlement. To resolve this we are calculating a date of
+claim in service based on their date of birth and any periods abroad and
+are offering it to them as a Yes/No option. They can still supply their
+own date of claim if they wish.
+
+Resolves AFPC-180, AFPC-787
+
+
+
 # [5.3.0](https://github.com/dwp/pension-credit-apply-citizen-ui/compare/5.2.3...5.3.0) (2020-10-23)
 
 
