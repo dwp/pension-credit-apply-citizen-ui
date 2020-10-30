@@ -1,13 +1,15 @@
 const getEarliestEntitlementDate = require('./get-earliest-entitlement-date.js');
 const getOfferedDateOfClaim = require('./get-offered-date-of-claim.js');
 const dateObjectToISOString = require('./date-object-to-iso-string.js');
+const isoStringToDate = require('./iso-string-to-date.js');
+const getTodayDate = require('./get-today-date.js');
 const { waypoints: WP } = require('../lib/constants.js');
 
 // True if given ISO Date string is over a week in the past
 const overAWeekAgo = (isoString) => {
-  const date = new Date(isoString);
-  const today = new Date(Date.now());
-  const lastWeek = new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate() - 7));
+  const today = getTodayDate();
+  const date = isoStringToDate(isoString);
+  const lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
 
   return date.getTime() < lastWeek.getTime();
 };

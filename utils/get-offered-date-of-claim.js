@@ -2,16 +2,21 @@ const getDateOfClaim = require('@dwp/pension-credit-date-of-claim');
 const { waypoints: WP } = require('../lib/constants.js');
 const spaIsWithin4Months = require('../definitions/route-conditions/spa-is-within-4-months.js');
 const dateObjectToDate = require('./date-object-to-date.js');
+const isoStringToDate = require('./iso-string-to-date.js');
+const getTodayDate = require('./get-today-date.js');
 
 const getOfferedDateOfClaim = (context) => {
   const { applicationDate } = context.getDataForPage(WP.START) || {};
   const { dateOfBirth } = context.getDataForPage(WP.DATE_OF_BIRTH) || {};
   const { abroadMoreThan4Weeks } = context.getDataForPage(WP.ABROAD) || {};
 
+  // Get fixed application date from session, set on START page submission
+  const appDate = applicationDate ? isoStringToDate(applicationDate) : getTodayDate();
+
   // Set up options to use for date of claim calculation.
   const dateOfClaimParams = {
     dateOfBirth: dateObjectToDate(dateOfBirth),
-    applicationDate: new Date(applicationDate || Date.now()),
+    applicationDate: appDate,
   };
 
   // If claimant has been abroad for more than 4 weeks, add dates for the period

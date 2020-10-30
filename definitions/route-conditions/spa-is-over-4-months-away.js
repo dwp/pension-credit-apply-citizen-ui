@@ -1,6 +1,7 @@
 const { getStatePensionDate } = require('get-state-pension-date');
 const dateObjectToISOString = require('../../utils/date-object-to-iso-string.js');
 const addCalendarMonths = require('../../utils/add-calendar-months.js');
+const getTodayDate = require('../../utils/get-today-date.js');
 const toUTCDate = require('../../utils/to-utc-date.js');
 
 const spaIsOver4MonthsAway = (route, context) => {
@@ -20,7 +21,7 @@ const spaIsOver4MonthsAway = (route, context) => {
 
   // getStatePensionDate returns a UTC date, we must also use a UTC date when
   // comparing otherwise our date may be one hour behind due to daylight savings
-  const today = new Date(Date.now());
+  const today = getTodayDate();
   const fourMonthsFromNow = addCalendarMonths(today, 4);
   const fourMonthsFromNowUTC = toUTCDate(fourMonthsFromNow);
 

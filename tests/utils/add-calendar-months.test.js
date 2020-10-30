@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const addCalendarMonths = require('../../utils/add-calendar-months.js');
 
-describe('addCalendarMonths()', () => {
+describe('Utils: add-calendar-months', () => {
   it('should retun a date', () => {
     const result = addCalendarMonths(new Date(), 1);
     expect(result).to.be.instanceOf(Date);

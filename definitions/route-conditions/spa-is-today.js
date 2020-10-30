@@ -1,5 +1,6 @@
 const { getStatePensionDate } = require('get-state-pension-date');
 const dateObjectToISOString = require('../../utils/date-object-to-iso-string.js');
+const getTodayDate = require('../../utils/get-today-date.js');
 const toUTCDate = require('../../utils/to-utc-date.js');
 
 const spaIsToday = (route, context) => {
@@ -19,7 +20,7 @@ const spaIsToday = (route, context) => {
 
   // getStatePensionDate returns a UTC date, we must also use a UTC date when
   // comparing otherwise our date may be one hour behind due to daylight savings
-  const todayUTC = toUTCDate(new Date(Date.now()));
+  const todayUTC = toUTCDate(getTodayDate());
 
   if (spaDate.getTime() === todayUTC.getTime()) {
     return true;

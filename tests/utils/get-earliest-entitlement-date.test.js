@@ -22,7 +22,7 @@ describe('Utils: get-earliest-entitlement-date', () => {
     getEarliestEntitlementDate(context);
     expect(dateOfClaimStub).to.be.calledWith({
       dateOfBirth: new Date(1920, 0, 1),
-      applicationDate: new Date('2020-06-09'),
+      applicationDate: new Date(2020, 5, 9),
     });
   });
 
