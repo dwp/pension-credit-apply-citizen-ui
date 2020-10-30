@@ -24,7 +24,7 @@ module.exports = (addressServiceFactory, mountUrl) => {
   const pages = Object.create(null);
 
   pages[waypoints.YOUR_NATIONALITY] = {
-    view: 'pages/eligibility/your-nationality.njk',
+    view: 'pages/hrt-citizen/your-nationality.njk',
     fieldValidators: yourNationalityValidation,
     hooks: {
       prerender: northernIrelandClaim(waypoints),

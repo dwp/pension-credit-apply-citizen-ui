@@ -24,7 +24,7 @@ module.exports = (addressServiceFactory, mountUrl) => {
   const pages = Object.create(null);
 
   pages[waypoints.PARTNER_NATIONALITY] = {
-    view: 'pages/about-citizen/partner-nationality.njk',
+    view: 'pages/hrt-partner/partner-nationality.njk',
     fieldValidators: partnerNationalityValidation,
     hooks: {
       prerender: northernIrelandClaim(waypoints),
