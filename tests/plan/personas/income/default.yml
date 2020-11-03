@@ -9,9 +9,11 @@ journey:
     "waitingToHearAboutBenefitsNo": click()
     "anyoneGetCarersNo": click()
 
-  earnings:
-    "hasEmploymentIncomeNo": click()
-    "hasSelfEmploymentIncomeNo": click()
+  employment:
+    "no": click()
+
+  self-employment:
+    "no": click()
 
   other-income:
     "no": click()

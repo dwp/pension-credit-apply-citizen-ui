@@ -1,0 +1,15 @@
+{
+  "pageTitleSingle": "Do you have any income from employment?",
+  "pageTitleJoint": "Do you or your partner have any income from employment?",
+  "field": {
+    "hasEmploymentIncome": {
+      "requiredSingle": "Select yes if you have any income from employment.",
+      "requiredJoint": "Select yes if you or your partner have any income from employment.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you have any income from employment</span>"
+    }
+  }
+}

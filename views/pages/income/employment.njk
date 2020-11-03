@@ -1,0 +1,31 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "casa/components/textarea/macro.njk" import casaGovukTextarea with context %}
+
+{% block casaPageTitle %}
+  {{ t("employment:pageTitle" + claimType) }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukRadios({
+    name: "hasEmploymentIncome",
+    fieldset: {
+      legend: {
+        text: t("employment:pageTitle" + claimType),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("employment:field.hasEmploymentIncome.options.yes")
+    }, {
+      value: "no",
+      text: t("employment:field.hasEmploymentIncome.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.hasEmploymentIncome,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

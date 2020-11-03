@@ -1,0 +1,35 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "casa/components/textarea/macro.njk" import casaGovukTextarea with context %}
+
+{% set pageTitle = t("self-employment:pageTitle" + claimType + selfEmployedSuffix, {
+  selfEmployedEarningsDate: selfEmployedEarningsDate
+}) %}
+
+{% block casaPageTitle %}
+  {{ pageTitle }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukRadios({
+    name: "hasSelfEmploymentIncome",
+    fieldset: {
+      legend: {
+        text: pageTitle,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("self-employment:field.hasSelfEmploymentIncome.options.yes" + selfEmployedSuffix)
+    }, {
+      value: "no",
+      text: t("self-employment:field.hasSelfEmploymentIncome.options.no" + selfEmployedSuffix)
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.hasSelfEmploymentIncome,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

@@ -19,27 +19,28 @@ module.exports = (t, context, claim, cyaUrl) => {
   return {
     heading: t('check-your-answers:sectionHeading.earnings'),
     rows: [
-      /* ----------------------------------------------------------- earnings */
+      /* --------------------------------------------------------- employment */
       // Do you have any income from employment?
       row({
-        changeHref: `${WP.EARNINGS}#f-hasEmploymentIncome`,
-        changeHtml: t('earnings:field.hasEmploymentIncome.change'),
-        key: t(`earnings:field.hasEmploymentIncome.legend${jointSingle}`),
-        value: rov('earnings.hasEmploymentIncome', 'earnings:field.hasEmploymentIncome.options'),
+        changeHref: `${WP.EMPLOYMENT}#f-hasEmploymentIncome`,
+        changeHtml: t('employment:field.hasEmploymentIncome.change'),
+        key: t(`employment:pageTitle${jointSingle}`),
+        value: rov('employment.hasEmploymentIncome', 'employment:field.hasEmploymentIncome.options'),
       }),
 
+      /* ---------------------------------------------------- self-employment */
       // Have you had any income from self-employment since
       // ${selfEmployedEarningsDate}?
       row({
-        changeHref: `${WP.EARNINGS}#f-hasSelfEmploymentIncome`,
-        changeHtml: t(`earnings:field.hasSelfEmploymentIncome.change${jointSingle}${selfEmployedSuffix}`),
-        key: t(`earnings:field.hasSelfEmploymentIncome.legend${jointSingle}${selfEmployedSuffix}`, {
+        changeHref: `${WP.SELF_EMPLOYMENT}#f-hasSelfEmploymentIncome`,
+        changeHtml: t(`self-employment:field.hasSelfEmploymentIncome.change${jointSingle}${selfEmployedSuffix}`),
+        key: t(`self-employment:pageTitle${jointSingle}${selfEmployedSuffix}`, {
           selfEmployedEarningsDate: formatDateObject(
             isoStringToDateObject(selfEmployedEarningsDate),
             { locale: context.nav.language },
           ),
         }),
-        value: rov('earnings.hasSelfEmploymentIncome', 'earnings:field.hasSelfEmploymentIncome.options', selfEmployedSuffix),
+        value: rov('self-employment.hasSelfEmploymentIncome', 'self-employment:field.hasSelfEmploymentIncome.options', selfEmployedSuffix),
       }),
 
       /* ------------------------------------------------------- other-income */

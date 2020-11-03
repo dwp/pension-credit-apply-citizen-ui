@@ -10,7 +10,7 @@ getSelfEmploymentVarsStub.returns({
   selfEmployedEarningsDate: '2020-01-01',
   selfEmployedSuffix: 'Past',
 });
-const earningsHook = proxyquire('../../../../definitions/hooks/income/earnings.js', {
+const earningsHook = proxyquire('../../../../definitions/hooks/income/self-employment.js', {
   '../../../utils/get-self-employment-vars.js': getSelfEmploymentVarsStub,
 });
 

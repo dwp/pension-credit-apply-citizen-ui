@@ -4,7 +4,8 @@ module.exports = (plan) => {
   plan.addSequence(
     WP.UNIVERSAL_CREDIT,
     WP.BENEFITS,
-    WP.EARNINGS,
+    WP.EMPLOYMENT,
+    WP.SELF_EMPLOYMENT,
     WP.OTHER_INCOME,
     WP.MONEY_YOU_HAVE,
   );

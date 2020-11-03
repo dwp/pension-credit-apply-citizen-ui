@@ -1,0 +1,15 @@
+{
+  "pageTitleSingle": "Oes gennych chi unrhyw incwm o gyflogaeth?",
+  "pageTitleJoint": "Oes gennych chi neu'ch partner unrhyw incwm o gyflogaeth?",
+  "field": {
+    "hasEmploymentIncome": {
+      "requiredSingle": "Dewiswch oes os oes gennych unrhyw incwm o gyflogaeth.",
+      "requiredJoint": "Dewiswch oes os oes gennych chi neu eich partner unrhyw incwm o gyflogaeth.",
+      "options": {
+        "yes": "Oes",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os oes gennych unrhyw incwm o gyflogaeth</span>"
+    }
+  }
+}

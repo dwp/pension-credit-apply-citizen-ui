@@ -1,20 +1,8 @@
 {
-  "pageTitle": "Earnings",
+  "pageTitleSinglePast": "Have you had any income from self-employment since ${selfEmployedEarningsDate}?",
+  "pageTitleJointPast": "Have you or your partner had any income from self-employment since ${selfEmployedEarningsDate}?",
   "field": {
-    "hasEmploymentIncome": {
-      "legendSingle": "Do you have any income from employment?",
-      "legendJoint": "Do you or your partner have any income from employment?",
-      "requiredSingle": "Select yes if you have any income from employment.",
-      "requiredJoint": "Select yes if you or your partner have any income from employment.",
-      "options": {
-        "yes": "Yes",
-        "no": "No"
-      },
-      "change": "Change <span class=\"govuk-visually-hidden\">whether you have any income from employment</span>"
-    },
     "hasSelfEmploymentIncome": {
-      "legendSinglePast": "Have you had any income from self-employment since ${selfEmployedEarningsDate}?",
-      "legendJointPast": "Have you or your partner had any income from self-employment since ${selfEmployedEarningsDate}?",
       "legendSinglePresent": "Do you have any income from self-employment?",
       "legendJointPresent": "Do you or your partner have any income from self-employment?",
       "requiredSinglePast": "Select yes if you have had any income from self-employment.",

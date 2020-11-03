@@ -1,10 +1,11 @@
 const { waypoints } = require('../../lib/constants.js');
 const universalCreditValidation = require('../field-validators/income/universal-credit.js');
 const benefitsValidation = require('../field-validators/income/benefits.js');
-const earningsValidation = require('../field-validators/income/earnings.js');
+const employmentValidation = require('../field-validators/income/employment.js');
+const selfEmploymentValidation = require('../field-validators/income/self-employment.js');
 const otherIncomeValidation = require('../field-validators/income/other-income.js');
 const jointOrSingleClaim = require('../hooks/common/joint-or-single-claim.js');
-const earningsHooks = require('../hooks/income/earnings.js');
+const selfEmploymentsHooks = require('../hooks/income/self-employment.js');
 
 module.exports = () => {
   const pages = Object.create(null);
@@ -25,13 +26,21 @@ module.exports = () => {
     },
   };
 
-  pages[waypoints.EARNINGS] = {
-    view: 'pages/income/earnings.njk',
-    fieldValidators: earningsValidation,
+  pages[waypoints.EMPLOYMENT] = {
+    view: 'pages/income/employment.njk',
+    fieldValidators: employmentValidation,
+    hooks: {
+      prerender: jointOrSingleClaim(waypoints),
+    },
+  };
+
+  pages[waypoints.SELF_EMPLOYMENT] = {
+    view: 'pages/income/self-employment.njk',
+    fieldValidators: selfEmploymentValidation,
     hooks: {
       prerender: [
         jointOrSingleClaim(waypoints),
-        earningsHooks,
+        selfEmploymentsHooks,
       ],
     },
   };
@@ -40,9 +49,7 @@ module.exports = () => {
     view: 'pages/income/other-income.njk',
     fieldValidators: otherIncomeValidation,
     hooks: {
-      prerender: [
-        jointOrSingleClaim(waypoints),
-      ],
+      prerender: jointOrSingleClaim(waypoints),
     },
   };
 

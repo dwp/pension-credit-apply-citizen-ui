@@ -1,22 +1,10 @@
 {
-  "pageTitle": "Enillion",
+  "pageTitleSinglePast": "Ydych chi wedi cael unrhyw incwm o hunangyflogaeth ers ${selfEmployedEarningsDate}?",
+  "pageTitleJointPast": "Ydych chi neu eich partner wedi cael unrhyw incwm o hunangyflogaeth ers ${selfEmployedEarningsDate}?",
+  "pageTitleSinglePresent": "Oes gennych chi unrhyw incwm o hunangyflogaeth?",
+  "pageTitleJointPresent": "Oes gennych chi neu eich partner unrhyw incwm o hunangyflogaeth",
   "field": {
-    "hasEmploymentIncome": {
-      "legendSingle": "Oes gennych chi unrhyw incwm o gyflogaeth?",
-      "legendJoint": "Oes gennych chi neu'ch partner unrhyw incwm o gyflogaeth?",
-      "requiredSingle": "Dewiswch oes os oes gennych unrhyw incwm o gyflogaeth.",
-      "requiredJoint": "Dewiswch oes os oes gennych chi neu eich partner unrhyw incwm o gyflogaeth.",
-      "options": {
-        "yes": "Oes",
-        "no": "Na"
-      },
-      "change": "Newid <span class=\"govuk-visually-hidden\">os oes gennych unrhyw incwm o gyflogaeth</span>"
-    },
     "hasSelfEmploymentIncome": {
-      "legendSinglePast": "Ydych chi wedi cael unrhyw incwm o hunangyflogaeth ers ${selfEmployedEarningsDate}?",
-      "legendJointPast": "Ydych chi neu eich partner wedi cael unrhyw incwm o hunangyflogaeth ers ${selfEmployedEarningsDate}?",
-      "legendSinglePresent": "Oes gennych chi unrhyw incwm o hunangyflogaeth?",
-      "legendJointPresent": "Oes gennych chi neu eich partner unrhyw incwm o hunangyflogaeth",
       "requiredSinglePast": "Dewiswch do os ydych wedi cael unrhyw incwm o hunangyflogaeth.",
       "requiredJointPast": "Dewiswch do os ydych chi neu eich partner wedi cael unrhyw incwm o hunangyflogaeth.",
       "requiredSinglePresent": "Dewiswch oes os oes gennych unrhyw incwm o hunangyflogaeth.",
