@@ -8,6 +8,31 @@
 {% endblock %}
 
 {% block journey_form %}
+  {% set employerDetails %}
+    {% set hint %}
+      <p class="govuk-hint govuk-!-margin-top-0">
+        {{ t("employment:field.employerDetails.hint.eachEmployment") }}
+      </p>
+      <ul class="govuk-hint govuk-list govuk-list--bullet">
+        <li>{{ t("employment:field.employerDetails.hint.employersName") }}</li>
+        <li>{{ t("employment:field.employerDetails.hint.employersAddress") }}</li>
+      </ul>
+    {% endset %}
+
+    {{ casaGovukTextarea({
+      name: "employerDetails",
+      label: {
+        text: t("employment:field.employerDetails.label"),
+        classes: "govuk-label--s"
+      },
+      hint: {
+        html: hint
+      },
+      value: formData.employerDetails,
+      casaErrors: formErrors
+    }) }}
+  {% endset %}
+
   {{ casaGovukRadios({
     name: "hasEmploymentIncome",
     fieldset: {
@@ -17,9 +42,15 @@
         classes: "govuk-fieldset__legend--xl"
       }
     },
+    hint: {
+      text: t("employment:field.hasEmploymentIncome.hint")
+    },
     items: [{
       value: "yes",
-      text: t("employment:field.hasEmploymentIncome.options.yes")
+      text: t("employment:field.hasEmploymentIncome.options.yes"),
+      conditional: {
+        html: employerDetails
+      }
     }, {
       value: "no",
       text: t("employment:field.hasEmploymentIncome.options.no")

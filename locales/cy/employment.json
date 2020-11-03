@@ -1,15 +1,28 @@
 {
-  "pageTitleSingle": "Oes gennych chi unrhyw incwm o gyflogaeth?",
+  "pageTitleSingle": "Oes gennych unrhyw incwm o gyflogaeth?",
   "pageTitleJoint": "Oes gennych chi neu'ch partner unrhyw incwm o gyflogaeth?",
   "field": {
     "hasEmploymentIncome": {
+      "hint": "Nid oes angen i chi ddweud wrthym am unrhyw bensiynau o gyflogaeth blaenorol.",
       "requiredSingle": "Dewiswch oes os oes gennych unrhyw incwm o gyflogaeth.",
-      "requiredJoint": "Dewiswch oes os oes gennych chi neu eich partner unrhyw incwm o gyflogaeth.",
+      "requiredJoint": "Dewiswch oes os oes gennych chi neu'ch partner unrhyw incwm o gyflogaeth.",
       "options": {
         "yes": "Oes",
         "no": "Na"
       },
-      "change": "Newid <span class=\"govuk-visually-hidden\">os oes gennych unrhyw incwm o gyflogaeth</span>"
+      "changeSingle": "Newid <span class=\"govuk-visually-hidden\">os oes gennych unrhyw incwm o gyflogaeth</span>",
+      "changeJoint": "Newid <span class=\"govuk-visually-hidden\">os oes gennych chi neu’ch partner unrhyw incwm o gyflogaeth</span>"
+    },
+    "employerDetails": {
+      "label": "Manylion cyflogwr",
+      "hint": {
+        "eachEmployment": "Ar gyfer pob cyflogaeth, dywedwch wrthym:",
+        "employersName": "enw llawn y cyflogwr",
+        "employersAddress": "cyfeiriad llawn y cyflogwr yn cynnwys cod post"
+      },
+      "required": "Rhowch enw a chyfeiriadau'r cyflogwyr.",
+      "length": "Rhowch enw a chyfeiriadau'r cyflogwyr gan ddefnyddio 500 nod neu lai.",
+      "change": "Newid <span class=\"govuk-visually-hidden\">manylion eich cyflogwr</span>"
     }
   }
 }

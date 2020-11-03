@@ -13,6 +13,17 @@ const fieldValidators = Object.assign(Object.create(null), {
       errorMsg: hasEmploymentIncomeErrorMsg,
     }),
   ]),
+  employerDetails: sf([
+    r.required.bind({
+      errorMsg: 'employment:field.employerDetails.required',
+    }),
+    r.strlen.bind({
+      max: 500,
+      errorMsgMax: 'employment:field.employerDetails.length',
+    }),
+  ], ({ journeyContext: c, waypointId: w }) => (
+    (c.getDataForPage(w) || {}).hasEmploymentIncome === 'yes'
+  )),
 });
 
 module.exports = fieldValidators;

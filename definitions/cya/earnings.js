@@ -23,9 +23,17 @@ module.exports = (t, context, claim, cyaUrl) => {
       // Do you have any income from employment?
       row({
         changeHref: `${WP.EMPLOYMENT}#f-hasEmploymentIncome`,
-        changeHtml: t('employment:field.hasEmploymentIncome.change'),
+        changeHtml: t(`employment:field.hasEmploymentIncome.change${jointSingle}`),
         key: t(`employment:pageTitle${jointSingle}`),
         value: rov('employment.hasEmploymentIncome', 'employment:field.hasEmploymentIncome.options'),
+      }),
+
+      // Employer details
+      claim.income.employedPaidWorkDescription && row({
+        changeHref: `${WP.EMPLOYMENT}#f-employerDetails`,
+        changeHtml: t('employment:field.employerDetails.change'),
+        key: t('employment:field.employerDetails.label'),
+        valueHtml: safeNl2br(claim.income.employedPaidWorkDescription),
       }),
 
       /* ---------------------------------------------------- self-employment */

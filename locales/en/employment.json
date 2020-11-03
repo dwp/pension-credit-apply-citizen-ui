@@ -3,13 +3,26 @@
   "pageTitleJoint": "Do you or your partner have any income from employment?",
   "field": {
     "hasEmploymentIncome": {
+      "hint": "You do not need to tell us about any pensions from previous employments.",
       "requiredSingle": "Select yes if you have any income from employment.",
       "requiredJoint": "Select yes if you or your partner have any income from employment.",
       "options": {
         "yes": "Yes",
         "no": "No"
       },
-      "change": "Change <span class=\"govuk-visually-hidden\">whether you have any income from employment</span>"
+      "changeSingle": "Change <span class=\"govuk-visually-hidden\">whether you have any income from employment</span>",
+      "changeJoint": "Change <span class=\"govuk-visually-hidden\">whether you or your partner have any income from employment</span>"
+    },
+    "employerDetails": {
+      "label": "Employer details",
+      "hint": {
+        "eachEmployment": "For each employment, tell us:",
+        "employersName": "the employer’s name",
+        "employersAddress": "the employer’s full address including postcode"
+      },
+      "required": "Enter the employers’ names and addresses.",
+      "length": "Enter the employers’ names and addresses using 500 characters or less.",
+      "change": "Change <span class=\"govuk-visually-hidden\">your employer details</span>"
     }
   }
 }

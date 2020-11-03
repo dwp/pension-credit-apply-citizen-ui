@@ -44,4 +44,37 @@ describe('Validators: employment', () => {
       await expectValidatorToPass(validators, 'hasEmploymentIncome', 'inArray', { hasEmploymentIncome: 'no' });
     });
   });
+
+  describe('field: employerDetails', () => {
+    it('should pass "required" validator if no value is provided and hasEmploymentIncome is "no"', async () => {
+      await expectValidatorToPass(validators, 'employerDetails', 'required', { hasEmploymentIncome: 'no' });
+    });
+
+    it('should fail "required" validator if no value is provided and hasEmploymentIncome is "yes"', async () => {
+      await expectValidatorToFail(validators, 'employerDetails', 'required', { hasEmploymentIncome: 'yes' }, {
+        summary: 'employment:field.employerDetails.required',
+      });
+    });
+
+    it('should pass "required" validator if a non-empty value is provided and hasEmploymentIncome is "yes"', async () => {
+      await expectValidatorToPass(validators, 'employerDetails', 'required', { hasEmploymentIncome: 'yes', employerDetails: 'Hammond Eggs' });
+    });
+
+    it('should pass "strlen" validator if string length > 500 and hasEmploymentIncome is "no"', async () => {
+      const longString = Array(502).join('x');
+      await expectValidatorToPass(validators, 'employerDetails', 'required', { hasEmploymentIncome: 'no', employerDetails: longString });
+    });
+
+    it('should fail "strlen" validator if string length > 500 and hasEmploymentIncome is "yes"', async () => {
+      const longString = Array(502).join('x');
+      await expectValidatorToFail(validators, 'employerDetails', 'strlen', { hasEmploymentIncome: 'yes', employerDetails: longString }, {
+        summary: 'employment:field.employerDetails.length',
+      });
+    });
+
+    it('should pass "strlen" validator if string length <= 500 and hasEmploymentIncome is "yes"', async () => {
+      const longString = Array(501).join('x');
+      await expectValidatorToPass(validators, 'employerDetails', 'strlen', { hasEmploymentIncome: 'yes', employerDetails: longString });
+    });
+  });
 });
