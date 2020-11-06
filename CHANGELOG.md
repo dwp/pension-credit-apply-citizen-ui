@@ -1,3 +1,20 @@
+# [7.0.0](https://github.com/dwp/pension-credit-apply-citizen-ui/compare/6.0.0...7.0.0) (2020-11-06)
+
+
+### Features
+
+* [bc] add page to capture that the claimant is on Universal Credit ([f901dfc](https://github.com/dwp/pension-credit-apply-citizen-ui/commit/f901dfcc51de01bb0626746722af6e83cc4f6944))
+
+
+### BREAKING CHANGES
+
+* all users must complete this page to progress, so would
+break existing journeys, sending the user back to this page.
+
+Resolves AFPC-796
+
+
+
 # [6.0.0](https://github.com/dwp/pension-credit-apply-citizen-ui/compare/5.3.0...6.0.0) (2020-10-30)
 
 
