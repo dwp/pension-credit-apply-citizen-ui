@@ -2,7 +2,7 @@
   "pageTitle": "Oes gennych chi bartner?",
   "field": {
     "havePartner": {
-      "hint": "Partner yw gwr, gwraig, partner sifil neu rywun rydych mewn perthynas â hwy.",
+      "hint": "Os ydych yn byw gyda phartner, mae’n rhaid iw manylion gael eu cynnwys fel rhan o'ch cais. Partner yw gwr, gwraig, partner sifil neu rywun rydych mewn perthynas â hwy.",
       "required": "Dewiswch oes os oes gennych bartner.",
       "options": {
         "yesLiveTogether": "Oes, rydym yn byw gyda’n gilydd",
