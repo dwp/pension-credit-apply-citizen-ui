@@ -1,3 +1,12 @@
+# [7.1.0](https://github.com/dwp/pension-credit-apply-citizen-ui/compare/7.0.0...7.1.0) (2020-11-10)
+
+
+### Features
+
+* add content informing users of callbacks they may receive ([f4d8c4a](https://github.com/dwp/pension-credit-apply-citizen-ui/commit/f4d8c4a9b8e9e9a079a97e0243aa801a1f39a991))
+
+
+
 # [7.0.0](https://github.com/dwp/pension-credit-apply-citizen-ui/compare/6.0.0...7.0.0) (2020-11-06)
 
 
