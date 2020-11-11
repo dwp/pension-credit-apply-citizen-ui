@@ -7,7 +7,6 @@ journey:
 
   your-name:
     fullName: "Alex Smith"
-    "hasPreviousNamesNo": click()
 
   registered-blind:
     "no": click()
@@ -17,7 +16,6 @@ journey:
 
   partner-name:
     partnerFullName: "Alyx Smith"
-    "partnerHasPreviousNamesNo": click()
 
   partner-registered-blind:
     "no": click()

@@ -1,5 +1,5 @@
 /* eslint-disable sonarjs/no-duplicate-string */
-const { rowFactory, radioOptionValue, safeNl2br } = require('./utils.js');
+const { rowFactory, radioOptionValue } = require('./utils.js');
 const formatDateObject = require('../../utils/format-date-object.js');
 const { waypoints: WP } = require('../../lib/constants.js');
 
@@ -59,22 +59,6 @@ module.exports = (t, context, claim, cyaUrl) => {
         changeHtml: t('partner-name:field.partnerFullName.change'),
         key: t('partner-name:field.partnerFullName.label'),
         value: context.data['partner-name'].partnerFullName,
-      }),
-
-      // Has your partner been known by any previous names?
-      row({
-        changeHref: `${WP.PARTNER_NAME}#f-partnerHasPreviousNames`,
-        changeHtml: t('partner-name:field.partnerHasPreviousNames.change'),
-        key: t('partner-name:field.partnerHasPreviousNames.legend'),
-        value: rov('partner-name.partnerHasPreviousNames', 'partner-name:field.partnerHasPreviousNames.options'),
-      }),
-
-      // What were your partner’s previous names?
-      claim.partner.otherNames === undefined ? undefined : row({
-        changeHref: `${WP.PARTNER_NAME}#f-partnerPreviousNames`,
-        changeHtml: t('partner-name:field.partnerPreviousNames.change'),
-        key: t('partner-name:field.partnerPreviousNames.label'),
-        valueHtml: safeNl2br(context.data['partner-name'].partnerPreviousNames),
       }),
 
       // Is your partner registered blind or severely sight impaired?

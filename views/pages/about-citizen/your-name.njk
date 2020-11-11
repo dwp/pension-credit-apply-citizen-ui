@@ -27,42 +27,4 @@
     casaErrors: formErrors
   }) }}
 
-  {% set previousNames %}
-    {{ casaGovukTextarea({
-      name: "previousNames",
-      classes: "govuk-input--width-20",
-      label: {
-        text: t("your-name:field.previousNames.label"),
-        classes: "govuk-label--m"
-      },
-      value: formData.previousNames,
-      casaErrors: formErrors
-    }) }}
-  {% endset %}
-
-  {{ casaGovukRadios({
-    name: "hasPreviousNames",
-    fieldset: {
-      legend: {
-        text: t("your-name:field.hasPreviousNames.legend"),
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
-    hint: {
-      text: t("your-name:field.hasPreviousNames.hint")
-    },
-    items: [{
-      value: "yes",
-      text: t("your-name:field.hasPreviousNames.options.yes"),
-      conditional: {
-        html: previousNames
-      }
-    }, {
-      value: "no",
-      text: t("your-name:field.hasPreviousNames.options.no")
-    }],
-    casaWithAnalytics: true,
-    casaValue: formData.hasPreviousNames,
-    casaErrors: formErrors
-  }) }}
 {% endblock %}

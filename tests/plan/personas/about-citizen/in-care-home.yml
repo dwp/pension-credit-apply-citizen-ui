@@ -7,7 +7,6 @@ journey:
 
   your-name:
     fullName: "Alex Smith"
-    "hasPreviousNamesNo": click()
 
   registered-blind:
     "no": click()

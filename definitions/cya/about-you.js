@@ -1,5 +1,5 @@
 /* eslint-disable sonarjs/no-duplicate-string */
-const { rowFactory, radioOptionValue, safeNl2br } = require('./utils.js');
+const { rowFactory, radioOptionValue } = require('./utils.js');
 const isoStringToDateObject = require('../../utils/iso-string-to-date-object.js');
 const formatDateObject = require('../../utils/format-date-object.js');
 const { waypoints: WP } = require('../../lib/constants.js');
@@ -148,22 +148,6 @@ module.exports = (t, context, claim, cyaUrl) => {
         changeHtml: t('your-name:field.fullName.change'),
         key: t('your-name:field.fullName.label'),
         value: context.data['your-name'].fullName,
-      }),
-
-      // Have you been known by any previous names?
-      row({
-        changeHref: `${WP.YOUR_NAME}#f-hasPreviousNames`,
-        changeHtml: t('your-name:field.hasPreviousNames.change'),
-        key: t('your-name:field.hasPreviousNames.legend'),
-        value: rov('your-name.hasPreviousNames', 'your-name:field.hasPreviousNames.options'),
-      }),
-
-      // What were your previous names?
-      claim.claimant.claimantPreviousNames === undefined ? undefined : row({
-        changeHref: `${WP.YOUR_NAME}#f-previousNames`,
-        changeHtml: t('your-name:field.previousNames.change'),
-        key: t('your-name:field.previousNames.label'),
-        valueHtml: safeNl2br(context.data['your-name'].previousNames),
       }),
 
       /* --------------------------------------------------- registered-blind */

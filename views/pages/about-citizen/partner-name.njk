@@ -27,41 +27,4 @@
     casaErrors: formErrors
   }) }}
 
-  {% set partnerPreviousNames %}
-    {{ casaGovukTextarea({
-      name: "partnerPreviousNames",
-      label: {
-        text: t("partner-name:field.partnerPreviousNames.label"),
-        classes: "govuk-label--m"
-      },
-      value: formData.partnerPreviousNames,
-      casaErrors: formErrors
-    }) }}
-  {% endset %}
-
-  {{ casaGovukRadios({
-    name: "partnerHasPreviousNames",
-    fieldset: {
-      legend: {
-        text: t("partner-name:field.partnerHasPreviousNames.legend"),
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
-    hint: {
-      text: t("partner-name:field.partnerHasPreviousNames.hint")
-    },
-    items: [{
-      value: "yes",
-      text: t("partner-name:field.partnerHasPreviousNames.options.yes"),
-      conditional: {
-        html: partnerPreviousNames
-      }
-    }, {
-      value: "no",
-      text: t("partner-name:field.partnerHasPreviousNames.options.no")
-    }],
-    casaWithAnalytics: true,
-    casaValue: formData.partnerHasPreviousNames,
-    casaErrors: formErrors
-  }) }}
 {% endblock %}
