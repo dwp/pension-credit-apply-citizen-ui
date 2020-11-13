@@ -1,3 +1,31 @@
+# [8.0.0](https://github.com/dwp/pension-credit-apply-citizen-ui/compare/7.1.0...8.0.0) (2020-11-13)
+
+
+### Bug Fixes
+
+* sanitise money string with commas prior to calculation ([50dbfc6](https://github.com/dwp/pension-credit-apply-citizen-ui/commit/50dbfc62b47c2625a9d99040f2c37b3a9c7fe42c))
+
+
+### Features
+
+* [bc] capture details of a claimant's employer; name, address, etc ([cb36b31](https://github.com/dwp/pension-credit-apply-citizen-ui/commit/cb36b3106c329278c53f65a1aaa099dcc4a68d2a))
+* [bc] split earnings page into employment and self-employment pages ([ec4716b](https://github.com/dwp/pension-credit-apply-citizen-ui/commit/ec4716bc217f90e57bcac740545011093eac1e8c))
+
+
+### BREAKING CHANGES
+
+* Adds an conditional field where if haveEmployment is
+yes a required field is presented. If a user answered yes in an existing
+journey they'd be kicked back to answer this new question.
+
+Resolves AFPC-424, AFPC-472
+* Removes one page and adds two new pages into journey,
+they must be completed so could potentially break live journeys.
+
+Resolves AFPC-880
+
+
+
 # [7.1.0](https://github.com/dwp/pension-credit-apply-citizen-ui/compare/7.0.0...7.1.0) (2020-11-10)
 
 
