@@ -26,6 +26,8 @@ describe('money', () => {
   describe('disregards routes', () => {
     const routes = [
       'disregards-over-10k-backdated',
+      'disregards-over-10k-backdated-with-money-you-have-commas',
+      'disregards-over-10k-backdated-with-money-today-commas',
       'disregards-over-10k-today',
       'disregards-second-property',
       'no-disregards',

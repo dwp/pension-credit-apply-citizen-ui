@@ -1,0 +1,17 @@
+name: money-disregards-over-10k-backdated-with-money-today-commas
+
+journey:
+  # ---------------------------------------------------------------------- Money
+  money-you-have:
+    "moneyBackdated": "0"
+    "moneyToday": "10,000.01"
+
+  second-property:
+    "no": click()
+
+  bonds:
+    "yes": click()
+
+  disregarded-money:
+
+  your-nationality:
