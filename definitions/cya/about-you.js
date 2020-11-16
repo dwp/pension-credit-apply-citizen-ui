@@ -146,7 +146,7 @@ module.exports = (t, context, claim, cyaUrl) => {
       row({
         changeHref: `${WP.YOUR_NAME}#f-fullName`,
         changeHtml: t('your-name:field.fullName.change'),
-        key: t('your-name:field.fullName.label'),
+        key: t('your-name:pageTitle'),
         value: context.data['your-name'].fullName,
       }),
 

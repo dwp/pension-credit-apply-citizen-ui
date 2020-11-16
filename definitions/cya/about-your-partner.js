@@ -57,7 +57,7 @@ module.exports = (t, context, claim, cyaUrl) => {
       row({
         changeHref: `${WP.PARTNER_NAME}#f-partnerFullName`,
         changeHtml: t('partner-name:field.partnerFullName.change'),
-        key: t('partner-name:field.partnerFullName.label'),
+        key: t('partner-name:pageTitle'),
         value: context.data['partner-name'].partnerFullName,
       }),
 

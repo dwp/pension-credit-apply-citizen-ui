@@ -1,8 +1,7 @@
 {
-  "pageTitle": "Eich enw",
+  "pageTitle": "Beth yw eich enw llawn?",
   "field": {
     "fullName": {
-      "label": "Beth yw eich enw llawn?",
       "hint": "Dylech gynnwys unrhyw enwau canol.",
       "required": "Rhowch eich enw llawn.",
       "length": "Mae'n rhaid i enw llawn fod yn 500 nod neu lai.",

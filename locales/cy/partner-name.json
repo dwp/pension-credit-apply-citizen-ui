@@ -1,8 +1,7 @@
 {
-  "pageTitle": "Enw eich partner",
+  "pageTitle": "Beth yw enw llawn eich partner?",
   "field": {
     "partnerFullName": {
-      "label": "Beth yw enw llawn eich partner?",
       "hint": "Dylech gynnwys unrhyw enwau canol.",
       "required": "Rhowch enw llawn eich partner.",
       "length": "Mae'n rhaid i enw llawn eich partner fod yn 500 nod neu lai.",

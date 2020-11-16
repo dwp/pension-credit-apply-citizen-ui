@@ -9,16 +9,13 @@
 {% endblock %}
 
 {% block journey_form %}
-  <h1 class="govuk-heading-xl">
-    {{ t("partner-name:pageTitle") }}
-  </h1>
-
   {{ casaGovukInput({
     name: "partnerFullName",
     classes: "govuk-input--width-20",
     label: {
-      text: t("partner-name:field.partnerFullName.label"),
-      classes: "govuk-label--m"
+      text: t("partner-name:pageTitle"),
+      isPageHeading: true,
+      classes: "govuk-label--xl"
     },
     hint: {
       text: t("partner-name:field.partnerFullName.hint")

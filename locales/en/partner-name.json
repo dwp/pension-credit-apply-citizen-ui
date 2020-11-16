@@ -1,8 +1,7 @@
 {
-  "pageTitle": "Your partner’s name",
+  "pageTitle": "What is your partner’s full name?",
   "field": {
     "partnerFullName": {
-      "label": "What is your partner’s full name?",
       "hint": "Include any middle names.",
       "required": "Enter your partner’s full name.",
       "length": "Your partner’s full name must be 500 characters or less.",

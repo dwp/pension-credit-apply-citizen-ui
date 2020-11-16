@@ -1,8 +1,7 @@
 {
-  "pageTitle": "Your name",
+  "pageTitle": "What is your full name?",
   "field": {
     "fullName": {
-      "label": "What is your full name?",
       "hint": "Include any middle names.",
       "required": "Enter your full name.",
       "length": "Full name must be 500 characters or less.",
