@@ -17,8 +17,9 @@ const rentCouncilTaxValidation = require('../field-validators/where-you-live/ren
 const homeOwnershipValidation = require('../field-validators/where-you-live/home-ownership.js');
 const serviceChargesValidation = require('../field-validators/where-you-live/service-charges.js');
 const groundRentValidation = require('../field-validators/where-you-live/ground-rent.js');
+const mortgageValidation = require('../field-validators/where-you-live/mortgage.js');
 const housingBenefitValidation = require('../field-validators/where-you-live/housing-benefit.js');
-const twetyOneYearLeaseValidation = require('../field-validators/where-you-live/21-year-lease.js');
+const twentyOneYearLeaseValidation = require('../field-validators/where-you-live/21-year-lease.js');
 const homeLoanValidation = require('../field-validators/where-you-live/home-loan.js');
 const shareRentMortgageValidation = require('../field-validators/where-you-live/share-rent-mortgage.js');
 
@@ -91,6 +92,11 @@ module.exports = (addressServiceFactory, mountUrl) => {
     fieldValidators: groundRentValidation,
   };
 
+  pages[waypoints.MORTGAGE] = {
+    view: 'pages/where-you-live/mortgage.njk',
+    fieldValidators: mortgageValidation,
+  };
+
   pages[waypoints.HOUSING_BENEFIT] = {
     view: 'pages/where-you-live/housing-benefit.njk',
     fieldValidators: housingBenefitValidation,
@@ -98,7 +104,7 @@ module.exports = (addressServiceFactory, mountUrl) => {
 
   pages[waypoints.TWENTY_ONE_YEAR_LEASE] = {
     view: 'pages/where-you-live/21-year-lease.njk',
-    fieldValidators: twetyOneYearLeaseValidation,
+    fieldValidators: twentyOneYearLeaseValidation,
   };
 
   pages[waypoints.HOME_LOAN] = {

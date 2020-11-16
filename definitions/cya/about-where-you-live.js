@@ -124,6 +124,25 @@ module.exports = (t, context, claim, cyaUrl) => {
       value: rov('21-year-lease.twentyOneYearLease', '21-year-lease:field.twentyOneYearLease.options'),
     }),
 
+    /* ----------------------------------------------------------- mortgage */
+    // Do you have a mortgage or loan secured against your home?
+    claim.whereClaimantLives.hasMortgage !== undefined && row({
+      changeHref: `${WP.MORTGAGE}#f-hasMortgage`,
+      changeHtml: t('mortgage:field.hasMortgage.change'),
+      key: t('mortgage:pageTitle'),
+      value: rov('mortgage.hasMortgage', 'mortgage:field.hasMortgage.options'),
+    }),
+
+    /* ---------------------------------------------------------- home-loan */
+    // Do you want to apply for support with interest on a mortgage or loan
+    // secured against your home?
+    claim.whereClaimantLives.supportWithInterest !== undefined && row({
+      changeHref: `${WP.HOME_LOAN}#f-wantsSMI`,
+      changeHtml: t('home-loan:field.wantsSMI.change'),
+      key: t('home-loan:pageTitle'),
+      value: rov('home-loan.wantsSMI', 'home-loan:field.wantsSMI.options'),
+    }),
+
     /* ---------------------------------------------------- housing-benefit */
     // Do you get Housing Benefit?
     claim.whereClaimantLives.receiveHousingBenefit !== undefined && row({
@@ -141,20 +160,10 @@ module.exports = (t, context, claim, cyaUrl) => {
       value: rov('housing-benefit.wantsHousingBenefit', 'housing-benefit:field.wantsHousingBenefit.options'),
     }),
 
-    /* ---------------------------------------------------------- home-loan */
-    // Do you want to apply for support with interest on a mortgage or loan
-    // secured against your home?
-    claim.whereClaimantLives.supportWithInterest !== undefined && row({
-      changeHref: `${WP.HOME_LOAN}#f-wantsSMI`,
-      changeHtml: t('home-loan:field.wantsSMI.change'),
-      key: t('home-loan:pageTitle'),
-      value: rov('home-loan.wantsSMI', 'home-loan:field.wantsSMI.options'),
-    }),
-
     /* ------------------------------------------------ share-rent-mortgage */
     // Do you share the rent or mortgage for the place where you live with
     // anyone?
-    row({
+    claim.whereClaimantLives.shareRentOrMortgage !== undefined && row({
       changeHref: `${WP.SHARE_RENT_MORTGAGE}#f-shareRentMortgage`,
       changeHtml: t('share-rent-mortgage:field.shareRentMortgage.change'),
       key: t(`share-rent-mortgage:pageTitle${paymentType}${jointSingle}`),

@@ -1,4 +1,4 @@
-name: where-you-live-default
+name: where-you-live-home-other
 
 journey:
   # ------------------------------------------------------- About where you live
@@ -16,18 +16,26 @@ journey:
     "no": click()
 
   rent-council-tax-rates:
-    "no": click()
+    "yes": click()
 
   home-ownership:
-    "own": click()
+    "other": click()
+    homeDescription: "Caravan"
 
   service-charges:
     "no":  click()
 
   ground-rent:
-    "no": click()
+    "yes": click()
 
   mortgage:
+    "yes": click()
+
+  home-loan:
     "no": click()
 
-  universal-credit:
+  housing-benefit:
+    "getsHousingBenefitYes": click()
+
+  share-rent-mortgage:
+    "no": click()

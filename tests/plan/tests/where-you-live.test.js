@@ -22,6 +22,17 @@ describe('where-you-live', () => {
   }).timeout(TIMEOUT);
 
   describe('home ownership', () => {
+    describe('own', () => {
+      it('mortgage', () => {
+        const waypoints = mergePersonaJourneys([
+          ...defaultJourneys,
+          'where-you-live/home-own-mortgage',
+        ]);
+
+        return testTraversal({ app, waypoints, waypointHandlerFactory });
+      }).timeout(TIMEOUT);
+    });
+
     describe('rent', () => {
       it('default', () => {
         const waypoints = mergePersonaJourneys([
@@ -60,16 +71,36 @@ describe('where-you-live', () => {
 
         return testTraversal({ app, waypoints, waypointHandlerFactory });
       }).timeout(TIMEOUT);
+
+      it('mortgage', () => {
+        const waypoints = mergePersonaJourneys([
+          ...defaultJourneys,
+          'where-you-live/home-shared-mortgage',
+        ]);
+
+        return testTraversal({ app, waypoints, waypointHandlerFactory });
+      }).timeout(TIMEOUT);
     });
 
-    it('other', () => {
-      const waypoints = mergePersonaJourneys([
-        ...defaultJourneys,
-        'where-you-live/home-shared',
-      ]);
+    describe('other', () => {
+      it('default', () => {
+        const waypoints = mergePersonaJourneys([
+          ...defaultJourneys,
+          'where-you-live/home-other',
+        ]);
 
-      return testTraversal({ app, waypoints, waypointHandlerFactory });
-    }).timeout(TIMEOUT);
+        return testTraversal({ app, waypoints, waypointHandlerFactory });
+      }).timeout(TIMEOUT);
+
+      it('mortgage', () => {
+        const waypoints = mergePersonaJourneys([
+          ...defaultJourneys,
+          'where-you-live/home-other-mortgage',
+        ]);
+
+        return testTraversal({ app, waypoints, waypointHandlerFactory });
+      }).timeout(TIMEOUT);
+    });
   });
 
   it('care home', () => {

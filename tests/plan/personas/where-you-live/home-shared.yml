@@ -24,11 +24,11 @@ journey:
   ground-rent:
     "no": click()
 
+  mortgage:
+    "no": click()
+
   housing-benefit:
     "getsHousingBenefitYes": click()
-
-  home-loan:
-    "no": click()
 
   share-rent-mortgage:
     "no": click()

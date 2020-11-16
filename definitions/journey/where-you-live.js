@@ -89,6 +89,11 @@ module.exports = (plan) => {
     isEqualTo('homeOwnership', 'rent')(r, c) || isEqualTo('homeOwnership', 'sharedOwnership')(r, c)
   ));
 
+  // We go straight to housing benefit for renters that don't pay ground rent
+  plan.setRoute(WP.GROUND_RENT, WP.HOUSING_BENEFIT, (r, c) => (
+    isNo('paysGroundRent')(r, c) && isEqualTo('homeOwnership', 'rent', WP.HOME_OWNERSHIP)(r, c)
+  ));
+
   // If renters or part owners pay ground rent we need to ask them if they have
   // a 21 year lease
   plan.setRoute(WP.GROUND_RENT, WP.TWENTY_ONE_YEAR_LEASE, (r, c) => (
@@ -98,36 +103,52 @@ module.exports = (plan) => {
     )
   ));
 
-  // Then housing benefit
-  plan.addSequence(WP.TWENTY_ONE_YEAR_LEASE, WP.HOUSING_BENEFIT);
-
-  // We go straight to housing benefit for 'other' or renters/parter owners who
-  // don't pay ground rent
-  plan.setRoute(WP.GROUND_RENT, WP.HOUSING_BENEFIT, (r, c) => (
-    isEqualTo('homeOwnership', 'other', WP.HOME_OWNERSHIP)(r, c)
+  // If the claimant owns their home (or shared ownership with no ground rent),
+  // ask if they have a mortgage
+  plan.setRoute(WP.GROUND_RENT, WP.MORTGAGE, (r, c) => (
+    isEqualTo('homeOwnership', 'own', WP.HOME_OWNERSHIP)(r, c)
+    || isEqualTo('homeOwnership', 'other', WP.HOME_OWNERSHIP)(r, c)
     || (
-      isNo('paysGroundRent')(r, c) && (
-        isEqualTo('homeOwnership', 'rent', WP.HOME_OWNERSHIP)(r, c)
-        || isEqualTo('homeOwnership', 'sharedOwnership', WP.HOME_OWNERSHIP)(r, c)
-      )
+      isNo('paysGroundRent')(r, c)
+      && isEqualTo('homeOwnership', 'sharedOwnership', WP.HOME_OWNERSHIP)(r, c)
     )
   ));
 
-  // Home owners go to question about SMI after ground rent
-  plan.setRoute(WP.GROUND_RENT, WP.HOME_LOAN, isEqualTo('homeOwnership', 'own', WP.HOME_OWNERSHIP));
+  // If the claimant owns their home, ask if they have a mortgage
+  plan.setRoute(WP.TWENTY_ONE_YEAR_LEASE, WP.MORTGAGE, isEqualTo('homeOwnership', 'sharedOwnership', WP.HOME_OWNERSHIP));
 
-  // Share ownership claimants and those with 'other' arrangements need to be
-  // asked about SMI
-  plan.setRoute(WP.HOUSING_BENEFIT, WP.HOME_LOAN, (r, c) => (
-    isEqualTo('homeOwnership', 'sharedOwnership', WP.HOME_OWNERSHIP)(r, c)
-    || isEqualTo('homeOwnership', 'other', WP.HOME_OWNERSHIP)(r, c)
+  // Otherwise they carry on to housing beneift
+  plan.setRoute(WP.TWENTY_ONE_YEAR_LEASE, WP.HOUSING_BENEFIT, isEqualTo('homeOwnership', 'rent', WP.HOME_OWNERSHIP));
+
+  // Home owners go to question about SMI if they have a mortgage
+  plan.setRoute(WP.MORTGAGE, WP.HOME_LOAN, isYes('hasMortgage'));
+
+  // Home owners go to to benefits section if they have no mortgage
+  plan.setRoute(WP.MORTGAGE, WP.UNIVERSAL_CREDIT, (r, c) => (
+    isNo('hasMortgage')(r, c) && isEqualTo('homeOwnership', 'own', WP.HOME_OWNERSHIP)(r, c)
   ));
 
-  // Then shared mortage/rent etc
-  plan.addSequence(WP.HOME_LOAN, WP.SHARE_RENT_MORTGAGE);
+  // Home owners go to question about housing benefit if they have no mortgage,
+  // but they have shared ownership or some 'other' arrangement
+  plan.setRoute(WP.MORTGAGE, WP.HOUSING_BENEFIT, (r, c) => (
+    isNo('hasMortgage')(r, c) && (
+      isEqualTo('homeOwnership', 'other', WP.HOME_OWNERSHIP)(r, c)
+      || isEqualTo('homeOwnership', 'sharedOwnership', WP.HOME_OWNERSHIP)(r, c)
+    )
+  ));
 
-  // Renters don't need to be asked about SMI as they won't have mortgages
-  plan.setRoute(WP.HOUSING_BENEFIT, WP.SHARE_RENT_MORTGAGE, isEqualTo('homeOwnership', 'rent', WP.HOME_OWNERSHIP));
+  // SMI question goes to shared rent/mortgage question if they have non-shared
+  // ownership
+  plan.setRoute(WP.HOME_LOAN, WP.SHARE_RENT_MORTGAGE, isEqualTo('homeOwnership', 'own', WP.HOME_OWNERSHIP));
+
+  // SMI question goes to housing benefit if they have shared ownership or other
+  plan.setRoute(WP.HOME_LOAN, WP.HOUSING_BENEFIT, (r, c) => (
+    isEqualTo('homeOwnership', 'other', WP.HOME_OWNERSHIP)(r, c)
+    || isEqualTo('homeOwnership', 'sharedOwnership', WP.HOME_OWNERSHIP)(r, c)
+  ));
+
+  // Housing benefit question always goes to share rent/mortgage
+  plan.addSequence(WP.HOUSING_BENEFIT, WP.SHARE_RENT_MORTGAGE);
 
   // Continue to income journey
   plan.addSequence(WP.SHARE_RENT_MORTGAGE, WP.UNIVERSAL_CREDIT);

@@ -20,6 +20,7 @@ journey:
 
   home-ownership:
     "other": click()
+    homeDescription: "Caravan"
 
   service-charges:
     "no":  click()
@@ -27,11 +28,11 @@ journey:
   ground-rent:
     "yes": click()
 
+  mortgage:
+    "no": click()
+
   housing-benefit:
     "getsHousingBenefitYes": click()
-
-  home-loan:
-    "no": click()
 
   share-rent-mortgage:
     "no": click()

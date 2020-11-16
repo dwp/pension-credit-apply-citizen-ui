@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Do you have a mortgage or loan secured against your home?",
+  "field": {
+    "hasMortgage": {
+      "required": "Select yes if you have a mortgage or loan secured against your home.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you have a mortgage or loan secured against your home</span>"
+    }
+  }
+}

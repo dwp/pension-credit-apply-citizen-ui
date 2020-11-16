@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Oes gennych chi forgais neu fenthyciad sydd wedi'i ddiogelu yn erbyn eich cartref?",
+  "field": {
+    "hasMortgage": {
+      "required": "Dewiswch oes os oes gennych forgais neu fenthyciad sydd wedi'i ddiogelu yn erbyn eich cartref.",
+      "options": {
+        "yes": "Oes",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">oes os oes gennych forgais neu fenthyciad sydd wedi'i ddiogelu yn erbyn eich cartref</span>"
+    }
+  }
+}

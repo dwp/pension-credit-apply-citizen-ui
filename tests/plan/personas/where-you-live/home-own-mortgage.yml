@@ -1,4 +1,4 @@
-name: where-you-live-default
+name: where-you-live-hone-own-mortgage
 
 journey:
   # ------------------------------------------------------- About where you live
@@ -28,6 +28,12 @@ journey:
     "no": click()
 
   mortgage:
+    "yes": click()
+
+  home-loan:
+    "no": click()
+
+  share-rent-mortgage:
     "no": click()
 
   universal-credit:

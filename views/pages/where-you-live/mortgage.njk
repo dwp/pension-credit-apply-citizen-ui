@@ -1,0 +1,30 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("mortgage:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukRadios({
+    name: "hasMortgage",
+    fieldset: {
+      legend: {
+        text: t("mortgage:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("mortgage:field.hasMortgage.options.yes")
+    }, {
+      value: "no",
+      text: t("mortgage:field.hasMortgage.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.hasMortgage,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}
