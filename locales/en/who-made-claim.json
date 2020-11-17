@@ -4,14 +4,14 @@
     "whoMadeClaim": {
       "required": "Select which of these best describes you.",
       "options": {
-        "claimant": "You are <strong>claiming Pension Credit for yourself</strong>",
-        "powerOfAttorney": "You have <strong>power of attorney</strong> for the applicant",
-        "appointee": "You act as an <strong>appointee</strong> for the applicant",
-        "personalActingBody": "You are a <strong>Personal Acting Body</strong> for the applicant",
-        "corporateActingBody": "You are a <strong>Corporate Acting Body</strong> for the applicant ",
-        "charity": "You work for a <strong>charity</strong> or <strong>organisation</strong> that is helping the applicant make their application",
-        "friendOrFamily": "You are a <strong>friend</strong> or <strong>family member</strong> who is helping the applicant make their application",
-        "someoneElse": "Someone else "
+        "claimant": "You are applying for Pension Credit for yourself",
+        "friendOrFamily": "You are a friend or family member who is helping the applicant make their application",
+        "powerOfAttorney": "You have power of attorney for the applicant",
+        "charity": "You work for a charity or organisation that is helping the applicant make their application",
+        "appointee": "You have been appointed by DWP to deal with the benefits of someone who cannot manage their own affairs",
+        "corporateActingBody": "You are a Corporate Acting Body for the applicant ",
+        "personalActingBody": "You are a Personal Acting Body for the applicant",
+        "someoneElse": "Someone else"
       },
       "change": "Change <span class=\"govuk-visually-hidden\">which of these best describes you</span>"
     },
