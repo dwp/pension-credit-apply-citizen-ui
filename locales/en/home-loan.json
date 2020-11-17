@@ -1,14 +1,14 @@
 {
-  "pageTitle": "Do you want to apply for support with interest on a mortgage or loan secured against your home?",
+  "pageTitle": "Do you want us to send you some information about support with interest on a mortgage or loan secured against your home?",
   "field": {
     "wantsSMI": {
-      "hint": "This support is paid as a loan that you must repay when your home is sold or transferred. We will send you more information and an application form by post.",
-      "required": "Select yes if you want to apply for support with interest on a mortgage or loan secured against your home.",
+      "hint": "This support is paid as a loan that you must repay when your home is sold or transferred.",
+      "required": "Select yes if you want us to send you some information about support with interest on a mortgage or loan secured against your home.",
       "options": {
         "yes": "Yes",
         "no": "No"
       },
-      "change": "Change <span class=\"govuk-visually-hidden\">whether you want to apply for support with interest on a mortgage or loan secured against your home</span>"
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you want us to send you some information about support with interest on a mortgage or loan secured against your home</span>"
     }
   }
 }
