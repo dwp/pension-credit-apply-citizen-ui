@@ -30,4 +30,7 @@ journey:
   mortgage:
     "no": click()
 
+  equity-release:
+    "no": click()
+
   universal-credit:

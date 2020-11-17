@@ -31,6 +31,9 @@ journey:
   mortgage:
     "no": click()
 
+  equity-release:
+    "no": click()
+
   housing-benefit:
     "getsHousingBenefitYes": click()
 

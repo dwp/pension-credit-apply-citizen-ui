@@ -21,6 +21,7 @@ const mortgageValidation = require('../field-validators/where-you-live/mortgage.
 const housingBenefitValidation = require('../field-validators/where-you-live/housing-benefit.js');
 const twentyOneYearLeaseValidation = require('../field-validators/where-you-live/21-year-lease.js');
 const homeLoanValidation = require('../field-validators/where-you-live/home-loan.js');
+const equityReleaseValidation = require('../field-validators/where-you-live/equity-release.js');
 const shareRentMortgageValidation = require('../field-validators/where-you-live/share-rent-mortgage.js');
 
 module.exports = (addressServiceFactory, mountUrl) => {
@@ -92,11 +93,6 @@ module.exports = (addressServiceFactory, mountUrl) => {
     fieldValidators: groundRentValidation,
   };
 
-  pages[waypoints.MORTGAGE] = {
-    view: 'pages/where-you-live/mortgage.njk',
-    fieldValidators: mortgageValidation,
-  };
-
   pages[waypoints.HOUSING_BENEFIT] = {
     view: 'pages/where-you-live/housing-benefit.njk',
     fieldValidators: housingBenefitValidation,
@@ -107,9 +103,19 @@ module.exports = (addressServiceFactory, mountUrl) => {
     fieldValidators: twentyOneYearLeaseValidation,
   };
 
+  pages[waypoints.MORTGAGE] = {
+    view: 'pages/where-you-live/mortgage.njk',
+    fieldValidators: mortgageValidation,
+  };
+
   pages[waypoints.HOME_LOAN] = {
     view: 'pages/where-you-live/home-loan.njk',
     fieldValidators: homeLoanValidation,
+  };
+
+  pages[waypoints.EQUITY_RELEASE] = {
+    view: 'pages/where-you-live/equity-release.njk',
+    fieldValidators: equityReleaseValidation,
   };
 
   pages[waypoints.SHARE_RENT_MORTGAGE] = {

@@ -1,0 +1,30 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("equity-release:pageTitle") }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukRadios({
+    name: "equityRelease",
+    fieldset: {
+      legend: {
+        text: t("equity-release:pageTitle"),
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("equity-release:field.equityRelease.options.yes")
+    }, {
+      value: "no",
+      text: t("equity-release:field.equityRelease.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.equityRelease,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

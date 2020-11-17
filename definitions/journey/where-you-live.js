@@ -123,28 +123,32 @@ module.exports = (plan) => {
   // Home owners go to question about SMI if they have a mortgage
   plan.setRoute(WP.MORTGAGE, WP.HOME_LOAN, isYes('hasMortgage'));
 
-  // Home owners go to to benefits section if they have no mortgage
-  plan.setRoute(WP.MORTGAGE, WP.UNIVERSAL_CREDIT, (r, c) => (
-    isNo('hasMortgage')(r, c) && isEqualTo('homeOwnership', 'own', WP.HOME_OWNERSHIP)(r, c)
-  ));
+  // Home owners go to straight equity release if they don't have a mortgage
+  plan.setRoute(WP.MORTGAGE, WP.EQUITY_RELEASE, isNo('hasMortgage'));
 
-  // Home owners go to question about housing benefit if they have no mortgage,
-  // but they have shared ownership or some 'other' arrangement
-  plan.setRoute(WP.MORTGAGE, WP.HOUSING_BENEFIT, (r, c) => (
-    isNo('hasMortgage')(r, c) && (
-      isEqualTo('homeOwnership', 'other', WP.HOME_OWNERSHIP)(r, c)
-      || isEqualTo('homeOwnership', 'sharedOwnership', WP.HOME_OWNERSHIP)(r, c)
-    )
-  ));
+  // SMI question always goes to equity release as only home owners can see the
+  // question
+  plan.addSequence(WP.HOME_LOAN, WP.EQUITY_RELEASE);
 
-  // SMI question goes to shared rent/mortgage question if they have non-shared
-  // ownership
-  plan.setRoute(WP.HOME_LOAN, WP.SHARE_RENT_MORTGAGE, isEqualTo('homeOwnership', 'own', WP.HOME_OWNERSHIP));
-
-  // SMI question goes to housing benefit if they have shared ownership or other
-  plan.setRoute(WP.HOME_LOAN, WP.HOUSING_BENEFIT, (r, c) => (
+  // Equity release goes to housing benefit if they have shared ownership or
+  // some other arrangement
+  plan.setRoute(WP.EQUITY_RELEASE, WP.HOUSING_BENEFIT, (r, c) => (
     isEqualTo('homeOwnership', 'other', WP.HOME_OWNERSHIP)(r, c)
     || isEqualTo('homeOwnership', 'sharedOwnership', WP.HOME_OWNERSHIP)(r, c)
+  ));
+
+  // Equity release goes to share rent/mortgage for owners who still have
+  // a mortgage
+  plan.setRoute(WP.EQUITY_RELEASE, WP.SHARE_RENT_MORTGAGE, (r, c) => (
+    isYes('hasMortgage', WP.MORTGAGE)(r, c)
+    && isEqualTo('homeOwnership', 'own', WP.HOME_OWNERSHIP)(r, c)
+  ));
+
+  // Equity release goes to straight to the next section for owners who don't
+  // have a mortgage
+  plan.setRoute(WP.EQUITY_RELEASE, WP.UNIVERSAL_CREDIT, (r, c) => (
+    isNo('hasMortgage', WP.MORTGAGE)(r, c)
+    && isEqualTo('homeOwnership', 'own', WP.HOME_OWNERSHIP)(r, c)
   ));
 
   // Housing benefit question always goes to share rent/mortgage

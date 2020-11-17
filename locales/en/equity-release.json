@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Do you have any money or income from an equity release scheme?",
+  "field": {
+    "equityRelease": {
+      "required": "Select yes if you have any money or income from an equity release scheme.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether you have any money or income from an equity release scheme</span>"
+    }
+  }
+}

@@ -33,6 +33,9 @@ journey:
   home-loan:
     "no": click()
 
+  equity-release:
+    "no": click()
+
   share-rent-mortgage:
     "no": click()
 

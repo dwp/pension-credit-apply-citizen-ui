@@ -143,6 +143,15 @@ module.exports = (t, context, claim, cyaUrl) => {
       value: rov('home-loan.wantsSMI', 'home-loan:field.wantsSMI.options'),
     }),
 
+    /* ----------------------------------------------------- equity-release */
+    // Do you have any money or income from an equity release scheme?
+    claim.whereClaimantLives.equityRelease !== undefined && row({
+      changeHref: `${WP.EQUITY_RELEASE}#f-equityRelease`,
+      changeHtml: t('equity-release:field.equityRelease.change'),
+      key: t('equity-release:pageTitle'),
+      value: rov('equity-release.equityRelease', 'equity-release:field.equityRelease.options'),
+    }),
+
     /* ---------------------------------------------------- housing-benefit */
     // Do you get Housing Benefit?
     claim.whereClaimantLives.receiveHousingBenefit !== undefined && row({

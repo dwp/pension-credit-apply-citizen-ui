@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Oes gennych chi unrhyw arian neu incwm o gynllun rhyddhau ecwiti?",
+  "field": {
+    "equityRelease": {
+      "required": "Dewiswch oes os oes gennych unrhyw arian neu incwm o gynllun rhyddhau ecwiti.",
+      "options": {
+        "yes": "Oes",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os oes gennych unrhyw arian neu incwm o gynllun rhyddhau ecwiti</span>"
+    }
+  }
+}
