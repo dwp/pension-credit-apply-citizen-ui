@@ -1,0 +1,31 @@
+{% extends "layouts/form-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "casa/components/textarea/macro.njk" import casaGovukTextarea with context %}
+
+{% block casaPageTitle %}
+  {{ t("carers:pageTitle" + claimType) }} - {{ t("common:serviceName") }}
+{% endblock %}
+
+{% block journey_form %}
+  {{ casaGovukRadios({
+    name: "anyoneGetCarers",
+    fieldset: {
+      legend: {
+        text: t("carers:pageTitle" + claimType),
+        isPageHeading: true,
+        classes: "govuk-label--xl"
+      }
+    },
+    items: [{
+      value: "yes",
+      text: t("carers:field.anyoneGetCarers.options.yes")
+    }, {
+      value: "no",
+      text: t("carers:field.anyoneGetCarers.options.no")
+    }],
+    casaWithAnalytics: true,
+    casaValue: formData.anyoneGetCarers,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}

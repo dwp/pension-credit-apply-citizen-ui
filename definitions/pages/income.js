@@ -1,6 +1,7 @@
 const { waypoints } = require('../../lib/constants.js');
 const universalCreditValidation = require('../field-validators/income/universal-credit.js');
 const benefitsValidation = require('../field-validators/income/benefits.js');
+const carersValidation = require('../field-validators/income/carers.js');
 const employmentValidation = require('../field-validators/income/employment.js');
 const selfEmploymentValidation = require('../field-validators/income/self-employment.js');
 const otherIncomeValidation = require('../field-validators/income/other-income.js');
@@ -21,6 +22,14 @@ module.exports = () => {
   pages[waypoints.BENEFITS] = {
     view: 'pages/income/benefits.njk',
     fieldValidators: benefitsValidation,
+    hooks: {
+      prerender: jointOrSingleClaim(waypoints),
+    },
+  };
+
+  pages[waypoints.CARERS] = {
+    view: 'pages/income/carers.njk',
+    fieldValidators: carersValidation,
     hooks: {
       prerender: jointOrSingleClaim(waypoints),
     },

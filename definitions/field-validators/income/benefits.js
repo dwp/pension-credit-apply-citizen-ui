@@ -21,15 +21,6 @@ const fieldValidators = Object.assign(Object.create(null), {
   ], ({ journeyContext: c, waypointId: w }) => (
     (c.getDataForPage(w) || {}).waitingToHearAboutBenefits === 'yes'
   )),
-  anyoneGetCarers: sf([
-    r.required.bind({
-      errorMsg: 'benefits:field.anyoneGetCarers.required',
-    }),
-    r.inArray.bind({
-      source: ['yes', 'no'],
-      errorMsg: 'benefits:field.anyoneGetCarers.required',
-    }),
-  ]),
 });
 
 module.exports = fieldValidators;

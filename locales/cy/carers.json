@@ -1,0 +1,14 @@
+{
+  "pageTitleSingle": "Oes rhywun yn cael Lwfans Gofalwr neu'r Elfen Gofal o Gredyd Cynhwysol am ofalu amdanoch?",
+  "pageTitleJoint": "Oes rhywun yn cael Lwfans Gofalwr neu'r Elfen Gofal o Gredyd Cynhwysol am ofalu amdanoch chi neu'ch partner?",
+  "field": {
+    "anyoneGetCarers": {
+      "required": "Dewiswch oes os oes rhywun yn cael Lwfans Gofalwr am ofalu amdanoch.",
+      "options": {
+        "yes": "Oes",
+        "no": "Na"
+      },
+      "change": "Newid <span class=\"govuk-visually-hidden\">os oes rhywun yn cael Lwfans Gofalwr neu'r Elfen Gofal o Gredyd Cynhwysol am ofalu amdanoch</span>"
+    }
+  }
+}

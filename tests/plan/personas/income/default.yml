@@ -5,9 +5,11 @@ journey:
   universal-credit:
     "no": click()
 
+  carers:
+    "no": click()
+
   benefits:
-    "waitingToHearAboutBenefitsNo": click()
-    "anyoneGetCarersNo": click()
+    "no": click()
 
   employment:
     "no": click()

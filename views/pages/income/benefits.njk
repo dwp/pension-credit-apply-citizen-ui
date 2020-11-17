@@ -4,14 +4,10 @@
 {% from "casa/components/textarea/macro.njk" import casaGovukTextarea with context %}
 
 {% block casaPageTitle %}
-  {{ t("benefits:pageTitle") }} - {{ t("common:serviceName") }}
+  {{ t("benefits:pageTitle" + claimType) }} - {{ t("common:serviceName") }}
 {% endblock %}
 
 {% block journey_form %}
-  <h1 class="govuk-heading-xl">
-    {{ t("benefits:pageTitle") }}
-  </h1>
-
   {% set benefitsDetails %}
     {{ casaGovukTextarea({
       name: "benefitsDetails",
@@ -28,8 +24,9 @@
     name: "waitingToHearAboutBenefits",
     fieldset: {
       legend: {
-        text: t("benefits:field.waitingToHearAboutBenefits.legend" + claimType),
-        classes: "govuk-fieldset__legend--m"
+        text: t("benefits:pageTitle" + claimType),
+        isPageHeading: true,
+        classes: "govuk-label--xl"
       }
     },
     items: [{
@@ -44,26 +41,6 @@
     }],
     casaWithAnalytics: true,
     casaValue: formData.waitingToHearAboutBenefits,
-    casaErrors: formErrors
-  }) }}
-
-  {{ casaGovukRadios({
-    name: "anyoneGetCarers",
-    fieldset: {
-      legend: {
-        text: t("benefits:field.anyoneGetCarers.legend" + claimType),
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
-    items: [{
-      value: "yes",
-      text: t("benefits:field.anyoneGetCarers.options.yes")
-    }, {
-      value: "no",
-      text: t("benefits:field.anyoneGetCarers.options.no")
-    }],
-    casaWithAnalytics: true,
-    casaValue: formData.anyoneGetCarers,
     casaErrors: formErrors
   }) }}
 {% endblock %}

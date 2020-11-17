@@ -60,30 +60,4 @@ describe('Validators: benefits', () => {
       await expectValidatorToPass(validators, 'benefitsDetails', 'strlen', { waitingToHearAboutBenefits: 'yes', benefitsDetails: longString });
     });
   });
-
-  describe('field: anyoneGetCarers', () => {
-    it('should fail "required" validator if no value is provided', async () => {
-      await expectValidatorToFail(validators, 'anyoneGetCarers', 'required', null, {
-        summary: 'benefits:field.anyoneGetCarers.required',
-      });
-    });
-
-    it('should pass "required" validator if a non-empty value is provided', async () => {
-      await expectValidatorToPass(validators, 'anyoneGetCarers', 'required', { anyoneGetCarers: 'test-value' });
-    });
-
-    it('should fail "inArray" validator if value is not one of the valid options', async () => {
-      await expectValidatorToFail(validators, 'anyoneGetCarers', 'inArray', { anyoneGetCarers: 'bad-value' }, {
-        summary: 'benefits:field.anyoneGetCarers.required',
-      });
-    });
-
-    it('should pass "inArray" validator if value is yes', async () => {
-      await expectValidatorToPass(validators, 'anyoneGetCarers', 'inArray', { anyoneGetCarers: 'yes' });
-    });
-
-    it('should pass "inArray" validator if value is no', async () => {
-      await expectValidatorToPass(validators, 'anyoneGetCarers', 'inArray', { anyoneGetCarers: 'no' });
-    });
-  });
 });

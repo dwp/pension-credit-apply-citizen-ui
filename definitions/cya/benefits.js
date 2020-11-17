@@ -25,12 +25,22 @@ module.exports = (t, context, claim, cyaUrl) => {
         value: rov('universal-credit.claimsUniversalCredit', 'universal-credit:field.claimsUniversalCredit.options'),
       }),
 
+      /* ------------------------------------------------------------- carers */
+      // Does anyone get Carer’s Allowance or the Carer’s Element of Universal
+      // Credit for looking after you?
+      row({
+        changeHref: `${WP.CARERS}#f-anyoneGetCarers`,
+        changeHtml: t('carers:field.anyoneGetCarers.change'),
+        key: t(`carers:pageTitle${jointSingle}`),
+        value: rov('carers.anyoneGetCarers', 'carers:field.anyoneGetCarers.options'),
+      }),
+
       /* ----------------------------------------------------------- benefits */
       // Have you applied for any benefits that you are waiting to hear about?
       row({
         changeHref: `${WP.BENEFITS}#f-waitingToHearAboutBenefits`,
         changeHtml: t('benefits:field.waitingToHearAboutBenefits.change'),
-        key: t(`benefits:field.waitingToHearAboutBenefits.legend${jointSingle}`),
+        key: t(`benefits:pageTitle${jointSingle}`),
         value: rov('benefits.waitingToHearAboutBenefits', 'benefits:field.waitingToHearAboutBenefits.options'),
       }),
 
@@ -40,15 +50,6 @@ module.exports = (t, context, claim, cyaUrl) => {
         changeHtml: t('benefits:field.benefitsDetails.change'),
         key: t('benefits:field.benefitsDetails.label'),
         valueHtml: safeNl2br(claim.benefits.pendingBenefitsDescription),
-      }),
-
-      // Does anyone get Carer’s Allowance or the Carer’s Element of Universal
-      // Credit for looking after you?
-      row({
-        changeHref: `${WP.BENEFITS}#f-anyoneGetCarers`,
-        changeHtml: t('benefits:field.anyoneGetCarers.change'),
-        key: t(`benefits:field.anyoneGetCarers.legend${jointSingle}`),
-        value: rov('benefits.anyoneGetCarers', 'benefits:field.anyoneGetCarers.options'),
       }),
     ],
   };

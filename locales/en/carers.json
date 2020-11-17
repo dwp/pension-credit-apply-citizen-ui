@@ -1,0 +1,14 @@
+{
+  "pageTitleSingle": "Does anyone get Carer’s Allowance or the Carer’s Element of Universal Credit for looking after you?",
+  "pageTitleJoint": "Does anyone get Carer’s Allowance or the Carer’s Element of Universal Credit for looking after you or your partner?",
+  "field": {
+    "anyoneGetCarers": {
+      "required": "Select yes if anyone gets Carer’s Allowance for looking after you.",
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "change": "Change <span class=\"govuk-visually-hidden\">whether anyone gets Carer’s Allowance or Carer’s Element of Universal Credit for looking after you</span>"
+    }
+  }
+}

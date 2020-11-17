@@ -1,9 +1,8 @@
 {
-  "pageTitle": "Budd-daliadau rydych wedi gwneud cais amdanynt",
+  "pageTitleSingle": "Ydych chi wedi gwneud cais am unrhyw fudd-daliadau rydych yn disgwyl i glywed amdanynt?",
+  "pageTitleJoint": "Ydych chi neu'ch partner wedi gwneud cais am unrhyw fudd-daliadau rydych yn disgwyl i glywed amdanynt?",
   "field": {
     "waitingToHearAboutBenefits": {
-      "legendSingle": "Ydych chi wedi gwneud cais am unrhyw fudd-daliadau rydych yn disgwyl i glywed amdanynt?",
-      "legendJoint": "Ydych chi neu'ch partner wedi gwneud cais am unrhyw fudd-daliadau rydych yn disgwyl i glywed amdanynt?",
       "required": "Dewiswch do os ydych wedi gwneud cais am unrhyw fudd-daliadau rydych yn disgwyl i glywed amdanynt.",
       "options": {
         "yes": "Do",
@@ -16,16 +15,6 @@
       "required": "Rhowch y budd-daliadau rydych wedi gwneud cais amdanynt.",
       "length": "Mae'n rhaid i'r budd-daliadau rydych wedi gwneud cais amdanynt fod yn 500 nod neu lai.",
       "change": "Newid <span class=\"govuk-visually-hidden\">pa fudd-daliadau rydych wedi gwneud cais amdanynt</span>"
-    },
-    "anyoneGetCarers": {
-      "legendSingle": "Oes rhywun yn cael Lwfans Gofalwr neu'r Elfen Gofal o Gredyd Cynhwysol am ofalu amdanoch?",
-      "legendJoint": "Oes rhywun yn cael Lwfans Gofalwr neu'r Elfen Gofal o Gredyd Cynhwysol am ofalu amdanoch chi neu'ch partner?",
-      "required": "Dewiswch oes os oes rhywun yn cael Lwfans Gofalwr am ofalu amdanoch.",
-      "options": {
-        "yes": "Oes",
-        "no": "Na"
-      },
-      "change": "Newid <span class=\"govuk-visually-hidden\">os oes rhywun yn cael Lwfans Gofalwr neu'r Elfen Gofal o Gredyd Cynhwysol am ofalu amdanoch</span>"
     }
   }
 }
