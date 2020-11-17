@@ -1,3 +1,7 @@
+## [8.0.1](https://github.com/dwp/pension-credit-apply-citizen-ui/compare/8.0.0...8.0.1) (2020-11-17)
+
+
+
 # [8.0.0](https://github.com/dwp/pension-credit-apply-citizen-ui/compare/7.1.0...8.0.0) (2020-11-13)
 
 
