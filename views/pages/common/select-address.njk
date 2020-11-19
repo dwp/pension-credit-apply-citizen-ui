@@ -9,13 +9,13 @@
 {% endblock %}
 
 {% block journey_form %}
-  <h1 class="govuk-heading-xl">
+  <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
     {{ t(pageTitleKey + msgSuffix) }}
   </h1>
 
-  <dl class="govuk-list contact-numbers govuk-!-margin-bottom-8">
-    <dt class="govuk-!-font-weight-bold">{{ t("select-address:postcode") }}</dt>
-    <dd>{{ postcode }}</dd>
+  <dl class="govuk-list contact-numbers govuk-!-margin-bottom-4">
+    <dt class="govuk-!-font-size-24 govuk-!-font-weight-bold">{{ t("select-address:postcode") }}</dt>
+    <dd class="govuk-!-font-size-24">{{ postcode }}</dd>
     <dd class="govuk-!-width-full">
       <a class="govuk-link" href="{{ changePostcodeUrl }}">
         {{ t("select-address:change") | safe }}

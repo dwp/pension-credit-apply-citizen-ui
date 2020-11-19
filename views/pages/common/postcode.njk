@@ -10,17 +10,15 @@
 {% endblock %}
 
 {% block journey_form %}
-  <h1 class="govuk-heading-xl">
-    {{ t(pageTitleKey + msgSuffix) }}
-  </h1>
-
   {{ casaGovukInput({
     name: "postcode",
-    value: formData.postcode,
     classes: "govuk-input--width-10",
     label: {
-      html: t("postcode:field.postcode.label")
+      text: t(pageTitleKey + msgSuffix),
+      isPageHeading: true,
+      classes: "govuk-label--xl"
     },
+    value: formData.postcode,
     casaErrors: formErrors
   }) }}
 {% endblock %}
