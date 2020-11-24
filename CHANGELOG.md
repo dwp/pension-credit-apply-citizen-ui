@@ -1,3 +1,20 @@
+# [8.1.0](https://github.com/dwp/pension-credit-apply-citizen-ui/compare/8.0.1...8.1.0) (2020-11-24)
+
+
+### Bug Fixes
+
+* add missing mountUrl to timeout URL on session timeout dialog ([b377eb2](https://github.com/dwp/pension-credit-apply-citizen-ui/commit/b377eb26a351017dfc3906d0772b20c427c3e187))
+* show 'Application sent' message and hide survey link on WHN print ([b5b988c](https://github.com/dwp/pension-credit-apply-citizen-ui/commit/b5b988c025236c7722399c278c90daad22f78eba))
+
+
+### Features
+
+* change content on SMI page to be less confusing for users ([93deb3e](https://github.com/dwp/pension-credit-apply-citizen-ui/commit/93deb3e4dce9c5c0a928f4e1717520c1cd9764e0))
+* hide print buttons when javascript is disabled as they won't work ([92489a5](https://github.com/dwp/pension-credit-apply-citizen-ui/commit/92489a58bcd05983f2cfbd29d70a836c73f13c7d))
+* remove superfluous postcode label & update styles on address pages ([19ebc7e](https://github.com/dwp/pension-credit-apply-citizen-ui/commit/19ebc7ea7f6dce0b122fc58d5015b6853ae10395))
+
+
+
 ## [8.0.1](https://github.com/dwp/pension-credit-apply-citizen-ui/compare/8.0.0...8.0.1) (2020-11-17)
 
 
