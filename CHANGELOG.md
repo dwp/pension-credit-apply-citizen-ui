@@ -1,3 +1,34 @@
+# [9.0.0](https://github.com/dwp/pension-credit-apply-citizen-ui/compare/8.1.0...9.0.0) (2020-11-27)
+
+
+### Features
+
+* [bc] ask home owners if they have a mortgage ([33ea7c0](https://github.com/dwp/pension-credit-apply-citizen-ui/commit/33ea7c03227b5a013d26fa56d393a98cc2132a52))
+* [bc] ask if user receives income from an equity release scheme ([e17f0cc](https://github.com/dwp/pension-credit-apply-citizen-ui/commit/e17f0cc8a94bda9c296eaf7a4b2f42b126d4f93f))
+* [bc]split carers question from benefits page ([b399246](https://github.com/dwp/pension-credit-apply-citizen-ui/commit/b399246239b834a45cc897466581b16160aaef26))
+
+
+### BREAKING CHANGES
+
+* This adds an extra required page into the journey, so
+would break any active sessions that are past the point this question
+should have been asked. CASA would force the user back to the equity
+release page in this instance.
+
+Resolves AFPC-703
+* This adds an extra required page into the journey, so
+would break any active sessions that are past the point this question
+should have been asked. CASA would force the user back to the mortgage
+page in this instance.
+
+Resolves AFPC-781
+* This adds an extra page in the journey and as
+a consequence would break any active sessions.
+
+resolves AFPC-784
+
+
+
 # [8.1.0](https://github.com/dwp/pension-credit-apply-citizen-ui/compare/8.0.1...8.1.0) (2020-11-24)
 
 
